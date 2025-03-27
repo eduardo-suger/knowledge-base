@@ -6,11 +6,11 @@ import time
 import subprocess
 
 # === CONFIG ===
-BASE_URL = "https://docs.aws.amazon.com/marketplace/latest/userguide/what-is-marketplace.html"
-DOMAIN = "docs.aws.amazon.com"
+BASE_URL = "https://doc.clickup.com/42081486/d/h/18476e-4831/4260048a22284ea"
+DOMAIN = "doc.clickup.com"
 MAX_DEPTH = 2
 OUTPUT_DIR = "output"
-OUTPUT_FILE = "aws_marketplace_links.txt"
+OUTPUT_FILE = "clickup_links.txt"
 
 # === GLOBALS ===
 visited = set()
@@ -29,6 +29,7 @@ def crawl(url, depth=0):
     try:
         response = requests.get(url, timeout=10)
         if response.status_code != 200:
+            print(f"Skipping {url} (status {response.status_code})")
             return
     except Exception as e:
         print(f"Error accessing {url}: {e}")
@@ -43,6 +44,8 @@ def crawl(url, depth=0):
         cleaned = clean_url(full_url)
         if DOMAIN in urlparse(cleaned).netloc and cleaned not in visited:
             found_links.append(cleaned)
+            print(f"[{len(found_links)}] {cleaned}")
+
             crawl(cleaned, depth + 1)
             time.sleep(0.2)
 
@@ -63,7 +66,7 @@ print(f"\n✅ Done. {len(found_links)} links saved to {output_path}")
 # === GIT COMMIT & PUSH ===
 try:
     subprocess.run(["git", "add", output_path], check=True)
-    subprocess.run(["git", "commit", "-m", "Update link list from crawler"], check=True)
+    subprocess.run(["git", "commit", "-m", "Update ClickUp links"], check=True)
     subprocess.run(["git", "push"], check=True)
     print("🚀 File committed and pushed to GitHub!")
 except subprocess.CalledProcessError as e:

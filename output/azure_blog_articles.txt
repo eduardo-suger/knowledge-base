@@ -1,0 +1,10 @@
+https://azure.microsoft.com/en-us/blog/accelerating-agentic-workflows-with-azure-ai-foundry-nvidia-nim-and-nvidia-agentiq/
+https://azure.microsoft.com/en-us/blog/announcing-the-responses-api-and-computer-using-agent-in-azure-ai-foundry/
+https://azure.microsoft.com/en-us/blog/cutting-digital-curbs-how-azure-ai-foundry-is-building-a-more-accessible-world/
+https://azure.microsoft.com/en-us/blog/microsoft-and-nvidia-accelerate-ai-development-and-performance/
+https://azure.microsoft.com/en-us/blog/microsoft-cost-management-updates-march-2025/
+https://azure.microsoft.com/en-us/blog/microsoft-named-a-leader-in-the-forrester-wave-public-cloud-platforms-2024/
+https://azure.microsoft.com/en-us/blog/new-global-report-how-to-stand-out-in-an-ai-savvy-world/
+https://azure.microsoft.com/en-us/blog/optimizing-incident-management-with-aiops-using-the-triangle-system/
+https://azure.microsoft.com/en-us/blog/whats-new-in-azure-elastic-san/
+https://www.microsoft.com/en-us/security/blog/2025/03/04/securing-generative-ai-models-on-azure-ai-foundry/
