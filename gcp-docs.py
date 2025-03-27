@@ -44,6 +44,8 @@ def crawl(url, depth=0):
         cleaned = clean_url(full_url)
         if DOMAIN in urlparse(cleaned).netloc and cleaned not in visited:
             found_links.append(cleaned)
+            print(f"[{len(found_links)}] {cleaned}")
+
             crawl(cleaned, depth + 1)
             time.sleep(0.2)
 
