@@ -6,7 +6,7 @@ import time
 import subprocess
 
 # === CONFIG ===
-BASE_URL = "https://app.clickup.com/42081486/v/dc/18476e-4831/18476e-6791"
+BASE_URL = "https://doc.clickup.com/42081486/d/h/18476e-4831/4260048a22284ea/18476e-6791"
 DOMAIN = "app.clickup.com"
 MAX_DEPTH = 2
 OUTPUT_DIR = "output"
