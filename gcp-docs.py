@@ -64,4 +64,8 @@ print(f"\n✅ Done. {len(found_links)} links saved to {output_path}")
 # === GIT COMMIT & PUSH ===
 try:
     subprocess.run(["git", "add", output_path], check=True)
-    subprocess.run(["git",
+    subprocess.run(["git", "commit", "-m", "Update GCP Marketplace links"], check=True)
+    subprocess.run(["git", "push"], check=True)
+    print("🚀 File committed and pushed to GitHub!")
+except subprocess.CalledProcessError as e:
+    print(f"❌ Git operation failed: {e}")
