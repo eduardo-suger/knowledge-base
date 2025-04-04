@@ -1,0 +1,93 @@
+Azure Marketplace | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Azure Marketplace
+Azure Marketplace
+Sell your services on Azure Marketplace via Suger.
+📄️
+Integration
+Grant Suger the necessary access to manage your Azure Marketplace on hour behalf, no more no less.
+📄️
+Pricing Model
+Azure Marketplace Pricing Models
+📄️
+List Product
+List your SaaS products in Azure Marketplace, fully managed by Suger on your behalf.
+📄️
+Create Private Offer
+You can create and manage all of your Azure Marketplace private offers via Suger Console or API
+📄️
+Accept Private Offer
+Guidance to accept the private offer as the end buyer in Azure marketplace
+📄️
+CPPO
+Create and manage Azure Marketplace Channel Partner Private Offer (CPPO) in Suger
+Previous
+Buy with AWS
+Next
+Integration
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

@@ -1,0 +1,618 @@
+Google Drive | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Aggregate
+Chargebee
+Code
+Delete Execution
+Filter
+Form Trigger
+Google BigQuery
+Google Cloud Storage
+Google Drive
+Google Mail
+Google Sheet
+HTML
+HTTP Request
+HubSpot
+If
+Limit
+Manual Trigger
+Merge
+NetSuite
+QuickBooks Online
+Respond to Webhook
+Salesforce
+Schedule Trigger
+Snowflake
+Sticky Note
+Stripe
+Suger Code
+Suger Email
+Suger Microsoft Teams
+Suger Notification Event Trigger
+Suger Slack
+Switch
+Webhook
+Analytics
+Workflow
+Google Drive
+On this page
+Google Drive
+Automate file and folder operations on Google Drive.
+Google Drive allows you to automate operations with Google Drive files and folders, enabling seamless integration with other applications and services.
+You need to connect your Google Drive account to Suger to use this node. See
+Google Drive Integration
+for more details.
+Operations
+​
+File Operations
+​
+Copy a File
+​
+Creates a duplicate of an existing file in Google Drive
+Allows you to specify a new name and location for the copy
+Preserves all original file content and formatting
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Copy
+.
+File
+: Select the source file using one of these methods:
+Select From List
+: Choose from available files in the dropdown
+By URL
+: Paste the Google Drive file URL
+By ID
+: Enter the file ID directly
+Tip: To find a file ID, open the file in Google Drive and copy its sharing link. The ID is the string between 'd/' and '/edit' in the URL.
+File Name
+: Enter a name for the new copy
+Copy In The Same Folder
+: Toggle to keep the copy in the original file's location
+Options
+​
+Copy Requires Writer Permission
+: When enabled, only users with edit access can copy, print, or download the file
+Description
+: Add an optional description for the new file
+Create from Text
+​
+Creates a new file directly from text content
+Specify the file name, content, and optional destination folder
+Supports various text formats (plain text, markdown, etc.)
+Option to convert to Google Document format
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Create from Text
+.
+File Content
+: Enter the text content for the new file
+File Name
+: Enter a name for the new file
+Parent Drive
+: Choose one of:
+Select From List
+: Choose from the dropdown
+By URL
+: Enter the drive URL
+By ID
+: Enter the driveId directly
+Tip: Find the driveId in the URL:
+https://drive.google.com/drive/u/1/folders/[driveId]
+Parent Folder
+: Choose one of:
+Select From List
+: Choose from the dropdown
+By URL
+: Enter the folder URL
+By ID
+: Enter the folderId directly
+Options
+​
+APP Properties
+: Add private key-value pairs (visible only to the requesting app)
+Properties
+: Add public key-value pairs (visible to all apps)
+Keep Revision Forever
+: Pin this revision (binary content only, max 200 revisions)
+OCR Language
+: Specify ISO 639-1 language code for OCR interpretation
+Use Content As Indexable Text
+: Enable text indexing for the content
+Convert to Google Document
+: Create as Google Doc instead of .txt (requires Google Docs API)
+Delete a File
+​
+Permanently removes a file from Google Drive
+Option to skip the trash and delete permanently
+Supports deletion by file ID
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Delete
+.
+File
+: Select the source file using one of these methods:
+Select From List
+: Choose from available files in the dropdown
+By URL
+: Paste the Google Drive file URL
+By ID
+: Enter the file ID directly
+Tip: To find a file ID, open the file in Google Drive and select Share > Copy link. The ID is the string between 'd/' and '/edit' in the URL.
+Options
+​
+Delete Permanently
+: When enabled, bypasses the trash and permanently deletes the file
+Download a File
+​
+Downloads a file from Google Drive to your local system
+Supports various file formats
+Option to specify download location and format
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Download
+.
+File
+: Select the source file using one of these methods:
+Select From List
+: Choose from available files in the dropdown
+By URL
+: Paste the Google Drive file URL
+By ID
+: Enter the file ID directly
+Tip: To find a file ID, open the file in Google Drive and select Share > Copy link. The ID is the string between 'd/' and '/edit' in the URL.
+Options
+​
+Put Output File in Field
+: Specify the field name to store the binary file contents
+Google File Conversion
+: Select export formats for Google Workspace files:
+Google Docs
+: Export as HTML, MS Word Document, Open Office Document, PDF, Rich Text (rtf), or Text (txt)
+Google Drawings
+: Export as JPEG, PDF, PNG, or SVG
+Google Slides
+: Export as MS PowerPoint, OpenOffice Presentation, or PDF
+Google Sheets
+: Export as CSV, MS Excel, Open Office Sheet, or PDF
+File Name
+: Specify the name for the downloaded file
+Move a File
+​
+Relocates a file to a different folder in Google Drive
+Updates the file's parent folder
+Maintains file properties and sharing settings
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Move
+.
+File
+: Select the source file using one of these methods:
+Select From List
+: Choose from available files in the dropdown
+By URL
+: Paste the Google Drive file URL
+By ID
+: Enter the file ID directly
+Tip: To find a file ID, open the file in Google Drive and select Share > Copy link. The ID is in the URL:
+https://docs.google.com/document/d/[fileId]/edit
+Parent Drive
+: Choose one of:
+Select From List
+: Choose from the dropdown
+By URL
+: Enter the drive URL
+By ID
+: Enter the driveId directly
+Tip: Find the driveId in the URL:
+https://drive.google.com/drive/u/1/folders/[driveId]
+Parent Folder
+: Choose one of:
+Select From List
+: Choose from the dropdown
+By URL
+: Enter the folder URL
+By ID
+: Enter the folderId directly
+Share a File
+​
+Manages access permissions for a file
+Set various permission levels (view, edit, comment)
+Share with specific users, groups, or make public
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Share
+.
+File
+: Select the source file using one of these methods:
+Select From List
+: Choose from available files in the dropdown
+By URL
+: Paste the Google Drive file URL
+By ID
+: Enter the file ID directly
+Tip: To find a file ID, open the file in Google Drive and select Share > Copy link. The ID is in the URL:
+https://docs.google.com/document/d/[fileId]/edit
+Permissions
+: Configure access settings:
+Role
+: Choose permission level:
+Commenter
+File Organizer
+Organizer
+Owner
+Reader
+Writer
+Type
+: Select permission scope:
+User
+: Share with specific user (requires Email Address)
+Group
+: Share with group (requires Email Address)
+Domain
+: Share with entire domain (requires Domain)
+Anyone
+: Make public (optional: Allow File Discovery)
+Options
+​
+Email Message
+: Add custom text to notification email
+Move to New Owners Root
+: When transferring ownership, moves file to new owner's My Drive
+Send Notification Email
+: Toggle email notifications for users/groups
+Transfer Ownership
+: Transfer ownership to specified user (downgrades current owner to writer)
+Use Domain Admin Access
+: Perform action as domain administrator
+Update a File
+​
+Modifies existing file properties or content
+Update metadata, description, or file content
+Maintain version history
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Update
+.
+File
+: Select the file to update using one of these methods:
+Select From List
+: Choose from available files in the dropdown
+By URL
+: Paste the Google Drive file URL
+By ID
+: Enter the file ID directly
+Tip: To find a file ID, open the file in Google Drive and select Share > Copy link. The ID is in the URL:
+https://docs.google.com/document/d/[fileId]/edit
+Change File Content
+: Toggle to update the file's binary content
+Input Data Field Name
+: Specify the field containing the new binary data
+New Updated File Name
+: Optional new name for the file
+Options
+​
+APP Properties
+: Add private key-value pairs (visible only to the requesting app)
+Properties
+: Add public key-value pairs (visible to all apps)
+Keep Revision Forever
+: Pin this revision (binary content only, max 200 revisions)
+OCR Language
+: Specify ISO 639-1 language code for OCR interpretation
+Use Content As Indexable Text
+: Enable text indexing for the content
+Move to Trash
+: Move file to trash (file owner only)
+Return Fields
+: Select metadata fields to return:
+All
+explicitlyTrashed
+exportLinks
+hasThumbnail
+iconLink
+ID
+Kind
+mimeType
+Name
+Permissions
+Shared
+Spaces
+Starred
+thumbnailLink
+Trashed
+Version
+webViewLink
+Upload a File
+  ​
+Uploads local files to Google Drive
+Specify destination folder and file properties
+Support for various file types and sizes
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Upload
+.
+Input Data Field Name
+: Specify the field containing the binary file data
+File Name
+: Enter a name for the uploaded file
+Parent Drive
+: Choose one of:
+Select From List
+: Choose from the dropdown
+By URL
+: Enter the drive URL
+By ID
+: Enter the driveId directly
+Tip: Find the driveId in the URL:
+https://drive.google.com/drive/u/1/folders/[driveId]
+Parent Folder
+: Choose one of:
+Select From List
+: Choose from the dropdown
+By URL
+: Enter the folder URL
+By ID
+: Enter the folderId directly
+Options
+​
+APP Properties
+: Add private key-value pairs (visible only to the requesting app)
+Properties
+: Add public key-value pairs (visible to all apps)
+Keep Revision Forever
+: Pin this revision (binary content only, max 200 revisions)
+OCR Language
+: Specify ISO 639-1 language code for OCR interpretation
+Use Content As Indexable Text
+: Enable text indexing for the content
+Simplify Output
+: Return a simplified response without all fields
+Folder Operations
+​
+Create a Folder
+​
+Creates a new folder in Google Drive
+Specify folder name and optional parent folder
+Set initial sharing permissions
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Create
+.
+Folder Name
+: Enter a name for the new folder
+Parent Drive
+: Choose one of:
+Select From List
+: Choose from the dropdown
+By URL
+: Enter the drive URL
+By ID
+: Enter the driveId directly
+Tip: Find the driveId in the URL:
+https://drive.google.com/drive/u/1/folders/[driveId]
+Parent Folder
+: Choose one of:
+Select From List
+: Choose from the dropdown
+By URL
+: Enter the folder URL
+By ID
+: Enter the folderId directly
+Options
+​
+Simple Output
+: Return a simplified response without all fields
+Folder Color
+: Select a color for the folder
+Delete a Folder
+​
+Permanently removes a folder and all its contents
+Option to skip the trash and delete permanently
+Confirmation required for non-empty folders
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Delete
+.
+Folder
+: Select the folder to delete using one of these methods:
+Select From List
+: Choose from available folders in the dropdown
+By URL
+: Enter the folder URL
+By ID
+: Enter the folderId directly
+Options
+​
+Delete Permanently
+: When enabled, bypasses the trash and permanently deletes the folder
+Share a Folder
+​
+Manages access permissions for a folder
+Set permissions for the folder and its contents
+Share with users, groups, or make public
+Parameters
+​
+Resource
+: Select
+File
+.
+Operation
+: Select
+Share
+.
+Folder
+: Select the folder to share using one of these methods:
+Select From List
+: Choose from available folders in the dropdown
+By URL
+: Enter the folder URL
+By ID
+: Enter the folderId directly
+Permissions
+: Configure access settings:
+Role
+: Choose permission level:
+Commenter
+File Organizer
+Organizer
+Owner
+Reader
+Writer
+Type
+: Select permission scope:
+User
+: Share with specific user (requires Email Address)
+Group
+: Share with group (requires Email Address)
+Domain
+: Share with entire domain (requires Domain)
+Anyone
+: Make public (optional: Allow File Discovery)
+Domain
+: The domain to share with
+Allow File Discovery
+: When enabled, allows users to find the shared file in search results
+Options
+​
+Email Message
+: Add custom text to notification email
+Move to New Owners Root
+: When transferring ownership, moves folder to new owner's My Drive
+Send Notification Email
+: Toggle email notifications for users/groups
+Transfer Ownership
+: Transfer ownership to specified user (downgrades current owner to writer)
+Use Domain Admin Access
+: Perform action as domain administrator
+Additional Resources
+​
+Google Drive API Reference
+Google Drive Developer Guides
+Previous
+Google Cloud Storage
+Next
+Google Mail
+Operations
+File Operations
+Folder Operations
+Additional Resources
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

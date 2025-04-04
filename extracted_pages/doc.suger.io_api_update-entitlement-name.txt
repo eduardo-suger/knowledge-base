@@ -1,0 +1,2676 @@
+update entitlement name | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Entitlement
+update entitlement name
+update entitlement name
+PATCH
+/org/:orgId/entitlement/:entitlementId/entitlementName
+Update the name of the given Entitlement.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+entitlementId
+string
+required
+Entitlement ID
+application/json
+Body
+required
+UpdateEntitlementNameParams
+id
+string
+name
+string
+organizationID
+string
+Responses
+​
+200
+400
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+buyerID
+string
+creationTime
+date-time
+endTime
+date-time
+nullable
+entitlementTermID
+string
+externalBuyerID
+string
+externalID
+string
+externalProductID
+string
+id
+string
+info
+object
+addons
+object[]
+The addons for the entitlement.
+Array [
+amount
+number
+chargeOn
+date-time
+description
+string
+id
+string
+name
+string
+]
+alertDaysBeforeEnd
+integer
+Alert days before the end of the entitlement
+alibabaEntitlements
+object[]
+Nullable. Alibaba Entitlements from Alibaba Marketplace.
+Array [
+AppJson
+string
+AutoRenewal
+string
+BeganOn
+integer
+ComponentJson
+string
+Constraints
+string
+CreatedOn
+integer
+EndOn
+integer
+ExtendJson
+string
+HostJson
+string
+InstanceId
+integer
+IsTrial
+boolean
+Modules
+object
+Module
+object[]
+Array [
+Code
+string
+Id
+string
+Name
+string
+Properties
+object
+Property
+object[]
+Array [
+DisplayUnit
+string
+Key
+string
+Name
+string
+PropertyValues
+object
+PropertyValue
+object[]
+Array [
+DisplayName
+string
+Max
+string
+Min
+string
+Remark
+string
+Step
+string
+Type
+string
+Value
+string
+]
+ShowType
+string
+]
+]
+OrderId
+integer
+ProductCode
+string
+ProductName
+string
+ProductSkuCode
+string
+ProductType
+string
+RelationalData
+object
+ServiceStatus
+string
+Status
+string
+SupplierName
+string
+]
+alibabaOrders
+object[]
+Nullable. Alibaba Orders from Alibaba Marketplace.
+Array [
+AccountQuantity
+integer
+AliUid
+integer
+Components
+object
+property name*
+any
+CouponPrice
+number
+CreatedOn
+integer
+InstanceIds
+object
+InstanceId
+string[]
+OrderId
+integer
+OrderStatus
+string
+OrderType
+string
+OriginalPrice
+number
+PaidOn
+integer
+PayStatus
+string
+PaymentPrice
+number
+PeriodType
+string
+ProductCode
+string
+ProductName
+string
+ProductSkuCode
+string
+Quantity
+integer
+RequestId
+string
+SupplierCompanyName
+string
+SupplierTelephones
+object
+Telephone
+string[]
+TotalPrice
+number
+]
+autoRenew
+boolean
+Is this Entitlement Auto Renew enabled.
+awsAgreement
+object
+acceptanceTime
+date-time
+agreementId
+string
+AWS Marketplace Agreement Id
+agreementType
+string
+buyerAccountId
+string
+The AWS Account Id of the buyer in AWS Marketplace
+endTime
+date-time
+offerId
+string
+AWS Marketplace Offer Id
+productId
+string
+AWS Marketplace Product Id
+productType
+string
+sellerAccountId
+string
+The AWS Account Id of the seller in AWS Marketplace
+startTime
+date-time
+status
+AwsMarketplaceAgreementStatus (string)
+Possible values:
+[
+ACTIVE
+,
+ARCHIVED
+,
+CANCELLED
+,
+EXPIRED
+,
+RENEWED
+,
+REPLACED
+,
+ROLLED_BACK
+,
+SUPERSEDED
+,
+TERMINATED
+]
+awsChannelPartner
+object
+id
+string
+The AWS Account ID of the Channel Partner
+name
+string
+The name of the Channel Partner
+awsEntitlements
+object[]
+Nullable. AWS Entitlements from AWS Marketplace.
+Array [
+customerIdentifier
+string
+The customer identifier is a handle to each unique customer in an application.
+Customer identifiers are obtained through the ResolveCustomer operation in AWS
+Marketplace Metering Service.
+dimension
+string
+The dimension for which the given entitlement applies. Dimensions represent
+categories of capacity in a product and are specified when the product is listed
+in AWS Marketplace.
+expirationDate
+string
+The expiration date represents the minimum date through which this entitlement
+is expected to remain valid. For contractual products listed on AWS Marketplace,
+the expiration date is the date at which the customer will renew or cancel their
+contract. Customers who are opting to renew their contract will still have
+entitlements with an expiration date.
+productCode
+string
+The product code for which the given entitlement applies. Product codes are
+provided by AWS Marketplace when the product listing is created.
+value
+object
+booleanValue
+boolean
+The BooleanValue field will be populated with a boolean value when the
+entitlement is a boolean type. Otherwise, the field will not be set.
+doubleValue
+number
+The DoubleValue field will be populated with a double value when the
+entitlement is a double type. Otherwise, the field will not be set.
+integerValue
+integer
+The IntegerValue field will be populated with an integer value when the
+entitlement is an integer type. Otherwise, the field will not be set.
+stringValue
+string
+The StringValue field will be populated with a string value when the
+entitlement is a string type. Otherwise, the field will not be set.
+]
+azureSubscriptions
+object[]
+Nullable. Azure Subscriptions from Azure Marketplace.
+Array [
+allowedCustomerOperations
+string[]
+Possible values:
+[
+Read
+,
+Update
+,
+Delete
+]
+autoRenew
+boolean
+beneficiary
+object
+billingAccountId
+string
+Azure Billing Account ID
+customerId
+string
+emailId
+string
+Email address
+firstName
+string
+lastName
+string
+licenseType
+string
+Azure License Type
+objectId
+string
+puid
+string
+ID of the user, used as External ID of suger IdentityBuyer.
+tenantId
+string
+created
+date-time
+fulfillmentId
+string
+id
+string
+isFreeTrial
+boolean
+isTest
+boolean
+lastModified
+string
+name
+string
+offerId
+string
+planId
+string
+publisherId
+string
+purchaser
+object
+billingAccountId
+string
+Azure Billing Account ID
+customerId
+string
+emailId
+string
+Email address
+firstName
+string
+lastName
+string
+licenseType
+string
+Azure License Type
+objectId
+string
+puid
+string
+ID of the user, used as External ID of suger IdentityBuyer.
+tenantId
+string
+quantity
+integer
+saasSubscriptionStatus
+AzureMarketplaceSubscriptionStatus (string)
+Possible values:
+[
+NotStarted
+,
+PendingFulfillmentStart
+,
+Subscribed
+,
+Suspended
+,
+Unsubscribed
+]
+sandboxType
+string
+Possible values:
+[
+None
+,
+Csp
+]
+sessionId
+string
+sessionMode
+string
+Possible values:
+[
+None
+,
+DryRun
+]
+storeFront
+string
+term
+object
+chargeDuration
+string
+endDate
+date-time
+startDate
+date-time
+termUnit
+string
+]
+billableDimensions
+object[]
+The dimensions for billable metric usage-based metering. It's for Suger(Stripe, Ayden) metering.
+Array [
+billableMetricId
+string
+The ID for the billable metric.
+category
+PriceModelCategory (string)
+Possible values:
+[
+basic
+,
+tiered
+,
+bulk
+,
+volume
+,
+percentage
+,
+tiered-percentage
+,
+matrix
+]
+description
+string
+Description of the dimension. This is used in the UI to display the dimension.
+discount
+object
+discountType
+BillingDiscountType (string)
+Possible values:
+[
+PERCENTAGE
+,
+ABSOLUTE
+]
+value
+number
+length
+integer
+The term length for the commit amount. Applicable to Direct only.
+minimumCommit
+number
+The minimum commit amount. Applicable to Direct only. Ignored if the value is 0 or less.
+minimumCommitProrata
+boolean
+If the minimum commit is appled with pro-rata. Applicable to Direct only.
+If true, the minimum commit amount will be prorated based on the usage period (starting time and ending time).
+minimumCommitScope
+BillingMinimumCommitScope (string)
+Possible values:
+[``,
+DIMENSION
+,
+DIMENSION_GROUP_BY
+]
+name
+string
+Display name of the dimension. This is used in the UI to display the dimension.
+priceModelBasic
+object
+unitAmount
+number
+priceModelBulk
+object
+bulkAmount
+number
+A currency amount to rate usage by
+bulkSize
+integer
+An integer amount to represent package size. For example, 1000 here would divide
+usage by 1000 before multiplying by package_amount in rating
+priceModelMatrix
+object
+defaultUnitAmount
+number
+matrix
+object[]
+The matrix of the pricing model
+Array [
+properties
+object[]
+Array [
+name
+string
+value
+string
+]
+unitAmount
+number
+]
+priceModelPercentage
+object
+flatFee
+number
+percentageRate
+number
+Basis point take rate per event
+priceModelTiered
+object
+tiers
+object[]
+Array [
+firstUnit
+number
+Inclusive tier starting value
+flatFee
+number
+lastUnit
+number
+Exclusive tier ending value. If null, this is treated as the last tier
+unitAmount
+number
+Amount per unit
+]
+priceModelTieredPercentage
+object
+tiers
+object[]
+Array [
+firstUnit
+number
+Inclusive tier starting value
+flatFee
+number
+lastUnit
+number
+Exclusive tier ending value. If null, this is treated as the last tier
+percentageRate
+number
+]
+priceModelVolume
+object
+tiers
+object[]
+Array [
+flatFee
+number
+maximumUnits
+number
+Upper bound for this tier
+unitAmount
+number
+Amount per unit
+]
+timeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+]
+billingCycle
+BillingCycle (string)
+Possible values:
+[
+MONTH_FIRST_DAY
+,
+ENTITLEMENT_START_DATE
+]
+billingIntervalInMonths
+integer
+The billing interval from the offer.
+collectableAmount
+number
+The amount that the seller can collect. It excludes the marketplace commision fee.
+commitAmount
+number
+The amount that the buyer has committed to pay.
+It can be the sum of payment installments if applicable.
+commits
+object[]
+The dimensions for flatrate commitment (recurring or one-time).
+Array [
+category
+string
+description
+string
+isUserCreated
+boolean
+Whether this commit dimension is newly created by user,
+when creating AWS Marketplace Contract private offer.
+key
+string
+API name of the dimension
+length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+If the length is zero, use the TermEndTime.
+maximumUsers
+integer
+Possible values:
+>= 1
+and
+<= 1000000
+Default value:
+1000000
+The maximum number of users for PER_USER commit
+minimumUsers
+integer
+Possible values:
+>= 1
+and
+<= 1000000
+Default value:
+1
+The minimum number of users for PER_USER commit
+name
+string
+Display name of the dimension
+quantity
+integer
+The quantity of this commit.
+rate
+number
+The commit amount. For GCP, it is monthly commitment.
+term
+string
+The term of the commit amount. It is used for front-end display only.
+termEndTime
+string
+The end time of the commit term.
+timeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+type
+CommitDimensionType (string)
+Possible values:
+[
+FLAT_RATE
+,
+PER_USER
+]
+types
+string[]
+These indicate whether the dimension covers metering, entitlement, or support for external metering
+]
+currency
+string
+The default Currency is USD.
+dimensions
+object[]
+The dimensions for usage-based metering. It's for usage metering in cloud marketplaces.
+The max size of dimensions is 50. The oversized dimensions won't be saved in the EntitlementInfo.
+But the dimensions can be accessed from the connected offer info or product info.
+Array [
+category
+string
+description
+string
+includedBaseQuantities
+object[]
+how many quantities of this dimension are included in the commit.
+Array [
+isInfinite
+boolean
+quantity
+number
+recurringUnit
+string
+Possible values:
+[
+Monthly
+,
+Annual
+]
+]
+key
+string
+name
+string
+Display name of the dimension. For GCP Marketplace, it is the metering metric ID without plan prefix.
+planId
+string
+The plan ID of the metering dimension. Applicable to GCP Marketplace only.
+No ISO duration suffix.
+planName
+string
+The name of the plan for the metering dimension. Applicable to GCP Marketplace only.
+It may contains the ISO duration suffix, such as P1Y.
+priceTiers
+object[]
+The price tiers of the metering dimension. Applicable to GCP Marketplace only.
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+rate
+number
+The unit price of this usage metering dimension.
+skuId
+string
+The SKU ID of the metering dimension. Applicable to GCP Marketplace only.
+types
+string[]
+usageCount
+object
+creditCount
+number
+The count of this dimension usage records that are handled as credit.
+includedCount
+number
+The count of this dimension usage records that are handled as included in IncludedBaseQuantity
+reportedCount
+number
+The count of this dimension usage records that are reported to cloud vendors.
+valueType
+ValueType (string)
+Possible values:
+[``,
+VALUE_TYPE_UNSPECIFIED
+,
+BOOL
+,
+INT64
+,
+DOUBLE
+,
+STRING
+,
+DISTRIBUTION
+,
+MONEY
+]
+]
+dimensionsOversized
+boolean
+Whether the upper metering dimensions are oversized (exceed the max size 50).
+disbursedAmount
+number
+The amount that has been disbursed to the seller account.
+eulaType
+EulaType (string)
+Possible values:
+[``,
+SCMP
+,
+ECMP
+,
+RCMP
+,
+CUSTOM
+,
+ISV
+,
+CURRENT
+]
+eulaUrl
+string
+gcpEntitlements
+object[]
+Nullable. GCP Entitlements from GCP Marketplace.
+Array [
+account
+string
+The resource name of the account that this entitlement is based on,
+if any, in format ""providers/{provider_id}/accounts/{account_id}"
+consumers
+object[]
+The resources using this entitlement, if applicable.
+Array [
+project
+string
+The project name with format
+projects/
+.
+]
+createTime
+date-time
+id
+string
+Entitlement Id generated by GCP Marketplace. For Marketplace pub/sub event.
+inputProperties
+integer[]
+The custom properties that were collected from the user to create this entitlement.
+messageToUser
+string
+Provider-supplied message that is displayed to the end user. Currently this is used to communicate progress and ETA for
+provisioning. This field can be updated only when a user is waiting for an action from the provider, i.e. entitlement state is
+EntitlementState.ENTITLEMENT_ACTIVATION_REQUESTED or EntitlementState.ENTITLEMENT_PENDING_PLAN_CHANGE_APPROVAL.
+This field is cleared automatically when the entitlement state changes.
+name
+string
+The resource name of the entitlement. Entitlement names have the form of
+providers/{provider_id}/entitlements/{entitlement_id}
+.
+newOfferDuration
+string
+in ISO 8601 duration format, such as "P2Y3M". For Marketplace pub/sub event.
+newOfferEndTime
+string
+Output only. The end time of the new offer. Field is empty if the pending plan change is not moving to an offer.
+If the offer was created with a term instead of a specified end date, this field is empty.
+newOfferStartTime
+string
+Output only. The start time of the new offer. Field is empty if the pending plan change is not moving to an offer.
+newPendingOffer
+string
+The name of the offer the entitlement is switching to upon a pending plan change. Only exists if the
+pending plan change is moving to an offer. Format:
+'projects/{project}/services/{service}/privateOffers/{offer-id}' OR
+'projects/{project}/services/{service}/standardOffers/{offer-id}',
+depending on whether the offer is private or public.
+newPendingOfferDuration
+string
+The offer duration of the new offer in ISO 8601 duration format. Field is empty if the pending plan
+change is not moving to an offer since the entitlement is not pending, only the plan change is pending.
+newPendingPlan
+string
+The identifier of the pending new plan. Required if the product has plans and the entitlement has a pending plan change.
+newPlan
+string
+When the buyer changes plan, For Marketplace pub/sub event.
+offer
+string
+The name of the offer that was procured. Field is empty if order was not made using an offer. Format:
+'projects/{project}/services/{service}/privateOffers/{offer-id}' OR 'projects/{project}/services/{service}/standardOffers/{offer-id}',
+depending on whether the offer is private or public.
+offerDuration
+string
+The offer duration of the current offer in ISO 8601 duration format.
+Field is empty if entitlement was not made using an offer, such as "P1Y", "P2M"
+offerEffectiveTime
+date-time
+When the offer is effective.
+offerEndTime
+date-time
+Output only. End time for the Offer association corresponding to this entitlement.
+The field is only populated if the entitlement is currently associated with an Offer.
+plan
+string
+The identifier of the plan that was procured. Required if the product has plans.
+product
+string
+The identifier of the entity that was purchased. This may actually represent a product, quote, or offer.
+For Private offer, "projects/project-id/services/product-id.endpoints.partner-id.cloud.goog/privateOffers/private-offer-id"
+productExternalName
+string
+The identifier of the product that was procured.
+provider
+string
+The ID of the service provider under Cloud Commerce platform that this entitlement was created against.
+quoteExternalName
+string
+The identifier of the quote that was used to procure, such as the private offer Id. Empty if the order is not purchased using a quote.
+state
+GcpMarketplaceEntitlementState (string)
+Possible values:
+[
+ENTITLEMENT_STATE_UNSPECIFIED
+,
+ENTITLEMENT_ACTIVATION_REQUESTED
+,
+ENTITLEMENT_ACTIVE
+,
+ENTITLEMENT_PENDING_CANCELLATION
+,
+ENTITLEMENT_CANCELLED
+,
+ENTITLEMENT_PENDING_PLAN_CHANGE
+,
+ENTITLEMENT_PENDING_PLAN_CHANGE_APPROVAL
+,
+ENTITLEMENT_SUSPENDED
+]
+subscriptionEndTime
+date-time
+The End time for the subscription corresponding to this entitlement.
+updateTime
+date-time
+The last update timestamp. It is the endTime for the cancelled entitlement.
+usageReportingId
+string
+The consumerId to use when reporting usage through the Service Control API. See the consumerId field at
+Reporting Metrics (https://cloud.google.com/service-control/reporting-metrics) for more details.
+This field is present only if the product has usage-based billing configured.
+]
+gcpPlans
+object[]
+Only applicable for GCP Marketplace Entitlements.
+Array [
+featureValues
+object[]
+Array [
+featureDescription
+string
+such as "CPU per VM"
+featureName
+string
+such as "cpu"
+featureTitle
+string
+such as "CPU"
+featureValue
+string
+such as "2 CPU per VM"
+]
+name
+string
+The plan ID, such as "starter", without the duration suffix, such as "P1Y".
+priceInfo
+object
+description
+string
+priceModel
+GcpMarketplacePriceModel (string)
+Possible values:
+[
+FREE
+,
+SUBSCRIPTION
+,
+USAGE
+,
+SUBSCRIPTION_PLUS_USAGE
+]
+subscriptionPlans
+object[]
+Subscription Plan (Flat Commitment)
+Array [
+period
+string
+such as "ONE_YEAR", "TWO_YEAR", "THREE_YEAR"
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+]
+usageFees
+object[]
+Usage Metering Dimension/Metric if available
+Array [
+displayQuantity
+integer
+such as 1
+metricId
+string
+such as "Starter_storage"
+priceTiers
+object[]
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+]
+purchaseMode
+string
+Possible values:
+[
+PURCHASE_MODE_PRIVATE
+,
+PURCHASE_MODE_PUBLIC
+]
+title
+string
+such as "Starter"
+]
+gracePeriodInDays
+integer
+The grace period for the offer.
+It is same as the TrialConfig in DirectOfferInfo. But can be overridden at the entitlement level.
+grossAmount
+number
+The gross amount that the buyer has committed to pay, including usage metered amount.
+invoicedAmount
+number
+The amount that the buyer has got invoiced.
+isMeteringOverageCommit
+boolean
+Whether the usage metering will be charged for the amount that exceeds the committed amount from the offer.
+netTermsInDays
+integer
+The net terms for the offer.
+It is same as the TrialConfig in DirectOfferInfo. But can be overridden at the entitlement level.
+paymentInstallments
+object[]
+For flexible payment schedules
+Array [
+amount
+number
+The amount the buyer has paid for this installment.
+If there is a discount off the original price, the amount is the discounted price.
+chargeOn
+date-time
+When the buyer will be charged for this installment.
+If it is null, the buyer will be charged on the effective date of the entitlement.
+chargeOnStr
+string
+The charge on date in string format. It is used for front-end display only.
+credit
+number
+Used in GCP Marketplace private offer as one-time credit.
+Default as zero if there is no credit.
+discountPercentage
+number
+The discount percentage off the original price.
+For GCP Marketplace, it can be discount off the commitment amount or discount off the usage price.
+The value is between 0 to 100. For example, 20 means 20% off. Default as zero if there is no discount.
+originalAmount
+number
+The original amount before discount if there is a discount off the original price.
+nil if there is no discount.
+]
+paymentSchedule
+PaymentScheduleType (string)
+Possible values:
+[``,
+PREPAY
+,
+POSTPAY
+]
+refundCancellationPolicy
+string
+sellerNotes
+string
+snowflakeOffer
+object
+access_end_time
+string
+access_start_date_preference
+string
+access_start_time
+string
+additional_information
+string
+comment
+string
+contract_duration_months
+integer
+contract_type
+string
+contract_value
+string
+discount
+number
+display_name
+string
+expiration_time
+string
+invoice_start_date_preference
+string
+invoice start date preference: FIRST_DAY_NEXT_MONTH, OFFER_ACCEPTED_DATE
+invoice_start_time
+string
+is_default
+boolean
+name
+string
+payment_terms
+string
+pricing_plan_name
+string
+state
+string
+state_updated_on
+string
+target_consumer
+string
+terms_of_service
+object
+terms of service: {"type":"DEFAULT"}
+custom_link
+string
+type
+string
+updated_on
+string
+spaUrl
+string
+The URL with JWT as auth method for the entitlement SPA. It can be shared with the buyer to access the SPA without login.
+trialConfig
+object
+trialPeriod
+integer
+trialPeriodUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+lastUpdateTime
+date-time
+metaInfo
+object
+aceApnCrmUniqueIdentifier
+string
+The linked ACE ApnCrmUniqueIdentifier of the private offer if available.
+awsSaasProductDimensions
+object[]
+The AWS SaaS product dimensions. Applicable for AWS SaaS products only.
+This is used to save price info when creating AWS SaaS product.
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+baseAgreementId
+string
+Applicable for AWS Marketplace only, when the IsAgreementBasedOffer is true.
+buyerIds
+string[]
+The Suger buyer IDs of the private offer if available.
+contacts
+object[]
+The contacts of the offer to notify if any updates.
+Array [
+company
+string
+email
+string
+name
+string
+]
+cppoInOfferId
+string
+The Suger CPPO_IN offer ID.
+cppoOfferId
+string
+The Suger CPPO offer ID. Reseller to end buyer
+cppoOutOfferId
+string
+The Suger CPPO_OUT offer ID. ISV to reseller
+customMetaInfo
+object
+The custom meta info of the offer can be updated by seller via API or console.
+property name*
+string
+enableTestUsageMetering
+boolean
+If enabled, Suger will test metering the usage for this entitlement hourly.
+entitlementCancellationSchedule
+object
+cancelDate
+string
+The cancellation date of the entitlement. It is required when the type is SpecificDate.
+creationDate
+string
+When this cancellation schedule is created.
+note
+string
+Possible values:
+<= 500 characters
+The cancellation note. Max 500 characters.
+type
+CancellationScheduleType (string)
+Possible values:
+[
+EndOfTerm
+,
+Immediate
+,
+SpecificDate
+]
+Cancellation type
+errorMessages
+string[]
+The error messages when the offer is invalid or offer related tasks failed.
+Populated by Suger service.
+hubspotDealId
+string
+Hubsport deal ID of the private offer if available.
+internalNote
+string
+The Internal note of the private offer.
+It is only visible to the seller/ISV, not visible to the buyer.
+Up to 1000 characters.
+isAgreementBasedOffer
+boolean
+Applicable for AWS Marketplace only, If this offer is agreement based offer.
+isGrossRevenueFullSync
+boolean
+Whether the gross revenue is fully synced for the entitlement.
+isRenewalOffer
+boolean
+Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement.
+The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal.
+If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.
+isReplacementOffer
+boolean
+If this offer is a GCP replacement offer. Applicable for GCP Marketplace replacement offer only.
+lastModifiedBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+notifications
+object[]
+The notifications of the offer if any updates.
+In most cases, it is to notify contacts/buyers when the offer is pending acceptance.
+Array [
+action
+NotificationEventAction (string)
+Possible values:
+[``,
+ABNORMAL_ALERT
+,
+ACCEPT
+,
+ADD
+,
+APPROVE
+,
+CANCEL
+,
+CLOSE
+,
+CREATE
+,
+DELETE
+,
+DISBURSE
+,
+END_SOON
+,
+EXPIRE
+,
+EXPIRE_SOON
+,
+MERGE
+,
+METER
+,
+NEW_CLIENT_SIGNUP
+,
+NOTIFY
+,
+NOTIFY_CONTACTS
+,
+OPEN_EMAIL
+,
+PENDING_CANCEL
+,
+PENDING_ACCEPTANCE
+,
+REINSTATE
+,
+REJECT
+,
+REOPEN
+,
+CHARGE
+,
+REFUND
+,
+ISSUE
+,
+ROTATE_SECRET
+,
+SUSPEND
+,
+TEST
+,
+UPDATE
+,
+ACE_ENGAGEMENT_SCORE_UPDATE
+,
+ACE_SALES_REP_UPDATE
+,
+ACE_CUSTOMER_EMAIL_UPDATE
+,
+AZURE_STATUS_UPDATE
+,
+SUBMIT_APPROVAL_REQUEST
+,
+REVIEW_APPROVAL_REQUEST
+,
+COMPLETE
+,
+FAIL
+,
+WEBHOOK
+]
+ccContactIds
+string[]
+Cc contactIds that will receive this notification
+channels
+NotificationChannel (string)[]
+Possible values:
+[
+EMAIL
+,
+SLACK
+,
+SMS
+,
+SNS
+,
+SALESFORCE
+,
+WEBHOOK
+,
+SUGER_SUPPORT
+,
+MICROSOFT_TEAMS
+]
+The list of channels this event will be sent to, e.g., ["SLACK", "EMAIL"]
+contactEmails
+string[]
+Contact emails that will receive this notification
+contactIds
+string[]
+ContactIds that will receive this notification
+createdBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+customFields
+object
+Custom fields of the notification event.
+property name*
+any
+Custom fields of the notification event.
+entityID
+string
+entityName
+string
+The name of the entity.
+entityStatus
+string
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+eventID
+string
+notification event id.
+eventStatus
+NotificationEventStatus (string)
+Possible values:
+[``,
+SCHEDULED
+,
+PENDING
+,
+DONE
+,
+FAILED
+]
+info
+Additional info of the notification event.
+isActionItem
+boolean
+If this notification event is an action item.
+lastUpdateTime
+date-time
+timestamp of the event when it is updated.
+message
+string
+The message of the notification event such as email body, action item description.
+organizationID
+string
+suger organization id.
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+priority
+AuditingEventPriority (string)
+Possible values:
+[``,
+LOW
+,
+MEDIUM
+,
+HIGH
+,
+CRITICAL
+]
+requireAudit
+boolean
+If this notification event is an auditing event and need to store in DB.
+timestamp
+date-time
+timestamp of the event when it is scheduled or created.
+title
+string
+The title of the notification event such as email subject, action item title.
+trackEvents
+object[]
+The track events of the notification event.
+Array [
+action
+TrackEventActionType (string)
+Possible values:
+[
+OPEN_EMAIL
+]
+contactId
+string
+The ID of the contact who triggered the track event if applicable.
+timestamp
+date-time
+timestamp of the track event happened.
+]
+]
+offerAcceptDate
+date-time
+The date when the offer is accepted by the buyer. Only available when the private offer has been accepted.
+renewalOfferType
+AwsRenewalOfferType (string)
+Possible values:
+[``,
+External
+,
+AwsMarketplace
+]
+replacedOfferEndTime
+date-time
+The end time of the replaced offer. Applicable for GCP Marketplace replacement offer only.
+replacedOfferResourceName
+string
+The resource name of the GCP Marketplace offer that this offer is replacing.
+In format of "projects/{gcpProjectNumber}/services/{productServiceName}/privateOffers/{privateOfferId}"
+Applicable for GCP Marketplace replacement offer only.
+salesforceEntitlementURL
+string
+The Salesforce entitlement URL
+salesforceOpportunityId
+string
+The Salesforce opportunity ID of the private offer if available.
+testUsageMeteringEndTime
+date-time
+The test usage metering end time. It is used for test usage metering only.
+Required if EnableTestUsageMetering is true.
+updateMessage
+string
+The message to notify when the offer is updated.
+name
+string
+offerID
+string
+organizationID
+string
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+partnerID
+string
+productID
+string
+service
+PartnerService (string)
+Possible values:
+[
+DEFAULT
+,
+ACE
+,
+BIGQUERY
+,
+BILLING
+,
+CHATBOT
+,
+COSELL
+,
+CRM
+,
+CPQ
+,
+DATABASE
+,
+DRIVE
+,
+EMAIL
+,
+MARKETPLACE
+,
+NETSUITE
+,
+PAYMENT
+,
+QUICKBOOKS
+,
+STORAGE
+,
+TEAMS
+]
+startTime
+date-time
+status
+EntitlementStatus (string)
+Possible values:
+[``,
+ACTIVE
+,
+CANCELLED
+,
+DELETED
+,
+PENDING_CANCEL
+,
+PENDING_START
+,
+SUSPENDED
+]
+type
+string
+{
+"buyerID": "string",
+"creationTime": "2024-07-29T15:51:28.071Z",
+"endTime": "2024-07-29T15:51:28.071Z",
+"entitlementTermID": "string",
+"externalBuyerID": "string",
+"externalID": "string",
+"externalProductID": "string",
+"id": "string",
+"info": {
+"addons": [
+{
+"amount": 0,
+"chargeOn": "2024-07-29T15:51:28.071Z",
+"description": "string",
+"id": "string",
+"name": "string"
+}
+],
+"alertDaysBeforeEnd": 0,
+"alibabaEntitlements": [
+{
+"AppJson": "string",
+"AutoRenewal": "string",
+"BeganOn": 0,
+"ComponentJson": "string",
+"Constraints": "string",
+"CreatedOn": 0,
+"EndOn": 0,
+"ExtendJson": "string",
+"HostJson": "string",
+"InstanceId": 0,
+"IsTrial": true,
+"Modules": {
+"Module": [
+{
+"Code": "string",
+"Id": "string",
+"Name": "string",
+"Properties": {
+"Property": [
+{
+"DisplayUnit": "string",
+"Key": "string",
+"Name": "string",
+"PropertyValues": {
+"PropertyValue": [
+{
+"DisplayName": "string",
+"Max": "string",
+"Min": "string",
+"Remark": "string",
+"Step": "string",
+"Type": "string",
+"Value": "string"
+}
+]
+},
+"ShowType": "string"
+}
+]
+}
+}
+]
+},
+"OrderId": 0,
+"ProductCode": "string",
+"ProductName": "string",
+"ProductSkuCode": "string",
+"ProductType": "string",
+"RelationalData": {
+"ServiceStatus": "string"
+},
+"Status": "string",
+"SupplierName": "string"
+}
+],
+"alibabaOrders": [
+{
+"AccountQuantity": 0,
+"AliUid": 0,
+"Components": {},
+"CouponPrice": 0,
+"CreatedOn": 0,
+"InstanceIds": {
+"InstanceId": [
+"string"
+]
+},
+"OrderId": 0,
+"OrderStatus": "string",
+"OrderType": "string",
+"OriginalPrice": 0,
+"PaidOn": 0,
+"PayStatus": "string",
+"PaymentPrice": 0,
+"PeriodType": "string",
+"ProductCode": "string",
+"ProductName": "string",
+"ProductSkuCode": "string",
+"Quantity": 0,
+"RequestId": "string",
+"SupplierCompanyName": "string",
+"SupplierTelephones": {
+"Telephone": [
+"string"
+]
+},
+"TotalPrice": 0
+}
+],
+"autoRenew": true,
+"awsAgreement": {
+"acceptanceTime": "2024-07-29T15:51:28.071Z",
+"agreementId": "string",
+"agreementType": "string",
+"buyerAccountId": "string",
+"endTime": "2024-07-29T15:51:28.071Z",
+"offerId": "string",
+"productId": "string",
+"productType": "string",
+"sellerAccountId": "string",
+"startTime": "2024-07-29T15:51:28.071Z",
+"status": "ACTIVE"
+},
+"awsChannelPartner": {
+"id": "string",
+"name": "string"
+},
+"awsEntitlements": [
+{
+"customerIdentifier": "string",
+"dimension": "string",
+"expirationDate": "string",
+"productCode": "string",
+"value": {
+"booleanValue": true,
+"doubleValue": 0,
+"integerValue": 0,
+"stringValue": "string"
+}
+}
+],
+"azureSubscriptions": [
+{
+"allowedCustomerOperations": [
+"Read"
+],
+"autoRenew": true,
+"beneficiary": {
+"billingAccountId": "string",
+"customerId": "string",
+"emailId": "string",
+"firstName": "string",
+"lastName": "string",
+"licenseType": "string",
+"objectId": "string",
+"puid": "string",
+"tenantId": "string"
+},
+"created": "2024-07-29T15:51:28.071Z",
+"fulfillmentId": "string",
+"id": "string",
+"isFreeTrial": true,
+"isTest": true,
+"lastModified": "string",
+"name": "string",
+"offerId": "string",
+"planId": "string",
+"publisherId": "string",
+"purchaser": {
+"billingAccountId": "string",
+"customerId": "string",
+"emailId": "string",
+"firstName": "string",
+"lastName": "string",
+"licenseType": "string",
+"objectId": "string",
+"puid": "string",
+"tenantId": "string"
+},
+"quantity": 0,
+"saasSubscriptionStatus": "NotStarted",
+"sandboxType": "None",
+"sessionId": "string",
+"sessionMode": "None",
+"storeFront": "string",
+"term": {
+"chargeDuration": "string",
+"endDate": "2024-07-29T15:51:28.071Z",
+"startDate": "2024-07-29T15:51:28.071Z",
+"termUnit": "string"
+}
+}
+],
+"billableDimensions": [
+{
+"billableMetricId": "string",
+"category": "basic",
+"description": "string",
+"discount": {
+"discountType": "PERCENTAGE",
+"value": 0
+},
+"length": 0,
+"minimumCommit": 0,
+"minimumCommitProrata": true,
+"minimumCommitScope": "",
+"name": "string",
+"priceModelBasic": {
+"unitAmount": 0
+},
+"priceModelBulk": {
+"bulkAmount": 0,
+"bulkSize": 0
+},
+"priceModelMatrix": {
+"defaultUnitAmount": 0,
+"matrix": [
+{
+"properties": [
+{
+"name": "string",
+"value": "string"
+}
+],
+"unitAmount": 0
+}
+]
+},
+"priceModelPercentage": {
+"flatFee": 0,
+"percentageRate": 0
+},
+"priceModelTiered": {
+"tiers": [
+{
+"firstUnit": 0,
+"flatFee": 0,
+"lastUnit": 0,
+"unitAmount": 0
+}
+]
+},
+"priceModelTieredPercentage": {
+"tiers": [
+{
+"firstUnit": 0,
+"flatFee": 0,
+"lastUnit": 0,
+"percentageRate": 0
+}
+]
+},
+"priceModelVolume": {
+"tiers": [
+{
+"flatFee": 0,
+"maximumUnits": 0,
+"unitAmount": 0
+}
+]
+},
+"timeUnit": "DAY"
+}
+],
+"billingCycle": "MONTH_FIRST_DAY",
+"billingIntervalInMonths": 0,
+"collectableAmount": 0,
+"commitAmount": 0,
+"commits": [
+{
+"category": "string",
+"description": "string",
+"isUserCreated": true,
+"key": "string",
+"length": 0,
+"maximumUsers": 1000000,
+"minimumUsers": 1,
+"name": "string",
+"quantity": 0,
+"rate": 0,
+"term": "string",
+"termEndTime": "string",
+"timeUnit": "DAY",
+"type": "FLAT_RATE",
+"types": [
+"string"
+]
+}
+],
+"currency": "string",
+"dimensions": [
+{
+"category": "string",
+"description": "string",
+"includedBaseQuantities": [
+{
+"isInfinite": true,
+"quantity": 0,
+"recurringUnit": "Monthly"
+}
+],
+"key": "string",
+"name": "string",
+"planId": "string",
+"planName": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+],
+"rate": 0,
+"skuId": "string",
+"types": [
+"string"
+],
+"usageCount": {
+"creditCount": 0,
+"includedCount": 0,
+"reportedCount": 0
+},
+"valueType": ""
+}
+],
+"dimensionsOversized": true,
+"disbursedAmount": 0,
+"eulaType": "",
+"eulaUrl": "string",
+"gcpEntitlements": [
+{
+"account": "string",
+"consumers": [
+{
+"project": "string"
+}
+],
+"createTime": "2024-07-29T15:51:28.071Z",
+"id": "string",
+"inputProperties": [
+0
+],
+"messageToUser": "string",
+"name": "string",
+"newOfferDuration": "string",
+"newOfferEndTime": "string",
+"newOfferStartTime": "string",
+"newPendingOffer": "string",
+"newPendingOfferDuration": "string",
+"newPendingPlan": "string",
+"newPlan": "string",
+"offer": "string",
+"offerDuration": "string",
+"offerEffectiveTime": "2024-07-29T15:51:28.071Z",
+"offerEndTime": "2024-07-29T15:51:28.071Z",
+"plan": "string",
+"product": "string",
+"productExternalName": "string",
+"provider": "string",
+"quoteExternalName": "string",
+"state": "ENTITLEMENT_STATE_UNSPECIFIED",
+"subscriptionEndTime": "2024-07-29T15:51:28.071Z",
+"updateTime": "2024-07-29T15:51:28.071Z",
+"usageReportingId": "string"
+}
+],
+"gcpPlans": [
+{
+"featureValues": [
+{
+"featureDescription": "string",
+"featureName": "string",
+"featureTitle": "string",
+"featureValue": "string"
+}
+],
+"name": "string",
+"priceInfo": {
+"description": "string",
+"priceModel": "FREE",
+"subscriptionPlans": [
+{
+"period": "string",
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+}
+],
+"usageFees": [
+{
+"displayQuantity": 0,
+"metricId": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+]
+}
+]
+},
+"purchaseMode": "PURCHASE_MODE_PRIVATE",
+"title": "string"
+}
+],
+"gracePeriodInDays": 0,
+"grossAmount": 0,
+"invoicedAmount": 0,
+"isMeteringOverageCommit": true,
+"netTermsInDays": 0,
+"paymentInstallments": [
+{
+"amount": 0,
+"chargeOn": "2024-07-29T15:51:28.071Z",
+"chargeOnStr": "string",
+"credit": 0,
+"discountPercentage": 0,
+"originalAmount": 0
+}
+],
+"paymentSchedule": "",
+"refundCancellationPolicy": "string",
+"sellerNotes": "string",
+"snowflakeOffer": {
+"access_end_time": "string",
+"access_start_date_preference": "string",
+"access_start_time": "string",
+"additional_information": "string",
+"comment": "string",
+"contract_duration_months": 0,
+"contract_type": "string",
+"contract_value": "string",
+"discount": 0,
+"display_name": "string",
+"expiration_time": "string",
+"invoice_start_date_preference": "string",
+"invoice_start_time": "string",
+"is_default": true,
+"name": "string",
+"payment_terms": "string",
+"pricing_plan_name": "string",
+"state": "string",
+"state_updated_on": "string",
+"target_consumer": "string",
+"terms_of_service": {
+"custom_link": "string",
+"type": "string"
+},
+"updated_on": "string"
+},
+"spaUrl": "string",
+"trialConfig": {
+"trialPeriod": 0,
+"trialPeriodUnit": "DAY"
+}
+},
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"metaInfo": {
+"aceApnCrmUniqueIdentifier": "string",
+"awsSaasProductDimensions": [
+{
+"Description": "string",
+"Key": "string",
+"Length": 0,
+"Name": "string",
+"Rate": 0,
+"TimeUnit": "DAY",
+"Types": [
+"string"
+],
+"Unit": "string"
+}
+],
+"baseAgreementId": "string",
+"buyerIds": [
+"string"
+],
+"contacts": [
+{
+"company": "string",
+"email": "string",
+"name": "string"
+}
+],
+"cppoInOfferId": "string",
+"cppoOfferId": "string",
+"cppoOutOfferId": "string",
+"customMetaInfo": {},
+"enableTestUsageMetering": true,
+"entitlementCancellationSchedule": {
+"cancelDate": "string",
+"creationDate": "string",
+"note": "string",
+"type": "EndOfTerm"
+},
+"errorMessages": [
+"string"
+],
+"hubspotDealId": "string",
+"internalNote": "string",
+"isAgreementBasedOffer": true,
+"isGrossRevenueFullSync": true,
+"isRenewalOffer": true,
+"isReplacementOffer": true,
+"lastModifiedBy": {
+"email": "string",
+"entityId": "string",
+"entityType": "",
+"name": "string"
+},
+"notifications": [
+{
+"action": "",
+"ccContactIds": [
+"string"
+],
+"channels": [
+"EMAIL"
+],
+"contactEmails": [
+"string"
+],
+"contactIds": [
+"string"
+],
+"createdBy": {
+"email": "string",
+"entityId": "string",
+"entityType": "",
+"name": "string"
+},
+"customFields": {},
+"entityID": "string",
+"entityName": "string",
+"entityStatus": "string",
+"entityType": "",
+"eventID": "string",
+"eventStatus": "",
+"isActionItem": true,
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"message": "string",
+"organizationID": "string",
+"partner": "",
+"priority": "",
+"requireAudit": true,
+"timestamp": "2024-07-29T15:51:28.071Z",
+"title": "string",
+"trackEvents": [
+{
+"action": "OPEN_EMAIL",
+"contactId": "string",
+"timestamp": "2024-07-29T15:51:28.071Z"
+}
+]
+}
+],
+"offerAcceptDate": "2024-07-29T15:51:28.071Z",
+"renewalOfferType": "",
+"replacedOfferEndTime": "2024-07-29T15:51:28.071Z",
+"replacedOfferResourceName": "string",
+"salesforceEntitlementURL": "string",
+"salesforceOpportunityId": "string",
+"testUsageMeteringEndTime": "2024-07-29T15:51:28.071Z",
+"updateMessage": "string"
+},
+"name": "string",
+"offerID": "string",
+"organizationID": "string",
+"partner": "",
+"partnerID": "string",
+"productID": "string",
+"service": "DEFAULT",
+"startTime": "2024-07-29T15:51:28.071Z",
+"status": "",
+"type": "string"
+}
+Bad request error
+application/json
+Schema
+Schema
+string
+Internal server error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+divide entitlement commit
+Next
+list entitlement terms
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

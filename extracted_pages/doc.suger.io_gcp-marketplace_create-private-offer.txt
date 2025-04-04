@@ -1,0 +1,268 @@
+Create Private Offer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+GCP Marketplace
+Create Private Offer
+On this page
+Create Private Offer
+Create a custom offer for a specific customer in GCP Marketplace
+Overview
+​
+With Cloud Marketplace Private Offers, you can create a custom offer for a Kubernetes app, SaaS product, or virtual machine (VM) image for a specific customer. The offer gives your customer the ability to purchase your Cloud Marketplace product at a discount.
+danger
+When the customer opens their offer, they are taken to a purchase page on Cloud Marketplace. The customer then confirms the purchase, and signs up for your product. After they sign up, they use your product as if they signed up for a plan directly through Cloud Marketplace.
+The private offer consists of the following components:
+Product Plan
+: Where the private offer is based on. Each plan only has one type of
+Product Pricing Model
+.
+Private Offer Pricing Model
+: The basis for how you customize the Product Pricing Model of your selected plan.
+warning
+The Private Offer Pricing Model here is NOT the same thing as the Product Pricing Model. They are co-related. One Product Pricing Model can have multiple choices of Private Offer Pricing Model.
+Payment Schedule
+: The frequency and timing for how the customer pays for the offer. You can charge the customer upfront (Prepay) or monthly (Postpay).
+Contract Duration
+: How long the offer is in effect.
+Enable Automatic Offer Approval
+​
+By
+enabling automatic offer approval
+, to use scheduled or on customer acceptance start dates for SaaS product first offers, You can create or edit an offer's start date under Start date. Kubernetes and VM offers already have flexible start dates.
+Prepay vs Postpay
+​
+The private offer in the GCP Marketplace allows two payment schedules: Prepay or Postpay. Here is their difference:
+Prepay
+Postpay
+Contract Term Length
+2 to 36 months
+1 to 60 months
+Contract Auto Renew
+Not support
+❌
+Support
+✅
+The buyer's billing account can't be in Brazil
+Subscription based
+​
+There are only one pricing model -
+Flat fee
+for the privater offer of the Subscription based product plan, with two payment schedule options (Prepay or Postpay). Their available customization options are listed below table.
+💰
+Flat fee
+Prepay
+Here you can customize:
+Contact duration (in months)
+Installment schedule
+Postpay
+Here you can customize:
+Contact duration (in months)
+Monthly flat fee
+Usage based
+​
+There are three private offer pricing models available for the Usage based product pricing model. They are
+Commit discount with additional usage at list price
+,
+Commit with all usage discounted
+and
+Usage discount only
+. The first two belongs to the
+Committed Use Discount (CUD)
+. Each of them has two payment schedule options (Prepay or Postpay). Their available customization options are listed below table.
+Commit discount with additional usage at list price
+​
+The customer commits to spend a minimum amount and receives a discount on this commitment. All usage, including overage, is list price. So if they spend beyond the commitment, they actually pay the list price for the additional usage.
+💰
+Commit discount with additional usage at list price
+Prepay
+Here you can customize:
+Contact duration (in months)
+Installment schedule
+Discount on commitment
+🌈
+Postpay
+Here you can customize:
+Contact duration (in months)
+Monthly commitment
+Discount on commitment
+🌈
+Commit with all usage discounted
+​
+The customer receives a discount to spend a minimum amount and pays this discounted rate for all usage. This pricing model also allows you to provide more granular discounts on specific usage metrics.
+💰
+Commit with all usage discounted
+Prepay
+Here you can customize:
+Contact duration (in months)
+Installment schedule
+Discount on usage
+🌈
+Specific discount on each individual usage metric (optional)
+Postpay
+Here you can customize:
+Contact duration (in months)
+Monthly commitment
+Discount on usage
+🌈
+Specific discount on each individual usage metric (optional)
+Usage discount only
+​
+The customer pays a discounted amount of what they use, no commitment. The private offer only supports Postpay, no prepay.
+💰
+Usage discount only
+Prepay
+Not applicable for the
+Usage discount only
+pricing model
+Postpay
+Here you can customize:
+Contact duration (in months)
+Discount on usage
+🌈
+Specific discount on each individual usage metric (optional)
+Committed Use Discount
+​
+With a committed use discount (CUD), the customer receives a discount on your product in exchange for committing to spend a minimum amount, or commitment. The customer pays the commitment regardless of how much they use it. The comparison of
+Commit discount with additional usage at list price
+and
+Commit with all usage discounted
+is illustrated in below diagram. The big difference is whether the customer can continue to have usage discount after the commitment is reached.
+Subscription + Usage Combined
+​
+If your customers pay both a flat fee to use your software and also additional charges based on their usage, you use the flat fee with usage pricing model for your private offer. The flat fee includes a certain amount of usage, and any additional usage can be offered at a discounted rate. In the offer, you can customize the payment amount, the discount on additional usage, and any additional discounts based on specific usage metrics.
+💰
+Flat fee with usage discount
+Prepay
+Here you can customize:
+Contact duration (in months)
+Installment schedule
+Discount on usage
+🌈
+Specific discount on each individual usage metric (optional)
+Postpay
+Here you can customize:
+Contact duration (in months)
+Monthly flat fee
+Discount on usage
+🌈
+Specific discount on each individual usage metric (optional)
+Replacement Offer
+​
+When you have an active entitlement of the product with your buyer, you can manually renew or upsell the entitlement by creating a replacement offer. Once the new private offer is accepted by the buyer, the entitlement will be updated immediately.
+tip
+When creating a replacement offer, you can not change the product, plan and price model of the existing private offer. You can only change the payment schedule, payment amount, payment discount and duration of the existing private offer.
+The list of info required when creating the replacement offer is as follows:
+Expiry Date
+: The expiry date of the new private offer.
+Start Date
+: The start date of the new private offer. You can specify a future date. By default, the new private offer starts immediately after the buyer accepts the offer.
+warning
+The expiry date or start date must before the first future payment installment date of the existing private offer.
+Payment Schedule
+: The payment schedule of the new private offer. You can choose between
+Prepay
+and
+Postpay
+. The payment schedule of the new private offer can be different from the existing private offer.
+End User License Agreement (EULA)
+: The EULA of the new private offer. Select or upload your custom contract.
+Replacement Offer With Prepay
+​
+If you choose to create a replacement offer with Prepay, you can customize the following:
+Payment Installment
+: You can specify the amount, discount and date of each payment installment. you can not change past payment installments.
+Offer End Date
+: You must specify the end date for the replacement offer.
+Replacement Offer With Postpay
+​
+If you choose to create a replacement offer with Postpay, you can customize the following:
+Monthly Flat Fee
+: The monthly fee for the replacement offer.
+Discount on Usage
+: The discount on usage for the replacement offer.
+Enable Auto Renew
+: You can enable or disable the auto-renewal of the replacement offer.
+Offer Duration
+(in months): You must specify the duration of the replacement offer.
+Previous
+List Product
+Next
+Accept Private Offer
+Overview
+Enable Automatic Offer Approval
+Prepay vs Postpay
+Subscription based
+Usage based
+Commit discount with additional usage at list price
+Commit with all usage discounted
+Usage discount only
+Committed Use Discount
+Subscription + Usage Combined
+Replacement Offer
+Replacement Offer With Prepay
+Replacement Offer With Postpay
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

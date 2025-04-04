@@ -1,0 +1,146 @@
+Revenue | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+Overview
+Billable Metrics
+Price Model
+Buyer
+Offer
+Entitlement
+Metering
+Invoice
+Payment
+Revenue
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Billing
+Revenue
+On this page
+Revenue
+Revenue records and reports.
+Overview
+​
+Suger Console provides a comprehensive view of revenue records and reports.
+Revenue records and reports are generated on successful payments of invoices. These records help track invoice amounts, collectable amounts, disbursements, and refunds.
+Revenue Reports
+​
+Revenue reports provide visual insights through graphical charts, available in different sections of the Suger Console.
+Where to Find Revenue Reports
+​
+Buyer Detail Page – Displays revenue data for an individual buyer:
+Entitlement Detail Page – Shows revenue data for a specific entitlement:
+Types of Revenue Reports
+​
+Revenue reports are aggregated by date and categorized into three key metrics.
+Category
+Description
+Formula
+Key Date
+Invoiced
+🧾
+Total amount billed on the invoice.
+—
+Invoice issue date
+Collectable
+💸
+Amount that can be collected after fees and
+credits
+.
+(Total Payment - Partner Fee) + Credits
+Invoice Payment due date
+Disbursed
+💰
+Amount sent to the seller after deducting partner fees.
+Total Payment - Partner Fee
+Payment Disbursement date
+Understanding Important Dates
+​
+Invoice Date: The date when the invoice was issued.
+Payment Due Date: The deadline for the buyer to complete the payment.
+Disbursement Date: When the payment is successfully processed and transferred to the seller.
+Revenue Records
+​
+Revenue records are detailed financial records associated with invoices and payment transactions.
+There are two types of revenue records:
+joined records
+and
+raw records
+.
+Joined Records
+​
+A joined record is directly linked to an invoice, sharing the same ID.
+It is created by consolidating all payment transactions associated with the invoice into a single comprehensive record.
+Raw Records
+​
+A raw record represents one payment transaction associated with an invoice. For details, see
+payment transactions
+.
+Previous
+Payment
+Next
+AWS Marketplace
+Overview
+Revenue Reports
+Where to Find Revenue Reports
+Types of Revenue Reports
+Understanding Important Dates
+Revenue Records
+Joined Records
+Raw Records
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

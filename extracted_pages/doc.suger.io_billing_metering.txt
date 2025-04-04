@@ -1,0 +1,189 @@
+Metering | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+Overview
+Billable Metrics
+Price Model
+Buyer
+Offer
+Entitlement
+Metering
+Invoice
+Payment
+Revenue
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Billing
+Metering
+On this page
+Metering
+Usage metering and report.
+After the entitlement is created, you can report metric usage data to Suger in real time. Suger will aggregate the reported data by hourly and daily.
+When the billing cycle is over, Suger will aggregate the total quantity of each billable dimension in this period, and calculate the amount of each billable dimension based on the aggregated data and the price model of the billable metric, the total amount will be used to generate the invoice.
+Report usage to Suger
+​
+Use the following APIs to report usage data.
+report usageRecordGroup
+batch report usageRecordGroup
+Request body example:
+{
+"ID": "request uuid", # Optional, if not provided, suger will generate one and return in the response.
+"organizationID": "your-suger-org-id",
+"entitlementID": "your-suger-entitlement-id",
+"billableRecords": [
+{
+"key": "billable-metric-id-of-the-entitlment's-billable-dimension",
+"properties": {
+"custom-property-1": "val1",
+"custom-property-2": "val2"
+},
+"quantity": 10, # The num of the metric.
+},
+...
+]
+}
+The organizationID and entitlementID are required. Each request can only report one entitlement's usage data.
+The billableRecords is an array, you can report multiple metrics in one request.
+The key is the billable metric id in the entitlement's billable dimension.
+The properties is a map of the custom properties of the billable metric, they are used for filter or group by or unique count.
+The quantity is the number of the metric.
+The reported usage data can be viewed on the entitlement details page in real time.
+Usage hourly report
+​
+Suger aggregates each entitlement's reported usage data every hour. It will help you to get a real-time view of the usage data.
+Every hour, Suger will aggregate the reported usage data of the previous hour.
+If the billable metric is configured with filters, the usage data will be filtered by the filters.
+After hourly aggregation is completed, it will generate the hourly report, and the original usage data will be marked as reported.
+Hourly reports only aggregate the quantity of metrics based on the metric's aggregation type, we will not calculate the corresponding amount because the price model need the total quantity of whole billing cycle.
+Aggregate logic
+​
+The aggregation logic based on the billable metric's aggregate type, which is configured when the billable metric is created.
+Billable metric's aggregate type
+Hourly aggregation logic
+COUNT
+The number of report records within the hour
+UNIQUE COUNT
+The unique count of the specified property's values in report records within the hour
+SUM
+The sum of quantity of report records within the hour
+MAX
+The maximum value of quantity of report records within the hour
+LATEST
+The most recent value of quantity of report records within the hour
+Aggregation with groupby
+​
+If the billable metric is configured with groupby attributes, the usage records will firstly be divided into multiple groups based on the groupby attributes, and then aggregated separately according to the aggregation type.
+The reason why we do this is that the billable dimension's price model will be applied to each group.
+Aggregation with unique count
+​
+If the billable metric is configured with unique count aggregation type, the calculation will be more complex.
+Firstly, we will get an unique array of the target attribute values from the report records within that hour, in another word, the same value will only appear once in the array.
+Then we will read all the unique arrays of the previous hourly reports today and remove duplicate values from the current hour's unique array, it will make it smaller.
+Finally, the unique array can present the new values's unique count in this hour of today.
+The deduplicate target is only today's data, so every first hour's date of each day will be a little bigger than the other hours.
+tip
+The design principle of this aggregation is that the data stored per hour is incremental data and has been deduplicated. This allows for the calculation costs to be shared in terms of both computation and storage per hour.
+These hourly reports are incremental data, so they can be used directly in the subsequent daily report and invoice amount calculation.
+The hourly reports can be viewed on the entitlement details page.
+Usage daily report
+​
+Like the hourly report, the daily report of each entitlement is also aggregated every day. Daily report is aggregated from the hourly reports instead of the original reported data.
+Billable metric's aggregate type
+Daily report aggregation logic
+COUNT
+The sum of all hourly reports's counts
+UNIQUE COUNT
+The sum of all hourly reports's unique counts
+SUM
+The sum of all hourly reports's sum results
+MAX
+The largest value of all hourly reports's results
+LATEST
+The value of the latest hourly report result
+The daily reports can be viewed on the entitlement details page.
+Calculate usage invoice fee
+​
+When an entitlement's billing cycle is over, Suger will calculate the
+usage invoice
+. Which need to aggregate all the report records of the entitlement in the billing cycle.
+The source of the calculation data is the hourly reports rather than the original reported data, as the hourly report has already been aggregated.
+First, calculate the aggregated daily quantity of each billable metric within the invoice period based on the hourly report.
+Then calculate the final aggregated quantity of each billable metric based on daily aggregated data.
+Finally, we calculate the final fee amount based on the quantity according to the price model of each billable metric.
+tip
+The reason why we calculate daily data first instead of calculate the final data from hourly reports in one step is that the hourly reports data maybe too large when the billing interval is too long.
+Aggregation with groupby
+​
+If the billable metric is configured with groupby attributes, the hourly and daily aggregation results, as well as the total quantity, will be calculated for multiple results based on the combination of the groupby attributes.
+Each group will got the aggregated quantity and the price model will be applied to each group. The final invoice amount will be the sum of all the group's amount.
+Aggregation with unique count
+​
+If the billable metric is configured with unique count aggregation type, we will calculate the unique count of the target attribute values from all the report records within the invoice period. But we still use the hourly reports because each hourly report has already been deduplicated.
+Daily data will be aggregated from the hourly reports first. In this step we will get a unique array of today, just merge all unique arrays of all hourly reports today.
+Then we will merge and deduplicate all daily unique arrays in the invoice period.
+Finally we will get the unique array of the invoice period and we get the unique count of it.
+Previous
+Entitlement
+Next
+Invoice
+Report usage to Suger
+Usage hourly report
+Usage daily report
+Calculate usage invoice fee
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

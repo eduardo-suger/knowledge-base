@@ -1,0 +1,1223 @@
+list usageRecordReports | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Metering
+list usageRecordReports
+list usageRecordReports
+GET
+/org/:orgId/usageRecordReport
+List usageRecordReports under the given organization, partner, entitlement or buyer, within the given time range and pagination.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+Query Parameters
+partner
+string
+Possible values:
+[
+AWS
+,
+AZURE
+,
+GCP
+]
+Cloud Partner
+buyerId
+string
+buyer ID
+entitlementId
+string
+entitlement ID
+startDate
+string
+start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate
+endDate
+string
+end date (UTC) in YYYY-MM-DD format, default is today
+limit
+integer
+List pagination size, default 1000, max value is 1000
+offset
+integer
+List pagination offset, default 0
+Responses
+​
+200
+400
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+nextOffset
+integer
+usageRecordReports
+object[]
+Array [
+buyerID
+string
+creationTime
+date-time
+entitlementID
+string
+entitlementTermID
+string
+id
+string
+info
+object
+aggregatedBillableRecords
+object[]
+The aggregated billable records from the usage metering API v2.
+Array [
+amount
+number
+Amount calculated by billable dimension's price model, this is only used for report billable usage records to marketplace.
+billableMetricAggregationType
+BillableMetricAggregationType (string)
+Possible values:
+[
+COUNT
+,
+UNIQUE_COUNT
+,
+SUM
+,
+MAX
+,
+LAST
+]
+billableMetricInfo
+object
+filterGroups
+object[]
+FilterGroups is a list of filter groups.
+The filterGroups are connected by AND.
+Array [
+filters
+object[]
+Array [
+name
+string
+operation
+BillableMetricFilterOperation (string)
+Possible values:
+[
+IS
+,
+NOT_IS
+,
+CONTAINS
+,
+NOT_CONTAINS
+,
+GT
+,
+GTE
+,
+LT
+,
+LTE
+,
+EQ
+,
+NOT_EQ
+,
+EXISTS
+,
+NOT_EXISTS
+]
+value
+The value of the filter. The type of the value depends on the valueType.
+valueType
+BillableMetricFilterValueType (string)
+Possible values:
+[
+STRING
+,
+FLOAT
+]
+]
+]
+groupBys
+string[]
+GroupBys is a list of fields to group by.
+propertyUniqueOn
+string
+The target property for unique count aggregate.
+groupBysExpression
+string
+GroupBysExpression is the string expression of array of group bys.
+key
+string
+Key is the unique identifier of a billable metric.
+name
+string
+Name is the name of a billable metric.
+Optional, it is only for display purpose.
+quantity
+number
+Value is the value of a billable metric.
+uniqueCountAggregationResult
+object
+newItems
+object
+Unique property values of current hour that are new of today. Leave the value as interface{} to save space.
+property name*
+any
+Unique property values of current hour that are new of today. Leave the value as interface{} to save space.
+]
+alibabaMeteringRequest
+object
+Metering
+string
+alibabaMeteringResponse
+object
+RequestId
+string
+Success
+boolean
+awsMeteringRequest
+object
+ProductCode
+string
+Product code is used to uniquely identify a product in AWS Marketplace. The
+product code should be the same as the one used during the publishing of a new product.
+UsageRecords
+object[]
+The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at a time.
+Array [
+CustomerIdentifier
+string
+The CustomerIdentifier is obtained through the ResolveCustomer operation and
+represents an individual buyer in your application.
+Dimension
+string
+During the process of registering a product on AWS Marketplace, dimensions are
+specified. These represent different units of value in your application.
+Quantity
+integer
+The quantity of usage consumed by the customer for the given dimension and time.
+Defaults to 0 if not specified.
+Timestamp
+date-time
+Timestamp, in UTC, for which the usage is being reported. Your application can
+meter usage for up to one hour in the past. Make sure the timestamp value is not
+before the start of the software usage.
+UsageAllocations
+object[]
+The set of UsageAllocations to submit. The sum of all UsageAllocation quantities
+must equal the Quantity of the UsageRecord.
+Array [
+AllocatedUsageQuantity
+integer
+The total quantity allocated to this bucket of usage.
+Tags
+object[]
+The set of tags that define the bucket of usage. For the bucket of items with no
+tags, this parameter can be left out.
+Array [
+Key
+string
+One part of a key-value pair that makes up a tag. A key is a label that acts
+like a category for the specific tag values.
+Value
+string
+One part of a key-value pair that makes up a tag. A value acts as a descriptor
+within a tag category (key). The value can be empty or null.
+]
+]
+]
+awsMeteringResponse
+object
+resultMetadata
+object
+Metadata pertaining to the operation's result.
+results
+object[]
+Contains all UsageRecords processed by BatchMeterUsage . These records were
+either honored by AWS Marketplace Metering Service or were invalid. Invalid
+records should be fixed before being resubmitted.
+Array [
+meteringRecordId
+string
+The MeteringRecordId is a unique identifier for this metering event.
+status
+types.UsageRecordResultStatus (string)
+Possible values:
+[
+Success
+,
+CustomerNotSubscribed
+,
+DuplicateRecord
+]
+The UsageRecordResult Status indicates the status of an individual UsageRecord
+processed by BatchMeterUsage .
+Success- The UsageRecord was accepted and honored by BatchMeterUsage .
+CustomerNotSubscribed- The CustomerIdentifier specified is not able to use
+your product. The UsageRecord was not honored. There are three causes for this
+result:
+The customer identifier is invalid.
+The customer identifier provided in the metering record does not have an
+active agreement or subscription with this product. Future UsageRecords for
+this customer will fail until the customer subscribes to your product.
+The customer's AWS account was suspended.
+DuplicateRecord- Indicates that the UsageRecord was invalid and not honored.
+A previously metered UsageRecord had the same customer, dimension, and time,
+but a different quantity.
+usageRecord
+object
+The UsageRecord that was part of the BatchMeterUsage request.
+customerIdentifier
+string
+The CustomerIdentifier is obtained through the ResolveCustomer operation and
+represents an individual buyer in your application.
+This member is required.
+dimension
+string
+During the process of registering a product on AWS Marketplace, dimensions are
+specified. These represent different units of value in your application.
+This member is required.
+quantity
+integer
+The quantity of usage consumed by the customer for the given dimension and
+time. Defaults to 0 if not specified.
+timestamp
+string
+Timestamp, in UTC, for which the usage is being reported. Your application can
+meter usage for up to one hour in the past. Make sure the timestamp value is
+not before the start of the software usage.
+This member is required.
+usageAllocations
+object[]
+The set of UsageAllocations to submit. The sum of all UsageAllocation
+quantities must equal the Quantity of the UsageRecord .
+Array [
+allocatedUsageQuantity
+integer
+The total quantity allocated to this bucket of usage.
+This member is required.
+tags
+object[]
+The set of tags that define the bucket of usage. For the bucket of items with
+no tags, this parameter can be left out.
+Array [
+key
+string
+One part of a key-value pair that makes up a tag . A key is a label that acts
+like a category for the specific tag values.
+This member is required.
+value
+string
+One part of a key-value pair that makes up a tag . A value acts as a descriptor
+within a tag category (key). The value can be empty or null.
+This member is required.
+]
+]
+]
+unprocessedRecords
+object[]
+Contains all UsageRecords that were not processed by BatchMeterUsage . This is a
+list of UsageRecords . You can retry the failed request by making another
+BatchMeterUsage call with this list as input in the BatchMeterUsageRequest .
+Array [
+customerIdentifier
+string
+The CustomerIdentifier is obtained through the ResolveCustomer operation and
+represents an individual buyer in your application.
+This member is required.
+dimension
+string
+During the process of registering a product on AWS Marketplace, dimensions are
+specified. These represent different units of value in your application.
+This member is required.
+quantity
+integer
+The quantity of usage consumed by the customer for the given dimension and
+time. Defaults to 0 if not specified.
+timestamp
+string
+Timestamp, in UTC, for which the usage is being reported. Your application can
+meter usage for up to one hour in the past. Make sure the timestamp value is
+not before the start of the software usage.
+This member is required.
+usageAllocations
+object[]
+The set of UsageAllocations to submit. The sum of all UsageAllocation
+quantities must equal the Quantity of the UsageRecord .
+Array [
+allocatedUsageQuantity
+integer
+The total quantity allocated to this bucket of usage.
+This member is required.
+tags
+object[]
+The set of tags that define the bucket of usage. For the bucket of items with
+no tags, this parameter can be left out.
+Array [
+key
+string
+One part of a key-value pair that makes up a tag . A key is a label that acts
+like a category for the specific tag values.
+This member is required.
+value
+string
+One part of a key-value pair that makes up a tag . A value acts as a descriptor
+within a tag category (key). The value can be empty or null.
+This member is required.
+]
+]
+]
+azureMeteringRequest
+object
+request
+object[]
+Array [
+dimension
+string
+Dimension identifier
+effectiveStartTime
+string
+Time in UTC when the usage event occurred
+planId
+string
+Plan associated with the purchased offer
+quantity
+number
+Number of units consumed
+resourceId
+string
+subscriptionId property value for SaaS offer subscriptions; resourceUsageId property on the managed application resource
+for managed application offers. For managed applications, only use one of
+resourceId or resourceUri.
+resourceUri
+string
+Resource URI for the managed app. Used with managed applications. Only use resourceUri or resourceId, but never both.
+]
+azureMeteringResponse
+object
+count
+integer
+result
+object[]
+Array [
+dimension
+string
+Dimension identifier
+effectiveStartTime
+string
+Time in UTC when the usage event occurred
+error
+object
+additionalInfo
+object
+acceptedMessage
+object
+dimension
+string
+Dimension identifier
+effectiveStartTime
+string
+Time in UTC when the usage event occurred
+messageTime
+string
+Time this message was created in UTC
+planId
+string
+Plan associated with the purchased offer
+quantity
+number
+Number of units consumed
+resourceId
+string
+Identifier of the resource against which usage is emitted
+resourceUri
+string
+Identifier of the managed app resource against which usage is emitted
+status
+github_com_sugerio_marketplace-service_third_party_azure_sdk_marketplacemeteringv1.UsageEventStatusEnum (string)
+Possible values:
+[
+Accepted
+,
+Expired
+,
+Duplicate
+,
+Error
+,
+ResourceNotFound
+,
+ResourceNotAuthorized
+,
+InvalidDimension
+,
+InvalidQuantity
+,
+BadArgument
+]
+Status of the operation.
+usageEventId
+string
+Unique identifier associated with the usage event
+code
+string
+message
+string
+messageTime
+string
+Time this message was created in UTC
+planId
+string
+Plan associated with the purchased offer
+quantity
+number
+Number of units consumed
+resourceId
+string
+Identifier of the resource against which usage is emitted
+resourceUri
+string
+Identifier of the managed app resource against which usage is emitted
+status
+github_com_sugerio_marketplace-service_third_party_azure_sdk_marketplacemeteringv1.UsageEventStatusEnum (string)
+Possible values:
+[
+Accepted
+,
+Expired
+,
+Duplicate
+,
+Error
+,
+ResourceNotFound
+,
+ResourceNotAuthorized
+,
+InvalidDimension
+,
+InvalidQuantity
+,
+BadArgument
+]
+Status of the operation.
+usageEventId
+string
+Unique identifier associated with the usage event
+]
+commitAmount
+number
+The amount of the commit if applicable.
+creditAmount
+number
+The amount of the credit if applicable.
+creditRecords
+object
+The credit usage records in the map of <DimensionKey, Count> for usage metering API v1.
+property name*
+number
+decimalParts
+object
+The decimal parts of the usage dimension quantity in the map of <DimensionKey, DecimalPart>,
+before this usage record report.
+property name*
+number
+dimensionCategories
+object
+The categories of the usage records in the map of <DimensionKey, Category>.
+The dimension category is required when reporting usage records to Alibaba Marketplace.
+It comes from the metering dimension category.
+property name*
+string
+dimensionUnitListPrice
+object
+The public list price of each dimension in the map of <DimensionKey, UnitPrice>.
+property name*
+number
+dimensionUnitPrice
+object
+The unit price of each dimension in the map of <DimensionKey, UnitPrice>.
+It can be the negotiated price in the private offer or the public list price.
+property name*
+number
+endTime
+date-time
+time in UTC when the UsageRecordReport ends
+gcpMeteringRequest
+object
+consumerId
+string
+ConsumerId: Identity of the consumer who is using the service. This
+field should be filled in for the operations initiated by a consumer,
+but not for service-initiated operations that are not related to a
+specific consumer. - This can be in one of the following formats: -
+project:PROJECT_ID, - project
+_
+number:PROJECT_NUMBER, -
+projects/PROJECT_ID or PROJECT_NUMBER, - folders/FOLDER_NUMBER, -
+organizations/ORGANIZATION_NUMBER, - api
+_
+key:API_KEY.
+endTime
+string
+EndTime: End time of the operation. Required when the operation is
+used in ServiceController.Report, but optional when the operation is
+used in ServiceController.Check.
+labels
+object
+Labels: Labels describing the operation. Only the following labels
+are allowed: - Labels describing monitored resources as defined in
+the service configuration. - Default labels of metric values. When
+specified, labels defined in the metric value override these default.
+The following labels defined by Google Cloud Platform: -
+cloud.googleapis.com/location
+describing the location where the
+operation happened, -
+servicecontrol.googleapis.com/user_agent
+describing the user agent of the API request, -
+servicecontrol.googleapis.com/service_agent
+describing the service
+used to handle the API request (e.g. ESP), -
+servicecontrol.googleapis.com/platform
+describing the platform
+where the API is served, such as App Engine, Compute Engine, or
+Kubernetes Engine.
+property name*
+string
+metricValueSets
+object[]
+MetricValueSets: Represents information about this operation. Each
+MetricValueSet corresponds to a metric defined in the service
+configuration. The data type used in the MetricValueSet must agree
+with the data type specified in the metric definition. Within a
+single operation, it is not allowed to have more than one MetricValue
+instances that have the same metric names and identical label value
+combinations. If a request has such duplicated MetricValue instances,
+the entire request is rejected with an invalid argument error.
+Array [
+metricName
+string
+MetricName: The metric name defined in the service configuration.
+metricValues
+object[]
+MetricValues: The values in this metric.
+Array [
+boolValue
+boolean
+BoolValue: A boolean value.
+doubleValue
+number
+DoubleValue: A double precision floating point value.
+endTime
+string
+EndTime: The end of the time period over which this metric value's
+measurement applies. If not specified,
+google.api.servicecontrol.v1.Operation.end_time will be used.
+int64Value
+string
+Int64Value: A signed 64-bit integer value.
+labels
+object
+Labels: The labels describing the metric value. See comments on
+google.api.servicecontrol.v1.Operation.labels for the overriding
+relationship. Note that this map must not contain monitored resource
+labels.
+property name*
+string
+moneyValue
+object
+MoneyValue: A money value.
+currencyCode
+string
+CurrencyCode: The three-letter currency code defined in ISO 4217.
+nanos
+integer
+Nanos: Number of nano (10^-9) units of the amount. The value must be
+between -999,999,999 and +999,999,999 inclusive. If
+units
+is
+positive,
+nanos
+must be positive or zero. If
+units
+is zero,
+nanos
+can be positive, zero, or negative. If
+units
+is negative,
+nanos
+must be negative or zero. For example $-1.75 is represented
+as
+units
+=-1 and
+nanos
+=-750,000,000.
+units
+string
+Units: The whole units of the amount. For example if
+currencyCode
+is "USD", then 1 unit is one US dollar.
+startTime
+string
+StartTime: The start of the time period over which this metric
+value's measurement applies. The time period has different semantics
+for different metric types (cumulative, delta, and gauge). See the
+metric definition documentation in the service configuration for
+details. If not specified,
+google.api.servicecontrol.v1.Operation.start_time will be used.
+stringValue
+string
+StringValue: A text string value.
+]
+]
+operationId
+string
+OperationId: Identity of the operation. This must be unique within
+the scope of the service that generated the operation. If the service
+calls Check() and Report() on the same operation, the two calls
+should carry the same id. UUID version 4 is recommended, though not
+required. In scenarios where an operation is computed from existing
+information and an idempotent id is desirable for deduplication
+purpose, UUID version 5 is recommended. See RFC 4122 for details.
+operationName
+string
+OperationName: Fully qualified name of the operation. Reserved for
+future use.
+startTime
+string
+StartTime: Required. Start time of the operation.
+gcpMeteringResponse
+object
+reportErrors
+object[]
+ReportErrors: Partial failures, one for each
+Operation
+in the request that
+failed processing. There are three possible combinations of the RPC status:
+The combination of a successful RPC status and an empty
+report_errors
+list indicates a complete success where all
+Operations
+in the request are
+processed successfully. 2. The combination of a successful RPC status and a
+non-empty
+report_errors
+list indicates a partial success where some
+Operations
+in the request succeeded. Each
+Operation
+that failed
+processing has a corresponding item in this list. 3. A failed RPC status
+indicates a general non-deterministic failure. When this happens, it's
+impossible to know which of the 'Operations' in the request succeeded or
+failed.
+Array [
+operationId
+string
+OperationId: The Operation.operation_id value from the request.
+status
+object
+Status: Details of the error when processing the Operation.
+code
+integer
+Code: The status code, which should be an enum value of google.rpc.Code.
+details
+array[]
+Details: A list of messages that carry the error details. There is a common
+set of message types for APIs to use.
+message
+string
+Message: A developer-facing error message, which should be in English. Any
+user-facing error message should be localized and sent in the
+google.rpc.Status.details field, or localized by the client.
+]
+serviceConfigId
+string
+ServiceConfigId: The actual config id used to process the request.
+serviceRolloutId
+string
+ServiceRolloutId: The current service rollout id used to process the
+request.
+includedRecords
+object
+The included usage records in the map of <DimensionKey, Count> for usage metering API v1.
+property name*
+number
+message
+string
+newDecimalParts
+object
+The decimal parts of the usage dimension quantity in the map of <DimensionKey, DecimalPart>,
+after this usage record report.
+property name*
+number
+partner
+string
+The partner where this usage record report is sent to. Such as AWS, AZURE or GCP.
+recordsToReportBeforeAdjustmentAtListPrice
+object
+The usage records to report before the adjustment by the commit with additional usage at list price,
+in the map of <DimensionKey, Count>.
+property name*
+number
+reportedRecords
+object
+The reported usage records in the map of <DimensionKey, Count> for usage metering API v1.
+property name*
+number
+startTime
+date-time
+time in UTC when the UsageRecordReport starts
+status
+UsageRecordReportStatus (string)
+Possible values:
+[``,
+SUCCESS
+,
+FAILED
+,
+CREATED
+,
+INVOICED
+,
+DELETED
+,
+CANCELED
+]
+usageRecordGroupIds
+string[]
+The IDs of UsageRecordGroups aggregated in this UsageRecordReport.
+usedCommitAmount
+number
+The amount of the used commit before this usage record report if applicable.
+usedCommitAmountIncrement
+number
+The amount of the used commit increment in this usage record report if applicable.
+usedCreditAmount
+number
+The amount of the used credit before this usage record report if applicable.
+usedCreditAmountIncrement
+number
+The amount of the used credit increment in this usage record report if applicable.
+organizationID
+string
+partner
+string
+productID
+string
+]
+{
+"nextOffset": 0,
+"usageRecordReports": [
+{
+"buyerID": "string",
+"creationTime": "2024-07-29T15:51:28.071Z",
+"entitlementID": "string",
+"entitlementTermID": "string",
+"id": "string",
+"info": {
+"aggregatedBillableRecords": [
+{
+"amount": 0,
+"billableMetricAggregationType": "COUNT",
+"billableMetricInfo": {
+"filterGroups": [
+{
+"filters": [
+{
+"name": "string",
+"operation": "IS",
+"valueType": "STRING"
+}
+]
+}
+],
+"groupBys": [
+"string"
+],
+"propertyUniqueOn": "string"
+},
+"groupBysExpression": "string",
+"key": "string",
+"name": "string",
+"quantity": 0,
+"uniqueCountAggregationResult": {
+"newItems": {}
+}
+}
+],
+"alibabaMeteringRequest": {
+"Metering": "string"
+},
+"alibabaMeteringResponse": {
+"RequestId": "string",
+"Success": true
+},
+"awsMeteringRequest": {
+"ProductCode": "string",
+"UsageRecords": [
+{
+"CustomerIdentifier": "string",
+"Dimension": "string",
+"Quantity": 0,
+"Timestamp": "2024-07-29T15:51:28.071Z",
+"UsageAllocations": [
+{
+"AllocatedUsageQuantity": 0,
+"Tags": [
+{
+"Key": "string",
+"Value": "string"
+}
+]
+}
+]
+}
+]
+},
+"awsMeteringResponse": {
+"resultMetadata": {},
+"results": [
+{
+"meteringRecordId": "string",
+"status": "Success",
+"usageRecord": {
+"customerIdentifier": "string",
+"dimension": "string",
+"quantity": 0,
+"timestamp": "string",
+"usageAllocations": [
+{
+"allocatedUsageQuantity": 0,
+"tags": [
+{
+"key": "string",
+"value": "string"
+}
+]
+}
+]
+}
+}
+],
+"unprocessedRecords": [
+{
+"customerIdentifier": "string",
+"dimension": "string",
+"quantity": 0,
+"timestamp": "string",
+"usageAllocations": [
+{
+"allocatedUsageQuantity": 0,
+"tags": [
+{
+"key": "string",
+"value": "string"
+}
+]
+}
+]
+}
+]
+},
+"azureMeteringRequest": {
+"request": [
+{
+"dimension": "string",
+"effectiveStartTime": "string",
+"planId": "string",
+"quantity": 0,
+"resourceId": "string",
+"resourceUri": "string"
+}
+]
+},
+"azureMeteringResponse": {
+"count": 0,
+"result": [
+{
+"dimension": "string",
+"effectiveStartTime": "string",
+"error": {
+"additionalInfo": {
+"acceptedMessage": {
+"dimension": "string",
+"effectiveStartTime": "string",
+"messageTime": "string",
+"planId": "string",
+"quantity": 0,
+"resourceId": "string",
+"resourceUri": "string",
+"status": "Accepted",
+"usageEventId": "string"
+}
+},
+"code": "string",
+"message": "string"
+},
+"messageTime": "string",
+"planId": "string",
+"quantity": 0,
+"resourceId": "string",
+"resourceUri": "string",
+"status": "Accepted",
+"usageEventId": "string"
+}
+]
+},
+"commitAmount": 0,
+"creditAmount": 0,
+"creditRecords": {},
+"decimalParts": {},
+"dimensionCategories": {},
+"dimensionUnitListPrice": {},
+"dimensionUnitPrice": {},
+"endTime": "2024-07-29T15:51:28.071Z",
+"gcpMeteringRequest": {
+"consumerId": "string",
+"endTime": "string",
+"labels": {},
+"metricValueSets": [
+{
+"metricName": "string",
+"metricValues": [
+{
+"boolValue": true,
+"doubleValue": 0,
+"endTime": "string",
+"int64Value": "0",
+"labels": {},
+"moneyValue": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "0"
+},
+"startTime": "string",
+"stringValue": "string"
+}
+]
+}
+],
+"operationId": "string",
+"operationName": "string",
+"startTime": "string"
+},
+"gcpMeteringResponse": {
+"reportErrors": [
+{
+"operationId": "string",
+"status": {
+"code": 0,
+"details": [
+[
+0
+]
+],
+"message": "string"
+}
+}
+],
+"serviceConfigId": "string",
+"serviceRolloutId": "string"
+},
+"includedRecords": {},
+"message": "string",
+"newDecimalParts": {},
+"partner": "string",
+"recordsToReportBeforeAdjustmentAtListPrice": {},
+"reportedRecords": {},
+"startTime": "2024-07-29T15:51:28.071Z",
+"status": "",
+"usageRecordGroupIds": [
+"string"
+],
+"usedCommitAmount": 0,
+"usedCommitAmountIncrement": 0,
+"usedCreditAmount": 0,
+"usedCreditAmountIncrement": 0
+},
+"organizationID": "string",
+"partner": "string",
+"productID": "string"
+}
+]
+}
+Bad request error
+application/json
+Schema
+Schema
+string
+Internal server error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+retry usageRecordGroup
+Next
+list notification events
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

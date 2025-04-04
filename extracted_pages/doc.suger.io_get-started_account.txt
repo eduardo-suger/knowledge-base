@@ -1,0 +1,189 @@
+Account | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Get Started
+Account
+On this page
+Account
+Manage user, organization & RBAC in Suger Console.
+Signup & Login
+​
+Suger use
+Auth0
+as the authentication & authorization provider. Both
+Sign in
+and
+Sign up
+share the same entry
+https://console.suger.io/login
+.
+Suger supports
+sso
+with
+Google
+,
+Microsoft
+and
+Okta
+(available upon request).
+Organization
+​
+All Suger resources are organized & managed under organization. Each user must belong to at least one organization.
+When you sign up for Suger for the first time, you will be prompted to create a new organization. However, please note that your organization will require approval from Suger in order to become active. To initiate the approval process for your newly created organization, please get in touch with
+Suger Support
+.
+The user who creates the organization has the
+ADMIN
+role as default. It is allowed to add new users, edit user role or delete the users. There are 3 predefined standard roles:
+ADMIN
+,
+EDITOR
+&
+VIEWER
+. Their permission scope is defined below:
+User Role
+RBAC Permissions
+ADMIN
+Full access, including management of users, organizations, API Client & Webhook.
+EDITOR
+Full access, but excluding the access to management of users, organizations, API Client & Webhook.
+VIEWER
+Can only access Suger services with
+read
+access, no permission to
+create/edit/delete
+any resources
+tip
+The
+email domain
+of the organization inherits from the user who created it.
+For security purpose, only the users who has the same
+email domain
+as the organization can be added to that organization.
+Custom Role with Granular Permissions
+​
+Custom roles offer precise control over permissions, allowing you to go beyond the limitations of predefined standard roles, which may be overly broad. This flexibility enables assigning specific permissions at a more granular level.
+Create Custom Role
+​
+Navigate to the
+settings page
+of your organization.
+Locate the
+Roles
+section under the
+Organization & Users
+tab.
+Click the
+Add Custom Role
+button.
+Fill in the name and description fields.
+Set permissions according to your specific requirements.
+Assign Custom Role to User
+​
+Once custom roles are created, you can apply them during the creation or modification of a user.
+Visit the
+settings page
+of your organization.
+Find the
+Users
+section under the
+Organization & Users
+tab.
+Add a new user by clicking the
+Add User
+button or edit an existing user by clicking the edit button in each user row.
+Set the role field in the
+Add User
+/
+Edit User
+dialog to the desired custom role.
+Edit Custom Role
+​
+Visit the
+settings page
+of your organization.
+Locate the
+Roles
+section under the
+Organization & Users
+tab.
+Click the edit button in each custom role row.
+Modify the name, description, and permissions as needed.
+Use Okta as Identity Provider
+​
+Suger supports
+Okta
+as an identity provider, allowing centralized user authentication and access management through your Okta account.
+Refer to
+Okta SSO
+for more details.
+Previous
+Get Started
+Next
+Resources
+Signup & Login
+Organization
+Custom Role with Granular Permissions
+Create Custom Role
+Assign Custom Role to User
+Edit Custom Role
+Use Okta as Identity Provider
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

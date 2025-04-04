@@ -1,0 +1,120 @@
+Outbound Referral | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Configuration
+Outbound Referral
+Inbound Referral
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Co-sell
+Outbound Referral
+On this page
+Outbound Referral
+Share opportunities from your CRM with partners
+Overview
+​
+With your co-sell configurations, sharing with partners can be as easy as a few mouse clicks.
+Outbox
+​
+Outbox is the place to show your CRM opportunities that are ready to be sent to partners.
+Without any configuration, this tab lists all your CRM opportunities.
+You can click the filter button to specify various filters to narrow down the scope:
+You can also use the search box on the top right:
+Share an Opportunity
+​
+Below is an example where we share a Salesforce opportunity with AWS.
+Find an opportunity from the Outbox.
+Click on the opportunity name (in
+teal
+color) which navigates to the detail page.
+Click the
+share
+button on the top right.
+In the pop-up dialog, fill in required fields. Also fill in optional fields as you need.
+If all validation passed, the
+Submit
+button will be clickable. Click on it.
+Suger sends this to AWS. This process usually takes ~5 seconds but sometimes it takes longer.
+The shared opportunity will be moved to the "In Sync" tab.
+You can click on it to check the details. You should see the "APN CRM Unique Identifier" in the "Destination" section on the bottom.
+Bulk Share
+​
+You can share multiple opportunities at the same time.
+This can be very efficient if your CRM data is in good quality (e.g., all postal codes are filled)
+and the field mappings & templates are well-configured.
+Click the
+Bulk Share
+button to enter the selection mode.
+Select those you want to share and click
+Submit
+.
+A dialog will pop out showing the AWS opportunity we are about to submit.
+You can click on any of them to check the details.
+If all validation passed, you can click the
+Submit
+button. Otherwise you'll need to manually fill them.
+Previous
+Configuration
+Next
+Inbound Referral
+Overview
+Outbox
+Share an Opportunity
+Bulk Share
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

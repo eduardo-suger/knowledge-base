@@ -1,0 +1,92 @@
+Create CPPO | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Configuration
+Create offer
+Create CPPO
+Create Co-Sell
+Workflow
+Analytics
+HubSpot App
+Create CPPO
+On this page
+Create CPPO
+Easily create CPPO using the Suger App within your HubSpot Console.
+Overview
+​
+After adding the Suger App to your HubSpot Console, you can quickly create CPPO from deals using the app with ease.
+Create an CPPO
+​
+Navigate to the deal's detail page and click the
+"Suger"
+tab at the top of the page.
+Locate and click the
+"CPPO"
+button.
+Choose the product on which the CPPO will be based.
+Complete the required fields in the form. Note that the required fields may vary depending on the type of CPPO.
+Once all necessary information is filled in, submit the form to create the CPPO.
+You are all set!
+Previous
+Create offer
+Next
+Create Co-Sell
+Overview
+Create an CPPO
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

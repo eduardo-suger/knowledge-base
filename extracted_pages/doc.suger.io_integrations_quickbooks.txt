@@ -1,0 +1,122 @@
+QuickBooks | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Alibaba Marketplace
+AWS Partner Network
+Google Bigquery
+Chargebee
+Databricks
+Google Cloud Storage
+Google Drive
+Google Mail
+HubSpot
+Lago
+Metronome
+Microsoft Teams
+NetSuite
+Okta SSO
+Orb
+QuickBooks
+Salesforce
+Slack
+Snowflake
+Stripe
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Integrations
+QuickBooks
+On this page
+QuickBooks
+Automate work in QuickBooks, and integrate QuickBooks with other applications
+Overview
+​
+Save yourself the work of writing custom integrations for QuickBooks by connecting Suger to your QuickBooks.
+Create Integration
+​
+Go to
+Settings
+and set up
+Redirect URIs
+in your QuickBooks App, it should be
+https://api.suger.cloud/public/integration/quickbooks/oauthCallback
+Find
+Client ID
+&
+Client secret
+in
+Keys & credentials
+. You'll need them in step 4
+Click the "Connect" button on the "Integrations" page.
+Fill in your credentials in the popup
+QuickBooks's authorization page will open up in a new tab, asking you to login (if you haven't yet), and select an account to start the integration.
+The integration status will become "Connected". Now locate the QuickBooks integration in the list, and click "Verify".
+Suger will attempt to read a few opportunities to verify the connection, after which the "Status" will become "Verified".
+Now you are all set!
+Delete Integration
+​
+To delete the integration, simply click the 🗑️ button in the "Integrations" list. We will remove any credentials in our system.
+You can also stop the integration by uninstalling the Suger App in your QuickBooks account settings.
+Previous
+Orb
+Next
+Salesforce
+Overview
+Create Integration
+Delete Integration
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

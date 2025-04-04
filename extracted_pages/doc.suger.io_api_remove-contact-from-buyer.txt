@@ -1,0 +1,206 @@
+remove contact from buyer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Contact
+remove contact from buyer
+remove contact from buyer
+DELETE
+/org/:orgId/contact/:contactId/buyer/:buyerId
+remove contact from buyer by the given organization, buyer id and contact id.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+buyerId
+string
+required
+Buyer ID
+contactId
+string
+required
+Contact ID
+Responses
+​
+200
+400
+500
+empty string if success
+application/json
+Schema
+Schema
+string
+Bad request error
+application/json
+Schema
+Schema
+string
+Internal server error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+add contact to buyer
+Next
+add contact to offer
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

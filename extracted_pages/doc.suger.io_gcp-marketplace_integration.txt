@@ -1,0 +1,324 @@
+Integration | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+GCP Marketplace
+Integration
+On this page
+Integration
+Grant Suger the necessary access to manage your GCP Marketplace & Producer Portal on your behalf, no more no less.
+Overview
+​
+To sell on GCP Marketplace, Your organization must join
+Google Cloud Partner Advantage
+and
+Google Cloud Marketplace vendor
+. There are several requirements to meet before you can list products/services on Google Cloud Marketplace. More details can be found
+here
+.
+Once your organization is approved as a
+Google Cloud Marketplace vendor
+and integrate with Suger, all product listing, private offers, entitlements & metering on GCP Marketplace can be managed in Suger platform on your behalf.
+Become Google Cloud Marketplace Vendor
+​
+To become Google Cloud Marketplace vendor and list service in Google Cloud Marketplace, you must meet
+these requirements
+.
+Login
+Google Cloud Partner Advantage
+, work with your Google Cloud sales representative or partner manager to nominate you as a vendor.
+After becoming Google Cloud Marketplace Vendor, you shall get access to Google Cloud Producer Portal in your GCP project.
+Integration Prerequisite
+​
+Suger relies on
+workload identity federation
+to get access to integrate & manage your GCP Marketplace. Follow the steps below to prepare resources required for Suger integration.
+Create Service Account
+. Follow the
+guideline
+to create a
+Service Account
+to let Suger AWS Account impersonate. You can name the Service Account with
+suger
+. Grant the Service Account with all IAM roles listed below:
+Editor of the GCP Project
+Commerce Producer Admin
+Commerce Price Management Private Offers Admin
+Consumer Procurement Entitlement Manager
+Consumer Procurement Order Administrator
+Pub/Sub Editor
+Service Controller
+Service Management Administrator
+Link Service Account to GCP Producer Portal
+. To access all of the information on the marketplace, the
+Service Account
+needs to be linked within your
+GCP Producer Portal
+. Follow the official
+guidelines
+to allow the
+Service Account
+to access Billing Integration, call Procurement API and subscribe to Pub/Sub topic.
+Authenticate Service Account
+. Run the command in your GCP cloud shell to authenticate the Service Account to create the pub/sub topic.
+gcloud auth activate-service-account --key-file=<path to your service account json file>
+Enable Workload Identity Federation on GCP Project
+. Enable the following APIs before we can configure
+Workload Identity Federation
+. Here is the
+quick link
+to setup. More details can be found in the
+official guideline
+.
+Identity and Access Management (IAM) API
+Cloud Commerce Consumer Procurement API
+Cloud Resource Manager API
+IAM Service Account Credentials API
+Security Token Service API
+Service Control API
+Service Management API
+Service Usage API
+Create a Workload Identity Pool
+. This pool is used by Suger AWS account as an external identity provider, to impersonate a
+Service Account
+and access resources on your Google Cloud Marketplace. Here is the
+official guideline
+. You can name the Workload Identity Pool with
+suger-wip
+.
+Add Suger AWS as Identity Provider
+. Get the Suger AWS Account ID from inquerying
+support@suger.io
+and add it as
+Identity Provider
+to the
+Workload Identity Pool
+(created in Step 2). You can name the Identity Provider with
+suger-aws-ip
+.
+Connect Service Account with Workload Identity Pool
+. This step allows Suger to impersonate the
+Service Account
+via the
+Workload Identity Federation
+. Go to the details page of the
+Workload Identity Pool
+(created in Step 2), click
+GRANT ACCESS
+, select the
+Service Account
+(created in Step 4) and save.
+After saving
+Grant access to service account
+, there will be a dialog pop-up, as shown below. Select the
+Identity Provider
+(created in Step 3).
+Download config json with content like:
+{
+"type": "external_account",
+"audience": "//iam.googleapis.com/projects/***/locations/global/workloadIdentityPools/***/providers/***",
+"subject_token_type": "urn:ietf:params:aws:token-type:aws4_request",
+"service_account_impersonation_url": "https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/***@***.iam.gserviceaccount.com:generateAccessToken",
+"token_url": "https://sts.googleapis.com/v1/token",
+"credential_source": {
+"environment_id": "aws1",
+"region_url": "http://169.254.169.254/latest/meta-data/placement/availability-zone",
+"url": "http://169.254.169.254/latest/meta-data/iam/security-credentials",
+"regional_cred_verification_url": "https://sts.{region}.amazonaws.com?Action=GetCallerIdentity&Version=2011-06-15"
+}
+}
+Grant the Workload Identity Pool principle
+principalSet://iam.googleapis.com/projects/gcp-project-number/locations/global/workloadIdentityPools/suger-wip/*
+with the role
+Workload Identity User
+in the permissions of the service account.
+Set up your Google Cloud environment
+. Grant the GCP service accounts with the following roles of you GCP Project & Service:
+cloud-commerce-marketplace-onboarding@twosync-src.google.com
+Project Editor
+Service Management Administrator
+cloud-commerce-producer@system.gserviceaccount.com
+Service Config Editor
+cloud-commerce-saastester@system.gserviceaccount.com
+Commerce Producer Viewer
+cloud-commerce-procurement@system.gserviceaccount.com
+Service Controller
+Service Usage Admin
+Service Management Administrator
+Service Consumer
+(on the service level, using commands below)
+# command to grant `Service Consumer` role
+gcloud endpoints services add
+-
+iam
+-
+policy
+-
+binding \
+"
+{
+your
+-
+product
+-
+service
+-
+id
+}
+.endpoints.
+{
+your
+-
+gcp
+-
+project
+-
+id
+}
+.cloud.goog" \
+-
+-
+member='serviceAccount
+:
+cloud
+-
+commerce
+-
+procurement@system.gserviceaccount.com' \
+-
+-
+role='roles/servicemanagement.serviceConsumer'
+Set up storage bucket to receive reports
+. Follow the
+official guidance here
+to set up the GCP storage bucket to receive the reports of your GCP marketplace sales.
+Create Integration
+​
+Click the button
+CONNECT
+and fill the dialog of GCP integration on
+Suger Console
+with info below.
+GCP Project ID
+.
+GCP Project Number
+.
+Workload Identity Pool ID
+: The ID of the
+Workload Identity Pool
+created in Step 2.
+Identity Provider ID
+: The ID of the
+Identity Provider
+created in Step 3.
+Service Account Email
+: The email of
+Service Acccount
+created in Step 4.
+Marketplace Partner/Provider ID
+: The Partner/Provider ID is assigned when your business gets approved to access GCP Marketplace Producer Portal. Often it is same as the
+Project ID
+.
+Report Bucket Name
+: The name of Google Storage bucket that is configured as the destination of revenue & usage metering reports.
+Edit Integration
+​
+Editing an existing GCP integration is not supported. The practical way is to delete it and then re-connect it with new inputs.
+Delete Integration
+​
+The GCP integration can be deleted like all other integrations. Once the deletion is triggered, all integration info  will be deleted immediately & permanently from Suger. No time window or methods to recover.
+Grant Suger GCP User Account
+​
+The GCP Marketplace currently does not provide comprehensive API capabilities for operations. To enhance the ability of Suger on your behalf in managing the GCP Marketplace efficiently, we recommend granting the 'Suger GCP User Account' specific IAM roles within your
+GCP project
+. These roles include
+Viewer of the Project
+Commerce Producer Admin
+Commerce Price Management Private Offers Admin
+Consumer Procurement Entitlement Manager
+Consumer Procurement Order Administrator
+If you wish to enable Suger to support resell offer discounts (CPPO), it is advisable to provide the 'Suger GCP User Account' with additional IAM roles within your
+GCP organization
+(Not the GCP Project). These roles are:
+Commerce Business Enablement Configuration Admin
+Commerce Business Enablement Reseller Discount Admin
+Commerce Producer Admin
+By assigning these roles strategically, you empower Suger with the necessary permissions to effectively manage and optimize GCP Marketplace operations on your behalf.
+tip
+To get the Suger GCP User Account, please contact us via
+support@suger.io
+Previous
+GCP Marketplace
+Next
+Pricing Model
+Overview
+Become Google Cloud Marketplace Vendor
+Integration Prerequisite
+Create Integration
+Edit Integration
+Delete Integration
+Grant Suger GCP User Account
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

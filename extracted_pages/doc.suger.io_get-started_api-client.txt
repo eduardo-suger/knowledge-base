@@ -1,0 +1,184 @@
+API Client | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Get Started
+API Client
+On this page
+API Client
+Access the Suger API via the API Client Auth
+Overview
+​
+To access the Suger API for integration purposes, it requires an API Client for authentication.
+warning
+Each organization can create up to
+FIVE
+API Clients.
+If your organization needs additional API Clients with specific justifications, please contact our support team at
+support@suger.io
+. We are available to help you manually add extra API Clients to your organization
+Create API Client With API Key
+​
+Visit the
+settings page
+of your organization. Find the
+API Client
+section as shown below.
+Click the button
+CREATE API CLIENT
+and select
+API_KEY
+as the Auth Type. Please store the
+API Key
+carefully in a safe place, since it only shows  once.
+Use API Key to Access Suger API
+​
+In order to access the suger API, you should include the
+API Key
+in the HTTP request header under the
+Authorization
+field, with the format
+Key ...
+. For example,
+curl -L -X GET 'https://api.suger.cloud/org/sugerOrgId/user' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Key 673d5b018d472f...'
+Create API Client With Bearer Token
+​
+danger
+Creating a new API client with bearer token is no longer supported. Instead, please create a new API client with API key.
+Existing API clients that use a bearer token can still be utilized to access the Suger API without any disruption.
+Visit the
+settings page
+of your organization. Find the
+API Client
+section as shown below.
+Click the button
+CREATE API CLIENT
+and select
+BEARER_TOKEN
+as the Auth Type. Please store the
+Client Secret
+carefully in a safe place, since it only shows  once.
+Get / Refresh Bearer Token
+​
+Send a
+POST
+request to
+https://api.suger.cloud/public/apiClient/accessToken
+following the
+API Auth Reference
+curl -L -X POST 'https://api.suger.cloud/public/apiClient/accessToken' \
+-H 'Content-Type: application/json' \
+-d '{
+"organizationID": "your-suger-organization-id",
+"id": "your-API-client-id",
+"secret": "your-API-client-secret"
+}'
+If succeed, you shall receive
+200 OK
+response with payload like below. The default expiration time of token is
+1 hour
+.
+{
+"access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6I...",
+"expires_in": 3600,
+"expires_on": "2023-05-15T04:41:58.670945Z",
+"token_type": "Bearer"
+}
+Use Bearer Token to Access Suger API
+​
+In order to access the suger API, you should include a
+bearer token
+in the HTTP request header under the
+Authorization
+field, with the format
+Bearer ...
+. For example,
+curl -L -X GET 'https://api.suger.cloud/org/sugerOrgId/user' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6I...'
+Rotate API Client Secret / API Key
+​
+Suger doesn't save your
+Client Secret
+or
+API Key
+. If you forget or lose it, the API client has to be rotated with a new secret or API Key. Click the rotate secret icon to do it. Once the
+Client Secret
+or
+API Key
+is rotated, the old one will be invalid immediately.
+Delete API Client
+​
+Click the delete icon to delete the API client. Then you are available to create a new one.
+Previous
+Resources
+Next
+Webhook
+Overview
+Create API Client With API Key
+Use API Key to Access Suger API
+Create API Client With Bearer Token
+Get / Refresh Bearer Token
+Use Bearer Token to Access Suger API
+Rotate API Client Secret / API Key
+Delete API Client
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

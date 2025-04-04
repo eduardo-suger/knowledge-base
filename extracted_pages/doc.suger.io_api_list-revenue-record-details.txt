@@ -1,0 +1,604 @@
+list revenue record details | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Report
+list revenue record details
+list revenue record details
+GET
+/org/:orgId/partner/:partner/revenueRecordDetail
+list the raw revenue record details for the given organization, partner, product, entitlement, or buyer.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+partner
+string
+required
+Possible values:
+[
+AWS
+,
+AZURE
+,
+GCP
+]
+Cloud Partner
+Query Parameters
+productId
+string
+Filter revenue record details by the given product ID
+buyerId
+string
+Filter revenue record details by the given buyer ID
+entitlementId
+string
+Filter revenue record details by the given entitlement ID
+startDate
+string
+start date (UTC) in YYYY-MM-DD format, default is 30 days before the endDate
+endDate
+string
+end date (UTC) in YYYY-MM-DD format, default is today
+limit
+integer
+List pagination size, default 1000, max value is 1000
+offset
+integer
+List pagination offset, default 0
+Responses
+​
+200
+400
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+nextOffset
+integer
+revenueRecordDetails
+object[]
+Array [
+awsRevenueRecordDetail
+object
+action
+string
+agreementID
+string
+amount
+number
+balanceImpacting
+integer
+bankTraceID
+string
+billingAddressID
+string
+brokerID
+string
+buyerID
+string
+currency
+string
+dataFeedProductID
+string
+disbursementBillingEventID
+string
+endUserAccountID
+string
+entitlementID
+string
+fromAccountID
+string
+id
+string
+insertDate
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+invoiceDate
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+invoiceID
+string
+offerID
+string
+organizationID
+string
+parentBillingEventID
+string
+paymentDueDate
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+productID
+string
+toAccountID
+string
+transactionReferenceID
+string
+transactionType
+string
+usagePeriodEndDate
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+usagePeriodStartDate
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+azureRevenueRecordDetail
+object
+azureAssetID
+string
+azureBillingAccountID
+string
+azureCustomerID
+string
+azureOfferID
+string
+azurePlanID
+string
+billingModel
+string
+buyerID
+string
+earningID
+string
+earningUsd
+number
+entitlementID
+string
+estimatedPayoutMonth
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+invoiceDate
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+invoiceDueDate
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+invoiceID
+string
+offerID
+string
+organizationID
+string
+paymentID
+string
+paymentSentDate
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+paymentStatus
+string
+payoutStatus
+string
+productID
+string
+programName
+string
+purchaseRecordID
+string
+resellerCity
+string
+resellerCompany
+string
+resellerCountry
+string
+resellerEmail
+string
+resellerID
+string
+resellerState
+string
+revenueUsd
+number
+termEndDate
+string
+termStartDate
+string
+transactionDate
+object
+time
+string
+valid
+boolean
+Valid is true if Time is not NULL
+gcpRevenueRecordDetail
+object
+abandoned
+number
+accountID
+string
+buyerID
+string
+charges
+number
+currency
+string
+dueVendor
+number
+entitlementID
+string
+googleEntity
+string
+insightAccountID
+string
+offerID
+string
+ordinal
+integer
+organizationID
+string
+paymentSchedule
+string
+paymentType
+string
+prepayCredits
+number
+productID
+string
+refundBalanceDeductedThisMonth
+number
+refundBalanceOutstanding
+number
+refundReason
+string
+released
+number
+reportDate
+string
+resource
+string
+sku
+string
+trialUse
+number
+unit
+string
+usage
+number
+usedBy
+string
+withheld
+number
+]
+{
+"nextOffset": 0,
+"revenueRecordDetails": [
+{
+"awsRevenueRecordDetail": {
+"action": "string",
+"agreementID": "string",
+"amount": 0,
+"balanceImpacting": 0,
+"bankTraceID": "string",
+"billingAddressID": "string",
+"brokerID": "string",
+"buyerID": "string",
+"currency": "string",
+"dataFeedProductID": "string",
+"disbursementBillingEventID": "string",
+"endUserAccountID": "string",
+"entitlementID": "string",
+"fromAccountID": "string",
+"id": "string",
+"insertDate": {
+"time": "string",
+"valid": true
+},
+"invoiceDate": {
+"time": "string",
+"valid": true
+},
+"invoiceID": "string",
+"offerID": "string",
+"organizationID": "string",
+"parentBillingEventID": "string",
+"paymentDueDate": {
+"time": "string",
+"valid": true
+},
+"productID": "string",
+"toAccountID": "string",
+"transactionReferenceID": "string",
+"transactionType": "string",
+"usagePeriodEndDate": {
+"time": "string",
+"valid": true
+},
+"usagePeriodStartDate": {
+"time": "string",
+"valid": true
+}
+},
+"azureRevenueRecordDetail": {
+"azureAssetID": "string",
+"azureBillingAccountID": "string",
+"azureCustomerID": "string",
+"azureOfferID": "string",
+"azurePlanID": "string",
+"billingModel": "string",
+"buyerID": "string",
+"earningID": "string",
+"earningUsd": 0,
+"entitlementID": "string",
+"estimatedPayoutMonth": {
+"time": "string",
+"valid": true
+},
+"invoiceDate": {
+"time": "string",
+"valid": true
+},
+"invoiceDueDate": {
+"time": "string",
+"valid": true
+},
+"invoiceID": "string",
+"offerID": "string",
+"organizationID": "string",
+"paymentID": "string",
+"paymentSentDate": {
+"time": "string",
+"valid": true
+},
+"paymentStatus": "string",
+"payoutStatus": "string",
+"productID": "string",
+"programName": "string",
+"purchaseRecordID": "string",
+"resellerCity": "string",
+"resellerCompany": "string",
+"resellerCountry": "string",
+"resellerEmail": "string",
+"resellerID": "string",
+"resellerState": "string",
+"revenueUsd": 0,
+"termEndDate": "string",
+"termStartDate": "string",
+"transactionDate": {
+"time": "string",
+"valid": true
+}
+},
+"gcpRevenueRecordDetail": {
+"abandoned": 0,
+"accountID": "string",
+"buyerID": "string",
+"charges": 0,
+"currency": "string",
+"dueVendor": 0,
+"entitlementID": "string",
+"googleEntity": "string",
+"insightAccountID": "string",
+"offerID": "string",
+"ordinal": 0,
+"organizationID": "string",
+"paymentSchedule": "string",
+"paymentType": "string",
+"prepayCredits": 0,
+"productID": "string",
+"refundBalanceDeductedThisMonth": 0,
+"refundBalanceOutstanding": 0,
+"refundReason": "string",
+"released": 0,
+"reportDate": "string",
+"resource": "string",
+"sku": "string",
+"trialUse": 0,
+"unit": "string",
+"usage": 0,
+"usedBy": "string",
+"withheld": 0
+}
+}
+]
+}
+Bad request error
+application/json
+Schema
+Schema
+string
+Internal server error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+list revenue records
+Next
+list usage metering daily records
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

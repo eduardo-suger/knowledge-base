@@ -1,0 +1,7199 @@
+update product fulfillment url | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Product
+update product fulfillment url
+update product fulfillment url
+PATCH
+/org/:orgId/product/:productId/fulfillmentUrl
+update the fulfillment url of the given product
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+productId
+string
+required
+Product ID
+application/json
+Body
+required
+Update Product Params
+fulfillmentUrl
+string
+required
+id
+string
+required
+organizationID
+string
+required
+Responses
+​
+200
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+createdBy
+string
+creationTime
+date-time
+externalID
+string
+fulfillmentUrl
+string
+id
+string
+info
+object
+alibabaProduct
+object
+AuditFailMsg
+string
+AuditStatus
+string
+AuditTime
+integer
+Code
+string
+Description
+string
+FrontCategoryId
+integer
+GmtCreated
+integer
+GmtModified
+integer
+Name
+string
+PicUrl
+string
+ProductExtras
+object
+ProductExtra
+object[]
+Array [
+Key
+string
+Label
+string
+Order
+integer
+Type
+string
+Values
+]
+ProductSkus
+object
+ProductSku
+object[]
+Array [
+ChargeType
+string
+POSTPAY or PREPAY
+Code
+string
+Constraints
+string
+Hidden
+boolean
+Modules
+object
+Module
+object[]
+Array [
+Code
+string
+Id
+string
+Name
+string
+Properties
+object
+Property
+object[]
+Array [
+DisplayUnit
+string
+Key
+string
+Name
+string
+PropertyValues
+object
+PropertyValue
+object[]
+Array [
+DisplayName
+string
+Max
+string
+Min
+string
+Remark
+string
+Step
+string
+Type
+string
+Value
+string
+]
+showType
+string
+]
+]
+Name
+string
+OrderPeriods
+object
+OrderPeriod
+object[]
+Array [
+Name
+string
+PeriodType
+string
+]
+]
+RequestId
+string
+Score
+number
+ShopInfo
+object
+Emails
+string
+Id
+integer
+Name
+string
+Telephones
+object
+Telephone
+string[]
+WangWangs
+object
+WangWang
+object[]
+Array [
+Remark
+string
+UserName
+string
+]
+ShortDescription
+string
+Status
+string
+SupplierPk
+integer
+Type
+string
+UseCount
+integer
+attributes
+object
+property name*
+string
+awsAmiProduct
+object
+Description
+object
+AssociatedProducts
+Categories
+string[]
+EuW8Submitted
+boolean
+Highlights
+string[]
+LongDescription
+string
+Manufacturer
+string
+ProductCode
+string
+ProductTitle
+string
+Registered
+boolean
+SearchKeywords
+string[]
+ShortDescription
+string
+Sku
+string
+UsW9Submitted
+boolean
+Visibility
+AwsMarketplaceProductVisibility (string)
+Possible values:
+[
+Limited
+,
+Public
+,
+Restricted
+,
+Unavailable
+,
+Draft
+]
+Dimensions
+object[]
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+PromotionalResources
+object
+AdditionalResources
+object[]
+Array [
+Text
+string
+Type
+string
+Url
+string
+]
+LogoUrl
+string
+Videos
+object[]
+Array [
+Title
+string
+Type
+string
+Url
+string
+]
+Repositories
+object[]
+Array [
+Type
+string
+Url
+string
+]
+SignatureVerificationKeys
+object[]
+Array [
+PublicKey
+string
+PublicKeyVersion
+integer
+Status
+string
+]
+SupportInformation
+object
+Description
+string
+Versions
+object[]
+Array [
+CreationDate
+date-time
+DeliveryOptions
+object[]
+Array [
+AmiAlias
+string
+Exclusive Fields For AWS AMI Product
+FulfillmentUrl
+string
+Exclusive Fields For AWS SaaS Product
+Id
+string
+Recommendations
+ShortDescription
+string
+SourceId
+string
+Title
+string
+Exclusive Fields For AWS Container Product
+Type
+string
+Visibility
+string
+]
+Id
+string
+ReleaseNotes
+string
+VersionTitle
+string
+]
+dataFeedProductId
+string
+The product Id in AWS Marketplace Data Feed Service.
+productId
+string
+AWS Product ID
+awsContainerProduct
+object
+Description
+object
+AssociatedProducts
+Categories
+string[]
+EuW8Submitted
+boolean
+Highlights
+string[]
+LongDescription
+string
+Manufacturer
+string
+ProductCode
+string
+ProductTitle
+string
+Registered
+boolean
+SearchKeywords
+string[]
+ShortDescription
+string
+Sku
+string
+UsW9Submitted
+boolean
+Visibility
+AwsMarketplaceProductVisibility (string)
+Possible values:
+[
+Limited
+,
+Public
+,
+Restricted
+,
+Unavailable
+,
+Draft
+]
+Dimensions
+object[]
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+PromotionalResources
+object
+AdditionalResources
+object[]
+Array [
+Text
+string
+Type
+string
+Url
+string
+]
+LogoUrl
+string
+Videos
+object[]
+Array [
+Title
+string
+Type
+string
+Url
+string
+]
+Repositories
+object[]
+Array [
+Type
+string
+Url
+string
+]
+SignatureVerificationKeys
+object[]
+Array [
+PublicKey
+string
+PublicKeyVersion
+integer
+Status
+string
+]
+SupportInformation
+object
+Description
+string
+Versions
+object[]
+Array [
+CreationDate
+date-time
+DeliveryOptions
+object[]
+Array [
+AmiAlias
+string
+Exclusive Fields For AWS AMI Product
+FulfillmentUrl
+string
+Exclusive Fields For AWS SaaS Product
+Id
+string
+Recommendations
+ShortDescription
+string
+SourceId
+string
+Title
+string
+Exclusive Fields For AWS Container Product
+Type
+string
+Visibility
+string
+]
+Id
+string
+ReleaseNotes
+string
+VersionTitle
+string
+]
+dataFeedProductId
+string
+The product Id in AWS Marketplace Data Feed Service.
+productId
+string
+AWS Product ID
+awsProfessionalServicesProduct
+object
+Description
+object
+AssociatedProducts
+Categories
+string[]
+EuW8Submitted
+boolean
+Highlights
+string[]
+LongDescription
+string
+Manufacturer
+string
+ProductCode
+string
+ProductTitle
+string
+Registered
+boolean
+SearchKeywords
+string[]
+ShortDescription
+string
+Sku
+string
+UsW9Submitted
+boolean
+Visibility
+AwsMarketplaceProductVisibility (string)
+Possible values:
+[
+Limited
+,
+Public
+,
+Restricted
+,
+Unavailable
+,
+Draft
+]
+Dimensions
+object[]
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+PromotionalResources
+object
+AdditionalResources
+object[]
+Array [
+Text
+string
+Type
+string
+Url
+string
+]
+LogoUrl
+string
+Videos
+object[]
+Array [
+Title
+string
+Type
+string
+Url
+string
+]
+Repositories
+object[]
+Array [
+Type
+string
+Url
+string
+]
+SignatureVerificationKeys
+object[]
+Array [
+PublicKey
+string
+PublicKeyVersion
+integer
+Status
+string
+]
+SupportInformation
+object
+Description
+string
+Versions
+object[]
+Array [
+CreationDate
+date-time
+DeliveryOptions
+object[]
+Array [
+AmiAlias
+string
+Exclusive Fields For AWS AMI Product
+FulfillmentUrl
+string
+Exclusive Fields For AWS SaaS Product
+Id
+string
+Recommendations
+ShortDescription
+string
+SourceId
+string
+Title
+string
+Exclusive Fields For AWS Container Product
+Type
+string
+Visibility
+string
+]
+Id
+string
+ReleaseNotes
+string
+VersionTitle
+string
+]
+dataFeedProductId
+string
+The product Id in AWS Marketplace Data Feed Service.
+productId
+string
+AWS Product ID
+awsSaasProduct
+object
+Description
+object
+AssociatedProducts
+Categories
+string[]
+EuW8Submitted
+boolean
+Highlights
+string[]
+LongDescription
+string
+Manufacturer
+string
+ProductCode
+string
+ProductTitle
+string
+Registered
+boolean
+SearchKeywords
+string[]
+ShortDescription
+string
+Sku
+string
+UsW9Submitted
+boolean
+Visibility
+AwsMarketplaceProductVisibility (string)
+Possible values:
+[
+Limited
+,
+Public
+,
+Restricted
+,
+Unavailable
+,
+Draft
+]
+Dimensions
+object[]
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+PromotionalResources
+object
+AdditionalResources
+object[]
+Array [
+Text
+string
+Type
+string
+Url
+string
+]
+LogoUrl
+string
+Videos
+object[]
+Array [
+Title
+string
+Type
+string
+Url
+string
+]
+Repositories
+object[]
+Array [
+Type
+string
+Url
+string
+]
+SignatureVerificationKeys
+object[]
+Array [
+PublicKey
+string
+PublicKeyVersion
+integer
+Status
+string
+]
+SupportInformation
+object
+Description
+string
+Versions
+object[]
+Array [
+CreationDate
+date-time
+DeliveryOptions
+object[]
+Array [
+AmiAlias
+string
+Exclusive Fields For AWS AMI Product
+FulfillmentUrl
+string
+Exclusive Fields For AWS SaaS Product
+Id
+string
+Recommendations
+ShortDescription
+string
+SourceId
+string
+Title
+string
+Exclusive Fields For AWS Container Product
+Type
+string
+Visibility
+string
+]
+Id
+string
+ReleaseNotes
+string
+VersionTitle
+string
+]
+dataFeedProductId
+string
+The product Id in AWS Marketplace Data Feed Service.
+productId
+string
+AWS Product ID
+awsSnsSubscriptions
+object[]
+Array [
+Endpoint
+string
+Protocol
+string
+Status
+AwsSnsSubscriptionStatus (string)
+Possible values:
+[
+UNKNOWN
+,
+CONFIRMED
+,
+PENDING_CONFIRMATION
+]
+SubscriptionArn
+string
+TopicArn
+string
+]
+azureProduct
+object
+availabilities
+object[]
+Array [
+emailAudiences
+object[]
+Array [
+description
+string
+id
+string
+]
+enterpriseLicensing
+string
+id
+string
+resourceType
+string
+subscriptionAudiences
+object[]
+Array [
+description
+string
+id
+string
+]
+visibility
+string
+]
+branches
+object[]
+Array [
+currentDraftInstanceID
+string
+friendlyName
+string
+id
+string
+module
+string
+resourceType
+string
+type
+string
+variantID
+string
+]
+externalIDs
+object[]
+Array [
+type
+string
+value
+string
+]
+id
+string
+isModularPublishing
+boolean
+listings
+object[]
+Array [
+accessInformation
+string
+assets
+object[]
+Not original fields. They are populated by other API calls
+Array [
+description
+string
+fileName
+string
+fileSasUri
+string
+friendlyName
+string
+id
+string
+order
+integer
+publisherDefinedSasUri
+string
+resourceType
+string
+Possible values:
+[
+ListingAsset
+,
+ListingImage
+,
+ListingVideo
+]
+state
+string
+Possible values:
+[
+PendingUpload
+,
+Uploaded
+,
+InProcessing
+,
+Processed
+,
+ProcessFailed
+]
+type
+string
+]
+compatibleProducts
+string[]
+description
+string
+gettingStartedInstructions
+string
+id
+string
+keywords
+string[]
+languageCode
+string
+listingContacts
+object[]
+Array [
+email
+string
+name
+string
+phone
+string
+type
+string
+Possible values:
+[
+CustomerSupport
+,
+Engineering
+,
+ChannelManager
+]
+uri
+string
+]
+listingUris
+object[]
+Array [
+displayText
+string
+subtype
+string
+type
+string
+uri
+string
+]
+productDisplayName
+string
+publisherName
+string
+resourceType
+string
+Possible values:
+[
+AzureListing
+]
+shortDescription
+string
+summary
+string
+title
+string
+]
+name
+string
+packageConfigurations
+object[]
+Array [
+azureActiveDirectoryApplicationID
+string
+azureActiveDirectoryTenantID
+string
+connectionWebhook
+string
+id
+string
+landingPageUri
+string
+resourceType
+string
+Possible values:
+[
+AzureSoftwareAsAServicePackageConfiguration
+]
+]
+plans
+object[]
+All plans under this product
+Array [
+$schema
+string
+id
+string
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+offerPricingType
+AzureMarketplaceOfferPricingType (string)
+Possible values:
+[``,
+editExistingOfferPricingOnly
+,
+saasNewCustomizedPlans
+,
+vmSoftwareReservations
+]
+plan
+string
+planName
+string
+The azure plan friendly name, from the Azure Marketplace.
+pricing
+object
+customMeters
+object
+meters
+One of PriceAndAvailabilityCustomMeter_USD or PriceAndAvailabilityCustomMeter_PerMarket
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+recurrentPrice
+object
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+prices
+object[]
+Array [
+billingTerm
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+paymentOption
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+pricePerPaymentInUsd
+number
+prices
+object[]
+Array [
+currency
+string
+ISO 4217 currency code
+markets
+string[]
+PriceAndAvailability audience definition
+price
+number
+Prices   interface{}
+json:"prices,omitempty"
+]
+]
+recurrentPriceMode
+string
+Possible values:
+[
+flatRate
+,
+perUser
+]
+default "flatRate"
+userLimits
+object
+max
+number
+min
+number
+product
+string
+resourceName
+string
+softwareReservation
+object
+paymentSchedule
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+reservationDuration
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+vmPrices
+object
+patternProperties
+object
+property name*
+AzureMarketplaceVmPricePropertyItem
+quantity
+number
+unitPricePerPaymentPeriodInUsd
+number
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+visibility
+string
+Possible values:
+[
+visible
+,
+hidden
+]
+default "visible"
+]
+properties
+object[]
+Array [
+additionalCategories
+string[]
+appVersion
+string
+applicableProducts
+string[]
+categories
+string[]
+customAmendments
+string[]
+extendedProperties
+string[]
+globalAmendmentTerms
+string
+hideKeys
+string[]
+id
+string
+industries
+string[]
+leveledCategories
+object
+property name*
+any
+leveledIndustries
+object
+property name*
+any
+marketingOnlyChange
+boolean
+productTags
+string[]
+resourceType
+string
+submissionVersion
+string
+termsOfUse
+string
+useEnterpriseContract
+boolean
+]
+resourceType
+string
+setup
+object
+callToAction
+string
+Possible values:
+[
+free
+,
+free-trial
+,
+contact-me
+]
+channelStates
+object[]
+Array [
+type
+string
+value
+string
+]
+enableTestDrive
+boolean
+resourceType
+string
+Possible values:
+[
+AzureProductSetup
+]
+sellingOption
+string
+Possible values:
+[
+ListingOnly
+,
+ListAndSell
+]
+testDriveType
+string
+trialUri
+string
+submissions
+object[]
+Array [
+areResourcesReady
+boolean
+friendlyName
+string
+id
+string
+pendingUpdateInfo
+object
+status
+string
+updateType
+string
+publishedTimeInUtc
+date-time
+releaseNumber
+integer
+resourceType
+string
+Possible values:
+[
+Submission
+]
+resources
+object[]
+Array [
+type
+string
+value
+string
+]
+state
+string
+Possible values:
+[
+Inprogress
+,
+Published
+]
+subState
+string
+Possible values:
+[
+InDraft
+,
+Submitted
+,
+Failed
+,
+FailedInCertification
+,
+ReadyToPublish
+,
+Publishing
+,
+Published
+,
+InStore
+]
+targets
+object[]
+Array [
+type
+string
+value
+string
+]
+variantResources
+object[]
+Array [
+resources
+object[]
+Array [
+type
+string
+value
+string
+]
+variantID
+string
+]
+]
+variants
+object[]
+Array [
+azureGovernmentCertifications
+object[]
+Array [
+title
+string
+uri
+string
+validationResults
+object[]
+Array [
+errorMessage
+string
+memberNames
+string[]
+]
+]
+cloudAvailabilities
+string[]
+conversionPaths
+string
+extendedProperties
+object[]
+Array [
+type
+string
+value
+string
+]
+externalID
+string
+featureAvailabilities
+object[]
+Not original fields. They are populated by other API calls
+Array [
+customMeters
+object[]
+Array [
+displayName
+string
+id
+string
+includedBaseQuantities
+object[]
+Array [
+isInfinite
+boolean
+quantity
+number
+recurringUnit
+string
+Possible values:
+[
+Monthly
+,
+Annual
+]
+]
+isEnabled
+boolean
+priceInUsd
+number
+uniqueID
+string
+unitOfMeasure
+string
+]
+id
+string
+isHidden
+boolean
+marketStates
+object[]
+Array [
+marketCode
+string
+ISO Country Code
+state
+string
+Possible values:
+[
+Disabled
+,
+Enabled
+,
+StopSelling
+,
+Terminated
+]
+]
+markets
+object[]
+Array [
+friendlyName
+string
+marketCode
+string
+ISO Country Code
+]
+priceSchedules
+object[]
+Array [
+dateTimeRange
+object
+endAt
+object
+dateTimeInUtc
+string
+localizePerMarket
+boolean
+startAt
+object
+dateTimeInUtc
+string
+localizePerMarket
+boolean
+friendlyName
+string
+isBaseSchedule
+boolean
+There is only one base schedule.
+marketCodes
+string[]
+ISO country code
+schedules
+object[]
+Array [
+priceCadence
+object
+type
+string
+Possible values:
+[
+Month
+,
+Year
+]
+value
+integer
+pricingModel
+string
+Possible values:
+[
+Flat
+,
+Recurring
+,
+Usage
+]
+pricingUnits
+object[]
+Array [
+isUnlimitedUnit
+boolean
+lowerUnit
+integer
+name
+string
+Possible values:
+[
+sharedcore
+,
+transactions
+]
+unitType
+string
+upperUnit
+integer
+]
+retailPrice
+object
+currencyCode
+string
+ISO currency code, Three characters
+openPrice
+number
+priceTierID
+string
+]
+]
+properties
+object[]
+Array [
+type
+string
+value
+string
+]
+resourceType
+string
+ResourceType = FeatureAvailability
+subscriptionAudiences
+object[]
+Array [
+description
+string
+id
+string
+]
+tenantAudiences
+object[]
+Array [
+description
+string
+id
+string
+]
+trial
+object
+dateTimeRange
+object
+endAt
+object
+dateTimeInUtc
+string
+localizePerMarket
+boolean
+startAt
+object
+dateTimeInUtc
+string
+localizePerMarket
+boolean
+duration
+integer
+durationType
+string
+Possible values:
+[
+Minute
+,
+Days
+,
+Months
+]
+type
+string
+Possible values:
+[
+NoTrial
+,
+TimedAccess
+,
+TimedUsage
+,
+Unlimited
+]
+visibility
+string
+Possible values:
+[
+Public
+,
+Private
+]
+]
+friendlyName
+string
+id
+string
+leadGenID
+string
+referenceVariantID
+string
+resourceType
+string
+Possible values:
+[
+AzureSkuVariant
+,
+AzureTestDriveVariant
+]
+state
+string
+Possible values:
+[
+InActive
+,
+Active
+]
+]
+azureProductResource
+object
+customerLeads
+object
+$schema
+string
+blobLeadConfiguration
+dynamicsLeadConfiguration
+emailLeadConfiguration
+httpsEndpointLeadConfiguration
+id
+string
+leadDestination
+string
+Possible values:
+[
+none
+,
+blob
+,
+dynamics
+,
+email
+,
+httpsEndpoint
+,
+marketo
+,
+salesforce
+,
+table
+]
+marketoLeadConfiguration
+product
+string
+resourceName
+string
+salesforceLeadConfiguration
+tableLeadConfiguration
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+listing
+object
+$schema
+string
+cloudSolutionProviderContact
+object
+email
+string
+name
+string
+phone
+string
+url
+string
+in patern of "^(http|https)://"
+cloudSolutionProviderMarketingMaterials
+string
+description
+string
+engineeringContact
+object
+email
+string
+name
+string
+phone
+string
+url
+string
+in patern of "^(http|https)://"
+generalLinks
+object[]
+Array [
+displayText
+string
+link
+string
+in patern of "^(http|https)://"
+]
+gettingStartedInstructions
+string
+gloabalSupportWebsite
+string
+governmentSupportWebsite
+string
+id
+string
+kind
+string
+Possible values:
+[
+azureSaaS
+,
+azureVM
+,
+xbox360NonBackCompat
+]
+languageId
+string
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+privacyPolicyLink
+string
+product
+string
+Product resource name, in format of "product/product-durable-id"
+resourceName
+string
+searchKeywords
+string[]
+searchResultSummary
+string
+shortDescription
+string
+supportContact
+object
+email
+string
+name
+string
+phone
+string
+url
+string
+in patern of "^(http|https)://"
+title
+string
+Max string length is 200.
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+listingAssets
+object[]
+Array [
+$schema
+string
+description
+string
+displayOrder
+integer
+minimum: 0
+fileName
+string
+friendlyName
+string
+id
+string
+kind
+string
+Possible values:
+[
+azure
+]
+languageId
+string
+Max string length is 10.
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+listing
+string
+product
+string
+Product resource name, in format of "product/product-durable-id"
+resourceName
+string
+type
+AzureMarketplaceListingAssetType (string)
+Possible values:
+[
+azureLogoSmall
+,
+azureLogoMedium
+,
+azureLogoLarge
+,
+azureLogoWide
+,
+azureLogoScreenshot
+,
+azureLogoHero
+,
+pdfDocument
+]
+url
+string
+pattern: "^https?://"
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+]
+plans
+object[]
+Array [
+plan
+object
+$schema
+string
+alias
+string
+azureGovernmentCertifications
+object[]
+Array [
+link
+string
+in patern of "^(http|https)://"
+name
+string
+]
+azureRegions
+string[]
+enums:[azureGlobal,azureGovernment,azureGermany,azureChina]
+deprecationSchedule
+object
+$schema
+string
+alternative
+object
+plan
+product
+date
+string
+format: date-time
+dateOffset
+string
+format: duration
+reason
+string
+Possible values:
+[
+criticalSecurityIssue
+,
+endOfSupport
+,
+other
+]
+displayRank
+integer
+default 2147483647
+id
+string
+in format of "plan/product-durable-id/plan-durable-id"
+identity
+object
+externalId
+string
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+product
+string
+in format of "product/product-durable-id"
+resourceName
+string
+subtype
+string
+Possible values:
+[
+managedApplication
+,
+solutionTemplate
+]
+Specifies the plan type (AzureApplication-type products only) see: https://go.microsoft.com/fwlink/?linkid=2106322
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+planListing
+object
+$schema
+string
+description
+string
+id
+string
+kind
+string
+Possible values:
+[
+azureVM-plan
+,
+azureSaaS-plan
+,
+azureCoreVM-plan
+,
+azureContainer-plan
+]
+languageId
+string
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+name
+string
+plan
+string
+product
+string
+resourceName
+string
+summary
+string
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+priceAndAvailabilityPlan
+object
+$schema
+string
+audience
+string
+Possible values:
+[
+public
+,
+private
+]
+billingTag
+string
+id
+string
+markets
+string[]
+meterDefine
+string
+plan
+string
+pricing
+object
+corePricing
+object
+price
+number
+priceInputOption
+string
+Possible values:
+[
+free
+,
+flat
+,
+perCore
+,
+perCoreSize
+,
+perMarketAndCoreSize
+]
+pricePerCore
+number
+pricePerCoreSize
+prices
+object[]
+Array [
+currency
+string
+ISO 4217 currency code
+markets
+string[]
+PriceAndAvailability audience definition
+price
+number
+Prices   interface{}
+json:"prices,omitempty"
+]
+customMeters
+object
+meters
+object
+property name*
+AzureMarketplacePriceAndAvailabilityCustomMeterPriceMeterItem
+billingTerm
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+includedQuantities
+object[]
+Array [
+billingTerm
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+isInfinite
+boolean
+quantity
+number
+]
+paymentOption
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+pricePerPaymentInUsd
+number
+prices
+object[]
+Array [
+pricePerPaymentInUsd
+number
+prices
+object[]
+Array [
+currency
+string
+ISO 4217 currency code
+markets
+string[]
+PriceAndAvailability audience definition
+price
+number
+Prices   interface{}
+json:"prices,omitempty"
+]
+]
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+licenseModel
+string
+Possible values:
+[
+byol
+,
+payAsYouGo
+]
+recurrentPrice
+object
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+prices
+object[]
+Array [
+billingTerm
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+paymentOption
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+pricePerPaymentInUsd
+number
+prices
+object[]
+Array [
+currency
+string
+ISO 4217 currency code
+markets
+string[]
+PriceAndAvailability audience definition
+price
+number
+Prices   interface{}
+json:"prices,omitempty"
+]
+]
+recurrentPriceMode
+string
+Possible values:
+[
+flatRate
+,
+perUser
+]
+default "flatRate"
+userLimits
+object
+max
+number
+min
+number
+systemMeterPricing
+object
+price
+number
+default 0
+priceInputOption
+string
+Possible values:
+[
+perCore
+,
+perEveryCoreInCluster
+,
+perNode
+,
+perEveryNodeInCluster
+,
+perPod
+,
+perCluster
+]
+prices
+object[]
+Array [
+currency
+string
+ISO 4217 currency code
+markets
+string[]
+PriceAndAvailability audience definition
+price
+number
+Prices   interface{}
+json:"prices,omitempty"
+]
+privateAudiences
+object[]
+Array [
+id
+string
+label
+string
+type
+string
+Possible values:
+[
+none
+,
+subscription
+,
+ea
+,
+msdn
+,
+tenant
+,
+email
+]
+]
+product
+string
+resourceName
+string
+softwareReservation
+object[]
+Array [
+percentageSave
+number
+default 0
+term
+number
+default 0
+type
+string
+Possible values:
+[
+month
+,
+year
+]
+]
+trial
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+visibility
+string
+Possible values:
+[
+visible
+,
+hidden
+]
+]
+priceAndAvailabilityCustomMeter
+object
+$schema
+string
+customMeters
+object
+property name*
+AzureMarketplacePriceAndAvailabilityCustomMeterItem
+displayName
+string
+price
+number
+Suger's custom field, for Suger internal use only. Not from Microsoft official schema.
+unitOfMeasure
+string
+id
+string
+product
+string
+resourceName
+string
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+priceAndAvailabilityOffer
+object
+$schema
+string
+id
+string
+previewAudiences
+object[]
+Array [
+id
+string
+label
+string
+type
+string
+Possible values:
+[
+none
+,
+subscription
+,
+ea
+,
+msdn
+,
+tenant
+,
+email
+]
+]
+product
+string
+resourceName
+string
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+product
+object
+$schema
+string
+alias
+string
+The Product Display Name
+id
+string
+in format of "product/product-durable-id"
+identity
+object
+externalId
+string
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+productGroup
+string
+resourceName
+string
+type
+AzureMarketplaceProductType (string)
+Possible values:
+[
+azureApplication
+,
+azureContainer
+,
+azureVirtualMachine
+,
+consultingService
+,
+containerApp
+,
+coreVirtualMachine
+,
+cosellOnly
+,
+dynamics365BusinessCentral
+,
+dynamics365ForCustomerEngagement
+,
+dynamics365ForOperations
+,
+iotEdgeModule
+,
+managedService
+,
+powerBiApp
+,
+powerBiVisual
+,
+softwareAsAService
+,
+xbox360NonBackcompat
+]
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+property
+object
+$schema
+string
+appVersion
+string
+categories
+object
+property name*
+string[]
+Array [
+string
+]
+cloudIndustries
+object
+property name*
+string[]
+Array [
+string
+]
+customAmendments
+object[]
+Array [
+tenants
+object
+manualEntries
+object[]
+Array [
+description
+string
+id
+string
+]
+terms
+string
+]
+id
+string
+industries
+object
+property name*
+string[]
+Array [
+string
+]
+kind
+string
+Possible values:
+[
+azureSaaS
+,
+azureVM
+]
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+product
+string
+resourceName
+string
+standardContractAmendment
+string
+termsConditions
+string
+Possible values:
+[
+custom
+,
+standardMicrosoft
+]
+termsOfUse
+string
+termsOfUseUrl
+string
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+reseller
+object
+$schema
+string
+audiences
+object[]
+Array [
+description
+string
+resourceId
+string
+type
+string
+Possible values:
+[
+subscription
+]
+]
+id
+string
+product
+string
+resellerChannelState
+string
+resourceName
+string
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+setup
+object
+$schema
+string
+accessUrl
+string
+in patern of "^(http|https)://"
+callToAction
+string
+Possible values:
+[
+free
+,
+freeTrial
+,
+contactMe
+]
+id
+string
+In format of "commercial-marketplace-setup/setup-durable-id"
+product
+string
+Product resource name, in format of "product/product-durable-id"
+requireLicenseForInstall
+boolean
+resourceName
+string
+sellThroughMicrosoft
+boolean
+useMicrosoftLicenseManagementService
+boolean
+If true, only per_user pricing model is allowed.
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+submission
+object
+$schema
+string
+created
+string
+Date-time string
+deprecationSchedule
+object
+$schema
+string
+alternative
+object
+plan
+product
+date
+string
+format: date-time
+dateOffset
+string
+format: duration
+reason
+string
+Possible values:
+[
+criticalSecurityIssue
+,
+endOfSupport
+,
+other
+]
+id
+string
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+product
+string
+resourceName
+string
+result
+string
+Possible values:
+[
+succeeded
+,
+failed
+,
+pending
+]
+status
+string
+Possible values:
+[
+notStarted
+,
+running
+,
+completed
+]
+target
+object
+targetId
+string
+targetType
+string
+Possible values:
+[
+flight
+,
+sandbox
+,
+draft
+,
+preview
+,
+live
+,
+certification
+,
+retail
+]
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+technicalConfiguration
+object
+$schema
+string
+azureAdAppId
+string
+Azure AD Application Id
+azureAdTenantId
+string
+Azure AD Tenant Id
+connectionWebhook
+string
+id
+string
+landingPageUrl
+string
+product
+string
+in format of "product/product-durable-id"
+resourceName
+string
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+commits
+object[]
+Array [
+category
+string
+description
+string
+isUserCreated
+boolean
+Whether this commit dimension is newly created by user,
+when creating AWS Marketplace Contract private offer.
+key
+string
+API name of the dimension
+length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+If the length is zero, use the TermEndTime.
+maximumUsers
+integer
+Possible values:
+>= 1
+and
+<= 1000000
+Default value:
+1000000
+The maximum number of users for PER_USER commit
+minimumUsers
+integer
+Possible values:
+>= 1
+and
+<= 1000000
+Default value:
+1
+The minimum number of users for PER_USER commit
+name
+string
+Display name of the dimension
+quantity
+integer
+The quantity of this commit.
+rate
+number
+The commit amount. For GCP, it is monthly commitment.
+term
+string
+The term of the commit amount. It is used for front-end display only.
+termEndTime
+string
+The end time of the commit term.
+timeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+type
+CommitDimensionType (string)
+Possible values:
+[
+FLAT_RATE
+,
+PER_USER
+]
+types
+string[]
+These indicate whether the dimension covers metering, entitlement, or support for external metering
+]
+currency
+string
+dimensions
+object[]
+Array [
+category
+string
+description
+string
+includedBaseQuantities
+object[]
+how many quantities of this dimension are included in the commit.
+Array [
+isInfinite
+boolean
+quantity
+number
+recurringUnit
+string
+Possible values:
+[
+Monthly
+,
+Annual
+]
+]
+key
+string
+name
+string
+Display name of the dimension. For GCP Marketplace, it is the metering metric ID without plan prefix.
+planId
+string
+The plan ID of the metering dimension. Applicable to GCP Marketplace only.
+No ISO duration suffix.
+planName
+string
+The name of the plan for the metering dimension. Applicable to GCP Marketplace only.
+It may contains the ISO duration suffix, such as P1Y.
+priceTiers
+object[]
+The price tiers of the metering dimension. Applicable to GCP Marketplace only.
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+rate
+number
+The unit price of this usage metering dimension.
+skuId
+string
+The SKU ID of the metering dimension. Applicable to GCP Marketplace only.
+types
+string[]
+usageCount
+object
+creditCount
+number
+The count of this dimension usage records that are handled as credit.
+includedCount
+number
+The count of this dimension usage records that are handled as included in IncludedBaseQuantity
+reportedCount
+number
+The count of this dimension usage records that are reported to cloud vendors.
+valueType
+ValueType (string)
+Possible values:
+[``,
+VALUE_TYPE_UNSPECIFIED
+,
+BOOL
+,
+INT64
+,
+DOUBLE
+,
+STRING
+,
+DISTRIBUTION
+,
+MONEY
+]
+]
+eulaType
+EulaType (string)
+Possible values:
+[``,
+SCMP
+,
+ECMP
+,
+RCMP
+,
+CUSTOM
+,
+ISV
+,
+CURRENT
+]
+eulaUrl
+string
+The public offer's EULA URL.
+gcpProduct
+object
+createTime
+date-time
+derivedDiscoveryState
+object
+accessState
+GcpMarketplaceProductAccessState (string)
+Possible values:
+[
+ALLUSERS_ACCESSIBLE
+,
+NOT_ALLUSERS_ACCESSIBLE
+,
+NOT_PUBLISHED
+]
+searchState
+string
+Possible values:
+[
+ADMIN_OVERRIDE_UNSEARCHABLE
+,
+SEARCHABLE
+]
+id
+string
+Nullable, GCP Marketplace Product UUID
+lastPublishTime
+date-time
+listingSpec
+object
+externalAccountSpec
+object
+loginUri
+string
+signupUri
+string
+singleSignOnUri
+string
+listingType
+string
+Possible values:
+[
+BillingIntegratedManagedService
+]
+marketingSpec
+object
+description
+string
+displayNames
+string[]
+documentationSpecs
+object[]
+Array [
+description
+string
+title
+string
+uri
+string
+]
+eulaUrl
+string
+externalLicenseSpecs
+object[]
+Array [
+description
+string
+uri
+string
+]
+externalMarketingUrl
+string
+icon
+string
+in format of "base64://..."
+searchCategories
+string[]
+searchDescription
+string
+searchKeywords
+string[]
+signupUri
+string
+supportSpec
+object
+description
+string
+email
+string
+uri
+string
+tagLine
+string
+title
+string
+purchaseSpec
+object
+features
+object[]
+Array [
+description
+string
+name
+string
+title
+string
+]
+metrics
+object[]
+GCP Marketplace Product Usage Metering Dimension/Metric
+Array [
+description
+string
+Description: A detailed description of the metric, which can be used in documentation.
+displayName
+string
+displayUnit
+string
+such as "min"
+displayUnitDescription
+string
+such as "minute"
+id
+string
+The usage metering metric/dimension key
+It is in format of "{plan_id}_{usage_dimension_key}". For example, "basic_plan_storage".
+metricKind
+string
+such as "DELTA"
+name
+string
+Name: The resource name of the metric descriptor,
+in format of "{productServiceName}/{plan_id}_{usage_dimension_key}"
+priceTiers
+object[]
+Price info of this usage metering metric.
+Only applicable for the default offer (plan) and private offer.
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+reportingUnit
+string
+such as "min"
+skuId
+string
+The SKU ID of this usage metering metric. Applicable only in Private Offer.
+unit
+string
+such as "min"
+valueType
+ValueType (string)
+Possible values:
+[``,
+VALUE_TYPE_UNSPECIFIED
+,
+BOOL
+,
+INT64
+,
+DOUBLE
+,
+STRING
+,
+DISTRIBUTION
+,
+MONEY
+]
+]
+purchaseOptionSpecs
+object[]
+GCP Marketplace Product Pricing Plans
+Array [
+featureValues
+object[]
+Array [
+featureDescription
+string
+such as "CPU per VM"
+featureName
+string
+such as "cpu"
+featureTitle
+string
+such as "CPU"
+featureValue
+string
+such as "2 CPU per VM"
+]
+name
+string
+The plan ID, such as "starter", without the duration suffix, such as "P1Y".
+priceInfo
+object
+description
+string
+priceModel
+GcpMarketplacePriceModel (string)
+Possible values:
+[
+FREE
+,
+SUBSCRIPTION
+,
+USAGE
+,
+SUBSCRIPTION_PLUS_USAGE
+]
+subscriptionPlans
+object[]
+Subscription Plan (Flat Commitment)
+Array [
+period
+string
+such as "ONE_YEAR", "TWO_YEAR", "THREE_YEAR"
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+]
+usageFees
+object[]
+Usage Metering Dimension/Metric if available
+Array [
+displayQuantity
+integer
+such as 1
+metricId
+string
+such as "Starter_storage"
+priceTiers
+object[]
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+]
+purchaseMode
+string
+Possible values:
+[
+PURCHASE_MODE_PRIVATE
+,
+PURCHASE_MODE_PUBLIC
+]
+title
+string
+such as "Starter"
+]
+termsSpec
+object
+eulaUri
+string
+inlineEula
+TODO: need to define the type
+standardEula
+TODO: need to define the type
+marketplace
+string
+Possible values:
+[
+marketplaces/google-cloud
+]
+name
+string
+In format of "projects/{project-number}/listings/{product-name}.endpoints.{provider-id}.cloud.goog"
+revisionCreateTime
+date-time
+revisionId
+string
+service
+string
+In format of "services/{product-name}.endpoints.{provider-id}.cloud.goog"
+serviceConfig
+object
+billing
+object
+metrics
+string[]
+The list of metrics that are available for billing for the product.
+In format of "product-name.endpoints.gcp-project-id.cloud.goog/plan_name_metric_name"
+metrics
+object[]
+Array [
+description
+string
+Description: A detailed description of the metric, which can be used in documentation.
+displayName
+string
+displayUnit
+string
+such as "min"
+displayUnitDescription
+string
+such as "minute"
+id
+string
+The usage metering metric/dimension key
+It is in format of "{plan_id}_{usage_dimension_key}". For example, "basic_plan_storage".
+metricKind
+string
+such as "DELTA"
+name
+string
+Name: The resource name of the metric descriptor,
+in format of "{productServiceName}/{plan_id}_{usage_dimension_key}"
+priceTiers
+object[]
+Price info of this usage metering metric.
+Only applicable for the default offer (plan) and private offer.
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+reportingUnit
+string
+such as "min"
+skuId
+string
+The SKU ID of this usage metering metric. Applicable only in Private Offer.
+unit
+string
+such as "min"
+valueType
+ValueType (string)
+Possible values:
+[``,
+VALUE_TYPE_UNSPECIFIED
+,
+BOOL
+,
+INT64
+,
+DOUBLE
+,
+STRING
+,
+DISTRIBUTION
+,
+MONEY
+]
+]
+name
+string
+in format of "product-name.endpoints.gcp-project-id.cloud.goog"
+producerProjectId
+string
+The GCP project ID of the producer.
+title
+string
+The title of the product listing.
+validationSummary
+TODO: add type
+refundCancellationPolicy
+string
+sellerNotes
+string
+snowflakeProduct
+object
+additionalRegions
+string
+applicationPackageName
+string
+attachedShare
+string
+autofulfillment
+boolean
+comment
+string
+createdOn
+string
+customizedContactInfo
+string
+defaultPricingPlan
+object
+allow_early_access
+boolean
+If true, consumers can access the listing before making a payment.
+You'll need to remind them to pay.
+base_fee
+number
+billing_duration
+integer
+currency
+string
+free_unit_kind
+string
+free_units
+number
+installment_schedule
+object
+default_installment_amount
+number
+installment_duration
+number
+overridden_installments
+object[]
+Array [
+installment_amount
+number
+installment_number
+number
+]
+is_auto_renewable
+boolean
+IsAutoRenewable is true if the product is auto renewable.
+max_fee
+number
+payment_type
+string
+trial_usage_limit
+number
+trial_usage_unit
+string
+type
+string
+usage_unit_kind
+string
+usage_unit_price
+number
+detailedTargetAccounts
+object[]
+Array [
+account_identifier
+string
+company_name
+string
+]
+distribution
+string
+evaluationPlan
+string
+firstPublishedOn
+string
+flags
+string
+fulfillmentType
+string
+globalName
+string
+isMountlessQueryable
+boolean
+lastApprovedOn
+string
+lastPublishedOn
+string
+lastSubmittedOn
+string
+listingType
+string
+metadata
+object
+areTermsProvidedOffline
+boolean
+businessNeeds
+description
+string
+hasFreeSampleData
+boolean
+isWithStandardTerms
+boolean
+paidAttributes
+share
+string
+title
+string
+usage
+name
+string
+pricingPlans
+object[]
+Array [
+base_fee
+number
+billing_duration_months
+string
+comment
+string
+contract_duration_months
+string
+contract_type
+string
+PAY_AS_YOU_GO, LIMITED_TIME
+currency
+string
+display_name
+string
+metadata
+object
+For pricing display purpose. eg: {"price":"10","button_text":"starter plan"}
+property name*
+string
+name
+string
+pricing_model
+string
+pricing model: USAGE_BASED, FLAT_FEE
+sales_motion
+string
+SELF_SERVE, PROACTIVE
+state
+string
+state of pricing plan
+updated_on
+string
+usage_details
+object
+free_unit_kind
+string
+free_units
+number
+max_fee
+number
+usage_unit_kind
+string
+usage_unit_price
+number
+visibility
+string
+]
+private
+boolean
+profileName
+string
+publishOnApproval
+boolean
+regions
+string
+rejectedOn
+string
+rejectedReason
+string
+replicationSchedule
+string
+retiredOn
+string
+scheduledDropTime
+string
+shareType
+string
+state
+string
+targetAccounts
+string
+trialDetails
+object
+description
+string
+trial_time_limit
+number
+trial_type
+string
+unpublishedByAdminReason
+string
+updatedOn
+string
+stripeProduct
+object
+active
+boolean
+Whether the product is currently available for purchase.
+created
+integer
+Time at which the object was created. Measured in seconds since the Unix epoch.
+description
+string
+The product's description, meant to be displayable to the customer. Use this field to optionally store a long form explanation of the product being sold for your own rendering purposes.
+id
+string
+Unique identifier for the product in Stripe.
+images
+string[]
+A list of up to 8 URLs of images for this product, meant to be displayable to the customer.
+livemode
+boolean
+Has the value
+true
+if the object exists in live mode or the value
+false
+if the object exists in test mode.
+marketing_features
+object[]
+A list of up to 15 marketing features for this product. These are displayed in
+pricing tables
+.
+Array [
+name
+string
+Possible values:
+<= 80 characters
+The marketing feature name. Up to 80 characters long.
+]
+metadata
+object
+Set of
+key-value pairs
+that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
+property name*
+string
+name
+string
+The product's name, meant to be displayable to the customer.
+object
+string
+String representing the object's type. Always has the value
+product
+.
+package_dimensions
+object
+height
+number
+Height, in inches.
+length
+number
+Length, in inches.
+weight
+number
+Weight, in ounces.
+width
+number
+Width, in inches.
+shippable
+boolean
+Whether this product is shipped (i.e., physical goods).
+statement_descriptor
+string
+Extra information about a product which will appear on your customer's credit card statement.
+In the case that multiple products are billed at once, the first statement descriptor will be used.
+tax_code
+A
+tax code
+ID.
+unit_label
+string
+A label that represents units of this product. When set, this will be included in customers' receipts, invoices, Checkout, and the customer portal.
+updated
+integer
+Time at which the product was last updated. Measured in seconds since the Unix epoch.
+url
+string
+A URL of a publicly-accessible webpage for this product.
+lastUpdateTime
+date-time
+lastUpdatedBy
+string
+metaInfo
+object
+aceApnCrmUniqueIdentifier
+string
+The linked ACE ApnCrmUniqueIdentifier of the private offer if available.
+awsSaasProductDimensions
+object[]
+The AWS SaaS product dimensions. Applicable for AWS SaaS products only.
+This is used to save price info when creating AWS SaaS product.
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+baseAgreementId
+string
+Applicable for AWS Marketplace only, when the IsAgreementBasedOffer is true.
+buyerIds
+string[]
+The Suger buyer IDs of the private offer if available.
+contacts
+object[]
+The contacts of the offer to notify if any updates.
+Array [
+company
+string
+email
+string
+name
+string
+]
+cppoInOfferId
+string
+The Suger CPPO_IN offer ID.
+cppoOfferId
+string
+The Suger CPPO offer ID. Reseller to end buyer
+cppoOutOfferId
+string
+The Suger CPPO_OUT offer ID. ISV to reseller
+customMetaInfo
+object
+The custom meta info of the offer can be updated by seller via API or console.
+property name*
+string
+enableTestUsageMetering
+boolean
+If enabled, Suger will test metering the usage for this entitlement hourly.
+entitlementCancellationSchedule
+object
+cancelDate
+string
+The cancellation date of the entitlement. It is required when the type is SpecificDate.
+creationDate
+string
+When this cancellation schedule is created.
+note
+string
+Possible values:
+<= 500 characters
+The cancellation note. Max 500 characters.
+type
+CancellationScheduleType (string)
+Possible values:
+[
+EndOfTerm
+,
+Immediate
+,
+SpecificDate
+]
+Cancellation type
+errorMessages
+string[]
+The error messages when the offer is invalid or offer related tasks failed.
+Populated by Suger service.
+hubspotDealId
+string
+Hubsport deal ID of the private offer if available.
+internalNote
+string
+The Internal note of the private offer.
+It is only visible to the seller/ISV, not visible to the buyer.
+Up to 1000 characters.
+isAgreementBasedOffer
+boolean
+Applicable for AWS Marketplace only, If this offer is agreement based offer.
+isGrossRevenueFullSync
+boolean
+Whether the gross revenue is fully synced for the entitlement.
+isRenewalOffer
+boolean
+Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement.
+The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal.
+If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.
+isReplacementOffer
+boolean
+If this offer is a GCP replacement offer. Applicable for GCP Marketplace replacement offer only.
+lastModifiedBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+notifications
+object[]
+The notifications of the offer if any updates.
+In most cases, it is to notify contacts/buyers when the offer is pending acceptance.
+Array [
+action
+NotificationEventAction (string)
+Possible values:
+[``,
+ABNORMAL_ALERT
+,
+ACCEPT
+,
+ADD
+,
+APPROVE
+,
+CANCEL
+,
+CLOSE
+,
+CREATE
+,
+DELETE
+,
+DISBURSE
+,
+END_SOON
+,
+EXPIRE
+,
+EXPIRE_SOON
+,
+MERGE
+,
+METER
+,
+NEW_CLIENT_SIGNUP
+,
+NOTIFY
+,
+NOTIFY_CONTACTS
+,
+OPEN_EMAIL
+,
+PENDING_CANCEL
+,
+PENDING_ACCEPTANCE
+,
+REINSTATE
+,
+REJECT
+,
+REOPEN
+,
+CHARGE
+,
+REFUND
+,
+ISSUE
+,
+ROTATE_SECRET
+,
+SUSPEND
+,
+TEST
+,
+UPDATE
+,
+ACE_ENGAGEMENT_SCORE_UPDATE
+,
+ACE_SALES_REP_UPDATE
+,
+ACE_CUSTOMER_EMAIL_UPDATE
+,
+AZURE_STATUS_UPDATE
+,
+SUBMIT_APPROVAL_REQUEST
+,
+REVIEW_APPROVAL_REQUEST
+,
+COMPLETE
+,
+FAIL
+,
+WEBHOOK
+]
+ccContactIds
+string[]
+Cc contactIds that will receive this notification
+channels
+NotificationChannel (string)[]
+Possible values:
+[
+EMAIL
+,
+SLACK
+,
+SMS
+,
+SNS
+,
+SALESFORCE
+,
+WEBHOOK
+,
+SUGER_SUPPORT
+,
+MICROSOFT_TEAMS
+]
+The list of channels this event will be sent to, e.g., ["SLACK", "EMAIL"]
+contactEmails
+string[]
+Contact emails that will receive this notification
+contactIds
+string[]
+ContactIds that will receive this notification
+createdBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+customFields
+object
+Custom fields of the notification event.
+property name*
+any
+Custom fields of the notification event.
+entityID
+string
+entityName
+string
+The name of the entity.
+entityStatus
+string
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+eventID
+string
+notification event id.
+eventStatus
+NotificationEventStatus (string)
+Possible values:
+[``,
+SCHEDULED
+,
+PENDING
+,
+DONE
+,
+FAILED
+]
+info
+Additional info of the notification event.
+isActionItem
+boolean
+If this notification event is an action item.
+lastUpdateTime
+date-time
+timestamp of the event when it is updated.
+message
+string
+The message of the notification event such as email body, action item description.
+organizationID
+string
+suger organization id.
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+priority
+AuditingEventPriority (string)
+Possible values:
+[``,
+LOW
+,
+MEDIUM
+,
+HIGH
+,
+CRITICAL
+]
+requireAudit
+boolean
+If this notification event is an auditing event and need to store in DB.
+timestamp
+date-time
+timestamp of the event when it is scheduled or created.
+title
+string
+The title of the notification event such as email subject, action item title.
+trackEvents
+object[]
+The track events of the notification event.
+Array [
+action
+TrackEventActionType (string)
+Possible values:
+[
+OPEN_EMAIL
+]
+contactId
+string
+The ID of the contact who triggered the track event if applicable.
+timestamp
+date-time
+timestamp of the track event happened.
+]
+]
+offerAcceptDate
+date-time
+The date when the offer is accepted by the buyer. Only available when the private offer has been accepted.
+renewalOfferType
+AwsRenewalOfferType (string)
+Possible values:
+[``,
+External
+,
+AwsMarketplace
+]
+replacedOfferEndTime
+date-time
+The end time of the replaced offer. Applicable for GCP Marketplace replacement offer only.
+replacedOfferResourceName
+string
+The resource name of the GCP Marketplace offer that this offer is replacing.
+In format of "projects/{gcpProjectNumber}/services/{productServiceName}/privateOffers/{privateOfferId}"
+Applicable for GCP Marketplace replacement offer only.
+salesforceEntitlementURL
+string
+The Salesforce entitlement URL
+salesforceOpportunityId
+string
+The Salesforce opportunity ID of the private offer if available.
+testUsageMeteringEndTime
+date-time
+The test usage metering end time. It is used for test usage metering only.
+Required if EnableTestUsageMetering is true.
+updateMessage
+string
+The message to notify when the offer is updated.
+name
+string
+organizationID
+string
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+partnerID
+string
+productType
+string
+Possible values:
+[
+UNKNOWN
+,
+SUBSCRIPTION
+,
+CONTRACT
+,
+FLAT_RATE
+,
+PER_USER
+,
+USAGE_BASED
+]
+service
+PartnerService (string)
+Possible values:
+[
+DEFAULT
+,
+ACE
+,
+BIGQUERY
+,
+BILLING
+,
+CHATBOT
+,
+COSELL
+,
+CRM
+,
+CPQ
+,
+DATABASE
+,
+DRIVE
+,
+EMAIL
+,
+MARKETPLACE
+,
+NETSUITE
+,
+PAYMENT
+,
+QUICKBOOKS
+,
+STORAGE
+,
+TEAMS
+]
+status
+string
+{
+"createdBy": "string",
+"creationTime": "2024-07-29T15:51:28.071Z",
+"externalID": "string",
+"fulfillmentUrl": "string",
+"id": "string",
+"info": {
+"alibabaProduct": {
+"AuditFailMsg": "string",
+"AuditStatus": "string",
+"AuditTime": 0,
+"Code": "string",
+"Description": "string",
+"FrontCategoryId": 0,
+"GmtCreated": 0,
+"GmtModified": 0,
+"Name": "string",
+"PicUrl": "string",
+"ProductExtras": {
+"ProductExtra": [
+{
+"Key": "string",
+"Label": "string",
+"Order": 0,
+"Type": "string",
+"Values": {}
+}
+]
+},
+"ProductSkus": {
+"ProductSku": [
+{
+"ChargeType": "string",
+"Code": "string",
+"Constraints": "string",
+"Hidden": true,
+"Modules": {
+"Module": [
+{
+"Code": "string",
+"Id": "string",
+"Name": "string",
+"Properties": {
+"Property": [
+{
+"DisplayUnit": "string",
+"Key": "string",
+"Name": "string",
+"PropertyValues": {
+"PropertyValue": [
+{
+"DisplayName": "string",
+"Max": "string",
+"Min": "string",
+"Remark": "string",
+"Step": "string",
+"Type": "string",
+"Value": "string"
+}
+]
+},
+"showType": "string"
+}
+]
+}
+}
+]
+},
+"Name": "string",
+"OrderPeriods": {
+"OrderPeriod": [
+{
+"Name": "string",
+"PeriodType": "string"
+}
+]
+}
+}
+]
+},
+"RequestId": "string",
+"Score": 0,
+"ShopInfo": {
+"Emails": "string",
+"Id": 0,
+"Name": "string",
+"Telephones": {
+"Telephone": [
+"string"
+]
+},
+"WangWangs": {
+"WangWang": [
+{
+"Remark": "string",
+"UserName": "string"
+}
+]
+}
+},
+"ShortDescription": "string",
+"Status": "string",
+"SupplierPk": 0,
+"Type": "string",
+"UseCount": 0
+},
+"attributes": {},
+"awsAmiProduct": {
+"Description": {
+"AssociatedProducts": {},
+"Categories": [
+"string"
+],
+"EuW8Submitted": true,
+"Highlights": [
+"string"
+],
+"LongDescription": "string",
+"Manufacturer": "string",
+"ProductCode": "string",
+"ProductTitle": "string",
+"Registered": true,
+"SearchKeywords": [
+"string"
+],
+"ShortDescription": "string",
+"Sku": "string",
+"UsW9Submitted": true,
+"Visibility": "Limited"
+},
+"Dimensions": [
+{
+"Description": "string",
+"Key": "string",
+"Length": 0,
+"Name": "string",
+"Rate": 0,
+"TimeUnit": "DAY",
+"Types": [
+"string"
+],
+"Unit": "string"
+}
+],
+"PromotionalResources": {
+"AdditionalResources": [
+{
+"Text": "string",
+"Type": "string",
+"Url": "string"
+}
+],
+"LogoUrl": "string",
+"Videos": [
+{
+"Title": "string",
+"Type": "string",
+"Url": "string"
+}
+]
+},
+"Repositories": [
+{
+"Type": "string",
+"Url": "string"
+}
+],
+"SignatureVerificationKeys": [
+{
+"PublicKey": "string",
+"PublicKeyVersion": 0,
+"Status": "string"
+}
+],
+"SupportInformation": {
+"Description": "string"
+},
+"Versions": [
+{
+"CreationDate": "2024-07-29T15:51:28.071Z",
+"DeliveryOptions": [
+{
+"AmiAlias": "string",
+"FulfillmentUrl": "string",
+"Id": "string",
+"Recommendations": {},
+"ShortDescription": "string",
+"SourceId": "string",
+"Title": "string",
+"Type": "string",
+"Visibility": "string"
+}
+],
+"Id": "string",
+"ReleaseNotes": "string",
+"VersionTitle": "string"
+}
+],
+"dataFeedProductId": "string",
+"productId": "string"
+},
+"awsContainerProduct": {
+"Description": {
+"AssociatedProducts": {},
+"Categories": [
+"string"
+],
+"EuW8Submitted": true,
+"Highlights": [
+"string"
+],
+"LongDescription": "string",
+"Manufacturer": "string",
+"ProductCode": "string",
+"ProductTitle": "string",
+"Registered": true,
+"SearchKeywords": [
+"string"
+],
+"ShortDescription": "string",
+"Sku": "string",
+"UsW9Submitted": true,
+"Visibility": "Limited"
+},
+"Dimensions": [
+{
+"Description": "string",
+"Key": "string",
+"Length": 0,
+"Name": "string",
+"Rate": 0,
+"TimeUnit": "DAY",
+"Types": [
+"string"
+],
+"Unit": "string"
+}
+],
+"PromotionalResources": {
+"AdditionalResources": [
+{
+"Text": "string",
+"Type": "string",
+"Url": "string"
+}
+],
+"LogoUrl": "string",
+"Videos": [
+{
+"Title": "string",
+"Type": "string",
+"Url": "string"
+}
+]
+},
+"Repositories": [
+{
+"Type": "string",
+"Url": "string"
+}
+],
+"SignatureVerificationKeys": [
+{
+"PublicKey": "string",
+"PublicKeyVersion": 0,
+"Status": "string"
+}
+],
+"SupportInformation": {
+"Description": "string"
+},
+"Versions": [
+{
+"CreationDate": "2024-07-29T15:51:28.071Z",
+"DeliveryOptions": [
+{
+"AmiAlias": "string",
+"FulfillmentUrl": "string",
+"Id": "string",
+"Recommendations": {},
+"ShortDescription": "string",
+"SourceId": "string",
+"Title": "string",
+"Type": "string",
+"Visibility": "string"
+}
+],
+"Id": "string",
+"ReleaseNotes": "string",
+"VersionTitle": "string"
+}
+],
+"dataFeedProductId": "string",
+"productId": "string"
+},
+"awsProfessionalServicesProduct": {
+"Description": {
+"AssociatedProducts": {},
+"Categories": [
+"string"
+],
+"EuW8Submitted": true,
+"Highlights": [
+"string"
+],
+"LongDescription": "string",
+"Manufacturer": "string",
+"ProductCode": "string",
+"ProductTitle": "string",
+"Registered": true,
+"SearchKeywords": [
+"string"
+],
+"ShortDescription": "string",
+"Sku": "string",
+"UsW9Submitted": true,
+"Visibility": "Limited"
+},
+"Dimensions": [
+{
+"Description": "string",
+"Key": "string",
+"Length": 0,
+"Name": "string",
+"Rate": 0,
+"TimeUnit": "DAY",
+"Types": [
+"string"
+],
+"Unit": "string"
+}
+],
+"PromotionalResources": {
+"AdditionalResources": [
+{
+"Text": "string",
+"Type": "string",
+"Url": "string"
+}
+],
+"LogoUrl": "string",
+"Videos": [
+{
+"Title": "string",
+"Type": "string",
+"Url": "string"
+}
+]
+},
+"Repositories": [
+{
+"Type": "string",
+"Url": "string"
+}
+],
+"SignatureVerificationKeys": [
+{
+"PublicKey": "string",
+"PublicKeyVersion": 0,
+"Status": "string"
+}
+],
+"SupportInformation": {
+"Description": "string"
+},
+"Versions": [
+{
+"CreationDate": "2024-07-29T15:51:28.071Z",
+"DeliveryOptions": [
+{
+"AmiAlias": "string",
+"FulfillmentUrl": "string",
+"Id": "string",
+"Recommendations": {},
+"ShortDescription": "string",
+"SourceId": "string",
+"Title": "string",
+"Type": "string",
+"Visibility": "string"
+}
+],
+"Id": "string",
+"ReleaseNotes": "string",
+"VersionTitle": "string"
+}
+],
+"dataFeedProductId": "string",
+"productId": "string"
+},
+"awsSaasProduct": {
+"Description": {
+"AssociatedProducts": {},
+"Categories": [
+"string"
+],
+"EuW8Submitted": true,
+"Highlights": [
+"string"
+],
+"LongDescription": "string",
+"Manufacturer": "string",
+"ProductCode": "string",
+"ProductTitle": "string",
+"Registered": true,
+"SearchKeywords": [
+"string"
+],
+"ShortDescription": "string",
+"Sku": "string",
+"UsW9Submitted": true,
+"Visibility": "Limited"
+},
+"Dimensions": [
+{
+"Description": "string",
+"Key": "string",
+"Length": 0,
+"Name": "string",
+"Rate": 0,
+"TimeUnit": "DAY",
+"Types": [
+"string"
+],
+"Unit": "string"
+}
+],
+"PromotionalResources": {
+"AdditionalResources": [
+{
+"Text": "string",
+"Type": "string",
+"Url": "string"
+}
+],
+"LogoUrl": "string",
+"Videos": [
+{
+"Title": "string",
+"Type": "string",
+"Url": "string"
+}
+]
+},
+"Repositories": [
+{
+"Type": "string",
+"Url": "string"
+}
+],
+"SignatureVerificationKeys": [
+{
+"PublicKey": "string",
+"PublicKeyVersion": 0,
+"Status": "string"
+}
+],
+"SupportInformation": {
+"Description": "string"
+},
+"Versions": [
+{
+"CreationDate": "2024-07-29T15:51:28.071Z",
+"DeliveryOptions": [
+{
+"AmiAlias": "string",
+"FulfillmentUrl": "string",
+"Id": "string",
+"Recommendations": {},
+"ShortDescription": "string",
+"SourceId": "string",
+"Title": "string",
+"Type": "string",
+"Visibility": "string"
+}
+],
+"Id": "string",
+"ReleaseNotes": "string",
+"VersionTitle": "string"
+}
+],
+"dataFeedProductId": "string",
+"productId": "string"
+},
+"awsSnsSubscriptions": [
+{
+"Endpoint": "string",
+"Protocol": "string",
+"Status": "UNKNOWN",
+"SubscriptionArn": "string",
+"TopicArn": "string"
+}
+],
+"azureProduct": {
+"availabilities": [
+{
+"emailAudiences": [
+{
+"description": "string",
+"id": "string"
+}
+],
+"enterpriseLicensing": "string",
+"id": "string",
+"resourceType": "string",
+"subscriptionAudiences": [
+{
+"description": "string",
+"id": "string"
+}
+],
+"visibility": "string"
+}
+],
+"branches": [
+{
+"currentDraftInstanceID": "string",
+"friendlyName": "string",
+"id": "string",
+"module": "string",
+"resourceType": "string",
+"type": "string",
+"variantID": "string"
+}
+],
+"externalIDs": [
+{
+"type": "string",
+"value": "string"
+}
+],
+"id": "string",
+"isModularPublishing": true,
+"listings": [
+{
+"accessInformation": "string",
+"assets": [
+{
+"description": "string",
+"fileName": "string",
+"fileSasUri": "string",
+"friendlyName": "string",
+"id": "string",
+"order": 0,
+"publisherDefinedSasUri": "string",
+"resourceType": "ListingAsset",
+"state": "PendingUpload",
+"type": "string"
+}
+],
+"compatibleProducts": [
+"string"
+],
+"description": "string",
+"gettingStartedInstructions": "string",
+"id": "string",
+"keywords": [
+"string"
+],
+"languageCode": "string",
+"listingContacts": [
+{
+"email": "string",
+"name": "string",
+"phone": "string",
+"type": "CustomerSupport",
+"uri": "string"
+}
+],
+"listingUris": [
+{
+"displayText": "string",
+"subtype": "string",
+"type": "string",
+"uri": "string"
+}
+],
+"productDisplayName": "string",
+"publisherName": "string",
+"resourceType": "AzureListing",
+"shortDescription": "string",
+"summary": "string",
+"title": "string"
+}
+],
+"name": "string",
+"packageConfigurations": [
+{
+"azureActiveDirectoryApplicationID": "string",
+"azureActiveDirectoryTenantID": "string",
+"connectionWebhook": "string",
+"id": "string",
+"landingPageUri": "string",
+"resourceType": "AzureSoftwareAsAServicePackageConfiguration"
+}
+],
+"plans": [
+{
+"$schema": "string",
+"id": "string",
+"lifecycleState": "notAvailable",
+"offerPricingType": "",
+"plan": "string",
+"planName": "string",
+"pricing": {
+"customMeters": {
+"priceInputOption": "perMarket"
+},
+"recurrentPrice": {
+"priceInputOption": "perMarket",
+"prices": [
+{
+"billingTerm": {
+"type": "day",
+"value": 0
+},
+"paymentOption": {
+"type": "day",
+"value": 0
+},
+"pricePerPaymentInUsd": 0,
+"prices": [
+{
+"currency": "string",
+"markets": [
+"string"
+],
+"price": 0
+}
+]
+}
+],
+"recurrentPriceMode": "flatRate",
+"userLimits": {
+"max": 0,
+"min": 0
+}
+}
+},
+"product": "string",
+"resourceName": "string",
+"softwareReservation": {
+"paymentSchedule": {
+"type": "day",
+"value": 0
+},
+"reservationDuration": {
+"type": "day",
+"value": 0
+},
+"vmPrices": {
+"patternProperties": {}
+}
+},
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+],
+"visibility": "visible"
+}
+],
+"properties": [
+{
+"additionalCategories": [
+"string"
+],
+"appVersion": "string",
+"applicableProducts": [
+"string"
+],
+"categories": [
+"string"
+],
+"customAmendments": [
+"string"
+],
+"extendedProperties": [
+"string"
+],
+"globalAmendmentTerms": "string",
+"hideKeys": [
+"string"
+],
+"id": "string",
+"industries": [
+"string"
+],
+"leveledCategories": {},
+"leveledIndustries": {},
+"marketingOnlyChange": true,
+"productTags": [
+"string"
+],
+"resourceType": "string",
+"submissionVersion": "string",
+"termsOfUse": "string",
+"useEnterpriseContract": true
+}
+],
+"resourceType": "string",
+"setup": {
+"callToAction": "free",
+"channelStates": [
+{
+"type": "string",
+"value": "string"
+}
+],
+"enableTestDrive": true,
+"resourceType": "AzureProductSetup",
+"sellingOption": "ListingOnly",
+"testDriveType": "string",
+"trialUri": "string"
+},
+"submissions": [
+{
+"areResourcesReady": true,
+"friendlyName": "string",
+"id": "string",
+"pendingUpdateInfo": {
+"status": "string",
+"updateType": "string"
+},
+"publishedTimeInUtc": "2024-07-29T15:51:28.071Z",
+"releaseNumber": 0,
+"resourceType": "Submission",
+"resources": [
+{
+"type": "string",
+"value": "string"
+}
+],
+"state": "Inprogress",
+"subState": "InDraft",
+"targets": [
+{
+"type": "string",
+"value": "string"
+}
+],
+"variantResources": [
+{
+"resources": [
+{
+"type": "string",
+"value": "string"
+}
+],
+"variantID": "string"
+}
+]
+}
+],
+"variants": [
+{
+"azureGovernmentCertifications": [
+{
+"title": "string",
+"uri": "string",
+"validationResults": [
+{
+"errorMessage": "string",
+"memberNames": [
+"string"
+]
+}
+]
+}
+],
+"cloudAvailabilities": [
+"string"
+],
+"conversionPaths": "string",
+"extendedProperties": [
+{
+"type": "string",
+"value": "string"
+}
+],
+"externalID": "string",
+"featureAvailabilities": [
+{
+"customMeters": [
+{
+"displayName": "string",
+"id": "string",
+"includedBaseQuantities": [
+{
+"isInfinite": true,
+"quantity": 0,
+"recurringUnit": "Monthly"
+}
+],
+"isEnabled": true,
+"priceInUsd": 0,
+"uniqueID": "string",
+"unitOfMeasure": "string"
+}
+],
+"id": "string",
+"isHidden": true,
+"marketStates": [
+{
+"marketCode": "string",
+"state": "Disabled"
+}
+],
+"markets": [
+{
+"friendlyName": "string",
+"marketCode": "string"
+}
+],
+"priceSchedules": [
+{
+"dateTimeRange": {
+"endAt": {
+"dateTimeInUtc": "string",
+"localizePerMarket": true
+},
+"startAt": {
+"dateTimeInUtc": "string",
+"localizePerMarket": true
+}
+},
+"friendlyName": "string",
+"isBaseSchedule": true,
+"marketCodes": [
+"string"
+],
+"schedules": [
+{
+"priceCadence": {
+"type": "Month",
+"value": 0
+},
+"pricingModel": "Flat",
+"pricingUnits": [
+{
+"isUnlimitedUnit": true,
+"lowerUnit": 0,
+"name": "sharedcore",
+"unitType": "string",
+"upperUnit": 0
+}
+],
+"retailPrice": {
+"currencyCode": "string",
+"openPrice": 0,
+"priceTierID": "string"
+}
+}
+]
+}
+],
+"properties": [
+{
+"type": "string",
+"value": "string"
+}
+],
+"resourceType": "string",
+"subscriptionAudiences": [
+{
+"description": "string",
+"id": "string"
+}
+],
+"tenantAudiences": [
+{
+"description": "string",
+"id": "string"
+}
+],
+"trial": {
+"dateTimeRange": {
+"endAt": {
+"dateTimeInUtc": "string",
+"localizePerMarket": true
+},
+"startAt": {
+"dateTimeInUtc": "string",
+"localizePerMarket": true
+}
+},
+"duration": 0,
+"durationType": "Minute",
+"type": "NoTrial"
+},
+"visibility": "Public"
+}
+],
+"friendlyName": "string",
+"id": "string",
+"leadGenID": "string",
+"referenceVariantID": "string",
+"resourceType": "AzureSkuVariant",
+"state": "InActive"
+}
+]
+},
+"azureProductResource": {
+"customerLeads": {
+"$schema": "string",
+"blobLeadConfiguration": {},
+"dynamicsLeadConfiguration": {},
+"emailLeadConfiguration": {},
+"httpsEndpointLeadConfiguration": {},
+"id": "string",
+"leadDestination": "none",
+"marketoLeadConfiguration": {},
+"product": "string",
+"resourceName": "string",
+"salesforceLeadConfiguration": {},
+"tableLeadConfiguration": {},
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"listing": {
+"$schema": "string",
+"cloudSolutionProviderContact": {
+"email": "string",
+"name": "string",
+"phone": "string",
+"url": "string"
+},
+"cloudSolutionProviderMarketingMaterials": "string",
+"description": "string",
+"engineeringContact": {
+"email": "string",
+"name": "string",
+"phone": "string",
+"url": "string"
+},
+"generalLinks": [
+{
+"displayText": "string",
+"link": "string"
+}
+],
+"gettingStartedInstructions": "string",
+"gloabalSupportWebsite": "string",
+"governmentSupportWebsite": "string",
+"id": "string",
+"kind": "azureSaaS",
+"languageId": "string",
+"lifecycleState": "notAvailable",
+"privacyPolicyLink": "string",
+"product": "string",
+"resourceName": "string",
+"searchKeywords": [
+"string"
+],
+"searchResultSummary": "string",
+"shortDescription": "string",
+"supportContact": {
+"email": "string",
+"name": "string",
+"phone": "string",
+"url": "string"
+},
+"title": "string",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"listingAssets": [
+{
+"$schema": "string",
+"description": "string",
+"displayOrder": 0,
+"fileName": "string",
+"friendlyName": "string",
+"id": "string",
+"kind": "azure",
+"languageId": "string",
+"lifecycleState": "notAvailable",
+"listing": "string",
+"product": "string",
+"resourceName": "string",
+"type": "azureLogoSmall",
+"url": "string",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+}
+],
+"plans": [
+{
+"plan": {
+"$schema": "string",
+"alias": "string",
+"azureGovernmentCertifications": [
+{
+"link": "string",
+"name": "string"
+}
+],
+"azureRegions": [
+"string"
+],
+"deprecationSchedule": {
+"$schema": "string",
+"alternative": {
+"plan": {},
+"product": {}
+},
+"date": "string",
+"dateOffset": "string",
+"reason": "criticalSecurityIssue"
+},
+"displayRank": 0,
+"id": "string",
+"identity": {
+"externalId": "string"
+},
+"lifecycleState": "notAvailable",
+"product": "string",
+"resourceName": "string",
+"subtype": "managedApplication",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"planListing": {
+"$schema": "string",
+"description": "string",
+"id": "string",
+"kind": "azureVM-plan",
+"languageId": "string",
+"lifecycleState": "notAvailable",
+"name": "string",
+"plan": "string",
+"product": "string",
+"resourceName": "string",
+"summary": "string",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"priceAndAvailabilityPlan": {
+"$schema": "string",
+"audience": "public",
+"billingTag": "string",
+"id": "string",
+"markets": [
+"string"
+],
+"meterDefine": "string",
+"plan": "string",
+"pricing": {
+"corePricing": {
+"price": 0,
+"priceInputOption": "free",
+"pricePerCore": 0,
+"pricePerCoreSize": {},
+"prices": [
+{
+"currency": "string",
+"markets": [
+"string"
+],
+"price": 0
+}
+]
+},
+"customMeters": {
+"meters": {},
+"priceInputOption": "perMarket"
+},
+"licenseModel": "byol",
+"recurrentPrice": {
+"priceInputOption": "perMarket",
+"prices": [
+{
+"billingTerm": {
+"type": "day",
+"value": 0
+},
+"paymentOption": {
+"type": "day",
+"value": 0
+},
+"pricePerPaymentInUsd": 0,
+"prices": [
+{
+"currency": "string",
+"markets": [
+"string"
+],
+"price": 0
+}
+]
+}
+],
+"recurrentPriceMode": "flatRate",
+"userLimits": {
+"max": 0,
+"min": 0
+}
+},
+"systemMeterPricing": {
+"price": 0,
+"priceInputOption": "perCore",
+"prices": [
+{
+"currency": "string",
+"markets": [
+"string"
+],
+"price": 0
+}
+]
+}
+},
+"privateAudiences": [
+{
+"id": "string",
+"label": "string",
+"type": "none"
+}
+],
+"product": "string",
+"resourceName": "string",
+"softwareReservation": [
+{
+"percentageSave": 0,
+"term": 0,
+"type": "month"
+}
+],
+"trial": {
+"type": "day",
+"value": 0
+},
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+],
+"visibility": "visible"
+}
+}
+],
+"priceAndAvailabilityCustomMeter": {
+"$schema": "string",
+"customMeters": {},
+"id": "string",
+"product": "string",
+"resourceName": "string",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"priceAndAvailabilityOffer": {
+"$schema": "string",
+"id": "string",
+"previewAudiences": [
+{
+"id": "string",
+"label": "string",
+"type": "none"
+}
+],
+"product": "string",
+"resourceName": "string",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"product": {
+"$schema": "string",
+"alias": "string",
+"id": "string",
+"identity": {
+"externalId": "string"
+},
+"lifecycleState": "notAvailable",
+"productGroup": "string",
+"resourceName": "string",
+"type": "azureApplication",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"property": {
+"$schema": "string",
+"appVersion": "string",
+"categories": {},
+"cloudIndustries": {},
+"customAmendments": [
+{
+"tenants": {
+"manualEntries": [
+{
+"description": "string",
+"id": "string"
+}
+]
+},
+"terms": "string"
+}
+],
+"id": "string",
+"industries": {},
+"kind": "azureSaaS",
+"lifecycleState": "notAvailable",
+"product": "string",
+"resourceName": "string",
+"standardContractAmendment": "string",
+"termsConditions": "custom",
+"termsOfUse": "string",
+"termsOfUseUrl": "string",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"reseller": {
+"$schema": "string",
+"audiences": [
+{
+"description": "string",
+"resourceId": "string",
+"type": "subscription"
+}
+],
+"id": "string",
+"product": "string",
+"resellerChannelState": "string",
+"resourceName": "string",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"setup": {
+"$schema": "string",
+"accessUrl": "string",
+"callToAction": "free",
+"id": "string",
+"product": "string",
+"requireLicenseForInstall": true,
+"resourceName": "string",
+"sellThroughMicrosoft": true,
+"useMicrosoftLicenseManagementService": true,
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"submission": {
+"$schema": "string",
+"created": "string",
+"deprecationSchedule": {
+"$schema": "string",
+"alternative": {
+"plan": {},
+"product": {}
+},
+"date": "string",
+"dateOffset": "string",
+"reason": "criticalSecurityIssue"
+},
+"id": "string",
+"lifecycleState": "notAvailable",
+"product": "string",
+"resourceName": "string",
+"result": "succeeded",
+"status": "notStarted",
+"target": {
+"targetId": "string",
+"targetType": "flight"
+},
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+},
+"technicalConfiguration": {
+"$schema": "string",
+"azureAdAppId": "string",
+"azureAdTenantId": "string",
+"connectionWebhook": "string",
+"id": "string",
+"landingPageUrl": "string",
+"product": "string",
+"resourceName": "string",
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+]
+}
+},
+"commits": [
+{
+"category": "string",
+"description": "string",
+"isUserCreated": true,
+"key": "string",
+"length": 0,
+"maximumUsers": 1000000,
+"minimumUsers": 1,
+"name": "string",
+"quantity": 0,
+"rate": 0,
+"term": "string",
+"termEndTime": "string",
+"timeUnit": "DAY",
+"type": "FLAT_RATE",
+"types": [
+"string"
+]
+}
+],
+"currency": "string",
+"dimensions": [
+{
+"category": "string",
+"description": "string",
+"includedBaseQuantities": [
+{
+"isInfinite": true,
+"quantity": 0,
+"recurringUnit": "Monthly"
+}
+],
+"key": "string",
+"name": "string",
+"planId": "string",
+"planName": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+],
+"rate": 0,
+"skuId": "string",
+"types": [
+"string"
+],
+"usageCount": {
+"creditCount": 0,
+"includedCount": 0,
+"reportedCount": 0
+},
+"valueType": ""
+}
+],
+"eulaType": "",
+"eulaUrl": "string",
+"gcpProduct": {
+"createTime": "2024-07-29T15:51:28.071Z",
+"derivedDiscoveryState": {
+"accessState": "ALLUSERS_ACCESSIBLE",
+"searchState": "ADMIN_OVERRIDE_UNSEARCHABLE"
+},
+"id": "string",
+"lastPublishTime": "2024-07-29T15:51:28.071Z",
+"listingSpec": {
+"externalAccountSpec": {
+"loginUri": "string",
+"signupUri": "string",
+"singleSignOnUri": "string"
+},
+"listingType": "BillingIntegratedManagedService",
+"marketingSpec": {
+"description": "string",
+"displayNames": [
+"string"
+],
+"documentationSpecs": [
+{
+"description": "string",
+"title": "string",
+"uri": "string"
+}
+],
+"eulaUrl": "string",
+"externalLicenseSpecs": [
+{
+"description": "string",
+"uri": "string"
+}
+],
+"externalMarketingUrl": "string",
+"icon": "string",
+"searchCategories": [
+"string"
+],
+"searchDescription": "string",
+"searchKeywords": [
+"string"
+],
+"signupUri": "string",
+"supportSpec": {
+"description": "string",
+"email": "string",
+"uri": "string"
+},
+"tagLine": "string",
+"title": "string"
+},
+"purchaseSpec": {
+"features": [
+{
+"description": "string",
+"name": "string",
+"title": "string"
+}
+],
+"metrics": [
+{
+"description": "string",
+"displayName": "string",
+"displayUnit": "string",
+"displayUnitDescription": "string",
+"id": "string",
+"metricKind": "string",
+"name": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+],
+"reportingUnit": "string",
+"skuId": "string",
+"unit": "string",
+"valueType": ""
+}
+],
+"purchaseOptionSpecs": [
+{
+"featureValues": [
+{
+"featureDescription": "string",
+"featureName": "string",
+"featureTitle": "string",
+"featureValue": "string"
+}
+],
+"name": "string",
+"priceInfo": {
+"description": "string",
+"priceModel": "FREE",
+"subscriptionPlans": [
+{
+"period": "string",
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+}
+],
+"usageFees": [
+{
+"displayQuantity": 0,
+"metricId": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+]
+}
+]
+},
+"purchaseMode": "PURCHASE_MODE_PRIVATE",
+"title": "string"
+}
+]
+},
+"termsSpec": {
+"eulaUri": "string"
+}
+},
+"marketplace": "marketplaces/google-cloud",
+"name": "string",
+"revisionCreateTime": "2024-07-29T15:51:28.071Z",
+"revisionId": "string",
+"service": "string",
+"serviceConfig": {
+"billing": {
+"metrics": [
+"string"
+]
+},
+"metrics": [
+{
+"description": "string",
+"displayName": "string",
+"displayUnit": "string",
+"displayUnitDescription": "string",
+"id": "string",
+"metricKind": "string",
+"name": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+],
+"reportingUnit": "string",
+"skuId": "string",
+"unit": "string",
+"valueType": ""
+}
+],
+"name": "string",
+"producerProjectId": "string",
+"title": "string"
+}
+},
+"refundCancellationPolicy": "string",
+"sellerNotes": "string",
+"snowflakeProduct": {
+"additionalRegions": "string",
+"applicationPackageName": "string",
+"attachedShare": "string",
+"autofulfillment": true,
+"comment": "string",
+"createdOn": "string",
+"customizedContactInfo": "string",
+"defaultPricingPlan": {
+"allow_early_access": true,
+"base_fee": 0,
+"billing_duration": 0,
+"currency": "string",
+"free_unit_kind": "string",
+"free_units": 0,
+"installment_schedule": {
+"default_installment_amount": 0,
+"installment_duration": 0,
+"overridden_installments": [
+{
+"installment_amount": 0,
+"installment_number": 0
+}
+]
+},
+"is_auto_renewable": true,
+"max_fee": 0,
+"payment_type": "string",
+"trial_usage_limit": 0,
+"trial_usage_unit": "string",
+"type": "string",
+"usage_unit_kind": "string",
+"usage_unit_price": 0
+},
+"detailedTargetAccounts": [
+{
+"account_identifier": "string",
+"company_name": "string"
+}
+],
+"distribution": "string",
+"evaluationPlan": "string",
+"firstPublishedOn": "string",
+"flags": "string",
+"fulfillmentType": "string",
+"globalName": "string",
+"isMountlessQueryable": true,
+"lastApprovedOn": "string",
+"lastPublishedOn": "string",
+"lastSubmittedOn": "string",
+"listingType": "string",
+"metadata": {
+"areTermsProvidedOffline": true,
+"businessNeeds": {},
+"description": "string",
+"hasFreeSampleData": true,
+"isWithStandardTerms": true,
+"paidAttributes": {},
+"share": "string",
+"title": "string",
+"usage": {}
+},
+"name": "string",
+"pricingPlans": [
+{
+"base_fee": 0,
+"billing_duration_months": "0",
+"comment": "string",
+"contract_duration_months": "0",
+"contract_type": "string",
+"currency": "string",
+"display_name": "string",
+"metadata": {},
+"name": "string",
+"pricing_model": "string",
+"sales_motion": "string",
+"state": "string",
+"updated_on": "string",
+"usage_details": {
+"free_unit_kind": "string",
+"free_units": 0,
+"max_fee": 0,
+"usage_unit_kind": "string",
+"usage_unit_price": 0
+},
+"visibility": "string"
+}
+],
+"private": true,
+"profileName": "string",
+"publishOnApproval": true,
+"regions": "string",
+"rejectedOn": "string",
+"rejectedReason": "string",
+"replicationSchedule": "string",
+"retiredOn": "string",
+"scheduledDropTime": "string",
+"shareType": "string",
+"state": "string",
+"targetAccounts": "string",
+"trialDetails": {
+"description": "string",
+"trial_time_limit": 0,
+"trial_type": "string"
+},
+"unpublishedByAdminReason": "string",
+"updatedOn": "string"
+},
+"stripeProduct": {
+"active": true,
+"created": 0,
+"description": "string",
+"id": "string",
+"images": [
+"string"
+],
+"livemode": true,
+"marketing_features": [
+{
+"name": "string"
+}
+],
+"metadata": {},
+"name": "string",
+"object": "string",
+"package_dimensions": {
+"height": 0,
+"length": 0,
+"weight": 0,
+"width": 0
+},
+"shippable": true,
+"statement_descriptor": "string",
+"unit_label": "string",
+"updated": 0,
+"url": "string"
+}
+},
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"lastUpdatedBy": "string",
+"metaInfo": {
+"aceApnCrmUniqueIdentifier": "string",
+"awsSaasProductDimensions": [
+{
+"Description": "string",
+"Key": "string",
+"Length": 0,
+"Name": "string",
+"Rate": 0,
+"TimeUnit": "DAY",
+"Types": [
+"string"
+],
+"Unit": "string"
+}
+],
+"baseAgreementId": "string",
+"buyerIds": [
+"string"
+],
+"contacts": [
+{
+"company": "string",
+"email": "string",
+"name": "string"
+}
+],
+"cppoInOfferId": "string",
+"cppoOfferId": "string",
+"cppoOutOfferId": "string",
+"customMetaInfo": {},
+"enableTestUsageMetering": true,
+"entitlementCancellationSchedule": {
+"cancelDate": "string",
+"creationDate": "string",
+"note": "string",
+"type": "EndOfTerm"
+},
+"errorMessages": [
+"string"
+],
+"hubspotDealId": "string",
+"internalNote": "string",
+"isAgreementBasedOffer": true,
+"isGrossRevenueFullSync": true,
+"isRenewalOffer": true,
+"isReplacementOffer": true,
+"lastModifiedBy": {
+"email": "string",
+"entityId": "string",
+"entityType": "",
+"name": "string"
+},
+"notifications": [
+{
+"action": "",
+"ccContactIds": [
+"string"
+],
+"channels": [
+"EMAIL"
+],
+"contactEmails": [
+"string"
+],
+"contactIds": [
+"string"
+],
+"createdBy": {
+"email": "string",
+"entityId": "string",
+"entityType": "",
+"name": "string"
+},
+"customFields": {},
+"entityID": "string",
+"entityName": "string",
+"entityStatus": "string",
+"entityType": "",
+"eventID": "string",
+"eventStatus": "",
+"isActionItem": true,
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"message": "string",
+"organizationID": "string",
+"partner": "",
+"priority": "",
+"requireAudit": true,
+"timestamp": "2024-07-29T15:51:28.071Z",
+"title": "string",
+"trackEvents": [
+{
+"action": "OPEN_EMAIL",
+"contactId": "string",
+"timestamp": "2024-07-29T15:51:28.071Z"
+}
+]
+}
+],
+"offerAcceptDate": "2024-07-29T15:51:28.071Z",
+"renewalOfferType": "",
+"replacedOfferEndTime": "2024-07-29T15:51:28.071Z",
+"replacedOfferResourceName": "string",
+"salesforceEntitlementURL": "string",
+"salesforceOpportunityId": "string",
+"testUsageMeteringEndTime": "2024-07-29T15:51:28.071Z",
+"updateMessage": "string"
+},
+"name": "string",
+"organizationID": "string",
+"partner": "",
+"partnerID": "string",
+"productType": "UNKNOWN",
+"service": "DEFAULT",
+"status": "string"
+}
+Internal Server Error
+Loading...
+Previous
+list metering dimensions of product
+Next
+update product meta info
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

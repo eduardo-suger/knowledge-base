@@ -1,0 +1,146 @@
+Pricing Model | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+GCP Marketplace
+Pricing Model
+On this page
+Pricing Model
+GCP Marketplace Product Pricing Models
+Overview
+​
+There are four pricing models for the SaaS product in GCP marketplace:
+Free
+,
+Subscription based
+,
+Usage based
+and
+Combined
+. You can choose one or multiple of them in your product listing.
+Free
+​
+Customers only pay for the Google Cloud resources that they use. If you are offering your product free of charge, skip to
+Submitting your pricing for review
+.
+Subscription based
+​
+It is also called as commit-only pricing model. Customers pay a flat monthly or yearly fee for using your software, no matter how much usage they actually use finally. For partial months, the cost is prorated. Customers can change their subscription plan to increase their service level or subscription period, such as:
+Switch from a shorter subscription period to a longer period, within the same service level. For example, customers can switch from a Standard monthly plan to a Standard 1-year plan.
+Upgrade from a lower to a higher service level, with the same or a longer subscription period. For example, customers can upgrade from a Standard 1-year plan to a Pro 1-year plan.
+A combination of the changes above.
+Usage based
+​
+It is also called as pay-as-you-go pricing model. Customers pay for your software based on measurements that you choose, called metrics, such as data or storage. For example, you can set your price by gibibyte-hours of storage. If you choose a usage-based pricing model, your app must measure and report usage information to Google. The following table includes examples of some metrics:
+Metric Name
+Metric Unit
+Metric Price per Unit
+compute service
+2 CUP, 8GB RAM per hour as one unit
+$0.1
+storage service
+1GB per hour as one unit
+$0.04
+network volume
+1GB as one unit
+$0.2
+Combined
+​
+In a combined pricing model, customers pay a base subscription fee for using your software, and additional charges based on their usage. You can include a specific quantity of usage in your base fee. For example, the following pricing model has base subscription plans that include a number of API requests, and additional charges as customers increase their usage:
+Standard Plan
+Pro Plan
+Enterprise Plan
+$10 / month subscription fee
+$0 per request for 1000 API requests
+$0.002 per request for 1000+ API requests
+$40 / month subscription fee
+$0 per request for 2000 API requests
+$0.005 per request for 2000+ API requests
+$100 / month subscription fee
+$0 per request for 10000 API requests
+$0.008 per request for 10000+ API requests
+danger
+For any pricing model of
+Subscription-based
+,
+Usage-based
+and
+Combined
+, you can also offer a
+free trial
+of your product by filling out the
+Cloud Marketplace solution trial intake form
+.
+Previous
+Integration
+Next
+List Product
+Overview
+Free
+Subscription based
+Usage based
+Combined
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

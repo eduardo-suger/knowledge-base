@@ -1,0 +1,342 @@
+list metering dimensions of product | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Product
+list metering dimensions of product
+list metering dimensions of product
+GET
+/org/:orgId/product/:productId/dimension
+list all metering dimensions of the given product
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+productId
+string
+required
+Product ID
+Responses
+​
+200
+400
+404
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+Array [
+category
+string
+description
+string
+includedBaseQuantities
+object[]
+how many quantities of this dimension are included in the commit.
+Array [
+isInfinite
+boolean
+quantity
+number
+recurringUnit
+string
+Possible values:
+[
+Monthly
+,
+Annual
+]
+]
+key
+string
+name
+string
+Display name of the dimension. For GCP Marketplace, it is the metering metric ID without plan prefix.
+planId
+string
+The plan ID of the metering dimension. Applicable to GCP Marketplace only.
+No ISO duration suffix.
+planName
+string
+The name of the plan for the metering dimension. Applicable to GCP Marketplace only.
+It may contains the ISO duration suffix, such as P1Y.
+priceTiers
+object[]
+The price tiers of the metering dimension. Applicable to GCP Marketplace only.
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+rate
+number
+The unit price of this usage metering dimension.
+skuId
+string
+The SKU ID of the metering dimension. Applicable to GCP Marketplace only.
+types
+string[]
+usageCount
+object
+creditCount
+number
+The count of this dimension usage records that are handled as credit.
+includedCount
+number
+The count of this dimension usage records that are handled as included in IncludedBaseQuantity
+reportedCount
+number
+The count of this dimension usage records that are reported to cloud vendors.
+valueType
+ValueType (string)
+Possible values:
+[``,
+VALUE_TYPE_UNSPECIFIED
+,
+BOOL
+,
+INT64
+,
+DOUBLE
+,
+STRING
+,
+DISTRIBUTION
+,
+MONEY
+]
+]
+[
+{
+"category": "string",
+"description": "string",
+"includedBaseQuantities": [
+{
+"isInfinite": true,
+"quantity": 0,
+"recurringUnit": "Monthly"
+}
+],
+"key": "string",
+"name": "string",
+"planId": "string",
+"planName": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+],
+"rate": 0,
+"skuId": "string",
+"types": [
+"string"
+],
+"usageCount": {
+"creditCount": 0,
+"includedCount": 0,
+"reportedCount": 0
+},
+"valueType": ""
+}
+]
+Bad request error
+application/json
+Schema
+Schema
+string
+Not found error
+application/json
+Schema
+Schema
+string
+Internal server error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+update product
+Next
+update product fulfillment url
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

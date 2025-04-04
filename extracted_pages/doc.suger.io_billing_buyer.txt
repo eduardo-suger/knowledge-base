@@ -1,0 +1,184 @@
+Buyer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+Overview
+Billable Metrics
+Price Model
+Buyer
+Offer
+Entitlement
+Metering
+Invoice
+Payment
+Revenue
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Billing
+Buyer
+On this page
+Buyer
+Buyer management.
+When using Suger's metering and billing service, you'll need to create a buyer profile for your customer. This differs from marketplace connections, where buyer profiles are managed by the marketplace.
+Before creating a buyer, ensure you have connected to a billing integration - currently, Stripe is the supported integration platform.
+Manage buyer
+​
+Create buyer
+​
+Enter the buyer's basic and company information.
+Choose a partner
+​
+Select a partner for the buyer. Currently, only Stripe is supported.
+tip
+The partner cannot be changed after the buyer is created.
+If you need to connect a customer to multiple partners, you need to create multiple buyers on Suger.
+Integration information
+​
+Customer ID: The customer ID from your internal system.
+Stripe Customer ID: If this buyer already exists in Stripe, Suger will connect the buyer to the Stripe customer. Otherwise, Suger will create a new customer in Stripe for this buyer.
+Payment configuation
+​
+Set the buyer’s payment configuration:
+Select Currency: Choose the currency the buyer will use for payments. Currently supported currencies: USD, EUR, GBP.
+Allowed Payment Methods: Choose the payment methods based on the currency.
+Different currencies support different payment methods. For example, with USD, ACH Debit (US Bank Account) is available. If not selected, the buyer cannot use ACH Debit.
+Cards are always enabled by default.
+Credit can also be enabled (details below).
+Currency
+Allowed payment methods
+USD
+Card, ACH Debit (US Bank Account), Credit
+EUR
+Card, SEPA Debit, Credit
+GBP
+Card, BACS Debit, Credit
+Edit buyer
+​
+Most of the buyer's information can be modified, except for:
+Partner
+Stripe Customer ID
+Currency
+Share buyer portal
+​
+Suger generates a dedicated buyer portal for each buyer. Access the portal URL from the buyer detail page, and share it with the buyer.
+Buyer portal url will be in the format
+https://console.suger.io/spa/buyer?token=xxx
+Buyers can view their offers, entitlements, invoices, and manage payment methods on this portal.
+warning
+This page does not require buyer to login. The URL will contain a one-time authentication token with a limited validity period. Buyers can access the portal within this timeframe.
+Don't share the URL with unauthorized buyers.
+Manage wallet
+​
+After the buyer is created, you can help to set up payment methods to ensure automatic invoice payments in the future.
+Stripe payment method
+​
+For buyers who's partner is Stripe, payments are processed through Stripe. Suger supports the following payment methods through Stripe:
+Card (all currencies)
+SEPA Debit (EUR only)
+BACS Debit (GBP only)
+Learn more:
+Stripe Documentation
+tip
+If you need to add a test payment method, you need to connect Suger to your Stripe test account when creating the integration.
+Learn more:
+Create Stripe Integration
+Add new payment method
+​
+Suger uses the Stripe SDK to securely collect payment method details. These details will be stored in Stripe to process payments in the future, you only need to add the payment method once.
+Learn more:
+Stripe Documentation
+tip
+Sensitive card information will not be stored in Suger.
+Click here to see the details about payment method collection.
+Add card
+Adding a card is straightforward, but some cards may not be eligible for addition due to restrictions.
+Add a US Bank Account
+Adding a bank account is a little more complex. Stripe guides the user through the bank-linking process.
+Set default payment method
+​
+You can set a payment method as default, Suger will use this method first for invoice payments.
+Delete payment method
+​
+Payment methods can be deleted but cannot be modified.
+Credit
+​
+Credits are managed by Suger. You can assign some credits to a buyer to pay for their invoices. Credits are currency-specific and works like a wallet balance.
+Create credit
+​
+Each credit can have its own active period.
+Close credit
+​
+You can close a credit before its active period ends. Once closed, the credit will be unusable.
+Credit use and refund
+​
+Credits within their validity period are automatically applied during invoice payments.
+Credits can be deducted multiple times, but the total usage cannot exceed their original amount.
+Multiple credits can be used for a single invoice payment.
+Credits can be refunded, and the corresponding amount will be restored.
+Previous
+Price Model
+Next
+Offer
+Manage buyer
+Create buyer
+Edit buyer
+Share buyer portal
+Manage wallet
+Stripe payment method
+Credit
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

@@ -1,0 +1,145 @@
+Usage Credit | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Get Started
+Usage Credit
+On this page
+Usage Credit
+Give usage credits to your clients in cloud marketplaces
+Overview
+​
+The ISV sellers can offer usage credits (in amount, default currency USD) to their clients (buyers) in the active Entitlements of all marketplaces. It provides flexibility for your sales or revenue operation team to customize deal & incentives.
+danger
+The Suger Usage Credit is applicable
+ONLY
+for usage-based metering. If the Entitlement has no usage-based metrics defined, the Usage Credit has no effect at all.
+warning
+If your current metering service supports the credit, don't use it together with Suger Usage Credit, otherwise it may result in double credits.
+Billing Priority
+​
+Credit is just one of multiple available incentives. For example, In Azure Marketplace, each metering metric can have included quantity or even infinite included quantity. In GCP Marketplace, the metric may have free tiered quantity. In addition, some Entitlements are type of commit + usaged-based combined, which has commit amount to consume. To eliminate confusion, they are ordered by their billing priorities in the table below. The
+Suger Credit
+is consumed first, then
+Commit
+, and the
+Included Quantity
+is the last.
+Priority
+Incentive
+Description
+1st
+Suger Credit
+The rest usage records after
+Included Quantity
+are applied with Suger Credit in amount. It depends on the order of usage records are received in Suger metering API.
+2nd
+Commit
+Applicable if the
+Entitlement
+has commit amount (for AWS & GCP) or Flat_Rate (for Azure)
+3rd
+Included Quantity
+AWS Marketplace: Not applicable
+Azure Marketplace: Included Quantity or Infinite Included
+GCP Marketplace: Tiered Free Quantity
+Add Credit
+​
+There are two approaches to add credit to the Entitlement: Suger Console or Suger API.
+warning
+The Suger Usage Credit amount must be
+positive
+.
+warning
+You are only allowed to add the Usage Credit amount via the Suger Console or API. No opening to revert or decrease the amount. If you would like to decrease the Usage Credit amount for any reasons, please contact us
+support@suger.io
+for support operation.
+Suger Console
+Go to the page of Entitlement where you want to add the credit, and scroll down to the section of
+Entitlement Terms
+. Click the button
+Add credit
+, select the target Entitlement Term (optional), input the credit amount in the dialog and submit.
+Suger API
+Use the
+addEntitlementCredit REST API
+to add the credit amount. The request payload would be like:
+{
+"organizationID": "your-suger-organization-id",
+"entitlementID": "suger-entitlement-id",
+"entitlementTermID": "suger-entitlement-term-id", // Optional
+"creditAmountIncrement": 100.0,
+}
+The success response would be:
+{
+"organizationID": "your-suger-organization-id",
+"entitlementID": "suger-entitlement-id",
+"entitlementTermID": "suger-entitlement-term-id",
+"creditAmountIncrement": 100.0,
+"newCreditAmount": 150.0, // new total credit amount, assume there was $50.0 before addEntitlementCredit.
+}
+Previous
+Usage Metering V2
+Next
+Signup URL Redirect
+Overview
+Billing Priority
+Add Credit
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

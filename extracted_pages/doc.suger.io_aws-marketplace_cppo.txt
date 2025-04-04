@@ -1,0 +1,171 @@
+CPPO | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Buy with AWS
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+AWS Marketplace
+CPPO
+On this page
+CPPO
+Create and manage AWS marketplace Channel Partner Private Offer (CPPO) in Suger service
+Overview
+​
+The
+Channel Partner Private Offer
+(CPPO) empowers Independent Software Vendors (ISVs) to grant Channel Partners access to wholesale pricing for their software solutions. This functionality enables ISVs to delegate the financial and contractual aspects of customer relationships within the AWS Marketplace to their Channel Partners.
+Within the Suger platform, ISVs/Sellers can efficiently oversee
+CPPO resell opportunities
+,
+CPPO private offers
+, and
+CPPO entitlements
+in a unified manner. Additionally,
+CPPO entitlements
+benefit from overage usage metering support when the relevant usage metering dimensions are available.
+Requirements
+​
+The service-linked role for AWS Marketplace is required to enable CPPO function in Suger platform. AWS Marketplace uses the service-linked role named AWSServiceRoleForMarketplaceResaleAuthorization, which enables access to AWS services and resources used or managed by AWS Marketplace for Resale Authorizations. Here is the steps to set up the
+service-linked role for AWS Marketplace
+:
+In the
+AWS Marketplace Management Portal
+, sign in to the management account and choose Settings.
+In the Settings section, select the Service-linked roles tab.
+On the Service-linked roles page, select Service-linked role for Resale Authorizations or Resale Authorizations integration, and then choose Create service-linked role or Configure integration.
+On the Service-linked role for Resale Authorizations or Create Resale Authorizations integrations page, review the information and confirm by choosing Create service-linked role or Create integration. A message appears on the Service-linked roles page, indicating that the Resale Authorization service-linked role was successfully created.
+CPPO Resell Opportunity
+​
+You, as ISV/Seller, can authorize channel partners to resell your products by creating a 'CPPO resell opportunity' for these partners in Suger Platform. Click the button of
+New Resale Authorization
+in the
+Suger console offer page
+, select the target AWS SaaS product and fulfill the info listed as below:
+Opportunity Name
+: Custom name for your opportunity will be displayed to the reseller.
+Reseller Account
+: Reseller account that is attached to this opportunity.
+Buyer(s)
+: To constrain resale to specific buyers, add buyer AWS account ID. It is required if it is a Renewal Opportunity.
+Commit Amount
+: How much the buyer need to pay for the contract private offer created by this opportunity.
+Usage Dimension Absolute Price
+: Configure the absolute price of each usage metering dimensions. An example is shown below:
+Expiry Date
+: The opportunity is valid by the expiry date.
+End User License Agreement
+: Select the EULA between Standard AWS Marketplace Contract and your custom contract.
+Flexible Payment Installments(optional)
+: Specifies payment installment details, applicable only to
+Contract
+offers.
+danger
+The
+CPPO resell opportunites
+are stored in Suger platform as Offers with type =
+CPPO_OUT
+.
+CPPO Private Offer
+​
+After the
+CPPO resell opportunities
+have been created, authorized channel partners can offer one or more of the products on AWS Marketplace. They will extend
+CPPO private offers
+to the end buyers based on these resell opportunities. Suger promptly receives notifications as soon as these
+CPPO private offers
+are generated.
+danger
+The
+CPPO private offers
+are stored in Suger platform as Offers with type =
+CPPO
+.
+CPPO Entitlement
+​
+After the end buyer accepts the
+CPPO private offer
+initiated by the channel partner, Suger automatically generates an active entitlement for the transaction. The
+CPPO Resell Opportunity
+,
+CPPO Private Offer
+and
+CPPO Entitlement
+are interconnected, providing ISVs/Sellers with a comprehensive overview of the entire CPPO deal process.
+danger
+The
+CPPO entitlements
+are stored in Suger platform as Entitlements with type =
+CPPO
+.
+Previous
+Accept Private Offer
+Next
+Buy with AWS
+Overview
+Requirements
+CPPO Resell Opportunity
+CPPO Private Offer
+CPPO Entitlement
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

@@ -1,0 +1,124 @@
+Accept Private Offer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+GCP Marketplace
+Accept Private Offer
+On this page
+Accept Private Offer
+Guidance to accept the private offer as the end buyer in GCP marketplace
+Overview
+​
+This guide provides step-by-step instructions on how to accept a private offer on Google Cloud Platform (GCP) marketplace. It explains the process of reviewing and accepting the offer, checking the start and end dates, and understanding the usage metrics. It also guides users through the signup process, including filling out the necessary fields and upgrading their account.
+Before you begin
+​
+To accept private offer in GCP marketplace, you must have the one of following Identity and Access Management (IAM) role(s):
+Billing Administrator
+(roles/billing.admin)
+OR
+Billing User
+(roles/billing.user) AND
+Consumer Procurement Order Administrator
+(roles/consumerprocurement.orderAdmin)
+If you don't have the correct role(s), request access from a Billing Administrator or Organization Administrator. For information and steps on granting roles, see
+Access control
+.
+Accept private offer
+​
+Open the
+private offer link
+sent from the Suger notification email or sales representative.
+In the
+Review and subscribe
+section, review the final details, including the plan policy. To acknowledge the additional requirements, select the checkboxes.
+Click
+Subscribe
+. A window appears to confirm your subscription.
+In the confirmation window, click
+View orders
+to see the order status for all of your private offers, or click
+Go to Marketplace
+to browse Cloud Marketplace.
+Depending on the product, you might need to activate your subscription directly with the vendor.
+After you subscribe, the vendor is prompted to accept the offer. The offer pricing takes effect on the contract start date, as outlined in the offer.
+Accept offer with auto-renew
+​
+If the vendor has configured auto-renew, you can enable the private offer to automatically renew at the end of the contract. If you turn on auto-renew, the renewed offer uses the same contract duration as the current offer. For offers that charge based on your usage, the renewed offer might include changes in usage metric pricing if the vendor has updated their public pricing plan. Otherwise, the renewed offer has the same pricing as the current offer.
+To turn on or turn off auto-renew, see
+Manage your accepted offers
+.
+Step by step guidance
+​
+Previous
+Create Private Offer
+Next
+CPPO
+Overview
+Before you begin
+Accept private offer
+Accept offer with auto-renew
+Step by step guidance
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

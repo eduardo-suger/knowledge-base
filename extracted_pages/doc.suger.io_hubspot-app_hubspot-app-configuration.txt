@@ -1,0 +1,94 @@
+Configuration | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Configuration
+Create offer
+Create CPPO
+Create Co-Sell
+Workflow
+Analytics
+HubSpot App
+Configuration
+On this page
+Configuration
+Add the Suger App to your HubSpot Console.
+Overview
+​
+After completing the integration with HubSpot, you need to add the Suger App to your HubSpot console before you can start creating offers.
+danger
+Make sure you have completed the integration with HubSpot first. Visit
+Integration with HubSpot
+for detailed instructions.
+Add Suger App to your HubSpot console
+​
+Open a deal's detail page, click on "Customize record" link on top of this page
+Go to "Record Customization" tab and click on "Default view"
+Click on the "+" button to create a new tab
+Give it a name
+Now click on "Add cards" button
+You can find the Suger App in "Apps"
+Click on "Save and exit" button, and you can start using the Suger App
+You are all set!
+Previous
+HubSpot App
+Next
+Create offer
+Overview
+Add Suger App to your HubSpot console
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

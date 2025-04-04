@@ -1,0 +1,172 @@
+Accept Private Offer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Azure Marketplace
+Accept Private Offer
+On this page
+Accept Private Offer
+Guidance to accept the private offer as the end buyer in Azure marketplace
+Overview
+​
+This guide provides step-by-step instructions on how to accept a private offer on Azure marketplace. It explains the process of reviewing and accepting the offer, checking the start and end dates, and understanding the usage metrics. It also guides users through the signup process.
+Before you begin
+​
+To accept a private offer on the Microsoft commercial marketplace, the buyer must meet the following prerequisites:
+The
+Enterprise Agreement Admin
+or
+Billing Account Owner
+role is required to accept the private offer terms.
+Holding the
+Owner
+or
+Contributor
+role in the organization's main Azure Account on the subscription (not Marketplace account) is essential to subscribe to the private offer.
+The buyer needs to be logged into the Azure account designated in the private offer.
+The Microsoft private offer should be based on a public plan that is available in the buyer's market. When creating a private offer, verify the market location of the buyer's billing account and select the appropriate market.
+danger
+There are two actions required to procure a private offer:
+accept
+and
+purchase
+. The person accepting the private offer and the person purchasing the private offer require different permissions, depending on the agreement type. The person purchasing the private offer can use the
+private offer eligibility report
+to check if they have the correct permissions.
+The permissions required to accept and purchase are summarized in the following table:
+Agreement type
+Permissions to accept offer
+Permissions to purchase or subscribe
+Microsoft Customer Agreement (MCA)
+Billing account owner or contributor
+Subscription owner or subscription contributor
+Enterprise Agreement (EA)
+Enterprise administrator
+Subscription owner or subscription contributor
+Accept private offer
+​
+Once you complete any necessary prechecks, check permissions, and have your
+billing account ID
+ready, you're ready to accept a private offer.
+The buyer can navigate to the private offer by clicking the
+private offer link
+from the Suger notification email or sales representative. Accepting the private offer means you agree to the terms and prices listed in the offer, creating a contractual agreement between your organization and the Microsoft partner. Accepting the private offer agreement includes:
+Legal entity name to which the offer applies
+Plans included in the offer
+Private offer price
+Custom legal terms for the offer, if applicable
+Start and end dates when the negotiated price applies to this offer
+Expiration date for the offer; you must accept the offer before this date
+danger
+In case the
+private offer link
+is not accessible, buyers can also go to their
+Azure Portal
+, click
+Marketplace
+, then click
+Private Offer Management
+and select the offer there.
+Purchase private offer
+​
+If you
+accept the private offer
+using the
+private offer link
+, you're redirected to the Azure portal to complete the purchase on the private offer management dashboard.
+Alternatively, you can also find the private offer by logging into the Azure portal and select the
+private offers management
+dashboard in the marketplace.
+To complete the purchase of your private offer, follow these steps:
+In the Azure portal, access the marketplace. You can search for marketplace in the search bar in Azure and select the marketplace icon. Select
+private offers management
+.
+Under private offer management is a list of all the private offers with their status.
+To purchase the private offer, select
+Purchase
+.
+Click
+Review and Subscribe
+, and review the configured private offer.
+Click
+Subscribe
+.
+When the subscription process completes, click
+Configure Account Now
+.
+Complete the sign up form so that the ISV can provision the software.
+Step by step guidance
+​
+Previous
+Create Private Offer
+Next
+CPPO
+Overview
+Before you begin
+Accept private offer
+Purchase private offer
+Step by step guidance
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

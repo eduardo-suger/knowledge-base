@@ -1,0 +1,82 @@
+Get Started | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Java SDK
+TypeScript SDK
+Go SDK
+Python SDK
+Get Started
+On this page
+Suger SDKs
+Welcome to the Developer Documentation for the Suger SDK. To get started, select your preferred SDK: Java, Go,
+TypeScript, or Python, and follow the step-by-step instructions provided in the documentation.
+Key Features Highlight
+​
+Intuitive Programming Languages
+Direct support for multiple programming languages (such as Go and Java), seamlessly integrating usability.
+This allows you to quickly get started and reduces the cost of switching between languages.
+Call Examples
+The SDK is optimized for Suger services, allowing you to complete service calls with little code, significantly
+enhancing development efficiency.
+Flexible Configuration Options
+Supports various configuration options, making it easy for users to customize settings according to their needs,
+quickly adapting to different usage scenarios.
+Quick Start Guide
+​
+You can refer to the documentation for each SDK to get started quickly.
+Here are some SDKs that have been released:
+📄️
+Java SDK
+Follow these steps to get started with the Suger Java SDK:
+📄️
+TypeScript SDK
+Follow these steps to get started with the Suger TS SDK:
+📄️
+Go SDK
+Follow these steps to get started with the Suger Go SDK:
+📄️
+Python SDK
+Follow these steps to get started with the Suger Python SDK:
+Next
+Java SDK
+Key Features Highlight
+Quick Start Guide
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

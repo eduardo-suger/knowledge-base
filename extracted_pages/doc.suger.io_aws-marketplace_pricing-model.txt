@@ -1,0 +1,140 @@
+Pricing Model | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Buy with AWS
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+AWS Marketplace
+Pricing Model
+On this page
+Pricing Model
+AWS Marketplace Pricing Models
+Overview
+​
+There are three pricing models for the SaaS product in AWS marketplace:
+Subscription
+,
+Contract
+and
+Contract + Subscription Combined
+. You can choose only one price model for each of your SaaS
+product listing
+.
+Subscription
+​
+For SaaS subscriptions, the buyers are billed based on the metering records that you, as the ISV/Seller, send to AWS Marketplace. All charges must be measured and reported every hour from the software deployed in the buyer's account. All usage is then calculated monthly and billed monthly using the same mechanism as AMI based AWS Marketplace offerings. Example of Subscription pricing model is shown below:
+Dimension API Name
+Dimension Description
+Price per Dimension
+compute_service
+2 CUP, 8GB RAM per hour as one unit
+$0.1
+storage_service
+1GB per hour as one unit
+$0.04
+network_volume
+1GB as one unit
+$0.2
+danger
+A buyer can cancel their subscription to your SaaS subscription product at any time, no commitment or restriction of cancellation here.
+danger
+If a buyer indicates that they want to cancel through your product, direct the buyer to AWS Marketplace. To guarantee that there will be no future charges, buyers should conﬁrm the cancellation with AWS Marketplace.
+Contract
+​
+For SaaS contracts, the buyer initiates a purchase of your software and enters into an agreement with you. Under the agreement, the buyer is entitled to a specified quantity of use of your SaaS product. AWS Marketplace bills your buyers upfront or by the payment schedule that you define, based on the contract between you and your buyers. An example of Contract pricing model is shown below. You may define several plans with multiple billing terms. The buyers can select one of them in the process of procurement. Besides, the buyers can change the plans inside the contract term.
+Contract API Name
+Dimension Description
+Billing Term
+Price per Contract Term
+data_service
+process & storage streaming data
+1 Month
+$2,000
+premium_data_service
+Premium plan to process & storage streaming data
+1 Month
+$4,000
+data_service
+process & storage streaming data
+6 Months
+$10,000
+data_service
+process & storage streaming data
+12 Months
+$18,000
+Combined
+​
+Based on the SaaS contract pricing model, for each pricing dimension in your contract, you can choose to let customers pay as they go for additional usage of that dimension above their contract. You can also add additional dimensions without contract prices that customers only consume by paying as they go.
+danger
+For Contract or Combined pricing, the buyers can upgrade a contract to one of a higher value except for longer durations. For example, they can upgrade to higher quantities or higher-value entitlements. Buyers are given a prorated credit for their existing contract. Buyers can't decrease the size of their existing contract. They can only decrease the size at renewal, or cancel their renewal.
+Previous
+Integration
+Next
+List Product
+Overview
+Subscription
+Contract
+Combined
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

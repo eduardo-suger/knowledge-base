@@ -1,0 +1,89 @@
+Create Co-Sell | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+Create private offer
+Create Reseller Authorization
+Create Co-Sell
+HubSpot App
+Workflow
+Analytics
+Salesforce App
+Create Co-Sell
+On this page
+Create Co-Sell
+Easily create Co-Sell using the Suger App within your Salesforce Console.
+Overview
+​
+After adding the Suger App to your Salesforce Console, you can quickly create Co-Sell from opportunities using the app with ease.
+Create a Co-Sell
+​
+Navigate to the opportunity's detail page and click the
+Co-Sell
+button at the top of the Suger App.
+Choose the partner to share the opportunity and fill the form with necessary information.
+tip
+If field mapping has been configured, the form will be prefilled with corresponding fields from the Salesforce opportunity, making the offer creation process faster and easier.
+Once all necessary information is filled in, submit the form to create the co-sell.
+You are all set!
+Previous
+Create Reseller Authorization
+Next
+HubSpot App
+Overview
+Create a Co-Sell
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

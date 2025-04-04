@@ -1,0 +1,7730 @@
+get offer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Offer
+get offer
+get offer
+GET
+/org/:orgId/offer/:offerId
+Get the offer by the given offer ID.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+offerId
+string
+required
+Offer ID
+Responses
+​
+200
+400
+404
+405
+500
+the Offer Object
+application/json
+Schema
+Example (from schema)
+Schema
+buyerID
+string
+contactIds
+string[]
+createdBy
+string
+creationTime
+date-time
+endTime
+date-time
+nullable
+expireTime
+date-time
+nullable
+externalID
+string
+id
+string
+info
+object
+additionalEulaUrls
+string[]
+The URL of the additional EULA files. Only applicable when EulaType = CUSTOM.
+The additional EULA files will be attached to the EULA file in the EulaUrl, and form a single EULA file.
+additionalResellerEulaUrls
+string[]
+The URL of the additional reseller EULA files. Only applicable when ResellerEulaType = CUSTOM.
+attachEulaType
+EulaType (string)
+Possible values:
+[``,
+SCMP
+,
+ECMP
+,
+RCMP
+,
+CUSTOM
+,
+ISV
+,
+CURRENT
+]
+autoRenew
+boolean
+Is this offer Auto Renew enabled.
+awsAgreementDuration
+string
+Aws private subscription offer Usage duration. ISO8601 format.
+P300D means the contract Usage start date At acceptance, and with duration 300 days.
+awsChannelPartner
+object
+id
+string
+The AWS Account ID of the Channel Partner
+name
+string
+The name of the Channel Partner
+awsCppoEventDetail
+object
+catalog
+string
+eventCategory
+string
+eventID
+string
+eventName
+string
+eventSource
+string
+eventType
+string
+eventVersion
+string
+managementEvent
+boolean
+manufacturer
+object
+The seller/ISV's AWS Account Id.
+accountId
+string
+name
+string
+offer
+object
+arn
+string
+expirationDate
+date-time
+id
+string
+name
+string
+product
+object
+arn
+string
+id
+string
+title
+string
+requestID
+string
+requestParameters
+responseElements
+sellerOfRecord
+object
+For private offer created by a channel partner, this is the channel partner's AWS Account Id.
+For private offer created by a seller/ISV, this is the seller/ISV's AWS Account Id.
+accountId
+string
+name
+string
+targetedBuyerAccountIds
+string[]
+awsCppoOpportunity
+object
+CreatedDate
+string
+Description
+string
+Dimensions
+object[]
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+ManufacturerAccountId
+string
+ManufacturerLegalName
+string
+Name
+string
+OfferDetails
+object
+OfferCreatedCount
+integer
+OfferExtendedStatus
+string
+PreExistingBuyerAgreement
+object
+AcquisitionChannel
+AwsRenewalOfferType (string)
+Possible values:
+[``,
+External
+,
+AwsMarketplace
+]
+Indicates if the existing agreement was signed outside AWS Marketplace or within AWS Marketplace.
+one of values ["External", "AwsMarketplace"]
+PricingModel
+AwsMarketplaceCatalogPricingModel (string)
+Possible values:
+[
+Contract
+,
+Usage
+,
+Byol
+,
+Free
+,
+Unknown
+]
+Indicates which pricing model the existing agreement uses.
+ProductId
+string
+ProductName
+string
+Rules
+object[]
+Array [
+AvailabilityEndDate
+string
+Id
+string
+Output only.
+NegativeTargeting
+object
+Negative targeting defines the criteria which any customer's profile should fulfill to be restricted to access the offer.
+CountryCodes
+string[]
+OffersMaxQuantity
+integer
+PositiveTargeting
+object
+Positive targeting defines the criteria which any buyer's profile should fulfill in order to be allowed to access the offer.
+BuyerAccounts
+object[]
+List of AWS account IDs that are allowed to subscribe to the offer.
+Array [
+AwsAccountId
+string
+]
+CountryCodes
+string[]
+List as option for allowing targeting based on country.
+If the intention isn’t to target the offer to a country, this field should be omitted.
+If it’s present, the list must contain at least one country code.
+Each element in this list should be a valid 2-letter country code, using this format: ISO 3166-1 alpha-2.
+ResellerAccountId
+string
+ResellerLegalName
+string
+Type
+AwsMarketplaceCppoOpportunityRuleType (string)
+Possible values:
+[
+AvailabilityRule
+,
+PartnerTargetingRule
+,
+TargetingRule
+,
+TaxConfigurationRule
+]
+Usage
+string
+]
+Status
+string
+Possible values:
+[
+Active
+,
+Restricted
+,
+Complete
+]
+Terms
+object[]
+Array [
+CurrencyCode
+string
+Documents
+object[]
+Array [
+Type
+AwsMarketplaceCatalogLegalTermDocumentType (string)
+Possible values:
+[
+CustomEula
+,
+CustomDsa
+,
+StandardEula
+,
+StandardDsa
+,
+StandardResellerContract
+,
+CustomResellerContract
+]
+Url
+string
+A URL to the legal document for buyers to read.
+Required when Type is one of the following [CustomEula, CustomDsa].
+Version
+string
+Version of standard contracts provided by AWS Marketplace.
+Required when Type is one of the following [StandardEula, StandardDsa].
+The version of StandardEula is "2022-07-14". The version of StandardDsa is "2019-12-12".
+]
+Duration
+string
+ISO 8601 duration format. For example, "P12M" represents 12 months.
+Grants
+object[]
+Array [
+DimensionKey
+string
+MaxQuantity
+integer
+]
+Id
+string
+MaximumAgreementStartDate
+string
+PositiveTargeting
+object
+BuyerAccounts
+object[]
+List of AWS account IDs that are allowed to subscribe to the offer.
+Array [
+AwsAccountId
+string
+]
+CountryCodes
+string[]
+List as option for allowing targeting based on country.
+If the intention isn’t to target the offer to a country, this field should be omitted.
+If it’s present, the list must contain at least one country code.
+Each element in this list should be a valid 2-letter country code, using this format: ISO 3166-1 alpha-2.
+Price
+string
+For ResaleFixedUpfrontPricingTerm
+RateCards
+object[]
+Array [
+Constraints
+object
+Defines constraints on how the term can be configured by acceptors.
+Applicable only to ConfigurableUpfrontPricingTerm.
+MultipleDimensionSelection
+string
+Determines if buyers are allowed to select multiple dimensions in the rate card.
+Possible values are "Allowed" and "Disallowed". Default value is "Allowed".
+QuantityConfiguration
+string
+Determines if acceptors are allowed to configure quantity for each dimension in rate card.
+Possible values are "Allowed" and "Disallowed". Default value is "Allowed".
+RateCard
+object[]
+Array [
+Description
+string
+DimensionKey
+string
+DisplayName
+string
+These fields are used for aws discovery API result.
+Price
+string
+Quantity
+string
+Unit
+string
+]
+Selector
+object
+Selector is used to differentiate between the mutually exclusive rate cards in the same pricing term,
+to be selected by the buyer. Applicable only to ConfigurableUpfrontPricingTerm.
+Type
+string
+At this time, only "Duration" is supported.
+Value
+string
+ISO 8601 duration format. For example, "P1M" represents one month.
+]
+Schedule
+object[]
+For ResalePaymentScheduleTerm
+Array [
+ChargeAmount
+string
+ChargeDate
+date-time
+]
+Type
+AwsMarketplaceCppoOpportunityTermType (string)
+Possible values:
+[
+BuyerTargetingTerm
+,
+UpdateAvailability
+,
+BuyerValidityTerm
+,
+BuyerLegalTerm
+,
+ResaleLegalTerm
+,
+ResaleUsageBasedPricingTerm
+,
+ResaleConfigurableUpfrontPricingTerm
+,
+ResaleFixedUpfrontPricingTerm
+,
+ResalePaymentScheduleTerm
+]
+]
+discountType
+AwsMarketplaceCppoDiscountType (string)
+Possible values:
+[
+DISCOUNT_PERCENT
+,
+CUSTOM_PRICE
+,
+CUSTOM_PRICE_WITH_FPS
+]
+The following fields are not from aws catalog API, only used for cppo_out offer create.
+They shouldn't be read in other places because they will absent when fetch opportunity from aws catalog API.
+opportunityDurationType
+AwsMarketplaceCppoDurationType (string)
+Possible values:
+[
+SPECIFIC_DATES
+,
+ONE_TIME
+,
+NO_SET_TIME
+]
+opportunityId
+string
+partnerId
+string
+awsMarkupPercentage
+number
+AWS private reseller offer using markup percentage. 10.0 represent 10% partner margin.
+awsResaleAuthorizationId
+string
+AWS ResaleAuthorizationId(CPPO_IN offer id) for CPPO offers of the reseller.
+azureOriginalPlan
+object
+$schema
+string
+id
+string
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+offerPricingType
+AzureMarketplaceOfferPricingType (string)
+Possible values:
+[``,
+editExistingOfferPricingOnly
+,
+saasNewCustomizedPlans
+,
+vmSoftwareReservations
+]
+default "editExistingOfferPricingOnly"
+plan
+string
+planName
+string
+The azure plan friendly name, from the Azure Marketplace.
+pricing
+object
+customMeters
+object
+meters
+One of PriceAndAvailabilityCustomMeter_USD or PriceAndAvailabilityCustomMeter_PerMarket
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+recurrentPrice
+object
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+prices
+object[]
+Array [
+billingTerm
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+paymentOption
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+pricePerPaymentInUsd
+number
+prices
+object[]
+Array [
+currency
+string
+ISO 4217 currency code
+markets
+string[]
+PriceAndAvailability audience definition
+price
+number
+Prices   interface{}
+json:"prices,omitempty"
+]
+]
+recurrentPriceMode
+string
+Possible values:
+[
+flatRate
+,
+perUser
+]
+default "flatRate"
+userLimits
+object
+max
+number
+min
+number
+product
+string
+resourceName
+string
+softwareReservation
+object
+paymentSchedule
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+reservationDuration
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+vmPrices
+object
+patternProperties
+object
+property name*
+AzureMarketplaceVmPricePropertyItem
+quantity
+number
+unitPricePerPaymentPeriodInUsd
+number
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+visibility
+string
+Possible values:
+[
+visible
+,
+hidden
+]
+default "visible"
+azurePrivateOffer
+object
+$schema
+string
+acceptBy
+date-time
+in format YYYY-MM-DD
+acceptanceLinks
+object[]
+Array [
+beneficiaryId
+string
+The Customer Billing Account ID.
+link
+string
+]
+beneficiaries
+object[]
+Array [
+beneficiaryRecipients
+object[]
+Array [
+id
+string
+recipientType
+string
+Possible values:
+[
+cspCustomer
+,
+billingGroup
+]
+]
+description
+string
+id
+string
+the customer billing account id.
+]
+customerContractRenewal
+boolean
+If true, it is a renewal offer for an existing customer.
+eTag
+string
+end
+date-time
+in format YYYY-MM-DD
+id
+string
+in format of "private-offer/private-offer-durable-id"
+lastModified
+date-time
+in format YYYY-MM-DD
+name
+string
+notificationContacts
+string[]
+array of email addresses of the users to be notified of any changes in the private offer status.
+offerPricingType
+AzureMarketplaceOfferPricingType (string)
+Possible values:
+[``,
+editExistingOfferPricingOnly
+,
+saasNewCustomizedPlans
+,
+vmSoftwareReservations
+]
+partners
+object[]
+Array [
+id
+string
+location
+string
+partnerName
+string
+]
+preparedBy
+string
+pricing
+object[]
+Up to 10 pricing entries are allowed.
+Array [
+basePlan
+string
+required for SaasNewCustomizedPlans
+discountPercentage
+number
+between 0.01 to 100
+discountType
+PrivateOfferDiscountType (string)
+Possible values:
+[
+absolute
+,
+percentage
+]
+markupPercentage
+number
+between 0.00000001 to 100
+newPlanDetails
+object
+required for SaasNewCustomizedPlans
+description
+string
+id
+string
+name
+string
+originalPlan
+object
+the pricing plan of the original plan.
+$schema
+string
+id
+string
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+offerPricingType
+AzureMarketplaceOfferPricingType (string)
+Possible values:
+[``,
+editExistingOfferPricingOnly
+,
+saasNewCustomizedPlans
+,
+vmSoftwareReservations
+]
+default "editExistingOfferPricingOnly"
+plan
+string
+planName
+string
+The azure plan friendly name, from the Azure Marketplace.
+pricing
+object
+customMeters
+object
+meters
+One of PriceAndAvailabilityCustomMeter_USD or PriceAndAvailabilityCustomMeter_PerMarket
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+recurrentPrice
+object
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+prices
+object[]
+Array [
+billingTerm
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+paymentOption
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+pricePerPaymentInUsd
+number
+prices
+object[]
+Array [
+currency
+string
+ISO 4217 currency code
+markets
+string[]
+PriceAndAvailability audience definition
+price
+number
+Prices   interface{}
+json:"prices,omitempty"
+]
+]
+recurrentPriceMode
+string
+Possible values:
+[
+flatRate
+,
+perUser
+]
+default "flatRate"
+userLimits
+object
+max
+number
+min
+number
+product
+string
+resourceName
+string
+softwareReservation
+object
+paymentSchedule
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+reservationDuration
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+vmPrices
+object
+patternProperties
+object
+property name*
+AzureMarketplaceVmPricePropertyItem
+quantity
+number
+unitPricePerPaymentPeriodInUsd
+number
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+visibility
+string
+Possible values:
+[
+visible
+,
+hidden
+]
+default "visible"
+plan
+string
+The base/original/default plan of the private offer, in format of "plan/product-durable-id/plan-durable-id"
+planId
+string
+planName
+string
+planType
+string
+Possible values:
+[
+FLAT_RATE
+,
+PER_USER
+]
+The type of the plan, FLAT_RATE or PER_USER.
+priceDetails
+privateOfferPlan
+object
+the pricing plan of the private offer
+$schema
+string
+id
+string
+lifecycleState
+AzureMarketplaceResourceLifecycleState (string)
+Possible values:
+[
+notAvailable
+,
+neverUsed
+,
+test
+,
+preview
+,
+generallyAvailable
+,
+deprecated
+,
+decommissioned
+,
+deleted
+]
+offerPricingType
+AzureMarketplaceOfferPricingType (string)
+Possible values:
+[``,
+editExistingOfferPricingOnly
+,
+saasNewCustomizedPlans
+,
+vmSoftwareReservations
+]
+default "editExistingOfferPricingOnly"
+plan
+string
+planName
+string
+The azure plan friendly name, from the Azure Marketplace.
+pricing
+object
+customMeters
+object
+meters
+One of PriceAndAvailabilityCustomMeter_USD or PriceAndAvailabilityCustomMeter_PerMarket
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+recurrentPrice
+object
+priceInputOption
+string
+Possible values:
+[
+perMarket
+,
+usd
+]
+default "usd"
+prices
+object[]
+Array [
+billingTerm
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+paymentOption
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+pricePerPaymentInUsd
+number
+prices
+object[]
+Array [
+currency
+string
+ISO 4217 currency code
+markets
+string[]
+PriceAndAvailability audience definition
+price
+number
+Prices   interface{}
+json:"prices,omitempty"
+]
+]
+recurrentPriceMode
+string
+Possible values:
+[
+flatRate
+,
+perUser
+]
+default "flatRate"
+userLimits
+object
+max
+number
+min
+number
+product
+string
+resourceName
+string
+softwareReservation
+object
+paymentSchedule
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+reservationDuration
+object
+type
+string
+Possible values:
+[
+day
+,
+week
+,
+month
+,
+year
+]
+value
+number
+default 0
+vmPrices
+object
+patternProperties
+object
+property name*
+AzureMarketplaceVmPricePropertyItem
+quantity
+number
+unitPricePerPaymentPeriodInUsd
+number
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+visibility
+string
+Possible values:
+[
+visible
+,
+hidden
+]
+default "visible"
+product
+string
+in format of "product/product-durable-id"
+productName
+string
+sugerOfferId
+string
+]
+privateOfferType
+AzureMarketplacePrivateOfferType (string)
+Possible values:
+[``,
+customerPromotion
+,
+cspPromotion
+,
+multipartyPromotionChannelPartner
+,
+multipartyPromotionOriginator
+]
+resourceName
+string
+start
+date-time
+in format YYYY-MM-DD, if VariableStartDate = true, this field should be empty.
+state
+AzureMarketplacePrivateOfferState (string)
+Possible values:
+[
+draft
+,
+live
+,
+deleted
+,
+withdrawn
+]
+subState
+AzureMarketplacePrivateOfferSubState (string)
+Possible values:
+[
+accepted
+,
+pendingAcceptance
+]
+termsAndConditionsDocSasUrl
+string
+Only applicable to private offers with privateOfferType = customerPromotion || cspPromotion
+termsAndConditionsDocs
+object[]
+Only applicable to private offers with privateOfferType = multipartyPromotionOriginator || multipartyPromotionChannelPartner
+Array [
+customerFacingDocumentName
+string
+fileName
+string
+sasUrl
+string
+]
+upgradedFrom
+object
+id
+string
+name
+string
+validations
+object[]
+Array [
+$schema
+string
+code
+string
+Possible values:
+[
+businessValidationError
+,
+collectionLimitExceeded
+,
+invalidId
+,
+invalidEntityStatus
+,
+invalidRequest
+,
+invalidResource
+,
+invalidState
+,
+notDeployed
+,
+notSupported
+,
+operationCanceled
+,
+productLocked
+,
+resourceNotFound
+,
+schemaValidationError
+]
+level
+string
+Possible values:
+[
+informational
+,
+warning
+]
+message
+string
+resourceId
+string
+]
+variableStartDate
+boolean
+azureProductVariant
+object
+azureGovernmentCertifications
+object[]
+Array [
+title
+string
+uri
+string
+validationResults
+object[]
+Array [
+errorMessage
+string
+memberNames
+string[]
+]
+]
+cloudAvailabilities
+string[]
+conversionPaths
+string
+extendedProperties
+object[]
+Array [
+type
+string
+value
+string
+]
+externalID
+string
+featureAvailabilities
+object[]
+Not original fields. They are populated by other API calls
+Array [
+customMeters
+object[]
+Array [
+displayName
+string
+id
+string
+includedBaseQuantities
+object[]
+Array [
+isInfinite
+boolean
+quantity
+number
+recurringUnit
+string
+Possible values:
+[
+Monthly
+,
+Annual
+]
+]
+isEnabled
+boolean
+priceInUsd
+number
+uniqueID
+string
+unitOfMeasure
+string
+]
+id
+string
+isHidden
+boolean
+marketStates
+object[]
+Array [
+marketCode
+string
+ISO Country Code
+state
+string
+Possible values:
+[
+Disabled
+,
+Enabled
+,
+StopSelling
+,
+Terminated
+]
+]
+markets
+object[]
+Array [
+friendlyName
+string
+marketCode
+string
+ISO Country Code
+]
+priceSchedules
+object[]
+Array [
+dateTimeRange
+object
+endAt
+object
+dateTimeInUtc
+string
+localizePerMarket
+boolean
+startAt
+object
+dateTimeInUtc
+string
+localizePerMarket
+boolean
+friendlyName
+string
+isBaseSchedule
+boolean
+There is only one base schedule.
+marketCodes
+string[]
+ISO country code
+schedules
+object[]
+Array [
+priceCadence
+object
+type
+string
+Possible values:
+[
+Month
+,
+Year
+]
+value
+integer
+pricingModel
+string
+Possible values:
+[
+Flat
+,
+Recurring
+,
+Usage
+]
+pricingUnits
+object[]
+Array [
+isUnlimitedUnit
+boolean
+lowerUnit
+integer
+name
+string
+Possible values:
+[
+sharedcore
+,
+transactions
+]
+unitType
+string
+upperUnit
+integer
+]
+retailPrice
+object
+currencyCode
+string
+ISO currency code, Three characters
+openPrice
+number
+priceTierID
+string
+]
+]
+properties
+object[]
+Array [
+type
+string
+value
+string
+]
+resourceType
+string
+ResourceType = FeatureAvailability
+subscriptionAudiences
+object[]
+Array [
+description
+string
+id
+string
+]
+tenantAudiences
+object[]
+Array [
+description
+string
+id
+string
+]
+trial
+object
+dateTimeRange
+object
+endAt
+object
+dateTimeInUtc
+string
+localizePerMarket
+boolean
+startAt
+object
+dateTimeInUtc
+string
+localizePerMarket
+boolean
+duration
+integer
+durationType
+string
+Possible values:
+[
+Minute
+,
+Days
+,
+Months
+]
+type
+string
+Possible values:
+[
+NoTrial
+,
+TimedAccess
+,
+TimedUsage
+,
+Unlimited
+]
+visibility
+string
+Possible values:
+[
+Public
+,
+Private
+]
+]
+friendlyName
+string
+id
+string
+leadGenID
+string
+referenceVariantID
+string
+resourceType
+string
+Possible values:
+[
+AzureSkuVariant
+,
+AzureTestDriveVariant
+]
+state
+string
+Possible values:
+[
+InActive
+,
+Active
+]
+billableDimensions
+object[]
+Usage based metering dimensions based on Billable Metrics, managed by Suger only.
+Array [
+billableMetricId
+string
+The ID for the billable metric.
+category
+PriceModelCategory (string)
+Possible values:
+[
+basic
+,
+tiered
+,
+bulk
+,
+volume
+,
+percentage
+,
+tiered-percentage
+,
+matrix
+]
+description
+string
+Description of the dimension. This is used in the UI to display the dimension.
+discount
+object
+discountType
+BillingDiscountType (string)
+Possible values:
+[
+PERCENTAGE
+,
+ABSOLUTE
+]
+value
+number
+length
+integer
+The term length for the commit amount. Applicable to Direct only.
+minimumCommit
+number
+The minimum commit amount. Applicable to Direct only. Ignored if the value is 0 or less.
+minimumCommitProrata
+boolean
+If the minimum commit is appled with pro-rata. Applicable to Direct only.
+If true, the minimum commit amount will be prorated based on the usage period (starting time and ending time).
+minimumCommitScope
+BillingMinimumCommitScope (string)
+Possible values:
+[``,
+DIMENSION
+,
+DIMENSION_GROUP_BY
+]
+name
+string
+Display name of the dimension. This is used in the UI to display the dimension.
+priceModelBasic
+object
+unitAmount
+number
+priceModelBulk
+object
+bulkAmount
+number
+A currency amount to rate usage by
+bulkSize
+integer
+An integer amount to represent package size. For example, 1000 here would divide
+usage by 1000 before multiplying by package_amount in rating
+priceModelMatrix
+object
+defaultUnitAmount
+number
+matrix
+object[]
+The matrix of the pricing model
+Array [
+properties
+object[]
+Array [
+name
+string
+value
+string
+]
+unitAmount
+number
+]
+priceModelPercentage
+object
+flatFee
+number
+percentageRate
+number
+Basis point take rate per event
+priceModelTiered
+object
+tiers
+object[]
+Array [
+firstUnit
+number
+Inclusive tier starting value
+flatFee
+number
+lastUnit
+number
+Exclusive tier ending value. If null, this is treated as the last tier
+unitAmount
+number
+Amount per unit
+]
+priceModelTieredPercentage
+object
+tiers
+object[]
+Array [
+firstUnit
+number
+Inclusive tier starting value
+flatFee
+number
+lastUnit
+number
+Exclusive tier ending value. If null, this is treated as the last tier
+percentageRate
+number
+]
+priceModelVolume
+object
+tiers
+object[]
+Array [
+flatFee
+number
+maximumUnits
+number
+Upper bound for this tier
+unitAmount
+number
+Amount per unit
+]
+timeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+]
+billingCycle
+BillingCycle (string)
+Possible values:
+[
+MONTH_FIRST_DAY
+,
+ENTITLEMENT_START_DATE
+]
+billingIntervalInMonths
+integer
+Billing interval in months for the offer.
+buyerAwsAccountIds
+string[]
+The buyers' AWS Account IDs of this offer.
+buyerAzureTenants
+object[]
+The buyers' Azure tenants of this offer.
+Array [
+description
+string
+id
+string
+]
+commitAmount
+number
+The amount that the buyer has committed to pay, before discount if applicable.
+It can be monthly commitment or total commitment.
+For frontend display or analysis purposes, not used for billing.
+commitBillingIntervalInMonths
+integer
+Deprecated: Use BillingIntervalInMonths instead.
+commits
+object[]
+Recurring flat fee for the offer, managed by cloud marketplaces or Suger.
+Array [
+category
+string
+description
+string
+isUserCreated
+boolean
+Whether this commit dimension is newly created by user,
+when creating AWS Marketplace Contract private offer.
+key
+string
+API name of the dimension
+length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+If the length is zero, use the TermEndTime.
+maximumUsers
+integer
+Possible values:
+>= 1
+and
+<= 1000000
+Default value:
+1000000
+The maximum number of users for PER_USER commit
+minimumUsers
+integer
+Possible values:
+>= 1
+and
+<= 1000000
+Default value:
+1
+The minimum number of users for PER_USER commit
+name
+string
+Display name of the dimension
+quantity
+integer
+The quantity of this commit.
+rate
+number
+The commit amount. For GCP, it is monthly commitment.
+term
+string
+The term of the commit amount. It is used for front-end display only.
+termEndTime
+string
+The end time of the commit term.
+timeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+type
+CommitDimensionType (string)
+Possible values:
+[
+FLAT_RATE
+,
+PER_USER
+]
+types
+string[]
+These indicate whether the dimension covers metering, entitlement, or support for external metering
+]
+currency
+string
+The currency code of the offer. ISO 4217 format.
+dimensions
+object[]
+Usage based metering dimensions defined on cloud marketplaces, managed by Cloud marketplaces only.
+Array [
+category
+string
+description
+string
+includedBaseQuantities
+object[]
+how many quantities of this dimension are included in the commit.
+Array [
+isInfinite
+boolean
+quantity
+number
+recurringUnit
+string
+Possible values:
+[
+Monthly
+,
+Annual
+]
+]
+key
+string
+name
+string
+Display name of the dimension. For GCP Marketplace, it is the metering metric ID without plan prefix.
+planId
+string
+The plan ID of the metering dimension. Applicable to GCP Marketplace only.
+No ISO duration suffix.
+planName
+string
+The name of the plan for the metering dimension. Applicable to GCP Marketplace only.
+It may contains the ISO duration suffix, such as P1Y.
+priceTiers
+object[]
+The price tiers of the metering dimension. Applicable to GCP Marketplace only.
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+rate
+number
+The unit price of this usage metering dimension.
+skuId
+string
+The SKU ID of the metering dimension. Applicable to GCP Marketplace only.
+types
+string[]
+usageCount
+object
+creditCount
+number
+The count of this dimension usage records that are handled as credit.
+includedCount
+number
+The count of this dimension usage records that are handled as included in IncludedBaseQuantity
+reportedCount
+number
+The count of this dimension usage records that are reported to cloud vendors.
+valueType
+ValueType (string)
+Possible values:
+[``,
+VALUE_TYPE_UNSPECIFIED
+,
+BOOL
+,
+INT64
+,
+DOUBLE
+,
+STRING
+,
+DISTRIBUTION
+,
+MONEY
+]
+]
+discountPercentage
+number
+The discount percentage off the original price. For example, 20 means 20% off. 0 means no discount.
+It can be discount off the commitment amount or discount off the usage price.
+eulaMergeOrder
+integer[]
+The merge order of the EULA files. Only applicable when EulaType = CUSTOM.
+Elements are the original index of the EULA files in the index they should be transferred to,
+where original indexes are: AttachEulaType is index 0, EulaUrl is index 1, additionalEulaUrls is index 2 onwards.
+eulaType
+EulaType (string)
+Possible values:
+[``,
+SCMP
+,
+ECMP
+,
+RCMP
+,
+CUSTOM
+,
+ISV
+,
+CURRENT
+]
+eulaUrl
+string
+gcpCustomerInfo
+object
+address
+string
+The address of the customer
+contact
+string
+The contact name of the customer
+email
+string
+The email address of the customer
+organization
+string
+The company name of the customer
+unverifiedBillingAccount
+string
+The GCP billing account ID of the customer
+gcpDuration
+integer
+The duration of the offer in months. Only required when creating GCP Marketplace private offer.
+gcpMetrics
+object[]
+Only applicable for GCP Marketplace Offers (the default or private offer)
+Array [
+description
+string
+Description: A detailed description of the metric, which can be used in documentation.
+displayName
+string
+displayUnit
+string
+such as "min"
+displayUnitDescription
+string
+such as "minute"
+id
+string
+The usage metering metric/dimension key
+It is in format of "{plan_id}_{usage_dimension_key}". For example, "basic_plan_storage".
+metricKind
+string
+such as "DELTA"
+name
+string
+Name: The resource name of the metric descriptor,
+in format of "{productServiceName}/{plan_id}_{usage_dimension_key}"
+priceTiers
+object[]
+Price info of this usage metering metric.
+Only applicable for the default offer (plan) and private offer.
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+reportingUnit
+string
+such as "min"
+skuId
+string
+The SKU ID of this usage metering metric. Applicable only in Private Offer.
+unit
+string
+such as "min"
+valueType
+ValueType (string)
+Possible values:
+[``,
+VALUE_TYPE_UNSPECIFIED
+,
+BOOL
+,
+INT64
+,
+DOUBLE
+,
+STRING
+,
+DISTRIBUTION
+,
+MONEY
+]
+]
+gcpPaymentSchedule
+PaymentScheduleType (string)
+Possible values:
+[``,
+PREPAY
+,
+POSTPAY
+]
+gcpPlans
+object[]
+Only applicable for GCP Marketplace
+Array [
+featureValues
+object[]
+Array [
+featureDescription
+string
+such as "CPU per VM"
+featureName
+string
+such as "cpu"
+featureTitle
+string
+such as "CPU"
+featureValue
+string
+such as "2 CPU per VM"
+]
+name
+string
+The plan ID, such as "starter", without the duration suffix, such as "P1Y".
+priceInfo
+object
+description
+string
+priceModel
+GcpMarketplacePriceModel (string)
+Possible values:
+[
+FREE
+,
+SUBSCRIPTION
+,
+USAGE
+,
+SUBSCRIPTION_PLUS_USAGE
+]
+subscriptionPlans
+object[]
+Subscription Plan (Flat Commitment)
+Array [
+period
+string
+such as "ONE_YEAR", "TWO_YEAR", "THREE_YEAR"
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+]
+usageFees
+object[]
+Usage Metering Dimension/Metric if available
+Array [
+displayQuantity
+integer
+such as 1
+metricId
+string
+such as "Starter_storage"
+priceTiers
+object[]
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+]
+purchaseMode
+string
+Possible values:
+[
+PURCHASE_MODE_PRIVATE
+,
+PURCHASE_MODE_PUBLIC
+]
+title
+string
+such as "Starter"
+]
+gcpPrivateOffer
+object
+activeEntitlement
+object
+account
+string
+The resource name of the account that this entitlement is based on,
+if any, in format ""providers/{provider_id}/accounts/{account_id}"
+consumers
+object[]
+The resources using this entitlement, if applicable.
+Array [
+project
+string
+The project name with format
+projects/
+.
+]
+createTime
+date-time
+id
+string
+Entitlement Id generated by GCP Marketplace. For Marketplace pub/sub event.
+inputProperties
+integer[]
+The custom properties that were collected from the user to create this entitlement.
+messageToUser
+string
+Provider-supplied message that is displayed to the end user. Currently this is used to communicate progress and ETA for
+provisioning. This field can be updated only when a user is waiting for an action from the provider, i.e. entitlement state is
+EntitlementState.ENTITLEMENT_ACTIVATION_REQUESTED or EntitlementState.ENTITLEMENT_PENDING_PLAN_CHANGE_APPROVAL.
+This field is cleared automatically when the entitlement state changes.
+name
+string
+The resource name of the entitlement. Entitlement names have the form of
+providers/{provider_id}/entitlements/{entitlement_id}
+.
+newOfferDuration
+string
+in ISO 8601 duration format, such as "P2Y3M". For Marketplace pub/sub event.
+newOfferEndTime
+string
+Output only. The end time of the new offer. Field is empty if the pending plan change is not moving to an offer.
+If the offer was created with a term instead of a specified end date, this field is empty.
+newOfferStartTime
+string
+Output only. The start time of the new offer. Field is empty if the pending plan change is not moving to an offer.
+newPendingOffer
+string
+The name of the offer the entitlement is switching to upon a pending plan change. Only exists if the
+pending plan change is moving to an offer. Format:
+'projects/{project}/services/{service}/privateOffers/{offer-id}' OR
+'projects/{project}/services/{service}/standardOffers/{offer-id}',
+depending on whether the offer is private or public.
+newPendingOfferDuration
+string
+The offer duration of the new offer in ISO 8601 duration format. Field is empty if the pending plan
+change is not moving to an offer since the entitlement is not pending, only the plan change is pending.
+newPendingPlan
+string
+The identifier of the pending new plan. Required if the product has plans and the entitlement has a pending plan change.
+newPlan
+string
+When the buyer changes plan, For Marketplace pub/sub event.
+offer
+string
+The name of the offer that was procured. Field is empty if order was not made using an offer. Format:
+'projects/{project}/services/{service}/privateOffers/{offer-id}' OR 'projects/{project}/services/{service}/standardOffers/{offer-id}',
+depending on whether the offer is private or public.
+offerDuration
+string
+The offer duration of the current offer in ISO 8601 duration format.
+Field is empty if entitlement was not made using an offer, such as "P1Y", "P2M"
+offerEffectiveTime
+date-time
+When the offer is effective.
+offerEndTime
+date-time
+Output only. End time for the Offer association corresponding to this entitlement.
+The field is only populated if the entitlement is currently associated with an Offer.
+plan
+string
+The identifier of the plan that was procured. Required if the product has plans.
+product
+string
+The identifier of the entity that was purchased. This may actually represent a product, quote, or offer.
+For Private offer, "projects/project-id/services/product-id.endpoints.partner-id.cloud.goog/privateOffers/private-offer-id"
+productExternalName
+string
+The identifier of the product that was procured.
+provider
+string
+The ID of the service provider under Cloud Commerce platform that this entitlement was created against.
+quoteExternalName
+string
+The identifier of the quote that was used to procure, such as the private offer Id. Empty if the order is not purchased using a quote.
+state
+GcpMarketplaceEntitlementState (string)
+Possible values:
+[
+ENTITLEMENT_STATE_UNSPECIFIED
+,
+ENTITLEMENT_ACTIVATION_REQUESTED
+,
+ENTITLEMENT_ACTIVE
+,
+ENTITLEMENT_PENDING_CANCELLATION
+,
+ENTITLEMENT_CANCELLED
+,
+ENTITLEMENT_PENDING_PLAN_CHANGE
+,
+ENTITLEMENT_PENDING_PLAN_CHANGE_APPROVAL
+,
+ENTITLEMENT_SUSPENDED
+]
+Enums of the Entitlement State. https://cloud.google.com/marketplace/docs/partners/commerce-procurement-api/reference/rest/v1/providers.entitlements#EntitlementState
+subscriptionEndTime
+date-time
+The End time for the subscription corresponding to this entitlement.
+updateTime
+date-time
+The last update timestamp. It is the endTime for the cancelled entitlement.
+usageReportingId
+string
+The consumerId to use when reporting usage through the Service Control API. See the consumerId field at
+Reporting Metrics (https://cloud.google.com/service-control/reporting-metrics) for more details.
+This field is present only if the product has usage-based billing configured.
+agencyEnabled
+boolean
+agreement
+string
+The resource name of agreement(entitlement)
+In format of "projects/{projectNumber}/agreements/{agreementId}"
+agreementDocuments
+object
+eulaAgreementDocument
+object
+description
+string
+documentBody
+string
+documentType
+string
+such as "PARTNER_EULA"
+externalGoogleLink
+object
+The external link to Standard EULA such as
+https://cloud.google.com/terms/marketplace/eula-standard-v2-01272021
+.
+uri
+string
+name
+string
+in format of "projects/{projectNumber}/agreements/{agreementId}/documents/{documentId}"
+unstructuredDocument
+object
+content
+string
+updateTime
+date-time
+cancelTime
+date-time
+customerInfo
+object
+address
+string
+The address of the customer
+contact
+string
+The contact name of the customer
+email
+string
+The email address of the customer
+organization
+string
+The company name of the customer
+unverifiedBillingAccount
+string
+The GCP billing account ID of the customer
+existingOfferData
+object
+entitlement
+object
+account
+string
+The resource name of the account that this entitlement is based on,
+if any, in format ""providers/{provider_id}/accounts/{account_id}"
+consumers
+object[]
+The resources using this entitlement, if applicable.
+Array [
+project
+string
+The project name with format
+projects/
+.
+]
+createTime
+date-time
+id
+string
+Entitlement Id generated by GCP Marketplace. For Marketplace pub/sub event.
+inputProperties
+integer[]
+The custom properties that were collected from the user to create this entitlement.
+messageToUser
+string
+Provider-supplied message that is displayed to the end user. Currently this is used to communicate progress and ETA for
+provisioning. This field can be updated only when a user is waiting for an action from the provider, i.e. entitlement state is
+EntitlementState.ENTITLEMENT_ACTIVATION_REQUESTED or EntitlementState.ENTITLEMENT_PENDING_PLAN_CHANGE_APPROVAL.
+This field is cleared automatically when the entitlement state changes.
+name
+string
+The resource name of the entitlement. Entitlement names have the form of
+providers/{provider_id}/entitlements/{entitlement_id}
+.
+newOfferDuration
+string
+in ISO 8601 duration format, such as "P2Y3M". For Marketplace pub/sub event.
+newOfferEndTime
+string
+Output only. The end time of the new offer. Field is empty if the pending plan change is not moving to an offer.
+If the offer was created with a term instead of a specified end date, this field is empty.
+newOfferStartTime
+string
+Output only. The start time of the new offer. Field is empty if the pending plan change is not moving to an offer.
+newPendingOffer
+string
+The name of the offer the entitlement is switching to upon a pending plan change. Only exists if the
+pending plan change is moving to an offer. Format:
+'projects/{project}/services/{service}/privateOffers/{offer-id}' OR
+'projects/{project}/services/{service}/standardOffers/{offer-id}',
+depending on whether the offer is private or public.
+newPendingOfferDuration
+string
+The offer duration of the new offer in ISO 8601 duration format. Field is empty if the pending plan
+change is not moving to an offer since the entitlement is not pending, only the plan change is pending.
+newPendingPlan
+string
+The identifier of the pending new plan. Required if the product has plans and the entitlement has a pending plan change.
+newPlan
+string
+When the buyer changes plan, For Marketplace pub/sub event.
+offer
+string
+The name of the offer that was procured. Field is empty if order was not made using an offer. Format:
+'projects/{project}/services/{service}/privateOffers/{offer-id}' OR 'projects/{project}/services/{service}/standardOffers/{offer-id}',
+depending on whether the offer is private or public.
+offerDuration
+string
+The offer duration of the current offer in ISO 8601 duration format.
+Field is empty if entitlement was not made using an offer, such as "P1Y", "P2M"
+offerEffectiveTime
+date-time
+When the offer is effective.
+offerEndTime
+date-time
+Output only. End time for the Offer association corresponding to this entitlement.
+The field is only populated if the entitlement is currently associated with an Offer.
+plan
+string
+The identifier of the plan that was procured. Required if the product has plans.
+product
+string
+The identifier of the entity that was purchased. This may actually represent a product, quote, or offer.
+For Private offer, "projects/project-id/services/product-id.endpoints.partner-id.cloud.goog/privateOffers/private-offer-id"
+productExternalName
+string
+The identifier of the product that was procured.
+provider
+string
+The ID of the service provider under Cloud Commerce platform that this entitlement was created against.
+quoteExternalName
+string
+The identifier of the quote that was used to procure, such as the private offer Id. Empty if the order is not purchased using a quote.
+state
+GcpMarketplaceEntitlementState (string)
+Possible values:
+[
+ENTITLEMENT_STATE_UNSPECIFIED
+,
+ENTITLEMENT_ACTIVATION_REQUESTED
+,
+ENTITLEMENT_ACTIVE
+,
+ENTITLEMENT_PENDING_CANCELLATION
+,
+ENTITLEMENT_CANCELLED
+,
+ENTITLEMENT_PENDING_PLAN_CHANGE
+,
+ENTITLEMENT_PENDING_PLAN_CHANGE_APPROVAL
+,
+ENTITLEMENT_SUSPENDED
+]
+Enums of the Entitlement State. https://cloud.google.com/marketplace/docs/partners/commerce-procurement-api/reference/rest/v1/providers.entitlements#EntitlementState
+subscriptionEndTime
+date-time
+The End time for the subscription corresponding to this entitlement.
+updateTime
+date-time
+The last update timestamp. It is the endTime for the cancelled entitlement.
+usageReportingId
+string
+The consumerId to use when reporting usage through the Service Control API. See the consumerId field at
+Reporting Metrics (https://cloud.google.com/service-control/reporting-metrics) for more details.
+This field is present only if the product has usage-based billing configured.
+existingPriceModelType
+GcpMarketplacePrivateOfferPriceModelType (string)
+Possible values:
+[``,
+PRICE_MODEL_TYPE_UNSPECIFIED
+,
+CUD
+,
+FIXED_FEE
+,
+FIXED_FEE_WITH_OVERAGE
+,
+PAYG
+,
+PAYG_WITH_CUD
+]
+hasEntitlementChanged
+boolean
+privateOffer
+object
+agreement
+string
+customEula
+object
+description
+string
+documentBody
+string
+documentType
+string
+such as "PARTNER_EULA"
+externalGoogleLink
+object
+The external link to Standard EULA such as
+https://cloud.google.com/terms/marketplace/eula-standard-v2-01272021
+.
+uri
+string
+name
+string
+in format of "projects/{projectNumber}/agreements/{agreementId}/documents/{documentId}"
+unstructuredDocument
+object
+content
+string
+updateTime
+date-time
+installmentTimeline
+object
+installments
+object[]
+Array [
+priceModel
+object
+baseOffer
+string
+in format of "projects/{projectNumber}/services/service-name.endpoints.gcp-project-id.cloud.goog/standardOffers/base-offer-id"
+commitment
+object
+commitmentAmountPerPeriod
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+fixedPrice
+object
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+oneTimeCredit
+object
+The one time credit in amount of money
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+overage
+object
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+skuDiscounts
+array
+TODO: need to define the type
+payg
+object
+Pay as you go.
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+skuDiscounts
+array
+TODO: need to define the type
+previousCreditBalancePolicy
+string
+such as "PREVIOUS_CREDIT_BALANCE_POLICY_UNSPECIFIED"
+startTime
+date-time
+]
+name
+string
+GCP private offer resource name.
+offerTerm
+object
+enableScheduledStartTimes
+boolean
+endTime
+date-time
+startPolicy
+GcpMarketplaceOfferStartPolicy (string)
+Possible values:
+[``,
+OFFER_START_POLICY_IMMEDIATE
+,
+OFFER_START_POLICY_SCHEDULED
+]
+startTime
+date-time
+termDuration
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+paymentSchedule
+PaymentScheduleType (string)
+Possible values:
+[``,
+PREPAY
+,
+POSTPAY
+]
+priceModel
+object
+Nill if the offer has payment installments.
+baseOffer
+string
+in format of "projects/{projectNumber}/services/service-name.endpoints.gcp-project-id.cloud.goog/standardOffers/base-offer-id"
+commitment
+object
+commitmentAmountPerPeriod
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+fixedPrice
+object
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+oneTimeCredit
+object
+The one time credit in amount of money
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+overage
+object
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+skuDiscounts
+array
+TODO: need to define the type
+payg
+object
+Pay as you go.
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+skuDiscounts
+array
+TODO: need to define the type
+previousCreditBalancePolicy
+string
+such as "PREVIOUS_CREDIT_BALANCE_POLICY_UNSPECIFIED"
+serviceLevel
+string
+The Plan of the offer.
+standardOffer
+expireTime
+date-time
+features
+object[]
+Array [
+featureDescription
+string
+such as "CPU per VM"
+featureName
+string
+such as "cpu"
+featureTitle
+string
+such as "CPU"
+featureValue
+string
+such as "2 CPU per VM"
+]
+installmentTimeline
+object
+installments
+object[]
+Array [
+priceModel
+object
+baseOffer
+string
+in format of "projects/{projectNumber}/services/service-name.endpoints.gcp-project-id.cloud.goog/standardOffers/base-offer-id"
+commitment
+object
+commitmentAmountPerPeriod
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+fixedPrice
+object
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+oneTimeCredit
+object
+The one time credit in amount of money
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+overage
+object
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+skuDiscounts
+array
+TODO: need to define the type
+payg
+object
+Pay as you go.
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+skuDiscounts
+array
+TODO: need to define the type
+previousCreditBalancePolicy
+string
+such as "PREVIOUS_CREDIT_BALANCE_POLICY_UNSPECIFIED"
+startTime
+date-time
+]
+lifecycleState
+string
+such as "PUBLISHED"
+metricInformation
+object
+metricDetails
+object[]
+Array [
+displayName
+string
+such as "CPU"
+parentCommerceService
+string
+in format of "projects/{projectNumber}/services/service-name.endpoints.gcp-project-id.cloud.goog"
+skuId
+string
+such as "BC1B-6259-BF57"
+tiers
+object[]
+Price tiers for this metric.
+Array [
+fromAmount
+number
+such as 0
+price
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+startingUsageAmount
+string
+such as "0"
+]
+unitDescription
+string
+such as "minute"
+]
+migrationMetadata
+object
+inventoryFlavorExternalName
+string
+Plan name maybe with term suffix, such as "plan-name-P1Y"
+productExternalName
+string
+in format of "product-service-id.endpoints.gcp-project-id.cloud.goog"
+projectId
+string
+The GCP project ID of the GCP marketplace integration.
+projectNumber
+string
+The GCP project number of the provider.
+providerId
+string
+The GCP provider ID / partner ID of the GCP marketplace integration.
+In most cases, it is the same as the project ID. But it could be different.
+name
+string
+In format of "projects/{projectNumber}/services/{serviceName,
+such as service-name.endpoints.gcp-project-id.cloud.goog}/privateOffers/{privateOfferId}"
+offerId
+string
+GCP private offer ID
+offerSource
+string
+Possible values:
+[
+OFFER
+,
+RESOLD
+]
+such as "OFFER" or "RESOLD" (resold via channel partner)
+offerState
+GcpMarketplacePrivateOfferState (string)
+Possible values:
+[
+OFFER_ACTIVE
+,
+OFFER_ACTIVATING
+,
+OFFER_SCHEDULED
+,
+OFFER_ENTITLEMENT_ACCOUNT_PENDING
+,
+OFFER_PUBLISHED
+,
+OFFER_LAPSED
+,
+OFFER_EXPIRED
+,
+OFFER_CANCELLED
+,
+OFFER_UNAVAILABLE
+,
+OFFER_DRAFT
+]
+offerTerm
+object
+enableScheduledStartTimes
+boolean
+endTime
+date-time
+startPolicy
+GcpMarketplaceOfferStartPolicy (string)
+Possible values:
+[``,
+OFFER_START_POLICY_IMMEDIATE
+,
+OFFER_START_POLICY_SCHEDULED
+]
+startTime
+date-time
+termDuration
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+offerTitle
+string
+The offer title in the GCP Marketplace.
+offerTitleAutoGenerated
+boolean
+paymentSchedule
+PaymentScheduleType (string)
+Possible values:
+[``,
+PREPAY
+,
+POSTPAY
+]
+such as "PREPAY" or "POSTPAY"
+policies
+object
+property name*
+string
+priceModel
+object
+Nill if the offer has payment installments.
+baseOffer
+string
+in format of "projects/{projectNumber}/services/service-name.endpoints.gcp-project-id.cloud.goog/standardOffers/base-offer-id"
+commitment
+object
+commitmentAmountPerPeriod
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+fixedPrice
+object
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+oneTimeCredit
+object
+The one time credit in amount of money
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+overage
+object
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+skuDiscounts
+array
+TODO: need to define the type
+payg
+object
+Pay as you go.
+discount
+object
+discountPercentage
+object
+such as {"units": "0", "nanos": 0} as no discount,
+or {"units": "10", "nanos": 0} as 10% off discount
+nanos
+integer
+units
+string
+discountedPrice
+object
+The discounted price of the private offer.
+If the discount is 10% off, and the original price is $100, then the discounted price is $90.
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+skuDiscounts
+array
+TODO: need to define the type
+previousCreditBalancePolicy
+string
+such as "PREVIOUS_CREDIT_BALANCE_POLICY_UNSPECIFIED"
+priceModelType
+GcpMarketplacePrivateOfferPriceModelType (string)
+Possible values:
+[``,
+PRICE_MODEL_TYPE_UNSPECIFIED
+,
+CUD
+,
+FIXED_FEE
+,
+FIXED_FEE_WITH_OVERAGE
+,
+PAYG
+,
+PAYG_WITH_CUD
+]
+providerCancellationInternalNote
+string
+providerInfo
+object
+creatorEmailAddress
+string
+The email address of who create the private offer in the provider.
+salesContactEmail
+string
+The sales contact email of the provider.
+salesContactName
+string
+The sales contact name of the provider.
+providerInternalNote
+string
+providerPublicNote
+string
+purchaseChannel
+object
+marketplace
+boolean
+reseller
+boolean
+purchaseTime
+date-time
+replacementMetadata
+object
+cotermAlignment
+string
+replacedOffer
+string
+The resource name of the private offer being replaced.
+in format of "projects/{projectNumber}/services/{productServiceName}/privateOffers/{privateOfferId}"
+replacedOfferEndTime
+date-time
+replacementPolicy
+string
+resellerInfo
+object
+The info of the reseller who resold the offer and when OfferSource is "RESOLD".
+billingAccountId
+string
+billingAccountNickname
+string
+billingAccountOrgDisplayName
+string
+billingAccountType
+string
+notesToReseller
+string
+partnerAccountName
+string
+In the format of ""organizations/{GcpOrganizationID}/partnerAccounts/{partnerAccountID}"
+resellOfferTemplateId
+string
+resellerContactEmail
+string
+resellerContactName
+string
+resellerPrivateOfferPlanId
+string
+resellerPrivateOfferPlanScope
+string
+subBillingAccount
+string
+In the format of "billingAccounts/..."
+serviceLevel
+string
+The Plan of the offer.
+updateTime
+date-time
+useLegacyPartnerEula
+boolean
+userLabels
+string[]
+gcpProviderInfo
+object
+creatorEmailAddress
+string
+The email address of who create the private offer in the provider.
+salesContactEmail
+string
+The sales contact email of the provider.
+salesContactName
+string
+The sales contact name of the provider.
+gcpProviderInternalNote
+string
+Optional when creating GCP Marketplace private offer.
+The internal note for the seller/ISV. It is only visible to the seller/ISV.
+gcpProviderPublicNote
+string
+Optional when creating GCP Marketplace private offer. By default, it is the same as offer name.
+The public note for the buyer. It is visible to the buyer.
+gcpResellerPrivateOfferPlan
+object
+acceptanceDeadlineTime
+date-time
+agreement
+string
+The resource name of agreement(entitlement)
+In format of "projects/{projectNumber}/agreements/{agreementId}"
+agreementDocuments
+object
+isvToCustomerAgreementDocument
+object
+description
+string
+documentBody
+string
+documentType
+string
+such as "PARTNER_EULA"
+externalGoogleLink
+object
+uri
+string
+name
+string
+in format of "projects/{projectNumber}/agreements/{agreementId}/documents/{documentId}"
+unstructuredDocument
+object
+content
+string
+updateTime
+date-time
+isvToResellerAgreementDocument
+object
+description
+string
+documentBody
+string
+documentType
+string
+such as "PARTNER_EULA"
+externalGoogleLink
+object
+uri
+string
+name
+string
+in format of "projects/{projectNumber}/agreements/{agreementId}/documents/{documentId}"
+unstructuredDocument
+object
+content
+string
+updateTime
+date-time
+amendmentContext
+displayName
+string
+durationConfig
+object
+endTime
+date-time
+startTime
+date-time
+features
+object[]
+Array [
+featureDescription
+string
+such as "CPU per VM"
+featureName
+string
+such as "cpu"
+featureTitle
+string
+such as "CPU"
+featureValue
+string
+such as "2 CPU per VM"
+]
+installmentTimelineTemplate
+object
+installmentTemplates
+object[]
+Array [
+priceModelTemplate
+object
+baseOffer
+string
+in format of "projects/{projectNumber}/services/service-name.endpoints.gcp-project-id.cloud.goog/standardOffers/base-offer-id"
+commitment
+object
+commitmentAmountPerPeriodTemplate
+object
+currencyCode
+string
+decimalAmountConstraint
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountTemplate
+object
+discountEconomics
+string
+discountPercentage
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountedPrice
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+hideDiscountPercentage
+boolean
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+consumption
+string
+Possible values:
+[
+overage
+,
+payg
+]
+fixedPrice
+object
+discountTemplate
+object
+discountEconomics
+string
+discountPercentage
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountedPrice
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+hideDiscountPercentage
+boolean
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+overage
+object
+discountTemplate
+object
+discountEconomics
+string
+discountPercentage
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountedPrice
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+hideDiscountPercentage
+boolean
+skuDiscountTemplates
+undefined[]
+skuRepresentation
+object
+skuGroupList
+skuList
+object
+skus
+string[]
+skus
+string
+payg
+object
+discountTemplate
+object
+discountEconomics
+string
+discountPercentage
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountedPrice
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+hideDiscountPercentage
+boolean
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+skuDiscountTemplates
+undefined[]
+skuRepresentation
+object
+skuGroupList
+skuList
+object
+skus
+string[]
+skus
+string
+subscription
+string
+Possible values:
+[
+fixedPrice
+,
+commitment
+]
+startTime
+date-time
+]
+isvInfo
+object
+contactEmail
+string
+contactName
+string
+partnerAdvantageAccountLegalName
+string
+partnerAdvantageId
+string
+margin
+object
+marginPercentage
+object
+value
+string
+The percentage value of the margin in the range of 0 to 100.
+metaInfo
+object
+gcpOrganizationId
+string
+Gcp Organiztion ID from integration with GCP Marketplace.
+gcpProjectNumber
+string
+Gcp Project Number from integration with GCP Marketplace.
+name
+string
+In format of "projects/{projectNumber}/partnerAccounts/{partnerAccountId}/resellerPrivateOfferPlans/{resellerPrivateOfferPlanId}"
+offerTemplatePolicies
+object
+allowAutoRenewal
+boolean
+allowScheduledStartDate
+boolean
+maxRenewalTimes
+string
+such as "3"
+proration
+GcpMarketplaceOfferProration (string)
+Possible values:
+[
+PRORATION_UNSPECIFIED
+,
+NOT_PRORATED_ANNIVERSARY_DATES
+,
+PRORATED
+]
+offerTermTemplate
+object
+enableScheduledStartTimes
+boolean
+endTime
+date-time
+paymentRecurrence
+string
+startPolicy
+GcpMarketplaceOfferStartPolicy (string)
+Possible values:
+[``,
+OFFER_START_POLICY_IMMEDIATE
+,
+OFFER_START_POLICY_SCHEDULED
+]
+startTime
+date-time
+termDuration
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+termDurationConstraint
+object
+defaultDuration
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+paymentSchedule
+PaymentScheduleType (string)
+Possible values:
+[``,
+PREPAY
+,
+POSTPAY
+]
+priceModelTemplate
+object
+baseOffer
+string
+in format of "projects/{projectNumber}/services/service-name.endpoints.gcp-project-id.cloud.goog/standardOffers/base-offer-id"
+commitment
+object
+commitmentAmountPerPeriodTemplate
+object
+currencyCode
+string
+decimalAmountConstraint
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountTemplate
+object
+discountEconomics
+string
+discountPercentage
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountedPrice
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+hideDiscountPercentage
+boolean
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+consumption
+string
+Possible values:
+[
+overage
+,
+payg
+]
+fixedPrice
+object
+discountTemplate
+object
+discountEconomics
+string
+discountPercentage
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountedPrice
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+hideDiscountPercentage
+boolean
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+overage
+object
+discountTemplate
+object
+discountEconomics
+string
+discountPercentage
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountedPrice
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+hideDiscountPercentage
+boolean
+skuDiscountTemplates
+array
+skuRepresentation
+object
+skuGroupList
+skuList
+object
+skus
+string[]
+skus
+string
+payg
+object
+discountTemplate
+object
+discountEconomics
+string
+discountPercentage
+object
+defaultAmount
+object
+nanos
+integer
+units
+string
+maxAmount
+object
+nanos
+integer
+units
+string
+minAmount
+object
+nanos
+integer
+units
+string
+discountedPrice
+object
+currencyCode
+string
+such as "USD"
+nanos
+integer
+for the decimal part, such as 30000000 = $0.03
+units
+string
+for the integer part, such as "500000" = $50K
+hideDiscountPercentage
+boolean
+period
+object
+count
+integer
+such as 1, 6, 12
+unit
+GcpPeriodDurationUnit (string)
+Possible values:
+[
+MONTHLY_PERIOD
+,
+YEARLY_PERIOD
+]
+skuDiscountTemplates
+array
+skuRepresentation
+object
+skuGroupList
+skuList
+object
+skus
+string[]
+skus
+string
+subscription
+string
+Possible values:
+[
+fixedPrice
+,
+commitment
+]
+productInfo
+object
+flavorExternalName
+string
+The service level (price plan) with time duration suffix, such as "basic-plan-P1Y"
+productExternalName
+string
+providerId
+string
+serviceLevel
+string
+The price plan, such as "basic-plan"
+serviceName
+string
+replacementMetadata
+resellOfferTemplate
+string
+in format of "resellOfferTemplates/{resellOfferTemplateId}"
+resellerInfo
+object
+billingAccountId
+string
+billingAccountNickname
+string
+billingAccountOrgDisplayName
+string
+billingAccountType
+string
+notesToReseller
+string
+partnerAccountName
+string
+In the format of ""organizations/{GcpOrganizationID}/partnerAccounts/{partnerAccountID}"
+resellOfferTemplateId
+string
+resellerContactEmail
+string
+resellerContactName
+string
+resellerPrivateOfferPlanId
+string
+resellerPrivateOfferPlanScope
+string
+subBillingAccount
+string
+In the format of "billingAccounts/..."
+reusePolicy
+GcpMarketplaceResellerPrivateOfferPlanReusePolicy (string)
+Possible values:
+[``,
+REUSE_POLICY_SINGLE_USE
+,
+REUSE_POLICY_MULTI_USE
+]
+startPolicy
+GcpMarketplaceStartPolicy (string)
+Possible values:
+[``,
+START_POLICY_ON_ACCEPTANCE
+,
+START_POLICY_SCHEDULED
+]
+state
+object
+cancellationReason
+comment
+string
+rejectionReason
+stateType
+GcpMarketplaceResellerPrivateOfferPlanStateType (string)
+Possible values:
+[``,
+STATE_TYPE_DRAFT
+,
+STATE_TYPE_READY_TO_ACCEPT
+,
+STATE_TYPE_READY_TO_USE
+,
+STATE_TYPE_REJECTED
+,
+STATE_TYPE_USED
+,
+STATE_TYPE_CANCELED
+,
+STATE_TYPE_EXPIRED_NEVER_ACCEPTED
+,
+STATE_TYPE_EXPIRED_ACCEPTED
+,
+STATE_TYPE_COMPLETED
+]
+stateTransitions
+object[]
+Array [
+newState
+object
+stateType
+GcpMarketplaceResellerPrivateOfferPlanStateType (string)
+Possible values:
+[``,
+STATE_TYPE_DRAFT
+,
+STATE_TYPE_READY_TO_ACCEPT
+,
+STATE_TYPE_READY_TO_USE
+,
+STATE_TYPE_REJECTED
+,
+STATE_TYPE_USED
+,
+STATE_TYPE_CANCELED
+,
+STATE_TYPE_EXPIRED_NEVER_ACCEPTED
+,
+STATE_TYPE_EXPIRED_ACCEPTED
+,
+STATE_TYPE_COMPLETED
+]
+transitionTime
+date-time
+]
+updateTime
+date-time
+gcpUsagePlanPriceModel
+GcpMarketplaceUsagePlanPriceModel (string)
+Possible values:
+[``,
+CUD_LIST_PRICE
+,
+CUD_ALL_USAGE_DISCOUNTED
+,
+USAGE_DISCOUNT_ONLY
+]
+gracePeriodInDays
+integer
+The grace period in days for the offer.
+This is the number of days during which invoices remain in draft status, for reviewing.
+This filed can be overridden at the entitlement level.
+isMeteringOverageCommit
+boolean
+Whether the usage metering will only be charged for the amount that exceeds the committed amount.
+e.g. the buyer has committed $100, and the usage is $120,
+if true, the buyer will be charged for the usage at $20, and the commit at $100.
+if false, the buyer will be charged for the usage at $120, and the commit at $100.
+netTermsInDays
+integer
+The net terms in days for the offer.
+This is the number of days the buyer has to pay the invoice.
+This filed can be overridden at the entitlement level.
+paymentInstallments
+object[]
+For flexible payment schedule, managed by cloud marketplaces or Suger.
+Array [
+amount
+number
+The amount the buyer has paid for this installment.
+If there is a discount off the original price, the amount is the discounted price.
+chargeOn
+date-time
+When the buyer will be charged for this installment.
+If it is null, the buyer will be charged on the effective date of the entitlement.
+chargeOnStr
+string
+The charge on date in string format. It is used for front-end display only.
+credit
+number
+Used in GCP Marketplace private offer as one-time credit.
+Default as zero if there is no credit.
+discountPercentage
+number
+The discount percentage off the original price.
+For GCP Marketplace, it can be discount off the commitment amount or discount off the usage price.
+The value is between 0 to 100. For example, 20 means 20% off. Default as zero if there is no discount.
+originalAmount
+number
+The original amount before discount if there is a discount off the original price.
+nil if there is no discount.
+]
+paymentSchedule
+PaymentScheduleType (string)
+Possible values:
+[``,
+PREPAY
+,
+POSTPAY
+]
+privateOfferUrl
+string
+The URL of the private offer sent to buyers to accept. Only applicable for private offer.
+proratedBilling
+boolean
+Prorated billing for the offer.
+If true, the billing is prorated based on the start date and end date.
+If false, the billing is not prorated.
+This filed can be overridden at the entitlement level.
+refundCancellationPolicy
+string
+resellerAttachEulaType
+EulaType (string)
+Possible values:
+[``,
+SCMP
+,
+ECMP
+,
+RCMP
+,
+CUSTOM
+,
+ISV
+,
+CURRENT
+]
+resellerEulaType
+EulaType (string)
+Possible values:
+[``,
+SCMP
+,
+ECMP
+,
+RCMP
+,
+CUSTOM
+,
+ISV
+,
+CURRENT
+]
+resellerEulaUrl
+string
+sellerNotes
+string
+snowflakeOffer
+object
+access_end_time
+string
+access_start_date_preference
+string
+access_start_time
+string
+additional_information
+string
+comment
+string
+contract_duration_months
+integer
+contract_type
+string
+contract_value
+string
+discount
+number
+display_name
+string
+expiration_time
+string
+invoice_start_date_preference
+string
+invoice start date preference: FIRST_DAY_NEXT_MONTH, OFFER_ACCEPTED_DATE
+invoice_start_time
+string
+is_default
+boolean
+name
+string
+payment_terms
+string
+pricing_plan_name
+string
+state
+string
+state_updated_on
+string
+target_consumer
+string
+terms_of_service
+object
+terms of service: {"type":"DEFAULT"}
+custom_link
+string
+type
+string
+updated_on
+string
+startTime
+date-time
+Optional when creating AWS or GCP Marketplace private offer on the contract product.
+The future start time of the offer if it is not started on the acceptance.
+taxIds
+string[]
+Tax ids for the offer, used to calculate the tax amount for the offer.
+This field can be overridden at the entitlement level.
+trialConfig
+object
+trialPeriod
+integer
+trialPeriodUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+usageBillingIntervalInMonths
+integer
+Deprecated: Use BillingIntervalInMonths instead.
+visibility
+string
+Possible values:
+[
+PRIVATE
+,
+PUBLIC
+]
+The default visibility of offer is PRIVATE.
+lastUpdateTime
+date-time
+lastUpdatedBy
+string
+metaInfo
+object
+aceApnCrmUniqueIdentifier
+string
+The linked ACE ApnCrmUniqueIdentifier of the private offer if available.
+awsSaasProductDimensions
+object[]
+The AWS SaaS product dimensions. Applicable for AWS SaaS products only.
+This is used to save price info when creating AWS SaaS product.
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+baseAgreementId
+string
+Applicable for AWS Marketplace only, when the IsAgreementBasedOffer is true.
+buyerIds
+string[]
+The Suger buyer IDs of the private offer if available.
+contacts
+object[]
+The contacts of the offer to notify if any updates.
+Array [
+company
+string
+email
+string
+name
+string
+]
+cppoInOfferId
+string
+The Suger CPPO_IN offer ID.
+cppoOfferId
+string
+The Suger CPPO offer ID. Reseller to end buyer
+cppoOutOfferId
+string
+The Suger CPPO_OUT offer ID. ISV to reseller
+customMetaInfo
+object
+The custom meta info of the offer can be updated by seller via API or console.
+property name*
+string
+enableTestUsageMetering
+boolean
+If enabled, Suger will test metering the usage for this entitlement hourly.
+entitlementCancellationSchedule
+object
+cancelDate
+string
+The cancellation date of the entitlement. It is required when the type is SpecificDate.
+creationDate
+string
+When this cancellation schedule is created.
+note
+string
+Possible values:
+<= 500 characters
+The cancellation note. Max 500 characters.
+type
+CancellationScheduleType (string)
+Possible values:
+[
+EndOfTerm
+,
+Immediate
+,
+SpecificDate
+]
+Cancellation type
+errorMessages
+string[]
+The error messages when the offer is invalid or offer related tasks failed.
+Populated by Suger service.
+hubspotDealId
+string
+Hubsport deal ID of the private offer if available.
+internalNote
+string
+The Internal note of the private offer.
+It is only visible to the seller/ISV, not visible to the buyer.
+Up to 1000 characters.
+isAgreementBasedOffer
+boolean
+Applicable for AWS Marketplace only, If this offer is agreement based offer.
+isGrossRevenueFullSync
+boolean
+Whether the gross revenue is fully synced for the entitlement.
+isRenewalOffer
+boolean
+Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement.
+The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal.
+If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.
+isReplacementOffer
+boolean
+If this offer is a GCP replacement offer. Applicable for GCP Marketplace replacement offer only.
+lastModifiedBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+notifications
+object[]
+The notifications of the offer if any updates.
+In most cases, it is to notify contacts/buyers when the offer is pending acceptance.
+Array [
+action
+NotificationEventAction (string)
+Possible values:
+[``,
+ABNORMAL_ALERT
+,
+ACCEPT
+,
+ADD
+,
+APPROVE
+,
+CANCEL
+,
+CLOSE
+,
+CREATE
+,
+DELETE
+,
+DISBURSE
+,
+END_SOON
+,
+EXPIRE
+,
+EXPIRE_SOON
+,
+MERGE
+,
+METER
+,
+NEW_CLIENT_SIGNUP
+,
+NOTIFY
+,
+NOTIFY_CONTACTS
+,
+OPEN_EMAIL
+,
+PENDING_CANCEL
+,
+PENDING_ACCEPTANCE
+,
+REINSTATE
+,
+REJECT
+,
+REOPEN
+,
+CHARGE
+,
+REFUND
+,
+ISSUE
+,
+ROTATE_SECRET
+,
+SUSPEND
+,
+TEST
+,
+UPDATE
+,
+ACE_ENGAGEMENT_SCORE_UPDATE
+,
+ACE_SALES_REP_UPDATE
+,
+ACE_CUSTOMER_EMAIL_UPDATE
+,
+AZURE_STATUS_UPDATE
+,
+SUBMIT_APPROVAL_REQUEST
+,
+REVIEW_APPROVAL_REQUEST
+,
+COMPLETE
+,
+FAIL
+,
+WEBHOOK
+]
+ccContactIds
+string[]
+Cc contactIds that will receive this notification
+channels
+NotificationChannel (string)[]
+Possible values:
+[
+EMAIL
+,
+SLACK
+,
+SMS
+,
+SNS
+,
+SALESFORCE
+,
+WEBHOOK
+,
+SUGER_SUPPORT
+,
+MICROSOFT_TEAMS
+]
+The list of channels this event will be sent to, e.g., ["SLACK", "EMAIL"]
+contactEmails
+string[]
+Contact emails that will receive this notification
+contactIds
+string[]
+ContactIds that will receive this notification
+createdBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+customFields
+object
+Custom fields of the notification event.
+property name*
+any
+Custom fields of the notification event.
+entityID
+string
+entityName
+string
+The name of the entity.
+entityStatus
+string
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+eventID
+string
+notification event id.
+eventStatus
+NotificationEventStatus (string)
+Possible values:
+[``,
+SCHEDULED
+,
+PENDING
+,
+DONE
+,
+FAILED
+]
+info
+Additional info of the notification event.
+isActionItem
+boolean
+If this notification event is an action item.
+lastUpdateTime
+date-time
+timestamp of the event when it is updated.
+message
+string
+The message of the notification event such as email body, action item description.
+organizationID
+string
+suger organization id.
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+priority
+AuditingEventPriority (string)
+Possible values:
+[``,
+LOW
+,
+MEDIUM
+,
+HIGH
+,
+CRITICAL
+]
+requireAudit
+boolean
+If this notification event is an auditing event and need to store in DB.
+timestamp
+date-time
+timestamp of the event when it is scheduled or created.
+title
+string
+The title of the notification event such as email subject, action item title.
+trackEvents
+object[]
+The track events of the notification event.
+Array [
+action
+TrackEventActionType (string)
+Possible values:
+[
+OPEN_EMAIL
+]
+contactId
+string
+The ID of the contact who triggered the track event if applicable.
+timestamp
+date-time
+timestamp of the track event happened.
+]
+]
+offerAcceptDate
+date-time
+The date when the offer is accepted by the buyer. Only available when the private offer has been accepted.
+renewalOfferType
+AwsRenewalOfferType (string)
+Possible values:
+[``,
+External
+,
+AwsMarketplace
+]
+replacedOfferEndTime
+date-time
+The end time of the replaced offer. Applicable for GCP Marketplace replacement offer only.
+replacedOfferResourceName
+string
+The resource name of the GCP Marketplace offer that this offer is replacing.
+In format of "projects/{gcpProjectNumber}/services/{productServiceName}/privateOffers/{privateOfferId}"
+Applicable for GCP Marketplace replacement offer only.
+salesforceEntitlementURL
+string
+The Salesforce entitlement URL
+salesforceOpportunityId
+string
+The Salesforce opportunity ID of the private offer if available.
+testUsageMeteringEndTime
+date-time
+The test usage metering end time. It is used for test usage metering only.
+Required if EnableTestUsageMetering is true.
+updateMessage
+string
+The message to notify when the offer is updated.
+name
+string
+offerType
+OfferType (string)
+Possible values:
+[
+UNKNOWN
+,
+AMI
+,
+APPLICATION
+,
+CONTAINER
+,
+CONTRACT
+,
+CPPO_OUT
+,
+CPPO_IN
+,
+CPPO
+,
+CUD
+,
+DATA
+,
+DEFAULT
+,
+FIXED_FEE
+,
+FIXED_FEE_WITH_OVERAGE
+,
+FLAT_RATE
+,
+FREE_TRIAL
+,
+PAYG
+,
+PAYG_WITH_CUD
+,
+PER_USER
+,
+PRIVATE
+,
+PROFESSIONAL_SERVICES
+,
+SUBSCRIPTION
+]
+organizationID
+string
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+partnerID
+string
+productID
+string
+service
+PartnerService (string)
+Possible values:
+[
+DEFAULT
+,
+ACE
+,
+BIGQUERY
+,
+BILLING
+,
+CHATBOT
+,
+COSELL
+,
+CRM
+,
+CPQ
+,
+DATABASE
+,
+DRIVE
+,
+EMAIL
+,
+MARKETPLACE
+,
+NETSUITE
+,
+PAYMENT
+,
+QUICKBOOKS
+,
+STORAGE
+,
+TEAMS
+]
+status
+OfferStatus (string)
+Possible values:
+[``,
+INVALID
+,
+ACCEPTED
+,
+ACTIVE
+,
+CANCEL_FAILED
+,
+CANCEL_SUCCESS
+,
+CANCELLED
+,
+CREATE_FAILED
+,
+CREATE_SUCCESS
+,
+DELETED
+,
+DEPRECATED
+,
+DRAFT
+,
+EXPIRED
+,
+PENDING_ACCEPTANCE
+,
+PENDING_CANCEL
+,
+PENDING_CREATE
+,
+PENDING_UPDATE
+,
+PREVIEW
+,
+READY_TO_USE
+,
+REJECTED
+,
+RESTRICTED
+,
+TEST
+,
+UPDATE_FAILED
+,
+UPDATE_SUCCESS
+,
+USED
+]
+{
+"buyerID": "string",
+"contactIds": [
+"string"
+],
+"createdBy": "string",
+"creationTime": "2024-07-29T15:51:28.071Z",
+"endTime": "2024-07-29T15:51:28.071Z",
+"expireTime": "2024-07-29T15:51:28.071Z",
+"externalID": "string",
+"id": "string",
+"info": {
+"additionalEulaUrls": [
+"string"
+],
+"additionalResellerEulaUrls": [
+"string"
+],
+"attachEulaType": "",
+"autoRenew": true,
+"awsAgreementDuration": "string",
+"awsChannelPartner": {
+"id": "string",
+"name": "string"
+},
+"awsCppoEventDetail": {
+"catalog": "string",
+"eventCategory": "string",
+"eventID": "string",
+"eventName": "string",
+"eventSource": "string",
+"eventType": "string",
+"eventVersion": "string",
+"managementEvent": true,
+"manufacturer": {
+"accountId": "string",
+"name": "string"
+},
+"offer": {
+"arn": "string",
+"expirationDate": "2024-07-29T15:51:28.071Z",
+"id": "string",
+"name": "string"
+},
+"product": {
+"arn": "string",
+"id": "string",
+"title": "string"
+},
+"requestID": "string",
+"requestParameters": {},
+"responseElements": {},
+"sellerOfRecord": {
+"accountId": "string",
+"name": "string"
+},
+"targetedBuyerAccountIds": [
+"string"
+]
+},
+"awsCppoOpportunity": {
+"CreatedDate": "string",
+"Description": "string",
+"Dimensions": [
+{
+"Description": "string",
+"Key": "string",
+"Length": 0,
+"Name": "string",
+"Rate": 0,
+"TimeUnit": "DAY",
+"Types": [
+"string"
+],
+"Unit": "string"
+}
+],
+"ManufacturerAccountId": "string",
+"ManufacturerLegalName": "string",
+"Name": "string",
+"OfferDetails": {
+"OfferCreatedCount": 0,
+"OfferExtendedStatus": "string"
+},
+"PreExistingBuyerAgreement": {
+"AcquisitionChannel": "",
+"PricingModel": "Contract"
+},
+"ProductId": "string",
+"ProductName": "string",
+"Rules": [
+{
+"AvailabilityEndDate": "string",
+"Id": "string",
+"NegativeTargeting": {
+"CountryCodes": [
+"string"
+]
+},
+"OffersMaxQuantity": 0,
+"PositiveTargeting": {
+"BuyerAccounts": [
+{
+"AwsAccountId": "string"
+}
+],
+"CountryCodes": [
+"string"
+]
+},
+"ResellerAccountId": "string",
+"ResellerLegalName": "string",
+"Type": "AvailabilityRule",
+"Usage": "string"
+}
+],
+"Status": "Active",
+"Terms": [
+{
+"CurrencyCode": "string",
+"Documents": [
+{
+"Type": "CustomEula",
+"Url": "string",
+"Version": "string"
+}
+],
+"Duration": "string",
+"Grants": [
+{
+"DimensionKey": "string",
+"MaxQuantity": 0
+}
+],
+"Id": "string",
+"MaximumAgreementStartDate": "string",
+"PositiveTargeting": {
+"BuyerAccounts": [
+{
+"AwsAccountId": "string"
+}
+],
+"CountryCodes": [
+"string"
+]
+},
+"Price": "string",
+"RateCards": [
+{
+"Constraints": {
+"MultipleDimensionSelection": "string",
+"QuantityConfiguration": "string"
+},
+"RateCard": [
+{
+"Description": "string",
+"DimensionKey": "string",
+"DisplayName": "string",
+"Price": "string",
+"Quantity": "string",
+"Unit": "string"
+}
+],
+"Selector": {
+"Type": "string",
+"Value": "string"
+}
+}
+],
+"Schedule": [
+{
+"ChargeAmount": "string",
+"ChargeDate": "2024-07-29T15:51:28.071Z"
+}
+],
+"Type": "BuyerTargetingTerm"
+}
+],
+"discountType": "DISCOUNT_PERCENT",
+"opportunityDurationType": "SPECIFIC_DATES",
+"opportunityId": "string",
+"partnerId": "string"
+},
+"awsMarkupPercentage": 0,
+"awsResaleAuthorizationId": "string",
+"azureOriginalPlan": {
+"$schema": "string",
+"id": "string",
+"lifecycleState": "notAvailable",
+"offerPricingType": "",
+"plan": "string",
+"planName": "string",
+"pricing": {
+"customMeters": {
+"priceInputOption": "perMarket"
+},
+"recurrentPrice": {
+"priceInputOption": "perMarket",
+"prices": [
+{
+"billingTerm": {
+"type": "day",
+"value": 0
+},
+"paymentOption": {
+"type": "day",
+"value": 0
+},
+"pricePerPaymentInUsd": 0,
+"prices": [
+{
+"currency": "string",
+"markets": [
+"string"
+],
+"price": 0
+}
+]
+}
+],
+"recurrentPriceMode": "flatRate",
+"userLimits": {
+"max": 0,
+"min": 0
+}
+}
+},
+"product": "string",
+"resourceName": "string",
+"softwareReservation": {
+"paymentSchedule": {
+"type": "day",
+"value": 0
+},
+"reservationDuration": {
+"type": "day",
+"value": 0
+},
+"vmPrices": {
+"patternProperties": {}
+}
+},
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+],
+"visibility": "visible"
+},
+"azurePrivateOffer": {
+"$schema": "string",
+"acceptBy": "2024-07-29T15:51:28.071Z",
+"acceptanceLinks": [
+{
+"beneficiaryId": "string",
+"link": "string"
+}
+],
+"beneficiaries": [
+{
+"beneficiaryRecipients": [
+{
+"id": "string",
+"recipientType": "cspCustomer"
+}
+],
+"description": "string",
+"id": "string"
+}
+],
+"customerContractRenewal": true,
+"eTag": "string",
+"end": "2024-07-29T15:51:28.071Z",
+"id": "string",
+"lastModified": "2024-07-29T15:51:28.071Z",
+"name": "string",
+"notificationContacts": [
+"string"
+],
+"offerPricingType": "",
+"partners": [
+{
+"id": "string",
+"location": "string",
+"partnerName": "string"
+}
+],
+"preparedBy": "string",
+"pricing": [
+{
+"basePlan": "string",
+"discountPercentage": 0,
+"discountType": "absolute",
+"markupPercentage": 0,
+"newPlanDetails": {
+"description": "string",
+"id": "string",
+"name": "string"
+},
+"originalPlan": {
+"$schema": "string",
+"id": "string",
+"lifecycleState": "notAvailable",
+"offerPricingType": "",
+"plan": "string",
+"planName": "string",
+"pricing": {
+"customMeters": {
+"priceInputOption": "perMarket"
+},
+"recurrentPrice": {
+"priceInputOption": "perMarket",
+"prices": [
+{
+"billingTerm": {
+"type": "day",
+"value": 0
+},
+"paymentOption": {
+"type": "day",
+"value": 0
+},
+"pricePerPaymentInUsd": 0,
+"prices": [
+{
+"currency": "string",
+"markets": [
+"string"
+],
+"price": 0
+}
+]
+}
+],
+"recurrentPriceMode": "flatRate",
+"userLimits": {
+"max": 0,
+"min": 0
+}
+}
+},
+"product": "string",
+"resourceName": "string",
+"softwareReservation": {
+"paymentSchedule": {
+"type": "day",
+"value": 0
+},
+"reservationDuration": {
+"type": "day",
+"value": 0
+},
+"vmPrices": {
+"patternProperties": {}
+}
+},
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+],
+"visibility": "visible"
+},
+"plan": "string",
+"planId": "string",
+"planName": "string",
+"planType": "FLAT_RATE",
+"priceDetails": {},
+"privateOfferPlan": {
+"$schema": "string",
+"id": "string",
+"lifecycleState": "notAvailable",
+"offerPricingType": "",
+"plan": "string",
+"planName": "string",
+"pricing": {
+"customMeters": {
+"priceInputOption": "perMarket"
+},
+"recurrentPrice": {
+"priceInputOption": "perMarket",
+"prices": [
+{
+"billingTerm": {
+"type": "day",
+"value": 0
+},
+"paymentOption": {
+"type": "day",
+"value": 0
+},
+"pricePerPaymentInUsd": 0,
+"prices": [
+{
+"currency": "string",
+"markets": [
+"string"
+],
+"price": 0
+}
+]
+}
+],
+"recurrentPriceMode": "flatRate",
+"userLimits": {
+"max": 0,
+"min": 0
+}
+}
+},
+"product": "string",
+"resourceName": "string",
+"softwareReservation": {
+"paymentSchedule": {
+"type": "day",
+"value": 0
+},
+"reservationDuration": {
+"type": "day",
+"value": 0
+},
+"vmPrices": {
+"patternProperties": {}
+}
+},
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+],
+"visibility": "visible"
+},
+"product": "string",
+"productName": "string",
+"sugerOfferId": "string"
+}
+],
+"privateOfferType": "",
+"resourceName": "string",
+"start": "2024-07-29T15:51:28.071Z",
+"state": "draft",
+"subState": "accepted",
+"termsAndConditionsDocSasUrl": "string",
+"termsAndConditionsDocs": [
+{
+"customerFacingDocumentName": "string",
+"fileName": "string",
+"sasUrl": "string"
+}
+],
+"upgradedFrom": {
+"id": "string",
+"name": "string"
+},
+"validations": [
+{
+"$schema": "string",
+"code": "businessValidationError",
+"level": "informational",
+"message": "string",
+"resourceId": "string"
+}
+],
+"variableStartDate": true
+},
+"azureProductVariant": {
+"azureGovernmentCertifications": [
+{
+"title": "string",
+"uri": "string",
+"validationResults": [
+{
+"errorMessage": "string",
+"memberNames": [
+"string"
+]
+}
+]
+}
+],
+"cloudAvailabilities": [
+"string"
+],
+"conversionPaths": "string",
+"extendedProperties": [
+{
+"type": "string",
+"value": "string"
+}
+],
+"externalID": "string",
+"featureAvailabilities": [
+{
+"customMeters": [
+{
+"displayName": "string",
+"id": "string",
+"includedBaseQuantities": [
+{
+"isInfinite": true,
+"quantity": 0,
+"recurringUnit": "Monthly"
+}
+],
+"isEnabled": true,
+"priceInUsd": 0,
+"uniqueID": "string",
+"unitOfMeasure": "string"
+}
+],
+"id": "string",
+"isHidden": true,
+"marketStates": [
+{
+"marketCode": "string",
+"state": "Disabled"
+}
+],
+"markets": [
+{
+"friendlyName": "string",
+"marketCode": "string"
+}
+],
+"priceSchedules": [
+{
+"dateTimeRange": {
+"endAt": {
+"dateTimeInUtc": "string",
+"localizePerMarket": true
+},
+"startAt": {
+"dateTimeInUtc": "string",
+"localizePerMarket": true
+}
+},
+"friendlyName": "string",
+"isBaseSchedule": true,
+"marketCodes": [
+"string"
+],
+"schedules": [
+{
+"priceCadence": {
+"type": "Month",
+"value": 0
+},
+"pricingModel": "Flat",
+"pricingUnits": [
+{
+"isUnlimitedUnit": true,
+"lowerUnit": 0,
+"name": "sharedcore",
+"unitType": "string",
+"upperUnit": 0
+}
+],
+"retailPrice": {
+"currencyCode": "string",
+"openPrice": 0,
+"priceTierID": "string"
+}
+}
+]
+}
+],
+"properties": [
+{
+"type": "string",
+"value": "string"
+}
+],
+"resourceType": "string",
+"subscriptionAudiences": [
+{
+"description": "string",
+"id": "string"
+}
+],
+"tenantAudiences": [
+{
+"description": "string",
+"id": "string"
+}
+],
+"trial": {
+"dateTimeRange": {
+"endAt": {
+"dateTimeInUtc": "string",
+"localizePerMarket": true
+},
+"startAt": {
+"dateTimeInUtc": "string",
+"localizePerMarket": true
+}
+},
+"duration": 0,
+"durationType": "Minute",
+"type": "NoTrial"
+},
+"visibility": "Public"
+}
+],
+"friendlyName": "string",
+"id": "string",
+"leadGenID": "string",
+"referenceVariantID": "string",
+"resourceType": "AzureSkuVariant",
+"state": "InActive"
+},
+"billableDimensions": [
+{
+"billableMetricId": "string",
+"category": "basic",
+"description": "string",
+"discount": {
+"discountType": "PERCENTAGE",
+"value": 0
+},
+"length": 0,
+"minimumCommit": 0,
+"minimumCommitProrata": true,
+"minimumCommitScope": "",
+"name": "string",
+"priceModelBasic": {
+"unitAmount": 0
+},
+"priceModelBulk": {
+"bulkAmount": 0,
+"bulkSize": 0
+},
+"priceModelMatrix": {
+"defaultUnitAmount": 0,
+"matrix": [
+{
+"properties": [
+{
+"name": "string",
+"value": "string"
+}
+],
+"unitAmount": 0
+}
+]
+},
+"priceModelPercentage": {
+"flatFee": 0,
+"percentageRate": 0
+},
+"priceModelTiered": {
+"tiers": [
+{
+"firstUnit": 0,
+"flatFee": 0,
+"lastUnit": 0,
+"unitAmount": 0
+}
+]
+},
+"priceModelTieredPercentage": {
+"tiers": [
+{
+"firstUnit": 0,
+"flatFee": 0,
+"lastUnit": 0,
+"percentageRate": 0
+}
+]
+},
+"priceModelVolume": {
+"tiers": [
+{
+"flatFee": 0,
+"maximumUnits": 0,
+"unitAmount": 0
+}
+]
+},
+"timeUnit": "DAY"
+}
+],
+"billingCycle": "MONTH_FIRST_DAY",
+"billingIntervalInMonths": 0,
+"buyerAwsAccountIds": [
+"string"
+],
+"buyerAzureTenants": [
+{
+"description": "string",
+"id": "string"
+}
+],
+"commitAmount": 0,
+"commitBillingIntervalInMonths": 0,
+"commits": [
+{
+"category": "string",
+"description": "string",
+"isUserCreated": true,
+"key": "string",
+"length": 0,
+"maximumUsers": 1000000,
+"minimumUsers": 1,
+"name": "string",
+"quantity": 0,
+"rate": 0,
+"term": "string",
+"termEndTime": "string",
+"timeUnit": "DAY",
+"type": "FLAT_RATE",
+"types": [
+"string"
+]
+}
+],
+"currency": "string",
+"dimensions": [
+{
+"category": "string",
+"description": "string",
+"includedBaseQuantities": [
+{
+"isInfinite": true,
+"quantity": 0,
+"recurringUnit": "Monthly"
+}
+],
+"key": "string",
+"name": "string",
+"planId": "string",
+"planName": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+],
+"rate": 0,
+"skuId": "string",
+"types": [
+"string"
+],
+"usageCount": {
+"creditCount": 0,
+"includedCount": 0,
+"reportedCount": 0
+},
+"valueType": ""
+}
+],
+"discountPercentage": 0,
+"eulaMergeOrder": [
+0
+],
+"eulaType": "",
+"eulaUrl": "string",
+"gcpCustomerInfo": {
+"address": "string",
+"contact": "string",
+"email": "string",
+"organization": "string",
+"unverifiedBillingAccount": "string"
+},
+"gcpDuration": 0,
+"gcpMetrics": [
+{
+"description": "string",
+"displayName": "string",
+"displayUnit": "string",
+"displayUnitDescription": "string",
+"id": "string",
+"metricKind": "string",
+"name": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+],
+"reportingUnit": "string",
+"skuId": "string",
+"unit": "string",
+"valueType": ""
+}
+],
+"gcpPaymentSchedule": "",
+"gcpPlans": [
+{
+"featureValues": [
+{
+"featureDescription": "string",
+"featureName": "string",
+"featureTitle": "string",
+"featureValue": "string"
+}
+],
+"name": "string",
+"priceInfo": {
+"description": "string",
+"priceModel": "FREE",
+"subscriptionPlans": [
+{
+"period": "string",
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+}
+],
+"usageFees": [
+{
+"displayQuantity": 0,
+"metricId": "string",
+"priceTiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+]
+}
+]
+},
+"purchaseMode": "PURCHASE_MODE_PRIVATE",
+"title": "string"
+}
+],
+"gcpPrivateOffer": {
+"activeEntitlement": {
+"account": "string",
+"consumers": [
+{
+"project": "string"
+}
+],
+"createTime": "2024-07-29T15:51:28.071Z",
+"id": "string",
+"inputProperties": [
+0
+],
+"messageToUser": "string",
+"name": "string",
+"newOfferDuration": "string",
+"newOfferEndTime": "string",
+"newOfferStartTime": "string",
+"newPendingOffer": "string",
+"newPendingOfferDuration": "string",
+"newPendingPlan": "string",
+"newPlan": "string",
+"offer": "string",
+"offerDuration": "string",
+"offerEffectiveTime": "2024-07-29T15:51:28.071Z",
+"offerEndTime": "2024-07-29T15:51:28.071Z",
+"plan": "string",
+"product": "string",
+"productExternalName": "string",
+"provider": "string",
+"quoteExternalName": "string",
+"state": "ENTITLEMENT_STATE_UNSPECIFIED",
+"subscriptionEndTime": "2024-07-29T15:51:28.071Z",
+"updateTime": "2024-07-29T15:51:28.071Z",
+"usageReportingId": "string"
+},
+"agencyEnabled": true,
+"agreement": "string",
+"agreementDocuments": {
+"eulaAgreementDocument": {
+"description": "string",
+"documentBody": "string",
+"documentType": "string",
+"externalGoogleLink": {
+"uri": "string"
+},
+"name": "string",
+"unstructuredDocument": {
+"content": "string"
+},
+"updateTime": "2024-07-29T15:51:28.071Z"
+}
+},
+"cancelTime": "2024-07-29T15:51:28.071Z",
+"customerInfo": {
+"address": "string",
+"contact": "string",
+"email": "string",
+"organization": "string",
+"unverifiedBillingAccount": "string"
+},
+"existingOfferData": {
+"entitlement": {
+"account": "string",
+"consumers": [
+{
+"project": "string"
+}
+],
+"createTime": "2024-07-29T15:51:28.071Z",
+"id": "string",
+"inputProperties": [
+0
+],
+"messageToUser": "string",
+"name": "string",
+"newOfferDuration": "string",
+"newOfferEndTime": "string",
+"newOfferStartTime": "string",
+"newPendingOffer": "string",
+"newPendingOfferDuration": "string",
+"newPendingPlan": "string",
+"newPlan": "string",
+"offer": "string",
+"offerDuration": "string",
+"offerEffectiveTime": "2024-07-29T15:51:28.071Z",
+"offerEndTime": "2024-07-29T15:51:28.071Z",
+"plan": "string",
+"product": "string",
+"productExternalName": "string",
+"provider": "string",
+"quoteExternalName": "string",
+"state": "ENTITLEMENT_STATE_UNSPECIFIED",
+"subscriptionEndTime": "2024-07-29T15:51:28.071Z",
+"updateTime": "2024-07-29T15:51:28.071Z",
+"usageReportingId": "string"
+},
+"existingPriceModelType": "",
+"hasEntitlementChanged": true,
+"privateOffer": {
+"agreement": "string",
+"customEula": {
+"description": "string",
+"documentBody": "string",
+"documentType": "string",
+"externalGoogleLink": {
+"uri": "string"
+},
+"name": "string",
+"unstructuredDocument": {
+"content": "string"
+},
+"updateTime": "2024-07-29T15:51:28.071Z"
+},
+"installmentTimeline": {
+"installments": [
+{
+"priceModel": {
+"baseOffer": "string",
+"commitment": {
+"commitmentAmountPerPeriod": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"fixedPrice": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"oneTimeCredit": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"overage": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"skuDiscounts": [
+null
+]
+},
+"payg": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"skuDiscounts": [
+null
+]
+},
+"previousCreditBalancePolicy": "string"
+},
+"startTime": "2024-07-29T15:51:28.071Z"
+}
+]
+},
+"name": "string",
+"offerTerm": {
+"enableScheduledStartTimes": true,
+"endTime": "2024-07-29T15:51:28.071Z",
+"startPolicy": "",
+"startTime": "2024-07-29T15:51:28.071Z",
+"termDuration": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"paymentSchedule": "",
+"priceModel": {
+"baseOffer": "string",
+"commitment": {
+"commitmentAmountPerPeriod": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"fixedPrice": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"oneTimeCredit": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"overage": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"skuDiscounts": [
+null
+]
+},
+"payg": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"skuDiscounts": [
+null
+]
+},
+"previousCreditBalancePolicy": "string"
+},
+"serviceLevel": "string"
+},
+"standardOffer": {}
+},
+"expireTime": "2024-07-29T15:51:28.071Z",
+"features": [
+{
+"featureDescription": "string",
+"featureName": "string",
+"featureTitle": "string",
+"featureValue": "string"
+}
+],
+"installmentTimeline": {
+"installments": [
+{
+"priceModel": {
+"baseOffer": "string",
+"commitment": {
+"commitmentAmountPerPeriod": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"fixedPrice": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"oneTimeCredit": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"overage": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"skuDiscounts": [
+null
+]
+},
+"payg": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"skuDiscounts": [
+null
+]
+},
+"previousCreditBalancePolicy": "string"
+},
+"startTime": "2024-07-29T15:51:28.071Z"
+}
+]
+},
+"lifecycleState": "string",
+"metricInformation": {
+"metricDetails": [
+{
+"displayName": "string",
+"parentCommerceService": "string",
+"skuId": "string",
+"tiers": [
+{
+"fromAmount": 0,
+"price": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"startingUsageAmount": "string"
+}
+],
+"unitDescription": "string"
+}
+]
+},
+"migrationMetadata": {
+"inventoryFlavorExternalName": "string",
+"productExternalName": "string",
+"projectId": "string",
+"projectNumber": "string",
+"providerId": "string"
+},
+"name": "string",
+"offerId": "string",
+"offerSource": "OFFER",
+"offerState": "OFFER_ACTIVE",
+"offerTerm": {
+"enableScheduledStartTimes": true,
+"endTime": "2024-07-29T15:51:28.071Z",
+"startPolicy": "",
+"startTime": "2024-07-29T15:51:28.071Z",
+"termDuration": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"offerTitle": "string",
+"offerTitleAutoGenerated": true,
+"paymentSchedule": "",
+"policies": {},
+"priceModel": {
+"baseOffer": "string",
+"commitment": {
+"commitmentAmountPerPeriod": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"fixedPrice": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"oneTimeCredit": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"overage": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"skuDiscounts": [
+null
+]
+},
+"payg": {
+"discount": {
+"discountPercentage": {
+"nanos": 0,
+"units": "string"
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+}
+},
+"skuDiscounts": [
+null
+]
+},
+"previousCreditBalancePolicy": "string"
+},
+"priceModelType": "",
+"providerCancellationInternalNote": "string",
+"providerInfo": {
+"creatorEmailAddress": "string",
+"salesContactEmail": "string",
+"salesContactName": "string"
+},
+"providerInternalNote": "string",
+"providerPublicNote": "string",
+"purchaseChannel": {
+"marketplace": true,
+"reseller": true
+},
+"purchaseTime": "2024-07-29T15:51:28.071Z",
+"replacementMetadata": {
+"cotermAlignment": "string",
+"replacedOffer": "string",
+"replacedOfferEndTime": "2024-07-29T15:51:28.071Z",
+"replacementPolicy": "string"
+},
+"resellerInfo": {
+"billingAccountId": "string",
+"billingAccountNickname": "string",
+"billingAccountOrgDisplayName": "string",
+"billingAccountType": "string",
+"notesToReseller": "string",
+"partnerAccountName": "string",
+"resellOfferTemplateId": "string",
+"resellerContactEmail": "string",
+"resellerContactName": "string",
+"resellerPrivateOfferPlanId": "string",
+"resellerPrivateOfferPlanScope": "string",
+"subBillingAccount": "string"
+},
+"serviceLevel": "string",
+"updateTime": "2024-07-29T15:51:28.071Z",
+"useLegacyPartnerEula": true,
+"userLabels": [
+"string"
+]
+},
+"gcpProviderInfo": {
+"creatorEmailAddress": "string",
+"salesContactEmail": "string",
+"salesContactName": "string"
+},
+"gcpProviderInternalNote": "string",
+"gcpProviderPublicNote": "string",
+"gcpResellerPrivateOfferPlan": {
+"acceptanceDeadlineTime": "2024-07-29T15:51:28.071Z",
+"agreement": "string",
+"agreementDocuments": {
+"isvToCustomerAgreementDocument": {
+"description": "string",
+"documentBody": "string",
+"documentType": "string",
+"externalGoogleLink": {
+"uri": "string"
+},
+"name": "string",
+"unstructuredDocument": {
+"content": "string"
+},
+"updateTime": "2024-07-29T15:51:28.071Z"
+},
+"isvToResellerAgreementDocument": {
+"description": "string",
+"documentBody": "string",
+"documentType": "string",
+"externalGoogleLink": {
+"uri": "string"
+},
+"name": "string",
+"unstructuredDocument": {
+"content": "string"
+},
+"updateTime": "2024-07-29T15:51:28.071Z"
+}
+},
+"amendmentContext": {},
+"displayName": "string",
+"durationConfig": {
+"endTime": "2024-07-29T15:51:28.071Z",
+"startTime": "2024-07-29T15:51:28.071Z"
+},
+"features": [
+{
+"featureDescription": "string",
+"featureName": "string",
+"featureTitle": "string",
+"featureValue": "string"
+}
+],
+"installmentTimelineTemplate": {
+"installmentTemplates": [
+{
+"priceModelTemplate": {
+"baseOffer": "string",
+"commitment": {
+"commitmentAmountPerPeriodTemplate": {
+"currencyCode": "string",
+"decimalAmountConstraint": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+}
+},
+"discountTemplate": {
+"discountEconomics": "string",
+"discountPercentage": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"hideDiscountPercentage": true
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"consumption": "overage",
+"fixedPrice": {
+"discountTemplate": {
+"discountEconomics": "string",
+"discountPercentage": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"hideDiscountPercentage": true
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"overage": {
+"discountTemplate": {
+"discountEconomics": "string",
+"discountPercentage": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"hideDiscountPercentage": true
+},
+"skuDiscountTemplates": [
+null
+],
+"skuRepresentation": {
+"skuGroupList": {},
+"skuList": {
+"skus": [
+"string"
+]
+},
+"skus": "string"
+}
+},
+"payg": {
+"discountTemplate": {
+"discountEconomics": "string",
+"discountPercentage": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"hideDiscountPercentage": true
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+},
+"skuDiscountTemplates": [
+null
+],
+"skuRepresentation": {
+"skuGroupList": {},
+"skuList": {
+"skus": [
+"string"
+]
+},
+"skus": "string"
+}
+},
+"subscription": "fixedPrice"
+},
+"startTime": "2024-07-29T15:51:28.071Z"
+}
+]
+},
+"isvInfo": {
+"contactEmail": "string",
+"contactName": "string",
+"partnerAdvantageAccountLegalName": "string",
+"partnerAdvantageId": "string"
+},
+"margin": {
+"marginPercentage": {
+"value": "string"
+}
+},
+"metaInfo": {
+"gcpOrganizationId": "string",
+"gcpProjectNumber": "string"
+},
+"name": "string",
+"offerTemplatePolicies": {
+"allowAutoRenewal": true,
+"allowScheduledStartDate": true,
+"maxRenewalTimes": "string",
+"proration": "PRORATION_UNSPECIFIED"
+},
+"offerTermTemplate": {
+"enableScheduledStartTimes": true,
+"endTime": "2024-07-29T15:51:28.071Z",
+"paymentRecurrence": "string",
+"startPolicy": "",
+"startTime": "2024-07-29T15:51:28.071Z",
+"termDuration": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+},
+"termDurationConstraint": {
+"defaultDuration": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+}
+},
+"paymentSchedule": "",
+"priceModelTemplate": {
+"baseOffer": "string",
+"commitment": {
+"commitmentAmountPerPeriodTemplate": {
+"currencyCode": "string",
+"decimalAmountConstraint": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+}
+},
+"discountTemplate": {
+"discountEconomics": "string",
+"discountPercentage": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"hideDiscountPercentage": true
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"consumption": "overage",
+"fixedPrice": {
+"discountTemplate": {
+"discountEconomics": "string",
+"discountPercentage": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"hideDiscountPercentage": true
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+}
+},
+"overage": {
+"discountTemplate": {
+"discountEconomics": "string",
+"discountPercentage": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"hideDiscountPercentage": true
+},
+"skuDiscountTemplates": [
+null
+],
+"skuRepresentation": {
+"skuGroupList": {},
+"skuList": {
+"skus": [
+"string"
+]
+},
+"skus": "string"
+}
+},
+"payg": {
+"discountTemplate": {
+"discountEconomics": "string",
+"discountPercentage": {
+"defaultAmount": {
+"nanos": 0,
+"units": "string"
+},
+"maxAmount": {
+"nanos": 0,
+"units": "string"
+},
+"minAmount": {
+"nanos": 0,
+"units": "string"
+}
+},
+"discountedPrice": {
+"currencyCode": "string",
+"nanos": 0,
+"units": "string"
+},
+"hideDiscountPercentage": true
+},
+"period": {
+"count": 0,
+"unit": "MONTHLY_PERIOD"
+},
+"skuDiscountTemplates": [
+null
+],
+"skuRepresentation": {
+"skuGroupList": {},
+"skuList": {
+"skus": [
+"string"
+]
+},
+"skus": "string"
+}
+},
+"subscription": "fixedPrice"
+},
+"productInfo": {
+"flavorExternalName": "string",
+"productExternalName": "string",
+"providerId": "string",
+"serviceLevel": "string",
+"serviceName": "string"
+},
+"replacementMetadata": {},
+"resellOfferTemplate": "string",
+"resellerInfo": {
+"billingAccountId": "string",
+"billingAccountNickname": "string",
+"billingAccountOrgDisplayName": "string",
+"billingAccountType": "string",
+"notesToReseller": "string",
+"partnerAccountName": "string",
+"resellOfferTemplateId": "string",
+"resellerContactEmail": "string",
+"resellerContactName": "string",
+"resellerPrivateOfferPlanId": "string",
+"resellerPrivateOfferPlanScope": "string",
+"subBillingAccount": "string"
+},
+"reusePolicy": "",
+"startPolicy": "",
+"state": {
+"cancellationReason": {},
+"comment": "string",
+"rejectionReason": {},
+"stateType": ""
+},
+"stateTransitions": [
+{
+"newState": {
+"stateType": ""
+},
+"transitionTime": "2024-07-29T15:51:28.071Z"
+}
+],
+"updateTime": "2024-07-29T15:51:28.071Z"
+},
+"gcpUsagePlanPriceModel": "",
+"gracePeriodInDays": 0,
+"isMeteringOverageCommit": true,
+"netTermsInDays": 0,
+"paymentInstallments": [
+{
+"amount": 0,
+"chargeOn": "2024-07-29T15:51:28.071Z",
+"chargeOnStr": "string",
+"credit": 0,
+"discountPercentage": 0,
+"originalAmount": 0
+}
+],
+"paymentSchedule": "",
+"privateOfferUrl": "string",
+"proratedBilling": true,
+"refundCancellationPolicy": "string",
+"resellerAttachEulaType": "",
+"resellerEulaType": "",
+"resellerEulaUrl": "string",
+"sellerNotes": "string",
+"snowflakeOffer": {
+"access_end_time": "string",
+"access_start_date_preference": "string",
+"access_start_time": "string",
+"additional_information": "string",
+"comment": "string",
+"contract_duration_months": 0,
+"contract_type": "string",
+"contract_value": "string",
+"discount": 0,
+"display_name": "string",
+"expiration_time": "string",
+"invoice_start_date_preference": "string",
+"invoice_start_time": "string",
+"is_default": true,
+"name": "string",
+"payment_terms": "string",
+"pricing_plan_name": "string",
+"state": "string",
+"state_updated_on": "string",
+"target_consumer": "string",
+"terms_of_service": {
+"custom_link": "string",
+"type": "string"
+},
+"updated_on": "string"
+},
+"startTime": "2024-07-29T15:51:28.071Z",
+"taxIds": [
+"string"
+],
+"trialConfig": {
+"trialPeriod": 0,
+"trialPeriodUnit": "DAY"
+},
+"usageBillingIntervalInMonths": 0,
+"visibility": "PRIVATE"
+},
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"lastUpdatedBy": "string",
+"metaInfo": {
+"aceApnCrmUniqueIdentifier": "string",
+"awsSaasProductDimensions": [
+{
+"Description": "string",
+"Key": "string",
+"Length": 0,
+"Name": "string",
+"Rate": 0,
+"TimeUnit": "DAY",
+"Types": [
+"string"
+],
+"Unit": "string"
+}
+],
+"baseAgreementId": "string",
+"buyerIds": [
+"string"
+],
+"contacts": [
+{
+"company": "string",
+"email": "string",
+"name": "string"
+}
+],
+"cppoInOfferId": "string",
+"cppoOfferId": "string",
+"cppoOutOfferId": "string",
+"customMetaInfo": {},
+"enableTestUsageMetering": true,
+"entitlementCancellationSchedule": {
+"cancelDate": "string",
+"creationDate": "string",
+"note": "string",
+"type": "EndOfTerm"
+},
+"errorMessages": [
+"string"
+],
+"hubspotDealId": "string",
+"internalNote": "string",
+"isAgreementBasedOffer": true,
+"isGrossRevenueFullSync": true,
+"isRenewalOffer": true,
+"isReplacementOffer": true,
+"lastModifiedBy": {
+"email": "string",
+"entityId": "string",
+"entityType": "",
+"name": "string"
+},
+"notifications": [
+{
+"action": "",
+"ccContactIds": [
+"string"
+],
+"channels": [
+"EMAIL"
+],
+"contactEmails": [
+"string"
+],
+"contactIds": [
+"string"
+],
+"createdBy": {
+"email": "string",
+"entityId": "string",
+"entityType": "",
+"name": "string"
+},
+"customFields": {},
+"entityID": "string",
+"entityName": "string",
+"entityStatus": "string",
+"entityType": "",
+"eventID": "string",
+"eventStatus": "",
+"isActionItem": true,
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"message": "string",
+"organizationID": "string",
+"partner": "",
+"priority": "",
+"requireAudit": true,
+"timestamp": "2024-07-29T15:51:28.071Z",
+"title": "string",
+"trackEvents": [
+{
+"action": "OPEN_EMAIL",
+"contactId": "string",
+"timestamp": "2024-07-29T15:51:28.071Z"
+}
+]
+}
+],
+"offerAcceptDate": "2024-07-29T15:51:28.071Z",
+"renewalOfferType": "",
+"replacedOfferEndTime": "2024-07-29T15:51:28.071Z",
+"replacedOfferResourceName": "string",
+"salesforceEntitlementURL": "string",
+"salesforceOpportunityId": "string",
+"testUsageMeteringEndTime": "2024-07-29T15:51:28.071Z",
+"updateMessage": "string"
+},
+"name": "string",
+"offerType": "UNKNOWN",
+"organizationID": "string",
+"partner": "",
+"partnerID": "string",
+"productID": "string",
+"service": "DEFAULT",
+"status": ""
+}
+Bad request error
+application/json
+Schema
+Schema
+string
+Not found
+application/json
+Schema
+Schema
+string
+Method not allowed
+application/json
+Schema
+Schema
+string
+Internal error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+create offer
+Next
+delete offer
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

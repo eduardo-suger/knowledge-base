@@ -1,0 +1,114 @@
+Pricing Model | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Azure Marketplace
+Pricing Model
+On this page
+Pricing Model
+Azure Marketplace Pricing Models
+Overview
+​
+There are two pricing models for the SaaS product in Azure marketplace:
+Flat Rate
+and
+Per User
+. You can choose only one price model for each of your SaaS product offer. Only the
+Flat Rate
+model support optional usage-based pricing.
+warning
+After your offer/product is published, you cannot change the pricing model. In addition, all plans for the same offer must share the same pricing model.
+Flat Rate
+​
+Enable access to your service with a single monthly or annual flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers for usage that isn't covered by the flat rate. You should also use this option if usage behavior for your SaaS service is in bursts. Below is an example of Flat Rate plan.
+Two billing terms: 1-month and 1-year with different prices.
+One usage metering dimension
+consumption_unit
+with price $0.1 per unit.
+For 1-month billing term, 990 of
+consumption_unit
+are already included in base, which means that the first 990 unit of usage metering won't charge the buyer for extra payment.
+For 1-year billing term, 10000 of
+consumption_unit
+are included in base.
+Per User
+​
+Enable access to your service with a price based on the number of users who can access the offer or occupy seats. With this user-based model, you can set the minimum and maximum number of users supported by the plan. You can create multiple plans to configure different price points based on the number of users. Below is an example of Per User plan.
+There billing terms: 1-month, 1-year and 2-year with different prices per user.
+Set minimum number of users as 5. Not maximum users limit.
+The 2-year billing term is set with
+per year
+payment option instead of the default
+one-time
+.
+Previous
+Integration
+Next
+List Product
+Overview
+Flat Rate
+Per User
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

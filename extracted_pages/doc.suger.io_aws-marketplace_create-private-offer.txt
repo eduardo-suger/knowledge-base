@@ -1,0 +1,491 @@
+Create Private Offer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Buy with AWS
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+AWS Marketplace
+Create Private Offer
+On this page
+Create Private Offer
+You can create and manage all of your AWS Marketplace private offers via Suger Console or API
+Overview
+​
+There are several types of private offers can be created in AWS Marketplace. They are listed in the below table with various of feature availabilities.
+Description
+Expiry Date
+End Date
+Commit(s)
+Usage Dimensions
+Payment Installments
+Multiple Currency
+Subscription Offer
+Private offer for Subscription product (pay as you go, usage-based)
+✅
+✅
+-
+✅
+-
+-
+Contract Offer
+Private offer for Contract product (commit only)
+✅
+-
+✅
+-
+✅
+✅
+Combined Offer
+Private offer for Contract-Subscription Combined product
+✅
+-
+✅
+✅
+✅
+-
+Agreement Based Offer
+Private offer based on existing active agreement for manual renew or upsell
+✅
+-
+✅
+✅
+✅
+Available for contract based offers
+Professional Services Offer
+Private offer for Professional Services product
+✅
+✅
+✅
+✅
+Container Offer
+Private offer for Container product
+✅
+✅
+✅
+✅
+✅
+✅
+AMI Offer
+Private offer for AMI product
+✅
+✅
+✅
+✅
+✅
+Free Trial Offer
+Public Offer for free trial
+-
+by the end of Free Trial term
+-
+-
+-
+-
+danger
+You may create private offers either in the
+AWS Marketplace Management Console
+or the
+Suger Console
+.
+Subscription Private Offer
+​
+To create a private offer for a subscription product, the ISV seller is allowed to customize the unit prices of the dimensions for usage metering. The private offer has both expiry date & end date. Click the button of
+Create Offer
+in the
+Suger console offer page
+, select the target AWS Subscription SaaS product and fulfill the info listed as below:
+Custom Offer Name
+: Custom name for your offer will be displayed to the buyer.
+Buyer(s)
+: one or multiple buyer's AWS Account IDs who will receive the private offer and are capable to accept it.
+Expiry Date
+: The date before when the private offer needs to be accepted, otherwise, the offer expires.
+End Date
+: The date when the private offer subscription will end. This value must be greater than the upper offer expiry date.
+warning
+Only for Subscription Private Offer: the price switches back to the public offer after the end date arrives.
+Usage Dimension Absolute Price
+: Configure the absolute price of each usage metering dimensions. An example is shown below:
+End User License Agreement
+: Select the EULA between Standard AWS Marketplace Contract, Enterprise AWS Marketplace Contract or your custom contract.
+Contract Private Offer
+​
+To create a private offer for a contract product, the ISV seller is allowed to customize the commit amount. The private offer has both expiry date & contract term length. By default, the contract starts when the buyer accepts the offer. If a future start date is specified, the contract will commence from the designated time. Fulfill the info listed as below:
+Custom Offer Name
+: Custom name for your offer will be displayed to the buyer.
+Buyer(s)
+: one or multiple buyer's AWS Account IDs who will receive the private offer and are capable to accept it.
+Expiry Date
+: The date before when the private offer needs to be accepted, otherwise, the offer expires.
+Start Date(optional)
+: A future date when the contract will begin if the offer has been accepted.
+Currency
+: Choose a transaction currency for this offer. You will receive payment in the selected currency.
+warning
+Before select non-USD currency, make sure you have configured your
+non-USD disbursement preferences for multi currency
+.
+Term Length
+: In months. How long the buyer can use the contract commits sold in this offer.
+Commit Amount
+: How much the buyer need to pay for this contract private offer.
+End User License Agreement
+: Select the EULA between Standard AWS Marketplace Contract, Enterprise AWS Marketplace Contract or your custom contract.
+Contract + Subscription Combined Private Offer
+​
+The private offer for Contract + Subscription Combined product is similar to the combination of previous two types of private offer. You can customize both the commit amount and usage metering dimension prices for extra usage.
+Fulfill the info listed as below:
+Custom Offer Name
+: Custom name for your offer will be displayed to the buyer.
+Buyer(s)
+: one or multiple buyer's AWS Account IDs who will receive the private offer and are capable to accept it.
+Expiry Date
+: The date before when the private offer needs to be accepted, otherwise, the offer expires.
+Term Length
+: In months. How long the buyer can use the contract commits sold in this offer.
+Commit Amount
+: How much the buyer need to pay for this contract private offer.
+Usage Dimension Absolute Price
+: Configure the absolute price of each usage metering dimensions.
+End User License Agreement
+: Select the EULA between Standard AWS Marketplace Contract, Enterprise AWS Marketplace Contract or your custom contract.
+Private Offer with Payment Installments
+​
+By enabling the payment installments, you can extend private offers with a custom payment schedule. The schedule can be spread over up to five years, and the customer makes payments in regular installments. After they are subscribed, your customers can see all the payments on the schedule and on their AWS invoice, helping them track their spending.
+warning
+The
+Payment Installments
+is only supported in
+Contract Private Offer
+,
+Contract + Subscription Combined Private Offer
+or
+Agreement Based Private Offer
+.
+Some common mistakes when configuring Payment Installments: 1. The first invoice date is before the private offer expire date. 2. The client/buyer's AWS Account is NOT on net payment terms with AWS to accept Payment Installments.
+Agreement Based Private Offer
+​
+When you have an active entitlement of the
+Contract
+or
+Combined
+product with your buyer, you can manually renew or upsell the entitlement by creating an agreement-based private offer. Once the new private offer is accepted by the buyer, the entitlement will be updated immediately.
+warning
+Only the entitlements of Contract or Combined products / private offers allows to create the agreement-based private offer. The subscription does not allow the agreement-based private offer, which means that no flexibility to manually renew or upsell in Subscription pricing model.
+The list of info required when creating the agreement-based private offer:
+Custom Offer Name
+: Custom name for your offer will be displayed to the buyer.
+Expiry Date
+: The date before when the private offer needs to be accepted, otherwise, the offer expires.
+New End Date
+: The date when the new private offer will end.
+Currency
+: The currency of the new agreement based offer will firstly inherite from the base agreement, then if it is not a usage based offer, you can change it to one of these supported currencies.
+Commit Quantity
+: The number of the commit plan, mostly it is 1.
+Usage Dimension Absolute Price
+: Configure the new absolute price of each usage metering dimensions.
+Payment Scheduler
+: You can specify one or multiple dates to bill the buyer with specified amount. The total amount of payment installments is the final commit amount of the new private offer. One example is shown below:
+End User License Agreement
+: Select the EULA between Standard AWS Marketplace Contract, Enterprise AWS Marketplace Contract or your custom contract.
+Professional Services Private Offer
+​
+To create a private offer for a professional services product, the ISV seller can customize the commit price and payment installments. The private offer includes both an expiry date and a contract term length. The offer becomes active when the buyer accepts it.
+Fulfill the info listed as below:
+Custom Offer Name
+: Custom name for your offer will be displayed to the buyer.
+Buyer(s)
+: one or multiple buyer's AWS Account IDs who will receive the private offer and are capable to accept it.
+Expiry Date
+: The date before when the private offer needs to be accepted, otherwise, the offer expires.
+Term Length
+: In months. How long the buyer can use the contract commits sold in this offer.
+Currency
+: Choose a transaction currency for this offer. You will receive payment in the selected currency.
+warning
+Before select non-USD currency, make sure you have configured your
+non-USD disbursement preferences for multi currency
+.
+Commit Price
+: How much the buyer need to pay for each commit.
+warning
+You can specify multiple commits in the private offer, but the buyer can only select one of them to purchase.
+Payment Scheduler
+: You can specify one or multiple dates to bill the buyer with specified amount. The total amount of payment installments is the final commit amount of the new private offer. One example is shown below:
+End User License Agreement
+: Select or upload your custom contract.
+Container Private Offer
+​
+To create a private offer for a container product, you can choose pricing model depends on the product's pricing model and it's dimension types.
+tip
+Currently AWS does not support creating private offers for container products with Pricing model Monthly pricing, Free and BYOL.
+Hourly pricing products behave very similarly to Usage metering pricing products when creating private offers. The difference is that the former only have one dimension called Hours.
+Product Pricing Model
+Product Dimension Type
+Offer Pricing Model
+Expire Date
+Contract Duration
+Usage End Date
+Commit(s)
+Payment Installments
+Usage Dimensions
+Multiple Currency
+Contract pricing
+Entitled
+Contract pricing with installment plan
+✅
+✅
+✅
+✅
+Contract pricing
+Entitled
+Contract pricing with upfront payment
+✅
+✅
+✅
+✅
+Usage metering pricing, Hourly pricing
+ExternallyMetered
+Contract pricing with installment plan
+✅
+✅
+✅
+✅
+Usage metering pricing, Hourly pricing
+ExternallyMetered
+Contract pricing with upfront payment
+✅
+✅
+✅
+✅
+✅
+Usage metering pricing, Hourly pricing
+ExternallyMetered
+Usage pricing
+✅
+✅
+✅
+AMI Private Offer
+​
+To create a private offer for a AMI product with pricing model of Hourly pricing or Free, you can choose a target pricing model for the offer.
+warning
+Currently AWS does not support creating private offers for AMI products with pricing model BYOL.
+You will find that the form of creating a private offer for AMI Product is basically the same as the Container Product with Usage metering pricing model.
+Product Pricing Model
+Product Dimension Type
+Offer Pricing Model
+Expire Date
+Contract Duration
+Usage End Date
+Commit(s)
+Payment Installments
+Usage Dimensions
+Multiple Currency
+Hourly pricing, Free
+Metered
+Contract pricing with installment plan
+✅
+✅
+✅
+✅
+Hourly pricing, Free
+Metered
+Contract pricing with upfront payment
+✅
+✅
+✅
+✅
+✅
+Hourly pricing, Free
+Metered
+Usage pricing
+✅
+✅
+✅
+Free Trial Public Offer
+​
+Visit the
+AWS Marketplace Free Trial Offer console
+, and click the button
+Create free trial offer
+. Select the product and enter the amount of days as the Free Trial term length. The offer may take ~1 hour before being effective & public visible.
+danger
+During the Free Trial term, the buyers won't be charged on the commit or usage metering.
+danger
+The Free Trial entitlement will be terminated/cancelled automatically by the end of Free Trial term.
+Resale Private Offer
+​
+As a Reseller on AWS, you can create the resale private offer based on a ResaleAuthorization which you received from other ISV/Sellers.
+Click the button of
+New Private Offer
+in the
+Suger console offer page
+, enable
+As Reseller
+to fill in the details to finalize the private resale offer.
+Custom Offer Name
+: Custom name for your offer will be displayed to the buyer.
+Buyer(s)
+: One or multiple buyer's AWS Account IDs who will receive the private offer and are capable to accept it.
+Expiry Date
+: The date before when the private offer needs to be accepted, otherwise, the offer expires.
+End Date
+: The date when the private offer subscription will end. This value must be greater than the upper offer expiry date.
+Markup Options
+: The markup will be applied to the wholesale pricing to generate the contract pricing, including the customer price and partner margin.
+For contract private reseller offer with predefined installments, you can choose between
+Markup Percentage
+and
+Custom Payments
+to set the markup, and for other private offers, the only available option is
+Markup Percentage
+, so this field will be hidden.
+Markup Percentage
+: By providing a percentage, the contract pricing (including customer price and partner margin) will be calculated based on the wholesale pricing. If the offer has predefined installments, every installment amount will be updated automatically based on the markup percentage.
+Custom Payments
+: Instead of providing a percentage, you can set the custom payments for each installment. The sum of all installments will be the contract price. The implicit markup percentage will be calculated based on the custom payments and the wholesale pricing, usage dimensions prices will be updated automatically based on the implicit markup percentage.
+End User License Agreement
+: Select the EULA between Standard AWS Marketplace Contract, Enterprise AWS Marketplace Contract or your custom contract.
+Contract Private Reseller Offer
+​
+To create a private reseller offer for a contract product (or contract + subscription combined), there are two pricing models to choose from
+Contract pricing with installment plan
+and
+Contract pricing with upfront payment
+, it is similar to creating normal contract private offers.
+The private reseller offer has both expiry date & contract term length. By default, the contract starts when the buyer accepts the offer. If a future start date is specified, the contract will commence from the designated time. Fulfill the info listed as below:
+Custom Offer Name
+: Custom name for your offer will be displayed to the buyer.
+Buyer(s)
+: one or multiple buyer's AWS Account IDs who will receive the private offer and are capable to accept it.
+Expiry Date
+: The date before when the private offer needs to be accepted, otherwise, the offer expires.
+Start Date(optional)
+: A future date when the contract will begin if the offer has been accepted. It should be noted that for pricing model
+Contract pricing with upfront payment
+, you must set the start date.
+Contract Duration
+: The duration options comes from the ResaleAuthorization which current offer based on.
+End User License Agreement
+: Select the EULA between Standard AWS Marketplace Contract, Enterprise AWS Marketplace Contract or your custom contract.
+Contract pricing with upfront payment
+​
+Set markup percentage
+​
+It is the default pricing model for contract private reseller offer. After setting the start date and contract duration, you need to set the markup percentage, it will affect partner margin and customer price of all commits. If usage dimensions exist in this offer, they will be affected too.
+Start date must be set in this pricing model.
+Contract pricing with installment plan
+​
+Select contract duration and set commit quantity
+​
+If you select pricing with installment plan, it means you have to specify the quantity for each commit to get the contract amount. Different contract duration has different commit unit price. In this pricing model, commit unit price can not be configured.
+Setup markup
+​
+You can set the markup by specifying the total contract price or setting a percentage. When setting the markup, you can see the latest value of the partner margin.
+Add payment installment
+​
+Then you need to add installment according to the contract total amount and contraction duration. Using the
+Payment Scheduler
+tool will make it easy.
+Review usage dimensions
+​
+Usage dimensions' price will be updated automatically according to the previous markup settings.
+Multi Currency
+​
+Sellers can now create private offers with contract pricing in EUR, GBP, JPY, and AUD and receive their disbursements in the offer currency. Additionally, sellers are no longer required to have a US-domiciled bank account. Instead, they can choose to receive payments into one or more bank accounts located in
+any seller eligible jurisdiction
+. For channel partner private offers (CPPO), the seller, channel partner, and buyer must all transact in the same currency. Sellers need to issue a resale authorization in the negotiated currency, and the channel partner then creates the CPPO in that currency.
+tip
+Make sure you have configured your non-USD disbursement preferences. To enable a specific currency, follow this
+guide
+to set your bank disbursement methods in
+AWS Marketplace Management Portal Settings
+.
+Multi-currency support is available only for Contract-only, Professional Services Private Offers or CPPO. Subscription-based or Contract + Subscription Combined Private Offers do not support currency selection.
+USD
+is the only default currency to create all public offers and private offers with consumption-based pricing.
+This new functionality is available worldwide for all AWS Marketplace sellers for contract-based private offers. Public offers and private offers with consumption pricing remain in USD only. To get started, sellers need to provide bank accounts with SWIFT codes and associate currency preferences. To learn more, please visit the documentation on
+local currency offers and disbursements
+.
+Previous
+List Product
+Next
+Accept Private Offer
+Overview
+Subscription Private Offer
+Contract Private Offer
+Contract + Subscription Combined Private Offer
+Private Offer with Payment Installments
+Agreement Based Private Offer
+Professional Services Private Offer
+Container Private Offer
+AMI Private Offer
+Free Trial Public Offer
+Resale Private Offer
+Contract Private Reseller Offer
+Contract pricing with upfront payment
+Contract pricing with installment plan
+Multi Currency
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

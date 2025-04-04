@@ -1,0 +1,185 @@
+Java SDK | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Java SDK
+TypeScript SDK
+Go SDK
+Python SDK
+Get Started
+Java SDK
+On this page
+Quick Start Guide for Suger Java SDK
+Follow these steps to get started with the Suger Java SDK:
+Step 1: Add Maven Dependency
+​
+To include the Suger SDK in your project, add the following dependency to your
+pom.xml
+file:
+<
+dependency
+>
+<
+groupId
+>
+io.suger.sdk
+</
+groupId
+>
+<
+artifactId
+>
+suger-java-client
+</
+artifactId
+>
+<
+version
+>
+{{latest.version}}
+</
+version
+>
+</
+dependency
+>
+Step 2: Create a Client
+​
+Once you have added the dependency, you can create a client instance. Here’s how to do it:
+public
+ApiClient
+client
+(
+String
+yourApiKey
+)
+{
+ApiClient
+apiClient
+=
+new
+ApiClient
+(
+)
+;
+apiClient
+.
+setBasePath
+(
+"https://api.suger.cloud"
+)
+;
+ApiKeyAuth
+APIKeyAuth
+=
+(
+ApiKeyAuth
+)
+apiClient
+.
+getAuthentication
+(
+"APIKeyAuth"
+)
+;
+APIKeyAuth
+.
+setApiKey
+(
+"Key "
++
+yourApiKey
+)
+;
+return
+apiClient
+;
+}
+Step 3: Use the Client
+​
+Now that you have your client set up, you can call Suger services. Here’s a simple example of how to make a service call:
+public
+WorkloadOffer
+getOffer
+(
+ApiClient
+client
+,
+String
+orgId
+,
+String
+offerId
+)
+throws
+ApiException
+{
+OfferApi
+offerApi
+=
+new
+OfferApi
+(
+client
+)
+;
+return
+offerApi
+.
+getOffer
+(
+orgId
+,
+offerId
+)
+;
+}
+Conclusion
+​
+You are now ready to use the Suger Java SDK in your application! For more detailed information and advanced usage, please refer to the official documentation.
+Previous
+Get Started
+Next
+TypeScript SDK
+Step 1: Add Maven Dependency
+Step 2: Create a Client
+Step 3: Use the Client
+Conclusion
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

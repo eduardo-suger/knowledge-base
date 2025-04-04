@@ -1,0 +1,273 @@
+Metronome | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Alibaba Marketplace
+AWS Partner Network
+Google Bigquery
+Chargebee
+Databricks
+Google Cloud Storage
+Google Drive
+Google Mail
+HubSpot
+Lago
+Metronome
+Microsoft Teams
+NetSuite
+Okta SSO
+Orb
+QuickBooks
+Salesforce
+Slack
+Snowflake
+Stripe
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Integrations
+Metronome
+On this page
+Metronome
+Automate the usage metering from Metronome to all cloud marketplaces.
+Overview
+​
+If you currently rely on
+Metronome
+as your metering/billing service and are looking to expand your business in cloud marketplaces, Suger offers the ideal solution to bridge the gap. With our no-code, fully automated integration, you can seamlessly meter usages from your existing Metronome instance to clients in all cloud marketplaces. There is no need for migration or extensive engineering efforts, making the process smooth and hassle-free.
+When it comes to adopting Suger with Metronome together, you have two options available. However, we highly recommend
+Option 2
+, and here's why:
+Option 1
+Option 2 (recommend)
+Architecture
+Description
+Metronome offers officially integrating with AWS Marketplace and sends usage metering to AWS Marketplace metering service directly. Here is the
+official guidance
+.
+Suger provides pre-built integration to connect Metronome & cloud marketplaces. Hourly cron jobs automatically fetch aggregated usage events and report them to cloud marketplace in the right formats.
+✅
+Pros
+Officially supported by Metronome.
+Support all cloud marketplaces (AWS, Azure & GCP).
+No manual work in Metronome to support private offer in cloud marketplace.
+Support usage metering verification to avoid overcharge or undercharge.
+Fully support AutoRenew, Manual Renew / Upsell, Change Plan.
+Easy configuration, no-code & engineering-free.
+🚫
+Cons
+Only AWS Marketplace, GCP or Azure is not supported
+Require mannual creation of plan & credit in Metronome for each private offer in cloud marketplace.
+No usage metering verification
+No support AutoRenew, Manual Renew / Upsell, Change Plan
+Non-trivial configuration & setup
+Up to 2 hours delay of reporting usage events to cloud marketplaces
+Create Integration
+​
+In your
+Suger Console Integration
+, you will see the Metronome integration connection. Click the
+Connect
+button to create an integration with your Metronome instance. This will open an dialog for you to input
+API Token
+: The
+Metronome API token
+.
+Billing Mode
+: Select one of
+quantity
+,
+amount_hourly
+or
+amount_daily
+. Details about their difference can be found
+here
+Once the integration process is finished, you can proceed by clicking the
+VERIFY
+button. This action triggers the Suger service to test the connection to the APIs of your Metronome instance. If everything is configured correctly, the integration status will be updated as
+VERIFIED
+.
+Edit Integration
+​
+Editing an existing Metronome integration is supported. Click the
+Edit
+button to open the dialog of editing Metronome integration as shown below.
+Enable Auto Report Usage
+. You can choose to enable or disable the automatic usage report feature for Metronome. Enabling this feature allows Suger to run an hourly cron job to retrieve the aggregated usage events from Metronome and report them as UsageRecordGroups to the
+Suger metering API
+. On the other hand, disabling this feature means that no cron job will be scheduled for this purpose.
+Billing Mode
+:
+quantity
+,
+amount_hourly
+or
+amount_daily
+. Details about their difference can be found
+here
+Enable Billable Metric Whitelist
+. If enabled, only the billable metrics in the whitelist will be metered & reported from Metronome to cloud marketplaces. Otherwise all the metrics listed in the
+Billable Metric Full List
+will be metered & reported to cloud marketplaces.
+Billable Metric Whitelist
+. Applicable only when the
+Enable Billable Metric Whitelist
+is true.
+Billable Metric Full List
+. The full list of billable metrics fetched from Metronome for all available Metronome customers. It is auto fetched from Metronome, not editable.
+warning
+If the billing mode is
+quantity
+, please ensure all billable metrics in the
+Whitelist
+(if the whitelist is enabled) or the
+Full List
+(if the whitelist is not enabled) have been mapped to their respective cloud marketplace dimensions in the
+Metering Dimension Conversion
+.
+Metronome Auto Fetch & Report Job: In case any billable metrics from Metronome cannot be successfully converted to metering dimensions in the cloud marketplace, it may result in the entire Metronome auto fetch and report job failing.
+If you notice any discrepancies or missing usage reporting, please verify whether this is caused by incomplete mapping of billable metrics to cloud marketplace dimensions. If so, rectify the mapping accordingly to ensure accurate reporting.
+Delete Integration
+​
+The Metronome integration can be deleted like all other integrations. Once the deletion is triggered, all integration info including the API token will be deleted immediately & permanently from Suger. No time window or methods to recover.
+Billing Mode
+​
+There are three billing modes available for Suger-Metronome integration:
+quantity
+,
+amount_hourly
+or
+amount_daily
+.
+quantity
+: Suger fetch & report the billable metrics by quantity every one
+HOUR
+. Use the original Metronome billable metrics as the source dimension keys in the configuration of
+metering dimension conversion
+amount_hourly
+:  Suger fetch & report
+invoice total amount
+every one
+HOUR
+. The
+invoice total amount
+is converted to the dimension
+metronome
+with fixed unit price as
+$1
+. Use
+metronome
+as the only source dimension key in the configuration of
+metering dimension conversion
+.
+tip
+Suger fetches
+Metronome Invoice API
+every one hour. If there is an increase in the
+invoice total amount
+, Suger will generate a new usage record and report it to cloud marketplaces. However, if the
+invoice total amount
+remains the same or decreases, Suger will refrain from creating new usage records..
+In cases where credits are granted to the customer in Metronome, resulting in a potential decrease in the
+invoice total amount
+, Suger retains a comprehensive history of invoice total amounts and monitors any changes. If the
+invoice total amount
+decreases or remains unchanged, Suger will suspend the automatic fetching and reporting of usage until it surpasses the maximum value recorded in its history.
+amount_daily
+: Suger fetch & report the
+invoice total amount
+every one
+DAY
+. The total amount is converted to the dimension
+metronome
+with fixed unit price as
+$1
+. Use
+metronome
+as the only source dimension key in the configuration of
+metering dimension conversion
+.
+warning
+When using the
+amount_hourly
+or
+amount_daily
+billing modes, pay attentions to the following:
+Suger tracks each invoice amount using the Metronome
+invoice ID
+and reports increases to the cloud marketplace on an hourly or daily basis. If a customer’s contract is modified or an operation changes the
+invoice ID
+, Suger will start reporting amounts based on the new invoice ID. This can lead to a sudden spike in the usage report.
+To avoid this,
+schedule contract changes or similar operations to take effect at the beginning of the month
+. This approach minimizes disruptions and ensures a smoother and more consistent usage reporting process.
+Connect Metronome Customer
+​
+To enable Suger to fetch and report the billable metrics of Metronome Customers to the appropriate entitlements in Cloud Marketplace, you need to connect the Buyer in Suger with the corresponding Customer in Metronome. Simply click the
+Edit
+button in the Buyer and add the corresponding Metronome Customer ID. This setup only needs to be done once; afterward, Suger's service will automatically retrieve the latest billable metrics and report them to the correct Cloud Marketplace entitlements.
+Previous
+Lago
+Next
+Microsoft Teams
+Overview
+Create Integration
+Edit Integration
+Delete Integration
+Billing Mode
+Connect Metronome Customer
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

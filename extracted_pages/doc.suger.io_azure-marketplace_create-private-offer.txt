@@ -1,0 +1,183 @@
+Create Private Offer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Azure Marketplace
+Create Private Offer
+On this page
+Create Private Offer
+You can create and manage all of your Azure Marketplace private offers via Suger Console or API
+Overview
+​
+Private offers let Independent Software Vendors (ISVs) and partners in the Cloud Solution Provider (CSP) program grow their revenue by creating time-bound customized margins that suit each entity’s business needs. As an ISV, you can specify the margin and duration to create a wholesale price for your CSP partner. When your partner makes a sale to a customer, Microsoft will make its payments to you off the wholesale price.
+There are two price types in the private offer you can select to customize the original price of the plans. They are
+Discount Price
+and
+Absolute Price
+.
+Discount Price
+​
+Set a discounted percentage off based on the original price of the plan. For example below:
+The
+Plan for Growth
+is type of
+Flat Rate
+pricing model.
+Its original price is $499 per month + $0.01 per unit for extra usage of
+support_unit
+.
+The private offer price on this plan is 7% off. So the final price after discount is $464.07 per month + $0.0093 per unit for the extra usage of
+support_unit
+.
+Absolute Price
+​
+Set an absolute price which is quite independent from the original price of the plan. For example below:
+The
+Plan for Enterprise
+is type of
+Flat Rate
+pricing model.
+Its original price is $1999 per month + $0.01 per unit for extra usage of
+contract_unit
+and $0.01 per unit for extra usage of
+support_unit
+.
+The private offer on this plan is absolute price, which is $9 per month + $0.02 per unit for extra usage of
+contract_unit
+and $0.01 per unit for extra usage of
+support_unit
+.
+Suger Console
+​
+In Suger Console, You can easily create the Azure Marketplace private offers for your customers or CSP Partners. Click the button of
+New Private Offer
+in the
+Suger console offer page
+, select the target Azure Product and fulfill the info listed as below:
+Customer Billing Account ID
+:  Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer. Customers can find their billing account by following the
+guidance
+below.
+Start Date
+: There are two options to set the start date of the private offer once it is accepted. One is applying the accepted date as the start date. The other is to specify the start date - the first day of the selected month.
+End Date
+: The private offer will end on the last day of the selected month.
+Expiry Date
+: Your offer will expire after this date and your customer will not be able to accept it.
+Notification Contacts
+: The email addresses for the users to be notified of any changes in the private offer status. This field is optional.
+Pricing
+: Configure the discount % off or absolute price for one or multiple plans in a private offer. One example is shown below.
+Customer Renewals
+: Renewals mean a customer extending their offer or migrating and renewing an external paid agreement, check the Customer Renewals box when creating a private offer to confirm.
+Suger API
+​
+Suger has
+open API doc
+available you can integrate with to create private offers programmatically for Azure Marketplace. Contact us
+here
+to get more detailed guidance.
+Troubleshoot
+​
+There are two common failure errors when creating azure private offer.
+Reusing a private offer name
+. A private offer name cannot be reused if it has already been used in a previous offer, regardless of the status of that offer.
+Solution
+use a different offer name and re-create the private offer.
+Duplicate offers for SAME product and price plan
+. A new private offer cannot be created if a previous offer exists with the
+same
+product and price plan for the
+same
+Azure billing account ID.
+Solution
+If the previous offer has been accepted or purchased, there are two options:
+Wait for the end of previous offer, and create new offer based on the same product & price plan.
+Create new offer based on the same product but different (or new) price plan
+If the previous offer has not been accepted, cancel it and create new one.
+Find Azure Billing Account ID
+​
+Sign in to the
+Azure portal
+Search for and select Cost Management + Billing.
+If you have access to just one billing scope, select Properties from the left menu (inside
+Settings
+). Otherwise, click
+Billing Scopes
+on the left menu and select one billing scope.
+The Azure Billing Account ID can be found in the red box as shown below.
+Previous
+List Product
+Next
+Accept Private Offer
+Overview
+Discount Price
+Absolute Price
+Suger Console
+Suger API
+Troubleshoot
+Find Azure Billing Account ID
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

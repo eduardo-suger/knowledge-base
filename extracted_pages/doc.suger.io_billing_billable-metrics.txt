@@ -1,0 +1,191 @@
+Billable Metrics | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+Overview
+Billable Metrics
+Price Model
+Buyer
+Offer
+Entitlement
+Metering
+Invoice
+Payment
+Revenue
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Billing
+Billable Metrics
+On this page
+Billable Metrics
+Define metrics to track usage and consumption.
+The Billable Metrics are used to define the goals and aggregation type of metering.
+You can define the metrics according to your business needs, such as the number of API calls, the amount of storage, the number of users, etc.
+Create billable metric
+​
+You can create a new billable metric in the Settings >> Usage Metering page.
+They should be created before creating the offer which contains usage-based price model.
+A billable metric is defined by the following properties:
+ID
+: Used to report usage records. It should be unique in your organization.
+Name
+: Display name.
+Filter Groups
+: Criteria to filter the reported usage data.
+Aggregation Type
+: How to aggregate the reported usage data.
+Property Unique On
+: Used for distinct counting when the aggregation type is UNIQUE COUNT.
+Group By
+: Used to divide usage data into different groups by properties.
+Filter groups
+​
+Filter Groups
+are used to filter usage records you reported, only those meet the filtering criteria will participate in the aggregation.
+Different groups have an "AND" relationship, while the filters within each group have an "OR" relationship.
+Each Filter expression left side is a Property name carried when reporting Usage Records, and the right side is the target value.
+Filter operators for string properties:
+is
+,
+not is
+,
+contains
+,
+not contains
+,
+exists
+,
+not exists
+.
+Filter operators for numeric properties:
+greater than
+,
+greater than equal
+,
+less than
+,
+less than equal
+,
+equal
+,
+not equal
+.
+Aggregation types
+​
+How the reported usage data will be aggregated before calculating the fee.
+Suger supports the following aggregation types:
+Aggregation Type
+Description
+COUNT
+The count of usage records reported.
+UNIQUE COUNT
+The distinct count of usage records reported on a specified property.
+SUM
+The total sum of the quantity values from usage records.
+MAX
+The maximum value of the quantity value from usage records reported.
+LATEST
+The latest value of the quantity value from usage records reported.
+Property unique on
+​
+When selecting
+UNIQUE COUNT
+as the aggregation type, you need to specify the property to count. And the usage data you reported should contains the specified property.
+Group By
+​
+Group By
+will divide usage records reported into different groups according to the specified dimensions. When reporting usage data, the specified dimensions should be used as keys in the properties field of usage records.
+info
+Each group will be calculated separately by price model.
+Currently, a maximum of
+3
+dimensions are supported for group by.
+In the below example, we choose
+partner
+and
+region
+as the group by dimensions, if property
+partner
+in our usage data has the following values:
+aws
+,
+azure
+,
+gcp
+, and property
+region
+has the following values:
+us-east
+,
+eu-west
+, then the usage data will be divided into 6 groups.
+Edit billable metric
+​
+Most parts of the billable metric's information can not be edited because they may be already used.
+You can archive a billable metric if you don't need it anymore.
+Previous
+Overview
+Next
+Price Model
+Create billable metric
+Filter groups
+Aggregation types
+Property unique on
+Group By
+Edit billable metric
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

@@ -1,0 +1,1514 @@
+update entitlement meta info | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Entitlement
+update entitlement meta info
+update entitlement meta info
+PATCH
+/org/:orgId/entitlement/:entitlementId/metaInfo
+Update the meta info of the given entitlement.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+entitlementId
+string
+required
+Entitlement ID
+application/json
+Body
+required
+Entitlement meta info to update
+aceApnCrmUniqueIdentifier
+string
+The linked ACE ApnCrmUniqueIdentifier of the private offer if available.
+awsSaasProductDimensions
+object[]
+The AWS SaaS product dimensions. Applicable for AWS SaaS products only.
+This is used to save price info when creating AWS SaaS product.
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+baseAgreementId
+string
+Applicable for AWS Marketplace only, when the IsAgreementBasedOffer is true.
+buyerIds
+string[]
+The Suger buyer IDs of the private offer if available.
+contacts
+object[]
+The contacts of the offer to notify if any updates.
+Array [
+company
+string
+email
+string
+name
+string
+]
+cppoInOfferId
+string
+The Suger CPPO_IN offer ID.
+cppoOfferId
+string
+The Suger CPPO offer ID. Reseller to end buyer
+cppoOutOfferId
+string
+The Suger CPPO_OUT offer ID. ISV to reseller
+customMetaInfo
+object
+The custom meta info of the offer can be updated by seller via API or console.
+property name*
+string
+enableTestUsageMetering
+boolean
+If enabled, Suger will test metering the usage for this entitlement hourly.
+entitlementCancellationSchedule
+object
+cancelDate
+string
+The cancellation date of the entitlement. It is required when the type is SpecificDate.
+creationDate
+string
+When this cancellation schedule is created.
+note
+string
+Possible values:
+<= 500 characters
+The cancellation note. Max 500 characters.
+type
+CancellationScheduleType (string)
+Possible values:
+[
+EndOfTerm
+,
+Immediate
+,
+SpecificDate
+]
+Cancellation type
+errorMessages
+string[]
+The error messages when the offer is invalid or offer related tasks failed.
+Populated by Suger service.
+hubspotDealId
+string
+Hubsport deal ID of the private offer if available.
+internalNote
+string
+The Internal note of the private offer.
+It is only visible to the seller/ISV, not visible to the buyer.
+Up to 1000 characters.
+isAgreementBasedOffer
+boolean
+Applicable for AWS Marketplace only, If this offer is agreement based offer.
+isGrossRevenueFullSync
+boolean
+Whether the gross revenue is fully synced for the entitlement.
+isRenewalOffer
+boolean
+Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement.
+The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal.
+If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.
+isReplacementOffer
+boolean
+If this offer is a GCP replacement offer. Applicable for GCP Marketplace replacement offer only.
+lastModifiedBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+notifications
+object[]
+The notifications of the offer if any updates.
+In most cases, it is to notify contacts/buyers when the offer is pending acceptance.
+Array [
+action
+NotificationEventAction (string)
+Possible values:
+[``,
+ABNORMAL_ALERT
+,
+ACCEPT
+,
+ADD
+,
+APPROVE
+,
+CANCEL
+,
+CLOSE
+,
+CREATE
+,
+DELETE
+,
+DISBURSE
+,
+END_SOON
+,
+EXPIRE
+,
+EXPIRE_SOON
+,
+MERGE
+,
+METER
+,
+NEW_CLIENT_SIGNUP
+,
+NOTIFY
+,
+NOTIFY_CONTACTS
+,
+OPEN_EMAIL
+,
+PENDING_CANCEL
+,
+PENDING_ACCEPTANCE
+,
+REINSTATE
+,
+REJECT
+,
+REOPEN
+,
+CHARGE
+,
+REFUND
+,
+ISSUE
+,
+ROTATE_SECRET
+,
+SUSPEND
+,
+TEST
+,
+UPDATE
+,
+ACE_ENGAGEMENT_SCORE_UPDATE
+,
+ACE_SALES_REP_UPDATE
+,
+ACE_CUSTOMER_EMAIL_UPDATE
+,
+AZURE_STATUS_UPDATE
+,
+SUBMIT_APPROVAL_REQUEST
+,
+REVIEW_APPROVAL_REQUEST
+,
+COMPLETE
+,
+FAIL
+,
+WEBHOOK
+]
+ccContactIds
+string[]
+Cc contactIds that will receive this notification
+channels
+NotificationChannel (string)[]
+Possible values:
+[
+EMAIL
+,
+SLACK
+,
+SMS
+,
+SNS
+,
+SALESFORCE
+,
+WEBHOOK
+,
+SUGER_SUPPORT
+,
+MICROSOFT_TEAMS
+]
+The list of channels this event will be sent to, e.g., ["SLACK", "EMAIL"]
+contactEmails
+string[]
+Contact emails that will receive this notification
+contactIds
+string[]
+ContactIds that will receive this notification
+createdBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+customFields
+object
+Custom fields of the notification event.
+property name*
+any
+Custom fields of the notification event.
+entityID
+string
+entityName
+string
+The name of the entity.
+entityStatus
+string
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+eventID
+string
+notification event id.
+eventStatus
+NotificationEventStatus (string)
+Possible values:
+[``,
+SCHEDULED
+,
+PENDING
+,
+DONE
+,
+FAILED
+]
+info
+Additional info of the notification event.
+isActionItem
+boolean
+If this notification event is an action item.
+lastUpdateTime
+date-time
+timestamp of the event when it is updated.
+message
+string
+The message of the notification event such as email body, action item description.
+organizationID
+string
+suger organization id.
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+priority
+AuditingEventPriority (string)
+Possible values:
+[``,
+LOW
+,
+MEDIUM
+,
+HIGH
+,
+CRITICAL
+]
+requireAudit
+boolean
+If this notification event is an auditing event and need to store in DB.
+timestamp
+date-time
+timestamp of the event when it is scheduled or created.
+title
+string
+The title of the notification event such as email subject, action item title.
+trackEvents
+object[]
+The track events of the notification event.
+Array [
+action
+TrackEventActionType (string)
+Possible values:
+[
+OPEN_EMAIL
+]
+contactId
+string
+The ID of the contact who triggered the track event if applicable.
+timestamp
+date-time
+timestamp of the track event happened.
+]
+]
+offerAcceptDate
+date-time
+The date when the offer is accepted by the buyer. Only available when the private offer has been accepted.
+renewalOfferType
+AwsRenewalOfferType (string)
+Possible values:
+[``,
+External
+,
+AwsMarketplace
+]
+replacedOfferEndTime
+date-time
+The end time of the replaced offer. Applicable for GCP Marketplace replacement offer only.
+replacedOfferResourceName
+string
+The resource name of the GCP Marketplace offer that this offer is replacing.
+In format of "projects/{gcpProjectNumber}/services/{productServiceName}/privateOffers/{privateOfferId}"
+Applicable for GCP Marketplace replacement offer only.
+salesforceEntitlementURL
+string
+The Salesforce entitlement URL
+salesforceOpportunityId
+string
+The Salesforce opportunity ID of the private offer if available.
+testUsageMeteringEndTime
+date-time
+The test usage metering end time. It is used for test usage metering only.
+Required if EnableTestUsageMetering is true.
+updateMessage
+string
+The message to notify when the offer is updated.
+Responses
+​
+200
+400
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+aceApnCrmUniqueIdentifier
+string
+The linked ACE ApnCrmUniqueIdentifier of the private offer if available.
+awsSaasProductDimensions
+object[]
+The AWS SaaS product dimensions. Applicable for AWS SaaS products only.
+This is used to save price info when creating AWS SaaS product.
+Array [
+Description
+string
+Key
+string
+Length
+integer
+The term length for the commit amount, such as 6 months, or 1 year.
+The length is used together with timeUnit.
+Length and TimeUnit are only used for commit dimension.
+Name
+string
+Rate
+number
+Below three fields are only used for pass data when create or update product's public offer pricing.
+Rate is only used for update public offer, becasue rate will be set as 0.01 when create new product.
+TimeUnit
+TimeUnit (string)
+Possible values:
+[
+DAY
+,
+MONTH
+,
+YEAR
+]
+Types
+string[]
+Unit
+string
+]
+baseAgreementId
+string
+Applicable for AWS Marketplace only, when the IsAgreementBasedOffer is true.
+buyerIds
+string[]
+The Suger buyer IDs of the private offer if available.
+contacts
+object[]
+The contacts of the offer to notify if any updates.
+Array [
+company
+string
+email
+string
+name
+string
+]
+cppoInOfferId
+string
+The Suger CPPO_IN offer ID.
+cppoOfferId
+string
+The Suger CPPO offer ID. Reseller to end buyer
+cppoOutOfferId
+string
+The Suger CPPO_OUT offer ID. ISV to reseller
+customMetaInfo
+object
+The custom meta info of the offer can be updated by seller via API or console.
+property name*
+string
+enableTestUsageMetering
+boolean
+If enabled, Suger will test metering the usage for this entitlement hourly.
+entitlementCancellationSchedule
+object
+cancelDate
+string
+The cancellation date of the entitlement. It is required when the type is SpecificDate.
+creationDate
+string
+When this cancellation schedule is created.
+note
+string
+Possible values:
+<= 500 characters
+The cancellation note. Max 500 characters.
+type
+CancellationScheduleType (string)
+Possible values:
+[
+EndOfTerm
+,
+Immediate
+,
+SpecificDate
+]
+Cancellation type
+errorMessages
+string[]
+The error messages when the offer is invalid or offer related tasks failed.
+Populated by Suger service.
+hubspotDealId
+string
+Hubsport deal ID of the private offer if available.
+internalNote
+string
+The Internal note of the private offer.
+It is only visible to the seller/ISV, not visible to the buyer.
+Up to 1000 characters.
+isAgreementBasedOffer
+boolean
+Applicable for AWS Marketplace only, If this offer is agreement based offer.
+isGrossRevenueFullSync
+boolean
+Whether the gross revenue is fully synced for the entitlement.
+isRenewalOffer
+boolean
+Applicable for AWS Marketplace only. If this offer is renewal offer of existing agreement.
+The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal.
+If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.
+isReplacementOffer
+boolean
+If this offer is a GCP replacement offer. Applicable for GCP Marketplace replacement offer only.
+lastModifiedBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+notifications
+object[]
+The notifications of the offer if any updates.
+In most cases, it is to notify contacts/buyers when the offer is pending acceptance.
+Array [
+action
+NotificationEventAction (string)
+Possible values:
+[``,
+ABNORMAL_ALERT
+,
+ACCEPT
+,
+ADD
+,
+APPROVE
+,
+CANCEL
+,
+CLOSE
+,
+CREATE
+,
+DELETE
+,
+DISBURSE
+,
+END_SOON
+,
+EXPIRE
+,
+EXPIRE_SOON
+,
+MERGE
+,
+METER
+,
+NEW_CLIENT_SIGNUP
+,
+NOTIFY
+,
+NOTIFY_CONTACTS
+,
+OPEN_EMAIL
+,
+PENDING_CANCEL
+,
+PENDING_ACCEPTANCE
+,
+REINSTATE
+,
+REJECT
+,
+REOPEN
+,
+CHARGE
+,
+REFUND
+,
+ISSUE
+,
+ROTATE_SECRET
+,
+SUSPEND
+,
+TEST
+,
+UPDATE
+,
+ACE_ENGAGEMENT_SCORE_UPDATE
+,
+ACE_SALES_REP_UPDATE
+,
+ACE_CUSTOMER_EMAIL_UPDATE
+,
+AZURE_STATUS_UPDATE
+,
+SUBMIT_APPROVAL_REQUEST
+,
+REVIEW_APPROVAL_REQUEST
+,
+COMPLETE
+,
+FAIL
+,
+WEBHOOK
+]
+ccContactIds
+string[]
+Cc contactIds that will receive this notification
+channels
+NotificationChannel (string)[]
+Possible values:
+[
+EMAIL
+,
+SLACK
+,
+SMS
+,
+SNS
+,
+SALESFORCE
+,
+WEBHOOK
+,
+SUGER_SUPPORT
+,
+MICROSOFT_TEAMS
+]
+The list of channels this event will be sent to, e.g., ["SLACK", "EMAIL"]
+contactEmails
+string[]
+Contact emails that will receive this notification
+contactIds
+string[]
+ContactIds that will receive this notification
+createdBy
+object
+email
+string
+The email of the creator.
+entityId
+string
+The ID of the creator.
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+The Entity type of the creator, either USER or API_CLIENT.
+name
+string
+The name of the creator.
+customFields
+object
+Custom fields of the notification event.
+property name*
+any
+Custom fields of the notification event.
+entityID
+string
+entityName
+string
+The name of the entity.
+entityStatus
+string
+entityType
+EntityType (string)
+Possible values:
+[``,
+API_CLIENT
+,
+AUDITING_EVENT
+,
+AUTO_SHARE_TASK
+,
+BUYER
+,
+CONTACT
+,
+ENTITLEMENT
+,
+ENTITLEMENT_TERM
+,
+HEADLESS_ENTITLEMENTS
+,
+HUBSPOT_USER
+,
+INTEGRATION
+,
+INVOICE
+,
+NEW_CLIENT
+,
+NOTIFICATION_MESSAGE
+,
+OFFER
+,
+ORGANIZATION
+,
+PAYMENT_TRANSACTION
+,
+PRODUCT
+,
+REFERRAL
+,
+REVENUE_RECORD
+,
+SUPPORT_TICKET
+,
+UNPURCHASED_OFFERS
+,
+USAGE_RECORD_GROUP
+,
+USAGE_RECORD_REPORT
+,
+USER
+,
+WORKFLOW
+,
+WORKFLOW_EXECUTION
+,
+WORKFLOW_WEBHOOK
+]
+eventID
+string
+notification event id.
+eventStatus
+NotificationEventStatus (string)
+Possible values:
+[``,
+SCHEDULED
+,
+PENDING
+,
+DONE
+,
+FAILED
+]
+info
+Additional info of the notification event.
+isActionItem
+boolean
+If this notification event is an action item.
+lastUpdateTime
+date-time
+timestamp of the event when it is updated.
+message
+string
+The message of the notification event such as email body, action item description.
+organizationID
+string
+suger organization id.
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+priority
+AuditingEventPriority (string)
+Possible values:
+[``,
+LOW
+,
+MEDIUM
+,
+HIGH
+,
+CRITICAL
+]
+requireAudit
+boolean
+If this notification event is an auditing event and need to store in DB.
+timestamp
+date-time
+timestamp of the event when it is scheduled or created.
+title
+string
+The title of the notification event such as email subject, action item title.
+trackEvents
+object[]
+The track events of the notification event.
+Array [
+action
+TrackEventActionType (string)
+Possible values:
+[
+OPEN_EMAIL
+]
+contactId
+string
+The ID of the contact who triggered the track event if applicable.
+timestamp
+date-time
+timestamp of the track event happened.
+]
+]
+offerAcceptDate
+date-time
+The date when the offer is accepted by the buyer. Only available when the private offer has been accepted.
+renewalOfferType
+AwsRenewalOfferType (string)
+Possible values:
+[``,
+External
+,
+AwsMarketplace
+]
+replacedOfferEndTime
+date-time
+The end time of the replaced offer. Applicable for GCP Marketplace replacement offer only.
+replacedOfferResourceName
+string
+The resource name of the GCP Marketplace offer that this offer is replacing.
+In format of "projects/{gcpProjectNumber}/services/{productServiceName}/privateOffers/{privateOfferId}"
+Applicable for GCP Marketplace replacement offer only.
+salesforceEntitlementURL
+string
+The Salesforce entitlement URL
+salesforceOpportunityId
+string
+The Salesforce opportunity ID of the private offer if available.
+testUsageMeteringEndTime
+date-time
+The test usage metering end time. It is used for test usage metering only.
+Required if EnableTestUsageMetering is true.
+updateMessage
+string
+The message to notify when the offer is updated.
+{
+"aceApnCrmUniqueIdentifier": "string",
+"awsSaasProductDimensions": [
+{
+"Description": "string",
+"Key": "string",
+"Length": 0,
+"Name": "string",
+"Rate": 0,
+"TimeUnit": "DAY",
+"Types": [
+"string"
+],
+"Unit": "string"
+}
+],
+"baseAgreementId": "string",
+"buyerIds": [
+"string"
+],
+"contacts": [
+{
+"company": "string",
+"email": "string",
+"name": "string"
+}
+],
+"cppoInOfferId": "string",
+"cppoOfferId": "string",
+"cppoOutOfferId": "string",
+"customMetaInfo": {},
+"enableTestUsageMetering": true,
+"entitlementCancellationSchedule": {
+"cancelDate": "string",
+"creationDate": "string",
+"note": "string",
+"type": "EndOfTerm"
+},
+"errorMessages": [
+"string"
+],
+"hubspotDealId": "string",
+"internalNote": "string",
+"isAgreementBasedOffer": true,
+"isGrossRevenueFullSync": true,
+"isRenewalOffer": true,
+"isReplacementOffer": true,
+"lastModifiedBy": {
+"email": "string",
+"entityId": "string",
+"entityType": "",
+"name": "string"
+},
+"notifications": [
+{
+"action": "",
+"ccContactIds": [
+"string"
+],
+"channels": [
+"EMAIL"
+],
+"contactEmails": [
+"string"
+],
+"contactIds": [
+"string"
+],
+"createdBy": {
+"email": "string",
+"entityId": "string",
+"entityType": "",
+"name": "string"
+},
+"customFields": {},
+"entityID": "string",
+"entityName": "string",
+"entityStatus": "string",
+"entityType": "",
+"eventID": "string",
+"eventStatus": "",
+"isActionItem": true,
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"message": "string",
+"organizationID": "string",
+"partner": "",
+"priority": "",
+"requireAudit": true,
+"timestamp": "2024-07-29T15:51:28.071Z",
+"title": "string",
+"trackEvents": [
+{
+"action": "OPEN_EMAIL",
+"contactId": "string",
+"timestamp": "2024-07-29T15:51:28.071Z"
+}
+]
+}
+],
+"offerAcceptDate": "2024-07-29T15:51:28.071Z",
+"renewalOfferType": "",
+"replacedOfferEndTime": "2024-07-29T15:51:28.071Z",
+"replacedOfferResourceName": "string",
+"salesforceEntitlementURL": "string",
+"salesforceOpportunityId": "string",
+"testUsageMeteringEndTime": "2024-07-29T15:51:28.071Z",
+"updateMessage": "string"
+}
+Bad request error
+application/json
+Schema
+Schema
+string
+internal server error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+delete entitlement term
+Next
+schedule entitlement cancellation
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

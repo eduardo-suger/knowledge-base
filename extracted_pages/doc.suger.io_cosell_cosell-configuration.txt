@@ -1,0 +1,221 @@
+Configuration | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Configuration
+Outbound Referral
+Inbound Referral
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Co-sell
+Configuration
+On this page
+Configuration
+Configure field mappings and templates to automate your co-sell flow.
+Overview
+​
+Once you have completed integrations with your CRM and the cloud partners,
+you will need to configure the field mappings, templates, and other options
+before starting making referrals.
+danger
+Visit
+Integration
+to find supported partners.
+Configurations affect both Suger Console and Suger Connector on Salesforce.
+Create a new configuration
+​
+Go to
+Suger Settings
+Click on the "cosell" tab, and click
+Create
+button.
+Choose the CRM partner and Cloud Partner to proceed.
+Salesforce <> AWS
+​
+The configuration includes 5 sections:
+Opportunity
+Account
+Contact
+Field Mapping
+Template
+danger
+We provide a default minimal configuration to start with.
+You don't need to complete all boxes, but the more you do, the better we automate.
+Opportunity
+​
+In the "Opportunity" tab, you can configure:
+Stage Sync Mode: how would you sync stage between Salesforce and AWS.
+Inbound: when AWS stage changes, also make changes in Salesforce.
+Outbound: when Salesforce stage changes, ask AWS to change as well.
+Bidirectional: changes on either side will trigger an update on the other side.
+Stage mappings.
+Inbound: when accepting an incoming referral from AWS, how would you map the AWS stage to your Salesforce stage.
+Outbound: when sharing with AWS, how would you map your Salesforce stage with an AWS stage.
+Amount Ratio: how to transform between your Salesforce opportunity amount and AWS Expected Monthly Revenue.
+For outbound referrals, your Salesforce opportunity amount will be multiplied by this value. For inbound ones from AWS,
+the Expected Monthly Revenue will be divided by this factor.
+Account
+​
+In the "Account" tab, you can configure:
+Industry mapping.
+Similar to stage mappings. In the case you have a large number of industries, you can map the most common ones only.
+Address type - choose shipping vs billing.
+Contact
+​
+When sharing with AWS, we only use the opportunity's primary contact.
+When accepting referrals from AWS, you can toggle if you want to set the contact as primary or not.
+For now we don't support accepting it as an arbitrary Contact Role or as a certain Record Type.
+warning
+We recommend you always set the Sync Mode to
+Inbound
+to ensure the incoming referral's contact is created successfully.
+Field Mapping
+​
+This section lists how fields are mapped between Salesforce and AWS.
+Remove anything that you don't want Suger to auto-populate.
+Change the
+Sync Mode
+according to your need.
+You can add more field mappings by clicking
+Add field mapping
+at the bottom.
+Template
+​
+Most probably there are required AWS fields which do not have an exact counterpart in your Salesforce, and vice versa.
+In this case, you can specify default values so Suger auto-populates the referral forms.
+When creating the configuration, Suger presents a list of template items that are found common among our customers.
+You can edit, delete, or add new templates by clicking the ➕ button at the bottom.
+Recommended Setup
+​
+For field mappings, the default setup should be able to cover most cases, and we recommend review the following:
+Inbound Stage Mapping
+This determines which stage we should use to pre-populate the form when accepting an inbound referral from AWS.
+You can always change it in the acceptance dialog.
+Outbound Industry Mapping
+By default we use the
+Industry
+field of the standard Account object, but if you use a custom field, please
+change it.
+If you have too many industry values, mapping all of them can be tedious. In that case, you can map the top 10
+most frequent industries, and also set the
+Default Industry
+value. If we didn't find a corresponding one
+from the picklist mapping, we would back off to use the default value instead.
+Review the field mappings and make sure it's not mapping anything confidential
+If you believe a field should not be mapped, and even should not be exposed to anyone outside of your organization,
+it's advised to configure the permission set settings and disable the Suger integrator user's access to that field.
+For templates, we recommend you to review the following items:
+Field Name
+Description
+Suggested Value
+Opportunity Type
+Specify if this is for net new business or renewal/expansion
+Net New Business
+Delivery Model
+Indicate one or more of the most applicable deployment or consumption model for your solution or service
+Solution Offered
+Choose the partner solution you offered to the end-customer
+Partner Primary Need from AWS
+Share the opportunity with AWS to receive deal assistance and support, or for visibility only
+Use Case
+End customer usecase that the opportunity is solving for
+Sales Activities
+Choose sales activities that have happened with the end-customer
+Customer Business Problem
+Provide a clear description of the customer's business problem/pain point you are trying to address
+A common description that fits most opportunities
+Is Opportunity from Marketing Activity?
+Indicate whether this opportunity was sourced from a marketing activity
+No
+If you set
+Is Opportunity from Marketing Activity?
+to
+Yes
+, the following fields become mandatory:
+Field Name
+Description
+Marketing Campaign
+Consult your PDM to get the code.
+Marketing development funds
+Whether marketing development funds (MDF) were used for this opportunity.
+Marketing Activity Use-Case
+Specifies the specific use case or purpose of the marketing activity that led to the creation of the opportunity or contact. This field captures the context or intention behind the marketing activity's execution and its direct correlation to the generated opportunity or contact.
+Marketing Activity Channel
+Specifies the channel through which the marketing activity associated with the opportunity or contact was conducted. This field provides information about the specific marketing channel that contributed to the generation of the lead or contact.
+warning
+Note
+Solution Offered
+If you selected "Other", remove all other selections, and also add the default value for
+Other Solution Offered
+.
+Partner Primary Need from AWS
+If you selected "Do Not Need Support from AWS Sales Rep", remove all other selections.
+Previous
+Co-sell
+Next
+Outbound Referral
+Overview
+Create a new configuration
+Salesforce <> AWS
+Opportunity
+Account
+Contact
+Field Mapping
+Template
+Recommended Setup
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

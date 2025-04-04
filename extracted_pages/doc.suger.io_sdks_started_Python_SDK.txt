@@ -1,0 +1,145 @@
+Python SDK | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Java SDK
+TypeScript SDK
+Go SDK
+Python SDK
+Get Started
+Python SDK
+On this page
+Quick Start Guide for Suger Python SDK
+Follow these steps to get started with the Suger Python SDK:
+Step 1: Install the SDK
+​
+To include the Suger SDK in your project, you can use pip in your terminal:
+pip install suger-sdk-python==latest.version
+Step 2: Set up your configuration and Create ApiClient
+​
+Once you have added the package, you can create a configuration. Here’s how to do it:
+import
+suger_sdk_python
+from
+suger_sdk_python
+import
+Configuration
+config
+=
+suger_sdk_python
+.
+Configuration
+(
+host
+=
+"https://api.suger.cloud"
+,
+)
+config
+.
+api_key
+[
+'APIKeyAuth'
+]
+=
+'Key '
++
+'your api key'
+api_client
+=
+suger_sdk_python
+.
+ApiClient
+(
+config
+)
+Step 3: Use the SDK
+​
+Now that you have your client set up, you can call Suger services. Here’s a simple example of how to make a service call:
+org_id
+=
+'your_org_id'
+offer_id
+=
+'your_offer_id'
+try
+:
+result
+=
+OfferApi
+(
+api_client
+)
+.
+get_offer
+(
+org_id
+,
+offer_id
+)
+print
+(
+"The response of OfferApi:\n"
+)
+print
+(
+result
+)
+except
+ApiException
+as
+e
+:
+print
+(
+"Exception when calling OfferApi->get_offer: %s\n"
+%
+e
+)
+Conclusion
+​
+You are now ready to use the Suger Python SDK in your application! For more detailed information and advanced usage, please refer to the official documentation.
+Previous
+Go SDK
+Step 1: Install the SDK
+Step 2: Set up your configuration and Create ApiClient
+Step 3: Use the SDK
+Conclusion
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

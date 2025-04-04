@@ -1,0 +1,354 @@
+Usage Metering | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Get Started
+Usage Metering
+On this page
+Usage Metering
+Unified Usage Metering interface to cover all pricing models crossing all marketplaces
+Overview
+​
+There are varies of pricing models crossing three cloud marketplaces. Some of them share the same name, but have totally different models. For example,
+AWS Subscription
+is Pay-as-you-go (usage-based metering), but
+GCP Subscription
+is flat-monthly-commit without usage-based metering.
+Vendor
+Pricing Model
+Description
+Support Usage-based Metering
+AWS
+Subscription
+Pay-as-you-go
+, no commit, buyers can cancel any time.
+YES
+AWS
+Contract
+Commit contract, can't be cancelled, buyers can also pay for additional usage above their contract.
+YES
+Azure
+Flat Rate
+Monthly or annually commit contract, buyers can also pay for additional usage above their contract (included quantity).
+YES
+Azure
+Per User
+Monthly or annually commit contract per user, support updating user quantity, buyers can also pay for additional usage above their contract (included quantity).
+YES
+GCP
+Subscription-based
+Flat rate commit contract.
+NO
+GCP
+Usage-based
+Pay-as-you-go
+, no commit.
+YES
+GCP
+Combined
+Flat rate commit +
+Usage-based
+together.
+YES
+Meter Usage Records
+​
+To meter usages for an active
+Entitlement
+in
+AWS
+,
+Azure
+or
+GCP
+, your service can send a
+POST
+request to the
+Suger Metering API
+with a body similar to the following example. Suger will validate, aggregate & report them to the right vendor within the right pricing model format.
+{
+"ID": "uuid", # optional, if not provided, suger will generate one and return in the response.
+"organizationID": "your-suger-org-id",
+"entitlementID": "your-suger-entitlement-id",
+"records": {
+"dimension-key-or-name-0": 2,
+"dimension-key-or-name-2": 6,
+"dimension-key-or-name-3": 10,
+}
+}
+warning
+It is highly recommended to provide
+ID
+in the metering usage records request body. Suger service can deduplicate the metering requests if they have the same
+ID
+. The duplicate request will return HTTP error 409.
+The 'key' in the records map can be either the usage metering
+Dimension Key
+or
+Dimension Name
+. They are available inside the
+WorkloadEntitlement.info.dimensions
+.
+Batch Meter Usage Records
+​
+You can efficiently report multiple usage records for various entitlements or buyers simultaneously using either the Suger Console or the
+Suger API doc
+.
+Upload CSV
+​
+By simply uploading a CSV file containing raw usage data, you can quickly and effortlessly report multiple records. The CSV file should include specific required columns as show below, which are crucial for accurate reporting.
+Column Name
+Requirements
+Description
+sugerBuyerId
+Only require one of
+sugerBuyerId
+,
+sugerExternalBuyerId
+,
+customerId
+or
+sugerExternalEntitlementId
+The buyer ID in Suger platform
+sugerExternalBuyerId
+Only require one of
+sugerBuyerId
+,
+sugerExternalBuyerId
+,
+customerId
+or
+sugerExternalEntitlementId
+The external buyer ID in Suger platform, which comes from marketplaces
+customerId
+Only require one of
+sugerBuyerId
+,
+sugerExternalBuyerId
+,
+customerId
+or
+sugerExternalEntitlementId
+The buyer ID in your own system
+sugerExternalEntitlementId
+Only require one of
+sugerBuyerId
+,
+sugerExternalBuyerId
+,
+customerId
+or
+sugerExternalEntitlementId
+The external entitlement ID in Suger platform, which comes from marketplaces
+dimension
+Required
+The dimension key used to meter the customer
+quantity
+Required, float or integer number
+The quantity of the usage dimension
+timestamp
+Optional, must be in format of
+YYYY-MM-DD
+or ISO 8601
+2023-09-07T15:30:00Z
+The date/timestamp when the usage were recorded in your metering/billing system. NOT the date/timestamp when the usage are reported to the Suger
+Once uploaded, Suger will validate the usage records within the CSV and highlight any invalid entries with corresponding error messages. This ensures that only valid usage records are eligible for batch reporting to Suger.
+Limit to Report Old Usage Records
+​
+Most cloud marketplaces recommend reporting usage records within 1 hour of their metering. However, they do allow some flexibility for reporting older usage records as shown below table. If a usage record has a timestamp later than the official hard limit, the marketplace's metering service will not accept or process it.
+warning
+To provide a safety margin, the Suger metering service reduces the official limit by one hour..
+Usage records with timestamps within the Suger limit are reported with their original timestamp, while those outside this limit are reported with the timestamp of the Suger limit.
+Official Hard Limit
+Suger Limit
+AWS
+6 hours
+5 hours
+AZURE
+24 hours
+23 hours
+GCP
+6 hours
+5 hours
+Usage Records Validation
+​
+When the usage records are sent to Suger via the
+Suger Metering API
+, they are validated immediately, and return errors if they are not valid. Here is the list of all rules used for validation in Suger service, and their returned error.
+Rule
+Error If Invalid
+The
+ID
+in the request body should be unique
+HTTP Conflict request with code 409
+The length of
+ID
+in the request body should not exceed 36
+HTTP bad request with code 400
+The target
+Entitlement
+must be in
+ACTIVE
+,
+SUSPENDED
+or
+PENDING_CANCEL
+status
+HTTP bad request with code 400
+The
+Key
+in the Record should be valid for the target
+Entitlement
+. It is either the Dimension Key or the Dimension Name
+HTTP bad request with code 400
+The
+Quantity
+in the usage Record should be non-negative
+HTTP bad request with code 400
+At least one usage Record has positive
+Quantity
+HTTP bad request with code 400
+Metering Dimension Conversion
+​
+Under certain scenarios below, you may consider to enable & configure
+Metering Dimension Conversion
+.
+The dimension names in your metering system are different from those in cloud marketplaces, and you don't want to change either.
+A new metering dimension is added to your product, and you want to meter your existing clients in cloud marketplace, however their entitlements do not include new metering dimension.
+By enable & configure
+Metering Dimension Conversion
+, you can map your dimension keys from your metering system to the cloud marketplace by using multiplier factor.
+danger
+Once you enable & configure the
+Metering Dimension Conversion
+for one cloud marketplace, it is applied to all entitlements in this cloud marketplace.
+When the Suger metering API receives usage records, it applies a predefined mapping (if it is enabled) to convert the dimensions. Any dimensions that cannot be mapped will be left
+unchanged
+.
+You can map multiple source dimensions to single destination dimensions with different multiplier value.
+Commit with Additional Usage Metering
+​
+In AWS or Azure Marketplace, a contract or entitlement with commit and usage metering doesn't accumulate usage by default, and consumes the commit first. This means that ISVs or sellers have to set up their own metering system to track usage, and report any extra usage to the marketplace if it exceeds the prepaid commit.
+To simplify the configuration and remove friction, Suger offers an optional feature called
+Commit with additional usage metering
+. When enabled, Suger automatically accumulates all usage records and compares them with the commit. If the commit isn't fully used, the usage records won't be reported to the marketplace. Only usage records that exceed the commit are reported to the marketplace. This feature streamlines the process and reduces the need for sellers to set up their own metering system.
+How to enable
+Commit with additional usage metering
+? Visit
+Suger Console Settings
+and select the
+Usage Metering
+tab. Click the editing icon to enable or disable the
+Commit with additional usage metering
+for the target marketplace.
+warning
+We don't recommend to enable
+Commit with additional usage metering
+in GCP Marketplace since it hase the native pricing model to support the same function.
+Commit with Additional Usage at List Price
+​
+In both AWS and Azure Marketplaces, the usage metering price is typically the negotiated price after the commit amount has been used up. They do not support metering of extra usage beyond the committed amount at the list price.
+To make the configuration process simpler and more streamlined, Suger offers an optional feature called
+Commit with Additional Usage at List Price
+. When this feature is enabled, Suger automatically adjusts the quantity of received usage records by calculating the ratio of the list price to the negotiated price. This ensures that buyers are billed at the list price for any additional usage beyond the committed amount.
+How to enable
+Commit with additional usage at list price
+? Visit
+Suger Console Settings
+and select the
+Usage Metering
+tab. Click the editing icon to enable or disable the
+Commit with additional usage at list price
+for the target marketplace.
+warning
+We don't recommend to enable
+Commit with additional usage at list price
+in GCP Marketplace since it hase the native pricing model to support the same function.
+Before enabling
+Commit with Additional Usage at List Price
+, you must first activate
+Commit with Additional Usage Metering
+.
+Divide Entitlement Commit
+​
+The GCP, Azure, and AWS Marketplaces do not currently offer support for the pricing model that combines a prepay one-year commitment with monthly overage metering. For instance, a private offer might include a one-year commitment of $120K, paid upfront by the client. The client then receives $10K in credits for prepaid usage each month. If the client's actual usage within a particular month is below $10K, there will be no overage usage metering, and no additional charges will apply. However, if the client's usage exceeds $10K during any month, they will be billed for the overage usage that exceeds the prepaid amount.
+Suger introduces the flexibility to divide upfront/parent entitlement commit to multiple sub entitlement terms of credits. So the overage usage can be metered more granularly within each sub entitlement term.
+Click the button
+Divide Commit
+to open the dialog below. Configure the start dates for each sub entitlement terms, and click the button
+Divide
+.
+There are multiple sub entitlement terms created on top of the original upfront/parent entitlement term, with type of
+DivideCommit
+as shown below.
+Previous
+Email Notification
+Next
+Usage Metering V2
+Overview
+Meter Usage Records
+Batch Meter Usage Records
+Upload CSV
+Limit to Report Old Usage Records
+Usage Records Validation
+Metering Dimension Conversion
+Commit with Additional Usage Metering
+Commit with Additional Usage at List Price
+Divide Entitlement Commit
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

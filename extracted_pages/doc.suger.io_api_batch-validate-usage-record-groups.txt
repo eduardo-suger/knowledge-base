@@ -1,0 +1,329 @@
+batch validate usageRecordGroups | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Metering
+batch validate usageRecordGroups
+batch validate usageRecordGroups
+POST
+/org/:orgId/batchValidateUsageRecordGroups
+Provide a batch of usage record groups and validate each individual usage record group one by one.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+application/json
+Body
+array
+required
+Array of usage record groups to be validated
+Array [
+billableRecords
+object[]
+for usage metering API v2, don't use it together with the records v1.
+Array [
+key
+string
+Key is the unique identifier of a billable metric.
+properties
+object
+Properties is the filters of a billable metric.
+It should be equal to the filters of the billable metric.
+property name*
+any
+Properties is the filters of a billable metric.
+It should be equal to the filters of the billable metric.
+quantity
+number
+The quantity (or numeric value) of a billable metric.
+]
+entitlementID
+string
+required
+metaInfo
+object
+SkipValidation
+boolean
+If it is true, the validation of the usage record group is skipped.
+billableRecords
+object[]
+for usage metering API v2
+Array [
+key
+string
+Key is the unique identifier of a billable metric.
+properties
+object
+Properties is the filters of a billable metric.
+It should be equal to the filters of the billable metric.
+property name*
+any
+Properties is the filters of a billable metric.
+It should be equal to the filters of the billable metric.
+quantity
+number
+The quantity (or numeric value) of a billable metric.
+]
+lagoAmount
+number
+The lago amount (in dollars) of the customer.
+This field keeps the largest of the monthly amount.
+So it can only be updated when the invoice month increases.
+lagoSubscriptionID
+string
+The lago subscription ID of the customer.
+lagoUsageStartTime
+date-time
+The lago usage start time of the customer usage.
+metronomeDailyCostAmount
+number
+The metronome daily cost amount (in dollars) of the customer.
+metronomeInvoiceID
+string
+The metronome invoice ID of the customer.
+metronomeMonthlyInvoiceAmount
+number
+The metronome monthly invoice amount (in dollars) of the customer.
+This field keeps the largest amount of the invoice month.
+So it can only be updated when the invoice month increases.
+metronomeMonthlyInvoiceAmountAdjusted
+number
+The metronome monthly invoice amount (in dollars) of the customer, which is adjusted by the seller.
+This field is populated only when the invoice amount is decreased by the seller via credit granting.
+originRecords
+object
+The original records reported by the customer before convertion.
+If no dimension mapping is applied, this field is the same as the records field.
+property name*
+number
+source
+UsageRecordGroupSource (string)
+Possible values:
+[``,
+API
+,
+INTERNAL
+,
+LAGO
+,
+METRONOME
+,
+ORB
+,
+STRIPE
+]
+The source of the usage record group. Can be from Suger API or other third party services, such as Metronome.
+stripeInvoiceID
+string
+stripePeriodEndTime
+date-time
+The stripe period end time of the summary or invoice. UTC time in format "YYYY-MM-DDTHH:MM:SSZ".
+stripePeriodStartTime
+date-time
+The stripe period start time of the summary or invoice. UTC time in format "YYYY-MM-DDTHH:MM:SSZ".
+stripeSubscriptionItemID
+string
+stripeUsageRecordSummaryID
+string
+stripeUsageRecordSummaryTotalUsage
+integer
+timestamp
+date-time
+The timestamp (UTC)) of when the usage records were generated.
+Optional, if not provided, the current report timestamp will be used.
+records
+object
+required
+for usage metering API v1, don't use it together with the billableRecords v2.
+property name*
+number
+timestamp
+date-time
+The timestamp of when the usage records were generated.
+Optional, if not provided, the current report timestamp will be used.
+This is not the timestamp of when the usage records were reported to Suger.
+]
+Responses
+​
+200
+400
+500
+Empty string if validation is successful
+application/json
+Schema
+Schema
+string
+Bad request error description
+application/json
+Schema
+Schema
+string
+validation failed for usage record group
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+batch report usageRecordGroups
+Next
+list billable metrics
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

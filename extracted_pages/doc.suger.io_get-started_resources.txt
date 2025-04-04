@@ -1,0 +1,138 @@
+Resources | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Get Started
+Resources
+On this page
+Resources
+The definition of resources managed in Suger service
+Overview
+​
+There are multiple types of Resources defined and managed by Suger to faciliate your sales, contract management & metering on multi marketplaces. Besides the
+User
+&
+Organization
+mentioned in the
+Account Management
+, they are:
+Resource Type
+Definition
+Product
+The product or service listed in Marketplace
+Offer
+The private or public offer that the buyer can accept in the marketplace. It must be connected with one Product.
+Entitlement
+The contract that one buyer has purchased your product in the marketplace.
+Buyer
+The client who has purchased your product the marketplace.
+Resource Mapping
+​
+The resources defined in Suger has 1:1 mapping to the marketplaces. They may have different name in different marketplace. Here is their terminology mapping table:
+Platform
+Suger
+Product
+Offer
+Entitlement
+Buyer
+AWS Marketplace
+Product
+Private Offer
+Entitlement, Subscription or Agreement
+Customer
+Azure Marketplace
+Offer
+Plan or Private Offer
+Subscription
+Purchaser
+GCP Marketplace
+Product
+Offer
+Entitlement
+User Account
+Here is their ID mapping:
+Platform
+Suger
+Product External Id
+Offer External Id
+Entitlement External Id
+Buyer External Id
+AWS Marketplace
+Product Code
+Private Offer Id
+Agreement Id
+Customer Identifier
+Azure Marketplace
+Offer Id
+Plan Id or Private Offer Id
+Subscription Id
+Purchaser PUID
+GCP Marketplace
+Product Id
+Offer Id
+Entitlement Id
+User Account Id
+Previous
+Account
+Next
+API Client
+Overview
+Resource Mapping
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

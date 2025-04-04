@@ -1,0 +1,81 @@
+Co-sell | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Configuration
+Outbound Referral
+Inbound Referral
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Co-sell
+Co-sell
+Use Suger to help you co-sell with your partners.
+📄️
+Configuration
+Configure field mappings and templates to automate your co-sell flow.
+📄️
+Outbound Referral
+Share opportunities from your CRM with partners
+📄️
+Inbound Referral
+Manage inbound referrals shared by partners
+Previous
+Stripe
+Next
+Configuration
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

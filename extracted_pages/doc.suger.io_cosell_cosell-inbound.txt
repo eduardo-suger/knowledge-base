@@ -1,0 +1,116 @@
+Inbound Referral | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Configuration
+Outbound Referral
+Inbound Referral
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Co-sell
+Inbound Referral
+On this page
+Inbound Referral
+Manage inbound referrals shared by partners
+Suger Console - Co-sell Inbox
+​
+In Suger Console, the Co-sell Inbox tab is the place to check all inbound referrals from cloud partners.
+Click on any item from the list to check the details:
+You can accept the referral by clicking the
+Accept
+button on the top right:
+The pop-up will guide you through the process to:
+Select an Account (company).
+If there is no existing account you would like to use, you can also create a new one right in the dialog.
+Populate the opportunity detail. Most fields will be auto-populated if you have configured the field mappings & templates.
+Click
+Submit
+.
+Suger will create the opportunity in your CRM, and notify the cloud partner that we would like to accept this referral,
+with the associated CRM record ID.
+Contact Information of AWS Referrals
+The contact information will be shared
+10-30min
+after you accepted it.
+Upon receiving the contact info, we will automatically create the contact in your CRM
+Before creation, we will check if a contact with the same last name and email address already exists for this Account/Company. If yes, then we will skip it.
+After creation, we will also assign the Contact Role (Salesforce) or Association Type (HubSpot) as you configured in the field mappings.
+To disable this behavior, set the SyncMode of contacts to
+None
+so we don't create/edit any contacts.
+Using Suger Connector in Salesforce
+​
+All incoming referrals will be created as the "Referral (Suger)" records in your Salesforce,
+and you can check the list by going to the "Referrals (Suger)" tab.
+To accept the referral, click on any of the pending acceptance ones, and click the
+Accept
+button on the top right.
+First, select or create an opportunity:
+Then, click next and fill in the form to create the opportunity:
+By default, the Account/Opportunity creation form only includes the fields that you have configured field mapping on Suger Console.
+To add more fields without field mapping, please ask your Salesforce Admin to configure the
+Creation from Referral
+Field Sets
+for Opportunity/Account.
+Previous
+Outbound Referral
+Next
+Salesforce App
+Suger Console - Co-sell Inbox
+Using Suger Connector in Salesforce
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

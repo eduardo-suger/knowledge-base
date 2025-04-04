@@ -1,0 +1,639 @@
+list buyers | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Buyer
+list buyers
+list buyers
+GET
+/org/:orgId/buyer
+list buyers by the given organization with pagination and optional filters.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+Query Parameters
+partner
+string
+filter by partner
+contactId
+string
+filter by contactId
+awsAccountId
+string
+filter by awsAccountId
+limit
+integer
+List pagination size, default 1000, max value is 1000
+offset
+integer
+List pagination offset, default 0
+Responses
+​
+200
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+Array [
+contactIds
+string[]
+creationTime
+date-time
+description
+string
+externalID
+string
+id
+string
+info
+object
+adyenBuyer
+object
+settings
+object
+Settings store key-value pairs such as paymentMethodId,syncWithProvider,providerPaymentMethods.
+property name*
+any
+Settings store key-value pairs such as paymentMethodId,syncWithProvider,providerPaymentMethods.
+shopperId
+string
+The shopperId on the adyen platform corresponding to the buyer.
+awsBuyer
+object
+awsAccountID
+string
+The AWS Account ID of the buyer in AWS Marketplace
+awsCustomerID
+string
+The AWS Customer ID of the buyer in AWS Marketplace
+dataFeedAccountID
+string
+The Account ID in AWS Marketplace Data Feed service
+azureBuyer
+object
+billingAccountId
+string
+Azure Billing Account ID
+customerId
+string
+emailId
+string
+Email address
+firstName
+string
+lastName
+string
+licenseType
+string
+Azure License Type
+objectId
+string
+puid
+string
+ID of the user, used as External ID of suger IdentityBuyer.
+tenantId
+string
+collectableAmount
+number
+The amount that the seller can collect. It excludes the marketplace commision fee.
+companyInfo
+object
+addressLine1
+string
+addressLine2
+string
+city
+string
+country
+string
+emailDomain
+string
+name
+string
+postalCode
+string
+state
+string
+validFrom
+string
+When the company info becomes valid. in format "2006-01-02T15:04:05Z"
+customerId
+string
+customerID of buyer on seller's side
+disbursedAmount
+number
+The amount that has been disbursed to the seller account.
+emailAddress
+string
+The email address of the buyer. This was copied from the new client signup form.
+fields
+object
+Fields to store key-value pairs of buyer information.
+property name*
+any
+Fields to store key-value pairs of buyer information.
+gcpBuyer
+object
+approvals
+object[]
+The approvals for this account, that are permitted or have been completed.
+Array [
+name
+string
+reason
+string
+An explanation for the state of the approval.
+state
+GcpMarketplaceUserAccountApprovalState (string)
+Possible values:
+[
+STATE_UNSPECIFIED
+,
+PENDING
+,
+APPROVED
+,
+REJECTED
+]
+updateTime
+string
+RFC3339 UTC timestamp
+]
+billingAccountId
+string
+The buyer's GCP billing account ID.
+createTime
+date-time
+RFC3339 UTC timestamp
+id
+string
+GCP Marketplace User Account ID.
+inputProperties
+integer[]
+name
+string
+The resource name of the account, in format of providers/{provider_id}/accounts/{account_id}.
+parentBillingAccountId
+string
+The parent account ID of the BillingAccountId if the buyer is from a reseller in GCP Marketplace.
+It is the GCP billing account ID of the reseller in GCP Marketplace.
+provider
+string
+The identifier of the service provider (SaaS Seller) that this account was created against.
+state
+GcpMarketplaceUserAccountState (string)
+Possible values:
+[
+ACCOUNT_STATE_UNSPECIFIED
+,
+ACCOUNT_ACTIVE
+]
+The state of the account. An account might not be able to make a purchase if the billing account is suspended.
+updateTime
+date-time
+RFC3339 UTC timestamp
+userInfo
+object
+orders
+string[]
+a list of unique order IDs for each entitlement ID that indicates the
+different offers on the same product. This field is available only if
+multiple orders of the same product is enabled
+roles
+string[]
+An array of strings representing the user's roles. Right now, it can be either: ** account_admin, which indicates that the user is a Billing Account Administrator of the billing account that purchased the product, or ** project_editor, which indicates that the user is a Project Editor, but not a Billing Administrator, of the project under that billing account.
+user_identity
+string
+The user's obfuscated GAIA ID, which can be used to initiate Open ID Connect.
+grossAmount
+number
+The gross amount that the buyer has committed to pay, including usage metered amount.
+invoicedAmount
+number
+The amount that the buyer has got invoiced.
+lagoCustomerId
+string
+The lgo customer ID for the buyer if it is connected to a lago customer.
+lastModifiedBy
+string
+Last modifier user ID.
+metronomeCustomerId
+string
+The metronome customer ID for the buyer if it is connected to a metronome customer.
+orbCustomerId
+string
+The orb customer ID for the buyer if it is connected to a orb customer.
+paymentConfig
+object
+allowedWalletTypes
+BillingWalletType (string)[]
+Possible values:
+[
+ach_debit
+,
+bacs_debit
+,
+card
+,
+credit
+,
+sepa_debit
+]
+Allowed wallet types for this buyer, include payment methods from payment provider such as card, us_bank_account and credit.
+currency
+string
+Currency used for billing.
+defaultWalletId
+string
+Default wallet id which is a stripe payment method used to invoice.
+snowflakeBuyer
+object
+snowflakeCustomerID
+string
+The customer ID of the buyer in Snowflake Marketplace.
+spaUrl
+string
+Buyer SPA url, public page visited with jwt.
+stripeBuyer
+object
+address
+object
+city
+string
+City, district, suburb, town, or village.
+country
+string
+Two-letter country code (ISO 3166-1 alpha-2)
+line1
+string
+Address line 1 (e.g., street, PO Box, or company name).
+line2
+string
+Address line 2 (e.g., apartment, suite, unit, or building).
+postal_code
+string
+ZIP or postal code.
+state
+string
+State, county, province, or region.
+description
+string
+email
+string
+id
+string
+The customer ID on the stripe platform.
+metadata
+object
+Set of key-value pairs that you can attach to store additional information about customer.
+property name*
+string
+name
+string
+phone
+string
+stripeCustomerId
+string
+The stripe customer ID for the buyer if it is connected to a stripe customer.
+lastUpdateTime
+date-time
+name
+string
+organizationID
+string
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+]
+[
+{
+"contactIds": [
+"string"
+],
+"creationTime": "2024-07-29T15:51:28.071Z",
+"description": "string",
+"externalID": "string",
+"id": "string",
+"info": {
+"adyenBuyer": {
+"settings": {},
+"shopperId": "string"
+},
+"awsBuyer": {
+"awsAccountID": "string",
+"awsCustomerID": "string",
+"dataFeedAccountID": "string"
+},
+"azureBuyer": {
+"billingAccountId": "string",
+"customerId": "string",
+"emailId": "string",
+"firstName": "string",
+"lastName": "string",
+"licenseType": "string",
+"objectId": "string",
+"puid": "string",
+"tenantId": "string"
+},
+"collectableAmount": 0,
+"companyInfo": {
+"addressLine1": "string",
+"addressLine2": "string",
+"city": "string",
+"country": "string",
+"emailDomain": "string",
+"name": "string",
+"postalCode": "string",
+"state": "string",
+"validFrom": "string"
+},
+"customerId": "string",
+"disbursedAmount": 0,
+"emailAddress": "string",
+"fields": {},
+"gcpBuyer": {
+"approvals": [
+{
+"name": "string",
+"reason": "string",
+"state": "STATE_UNSPECIFIED",
+"updateTime": "string"
+}
+],
+"billingAccountId": "string",
+"createTime": "2024-07-29T15:51:28.071Z",
+"id": "string",
+"inputProperties": [
+0
+],
+"name": "string",
+"parentBillingAccountId": "string",
+"provider": "string",
+"state": "ACCOUNT_STATE_UNSPECIFIED",
+"updateTime": "2024-07-29T15:51:28.071Z",
+"userInfo": {
+"orders": [
+"string"
+],
+"roles": [
+"string"
+],
+"user_identity": "string"
+}
+},
+"grossAmount": 0,
+"invoicedAmount": 0,
+"lagoCustomerId": "string",
+"lastModifiedBy": "string",
+"metronomeCustomerId": "string",
+"orbCustomerId": "string",
+"paymentConfig": {
+"allowedWalletTypes": [
+"ach_debit"
+],
+"currency": "string",
+"defaultWalletId": "string"
+},
+"snowflakeBuyer": {
+"snowflakeCustomerID": "string"
+},
+"spaUrl": "string",
+"stripeBuyer": {
+"address": {
+"city": "string",
+"country": "string",
+"line1": "string",
+"line2": "string",
+"postal_code": "string",
+"state": "string"
+},
+"description": "string",
+"email": "string",
+"id": "string",
+"metadata": {},
+"name": "string",
+"phone": "string"
+},
+"stripeCustomerId": "string"
+},
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"name": "string",
+"organizationID": "string",
+"partner": ""
+}
+]
+Internal Server Error
+Loading...
+Previous
+list payment transactions
+Next
+create buyer
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

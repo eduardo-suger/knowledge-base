@@ -1,0 +1,147 @@
+List Product | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Buy with AWS
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+AWS Marketplace
+List Product
+On this page
+List Product
+List your SaaS products in AWS Marketplace, fully managed by Suger on your behalf.
+Overview
+​
+You can list your SaaS products in
+AWS Marketplace
+, so your clients can use their AWS commit budget to buy your services.
+Listing Procedures
+​
+Plan your Pricing Model. More details can be found on the
+AWS documentation
+.
+Visit the
+AWS Marketplace
+management portal
+for SaaS products, click the button
+Create saas product
+, select the
+Contract
+or
+Subscription
+based on your pricing model.
+Fill the forms with the product & pricing infos.
+Here requests your extra attention:
+for the field
+SaaS URL
+, please enter
+https://api.suger.cloud/public/signup/aws/orgId/your-suger-organization-ID?partnerId=your-suger-integration-partner-ID
+instead of your product Signup URL.
+Once finish & submit the
+Create saas product
+form, the
+AWS Marketplace
+team will review your product. It may take up to 1 week to get approved.
+Set Product Signup URL
+​
+Suger will automatically sync with
+AWS Marketplace
+and pull all your listed products info. You can see all your products on
+Suger Console Product page
+. Select the product listed in the previous steps, and click the button
+EDIT
+in
+Product Info
+section. Fill your product Signup URL in the input field of
+Fulfillment URL
+, and click
+SAVE
+.
+Signup URL Redirect
+​
+After purchasing the product, your buyer is directed to
+https://api.suger.cloud/public/signup/aws/orgId/your-suger-organization-ID?partnerId=your-suger-integration-partner-ID
+first,
+Then it is redirected to your product Signup URL with two query parameters
+sugerEntitlementId
+&
+partner
+, for example,
+https://your-product-signup-url?sugerEntitlementId=1234abcd&partner=aws
+.
+Your service need to collect this
+sugerEntitlementId
+and save it with the account created by the buyer.
+More details can be found on the
+how it works
+page.
+Previous
+Pricing Model
+Next
+Create Private Offer
+Overview
+Listing Procedures
+Set Product Signup URL
+Signup URL Redirect
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

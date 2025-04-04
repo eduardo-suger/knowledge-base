@@ -1,0 +1,177 @@
+NetSuite | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Alibaba Marketplace
+AWS Partner Network
+Google Bigquery
+Chargebee
+Databricks
+Google Cloud Storage
+Google Drive
+Google Mail
+HubSpot
+Lago
+Metronome
+Microsoft Teams
+NetSuite
+Okta SSO
+Orb
+QuickBooks
+Salesforce
+Slack
+Snowflake
+Stripe
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Integrations
+NetSuite
+On this page
+NetSuite
+Allow Suger to manage your NetSuite seamlessly, including customers, saleItems and salesOrders.
+Overview
+​
+Oracle NetSuite is a cloud-based ERP solution that helps businesses manage finance, CRM, e-commerce, and supply chain operations, providing real-time insights and streamlined processes.
+By connecting Suger to your NetSuite, we can build customized automation workflow in manage of customer, saleItem and salesOrder.
+Create Integration
+​
+NetSuite Admin Setup
+​
+Login your NetSuite account with administrator role.
+Enable suitecloud features
+Navigate to
+Setup > Company > Enable Features
+, under the tab of
+SuiteCloud
+.
+Make sure
+SOAP WEB SERVICES
+and
+REST WEB SERVICES
+are enabled in
+SuiteTalk (Web Services)
+section.
+Make sure
+TOKEN-BASED AUTHENTICATION
+is enabled in
+Manage Authentication
+section.
+Create new integration
+Navigate to
+Setup > Integration > Manage Integration > New
+to create a new integration for Suger.
+Enable
+TOKEN-BASED AUTHENTICATION
+.
+Disable
+TBA: ISSUETOKEN ENDPOINT
+,
+TBA: AUTHORIZATION FLOW
+.
+After you click the save button, you will see the generated
+Client Credentials
+of the integration including
+CONSUMER KEY / CLIENT ID
+and
+CONSUMER SECRET / CLIENT SECRET
+. Keep them safely because they are only displayed one time.
+Create new access token
+Go to the home page, click
+Manage Access Tokens
+in the
+Settings
+card. Select the integration you created just now and create a new access token.
+After you click the save button, you will see the generated
+Token Id / secret
+of the token. Keep them safely because they are only displayed one time.
+Suger Console Setup
+​
+In your
+Suger Console Integration
+, you will see the
+NetSuite
+integration connection. Click the
+Connect
+button to create an integration with your NetSuite instance. This will open an dialog for you to input.
+The Account ID can be find in your NetSuite admin url, for example
+https://8500314-sb1.app.netsuite.com/app/center/card.nl
+,
+8500314-sb1
+is your netsuite account id.
+The Client ID and Client Secret are your netsuite integration client credentials.
+The Token ID and Token Secret are your netsuite access token.
+NetSuite Sandbox
+If you want to connect NetSuite sandbox in your test environment, you may need a test suger organization first.
+Once the integration process is finished, you can proceed by clicking the
+VERIFY
+button. This action triggers the Suger service to test the connection to the APIs of your NetSuite instance. If everything is configured correctly, the integration status will be updated as
+VERIFIED
+.
+Delete Integration
+​
+The NetSuite integration can be deleted like all other integrations. Once the deletion is triggered, no time window or methods to recover.
+Previous
+Microsoft Teams
+Next
+Okta SSO
+Overview
+Create Integration
+NetSuite Admin Setup
+Suger Console Setup
+Delete Integration
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

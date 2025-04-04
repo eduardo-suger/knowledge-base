@@ -1,0 +1,187 @@
+Payment | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+Overview
+Billable Metrics
+Price Model
+Buyer
+Offer
+Entitlement
+Metering
+Invoice
+Payment
+Revenue
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Billing
+Payment
+On this page
+Payment
+Payment and Refund.
+Payment
+​
+Payments are processed through the billing integration, which currently supports only Stripe.
+All payments are executed automatically, requiring no action from the buyer.
+Payment trigger
+​
+After an invoice is issued and becomes
+FINALIZED
+status, the payment engine will automatically launch payment pipeline for the invoice.
+Payment transactions
+​
+A payment for an invoice may involve multiple transactions, as several credits from the buyer's wallet can be applied alongside payments made through a provider like Stripe.
+Payment status
+​
+Payment has the following 4 statuses.
+Pending
+: The payment has not started yet.
+Processing
+: The payment is in process.
+Success
+: The payment was successful.
+Failed
+: The payment has failed.
+Invoice's payment status is stored in
+invoice.payment_status
+, and each payment transaction has its own status.
+The
+invoice.payment_status
+will always align with the status of the latest payment transaction.
+For credit payments, the status of the payment transaction will always be
+success
+.
+If the total invoice amount is covered using credits, the
+invoice.payment_status
+will be marked as
+success
+. However, when other payment methods, such as Stripe, are used, the
+invoice.payment_status
+will depend on the success or failure of the payment transaction with the provider.
+When using payment providers like Stripe, transaction failures may occur, resulting in multiple transaction records. The
+invoice.payment_status
+will be updated to reflect the status of the latest transaction, ensuring an accurate and current representation of the invoice’s payment status.
+Payment pipeline
+​
+Get buyer's wallets.
+If credits are available, deduct credits first.
+If the entire invoice amount is paid using credits, payment pipeline end with success.
+If the invoice amount is partially paid using credits, update
+invoice.payment_status
+to
+Processing
+.
+If there is a remaining amount that needs to be paid by the payment provider, call the Stripe payment API.
+Select the detault payment method from the buyer’s wallets.
+Call Stripe payment API to process the payment.
+Payment retry
+​
+If the invoice payment fails, the seller can manually retry the payment through the Suger console.
+A portion of the invoice amount may have already been paid using credits, which will be deducted first during the retry process.
+During the retry, credits will continue to be prioritized for payment, with the remaining balance paid through the payment provider.
+Payment dispute
+​
+If a dispute occurs, Stripe will handle this process. Suger will receive relevant webhook notifications from Stripe and then display the dispute in the corresponding payment transaction record on the Suger console.
+More about it:
+Stripe doc
+Abnormal payment alert
+​
+To avoid some extreme cases, Suger will regularly check the payments and compare them with the transaction status on Stripe to correct any potential issues.
+Refund
+​
+Suger supports refund for a successful payment, and you need to initiate the refund manually in the Suger console.
+All payments, including credit and other methods, can be refunded.
+A single payment can be refunded multiple times, with each refund being a partial amount.
+Refunds will be returned to the payment method used at the time of payment.
+The refund process is done at the transaction level, not the invoice level.
+Credit refund
+​
+The refund of credits will be returned to the credit wallet used at the time of payment.
+Refunds are only accepted when the credit wallet is in active status.
+Credit refunds will always succeed.
+Stripe payment refund
+​
+The payment method for accepting refunds must be valid. If it has already expired or has been removed from the buyer's wallet, the refund cannot be processed.
+A refund will create a new payment transaction record for easy reference of refund history and its status.
+Refunds will be made using the Stripe SDK, and if this step fails, the refund will be marked as a failed.
+ACH Debit Refund
+​
+If you request a refund for a payment that hasn’t completed yet (within a few hours of creating the Payment Intent), Stripe doesn’t submit the charge to the bank, essentially cancelling the original payment rather than refunding it.
+Stripe doesn’t explicitly label ACH Direct Debit refunds as refunds when we deposit the funds back to a customer’s bank account. Instead, we process refunds as a credit and include a reference to the statement descriptor for the original payment.
+More about it:
+Stripe doc
+Abnormal refund alert
+​
+Similar to payment, Suger regularly checks the refunds to make sure they are in the correct status.
+Previous
+Invoice
+Next
+Revenue
+Payment
+Payment trigger
+Payment transactions
+Payment status
+Payment pipeline
+Payment retry
+Payment dispute
+Abnormal payment alert
+Refund
+Credit refund
+Stripe payment refund
+Abnormal refund alert
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

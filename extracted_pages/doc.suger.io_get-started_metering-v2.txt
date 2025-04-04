@@ -1,0 +1,355 @@
+Usage Metering V2 | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Get Started
+Usage Metering V2
+On this page
+Usage Metering V2
+Advanced usage metering service to empower your complex usage-based business models across all cloud marketplaces with unified interfaces and easy configurations.
+Overview
+​
+Compared with
+the 1st version
+of Suger usage metering service, the V2 can support much more complex and flexible usage-based pricing model, including:
+Filters
+Group Bys
+Aggregation types:
+COUNT
+,
+UNIQUE COUNT
+,
+MAX
+,
+SUM
+,
+LATEST
+Various pricing models:
+Basic
+,
+Tiered
+,
+Bulk
+,
+Volume
+,
+Percentage
+and
+Matrix
+Apply minimum spend
+Discount
+Credit
+To define and apply your usage-based pricing model on cloud marketplaces, follow these three steps:
+Define billable metrics based on your pricing model, and set up the mapping between the billable metric and the usage dimension key defined in the cloud marketplace.
+Define billable dimensions (based on billable metrics) in the default or private offers, set up the detailed price, minimum spend, discount if applicable.
+Report usage records through the Suger metering API.
+Create Billable Metrics
+​
+Follow the instructions in
+Billable Metrics
+.
+Update Usage Metering Configs
+​
+We need to create mapping between Billable Metric and Dimension Key which was defined on marketplace.
+Add Billable Dimensions in Offer
+​
+After the Billable Metric was created, we can use it to create Billable Dimension when we create the offer.
+Multiple billable dimensions can be configured in one Offer. It should be noted that within one offer, the same billable metric can only be used by one billable dimension.
+Price Model
+​
+Basic pricing
+​
+In a basic price model, each unit of a product or service is assigned a fixed cost.
+For example, consider a company offering cloud storage services at a rate of $0.5 per gigabyte (GB).
+In this scenario, the
+unit amount
+is set to $0.5, indicating that each gigabyte of storage incurs a charge of $0.5.
+for 100 units,
+10 x 0.5(unit amount) = 5
+, $5 in total.
+Tiered pricing
+​
+In tiered pricing, the cost of a given unit depends on the tier range that it falls into, where each tier range is defined by an upper and lower bound.
+For example, the first 5 GB may cost $0.5 each, for 6 to 10 GB each unit cost $0.3 and all units thereafter may cost $0.2 each.
+Tier Range (GB)
+Price per GB ($)
+1 - 5
+$0.5
+6 - 10
+$0.3
+11+
+$0.2
+for 4 units,
+4 x 0.5 = 2
+, $2 in total.
+for 8 units,
+5 x 0.5 + 3 x 0.3 = 3.4
+, $3.4 in total.
+for 15 units,
+5 x 0.5 + 5 * 0.3 + 5 * 0.2 = 5
+, $5 in total.
+Bulk pricing
+​
+Bulk pricing applies when the size or granularity of a unit for billing purposes.
+For example, if the bulk size is set to 5, then 4 units will be billed as 5 and 6 units will be billed at 10.
+Bulk Size
+Bulk Amount
+5
+$5
+for 4 units price
+1 x 5(bulk amount) = 5
+, $5 in total.
+for 6 units price
+2 x 5(bulk amount) = 10
+, $10 in total.
+Volume pricing
+​
+Volume pricing applies when the number of units determine the cost of all units.
+Number of Units
+Price per Unit ($)
+Flat Fee ($)
+1 - 10
+$0.50
+$5.00
+11+
+$0.40
+$0.00
+For example, if you've bought 8 units, total price will be
+8 x 0.5(unit price) + 5(flat fee) = 9
+, $9 in total.
+Once you've bought more than 10 units, say 15 units, the total price will be
+15 x 0.4(unit price) + 0.0(flat fee) = 6
+, $6 in total.
+Percentage pricing
+​
+Percentage pricing applies when a per-event (e.g. per-payment) rate in one hundredth of a percent.
+For example, if the price is set as following
+Percentage rate
+Flat Fee ($)
+0.25
+$3.00
+for payment of $100, the charge will be
+100 x 0.25(percentage rate) + 3(flat fee) = 27
+, $27 in total.
+Tiered percentage pricing
+​
+Tiered percentage pricing apples when a per-event (e.g. per-payment) rate in one hundredth
+of a percent with several tiers.
+For example, if the price is set as following
+Number of Units
+Percentage rate
+Flat Fee ($)
+1 - 10
+0.25
+$3.00
+11+
+0.2
+$1.00
+for payment of 9, the charge will be
+9 x 0.25(percentage rate) + 3(flat fee) = 5.25
+, $5.25 in total.
+for payment of 20, the charge will be
+10 x 0.25(percentage rate) + 3(flat fee) + 10 x 0.20(percentage rate) + 1(flat fee) = 8.5
+, $8.5 in total.
+Matrix pricing
+​
+Matrix pricing applies when the cost of a unit depends on the combination of two or more properties.
+For example, if the billable metric named
+disk_usage
+with aggregation type of
+SUM
+.
+Group price is set as following.
+Matrix Group
+Property 1
+Property 2
+Price per Unit ($)
+1
+partner = aws
+region = east
+$0.5
+2
+partner = aws
+region = west
+$0.3
+3
+partner = gcp
+$0.4
+default
+$0.2
+for usage records:
+[
+{
+"key": "disk_usage",
+"quantity": 10,
+"properties": {
+"region": "west",
+"os": "arm",
+"partner": "aws"
+}
+},
+{
+"key": "disk_usage",
+"quantity": 10,
+"properties": {
+"region": "west",
+"os": "arm",
+"partner": "azure"
+}
+},
+{
+"key": "disk_usage",
+"quantity": 2.5,
+"properties": {
+"region": "east",
+"os": "arm",
+"partner": "gcp"
+}
+},
+{
+"key": "disk_usage",
+"quantity": 2.5,
+"properties": {
+"region": "west",
+"os": "arm",
+"partner": "gcp"
+}
+},
+{
+"key": "disk_usage",
+"quantity": 10,
+"properties": {
+"region": "west",
+"os": "linux",
+"partner": "aws"
+}
+},
+{
+"key": "disk_usage",
+"quantity": 2.5,
+"properties": {
+"region": "east",
+"os": "arrch",
+"partner": "gcp"
+}
+},
+{
+"key": "disk_usage",
+"quantity": 2.5,
+"properties": {
+"region": "west",
+"os": "x86",
+"partner": "gcp"
+}
+}
+]
+For Group1 of partner=aws,region=east, no records, amount is
+0
+.
+For Group2 of partner=aws,region=west, quantity sum is 20, amount is
+20 * 0.3 = 6
+.
+For Group3 of partner=gcp, quantity sum is 10, amount is
+10 * 0.4 = 4
+.
+For Group Default, quantity sum is 10, amount is
+10 * 0.2 = 2
+.
+Total charge will be
+0 + 6 + 4 + 2 = 12
+.
+Minimum Spend and Discount
+​
+We can set Minimum Spend and Discount for each Billable Dimension.
+Meter Usage Records
+​
+After an entitlement was created which contains Billable Dimensions, we can start metering usages.
+Your service can send a
+POST
+request to the
+Suger Metering API
+with a body similar to the following example. Suger will validate, aggregate & report them to the right vendor within the right pricing model format.
+{
+"ID": "uuid", # optional, if not provided, suger will generate one and return in the response.
+"organizationID": "your-suger-org-id",
+"entitlementID": "your-suger-entitlement-id",
+"billableRecords": [
+{
+"key": "billable-metric-id-in-the-entitlment's-billable-dimension",
+"properties": {
+"custom-property-1": "val1",
+"custom-property-2": "val2"
+},
+"quantity": 10
+}
+]
+}
+Previous
+Usage Metering
+Next
+Usage Credit
+Overview
+Create Billable Metrics
+Update Usage Metering Configs
+Add Billable Dimensions in Offer
+Price Model
+Minimum Spend and Discount
+Meter Usage Records
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

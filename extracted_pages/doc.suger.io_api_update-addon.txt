@@ -1,0 +1,267 @@
+update addon | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Billing
+update addon
+update addon
+PATCH
+/org/:orgId/addon/:addonId
+Update an addon template
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+addonId
+string
+required
+Addon ID
+application/json
+Body
+required
+CreateAndUpdateAddonParams
+amount
+number
+The amount of the addon.
+description
+string
+Possible values:
+<= 300 characters
+The description of the addon.
+name
+string
+Possible values:
+>= 4 characters
+and
+<= 50 characters
+The name of the addon.
+Responses
+​
+200
+400
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+creationTime
+date-time
+description
+string
+Possible values:
+<= 300 characters
+Description of the addon
+id
+string
+Possible values:
+<= 36 characters
+info
+object
+amount
+number
+lastUpdateTime
+date-time
+name
+string
+Possible values:
+>= 4 characters
+and
+<= 50 characters
+Name of the addon, e.g. "Support Plan"
+organizationID
+string
+status
+BillingAddonStatus (string)
+Possible values:
+[
+ACTIVE
+,
+DELETED
+]
+{
+"creationTime": "2024-07-29T15:51:28.071Z",
+"description": "string",
+"id": "string",
+"info": {
+"amount": 0
+},
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"name": "string",
+"organizationID": "string",
+"status": "ACTIVE"
+}
+Bad request error
+application/json
+Schema
+Schema
+string
+internal error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+delete addon
+Next
+list refunds.
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

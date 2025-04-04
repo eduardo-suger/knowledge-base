@@ -1,0 +1,135 @@
+Overview | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+Overview
+Billable Metrics
+Price Model
+Buyer
+Offer
+Entitlement
+Metering
+Invoice
+Payment
+Revenue
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Billing
+Overview
+On this page
+Overview
+Quick guide to start with Suger's billing system.
+Billing workflow
+​
+1. Create product
+​
+Create a product to represent your sellable product or service. When create the product, select Stripe as partner because Suger will use Stripe to collect payments.
+2. Define billable metrics
+​
+If you want to use usage based pricing, you need to define the
+billable metrics
+for the product you created in the previous step. They will be used in price models when creating offers and reporting usage data.
+3. Create buyer
+​
+Create a
+buyer
+to represent your customer. You can set the billing address, currency, and other information for the buyer.
+4. Create and send offer
+​
+Create a
+offer
+including price models and send it to your customer. You can configure the contract duration, billing interval, flat fee, and usage metering and other details in the offer.
+Send the offer to your customer, if the customer accepts the offer, a entitlement will be created.
+5. Manage entitlement
+​
+You can view the
+entitlement
+just created, track the usage and billing status. Edit or cancel it when needed.
+6. Report usage data
+​
+Report
+usage metering
+data to Suger using the API or SDK. Suger will aggregate the usage data periodically which will be used to calculate the charges.
+7. Invoicing
+​
+Invoices
+will be generated automatically for each entitlement according to price models in it. There are several types of invoices including installments, recurring commitments, usage based and one-time.
+8. Payments
+​
+Suger will process
+payments
+automatically to collect money from the buyer via Stripe when the invoice is due. The money collected will be deposited to your Stripe account.
+9. Revenue
+​
+Revenue reports
+will be generated for each entitlement and also aggregated by product and buyer.
+Previous
+Billing
+Next
+Billable Metrics
+Billing workflow
+1. Create product
+2. Define billable metrics
+3. Create buyer
+4. Create and send offer
+5. Manage entitlement
+6. Report usage data
+7. Invoicing
+8. Payments
+9. Revenue
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

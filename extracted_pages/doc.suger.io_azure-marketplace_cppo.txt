@@ -1,0 +1,178 @@
+CPPO | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Azure Marketplace
+CPPO
+On this page
+CPPO
+Create and manage Azure Marketplace Channel Partner Private Offer (CPPO) in Suger
+Overview
+​
+The CPPO (Channel Partner Private Offer) is a sales model offered by Azure cloud platforms, allowing Independent Software Vendors (ISVs) to sell their software or services through channel partners. There are two types of CPPO.
+The CSP Partner Private Offer
+(also known as margin sharing) is a private offer type that is designed to motivate eligible partners to sell an ISV's solution. ISVs can make private offers and extend a margin to partners in the Cloud Solution Provider program (CSPs).
+The Multiparty Private Offer
+enables multiple partners, including ISVs and other resellers, to collaborate and create a unified custom offer for a customer.
+Comparison
+Multiparty private offers
+Private offers with CSP margin-sharing
+Target audience
+ISV partners, Partners in the Cloud Solution Provider program (CSPs)
+ISV partners, Partners in the Cloud Solution Provider program (CSPs)
+Target customers
+Primarily aimed at
+large enterprise customers
+with an enterprise agreement (EA) or Microsoft Customer Agreement (MCA).
+Designed to help ISVs reach
+small and medium-sized businesses (SMBs)
+by leveraging CSPs.
+Pricing
+Pricing is negotiated between ISVs and partners as part of the collaboration.
+The CSP partner has full control over the pricing strategy and customer relationship, giving them more autonomy in the sales process.
+Billing
+Microsoft bills to customers
+CSP partners bill to customers
+Availability
+Available today for customers purchasing in the United States, United Kingdom, and Canada.
+Avaliable
+Customer MACC decrement for eligible apps
+Yes
+No
+Channel partner participation
+Partners enrolled in the Microsoft AI Cloud Partner Program and enrolled in the
+commercial marketplace
+with United States or United Kingdom tax profiles for marketplace in Partner Center. ISV partner sends a private offer to the partner.
+CSP program enrolled partners
+only. ISV sends a private offer to CSP.
+CSP Partner Private Offer
+​
+the
+CSP Partner Private Offer
+process involves ISVs working with a specific CSP partner to provide personalized offers to customers, with the CSP partner managing customer relationships, pricing, and value-added services.
+Create a private offer for a CSP partner
+​
+In Suger Console, You can easily create the CSP partner private offers for your CSP Partners. Click the button of
+New Resale Authorization
+in the
+Suger console offer page
+, select the target Azure Product, choose the private offer type
+Private offers with CSP margin-sharing
+and fulfill the info listed as below:
+CSP Partners
+: The CSP partners you authorize to sell your private offer.
+Search for you partners by name/tenantID and choose from the results.
+If the target partner is not in the search results, enter their ID.
+Optional
+: To extend a private offer to individual customers of a CSP partner, choose All customers selected for that CSP partner.
+Start Date
+: There are two options to set the start date of the private offer once it is accepted. One is applying the accepted date as the start date. The other is to specify the start date - the first day of the selected month.
+End Date
+: The private offer will end on the last day of the selected month.
+Notification Contacts
+: Provide up to five emails as Notification Contacts to receive email updates on the status of your private offer.
+Pricing
+: Configure the percentage-based margins for up to 10 plans in a private offer. The margin the CSP partner receives is a percentage off your plan's list price in the marketplace.
+Multiparty Private Offer
+​
+In Azure, the process for ISVs to create a
+Multiparty Private Offer
+focuses on collaboration with multiple partners, such as other ISVs or channel partners, to create a customized joint offer. Microsoft handles billing and payments for customers.
+Create multiparty private offer
+​
+In Suger Console, You can easily create the
+Multiparty Private Offer
+. Click the button of
+New Resale Authorization
+in the
+Suger console offer page
+, select the target Azure Product, choose the private offer type
+Multiparty private offers
+and fulfill the info listed as below:
+Partner's seller ID
+: Enter the marketplace seller ID of your partner. Your partner can locate this information in Partner Center under Account settings > Identifiers > Publisher within their organizational profile.
+Customer billing account ID
+: Specify the billing account for the customer receiving this multiparty private offer. The multiparty private offer will only be available to the configured customer billing account. The customer must be an owner, contributor, or signatory on the billing account to accept the offer.
+Start Date
+: There are two options to set the start date of the private offer once it is accepted. One is applying the accepted date as the start date. The other is to specify the start date - the first day of the selected month.
+End Date
+: The private offer will end on the last day of the selected month.
+Expiry Date
+: Your offer will expire after this date and your customer will not be able to accept it.
+Notification Contacts
+: Optionally provide up to five email addresses for the people within your company as Notification contacts to receive email updates on the status of the multiparty private offer.
+Pricing
+: Configure the discount % off or absolute price for one or multiple plans in a private offer.
+Previous
+Accept Private Offer
+Next
+GCP Marketplace
+Overview
+CSP Partner Private Offer
+Create a private offer for a CSP partner
+Multiparty Private Offer
+Create multiparty private offer
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

@@ -1,0 +1,136 @@
+Integration | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integration
+Provider Profile
+Pricing Plan
+List Product
+Create Private Offer
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Snowflake Marketplace
+Integration
+On this page
+Integration
+Grant Suger the necessary access to manage your Snowflake Marketplace on your behalf, no more no less.
+Overview
+​
+To sell on Snowflake marketplace, you first need to be a Snowflake Marketplace provider. There are several requirements to meet before you can list products/services on Snowflake Marketplace. More details can be found
+here
+.
+Once you are a Snowflake Marketplace provider, you can list your products on Snowflake Marketplace and integrate with Suger to manage your marketplace offerings.
+Become A Snowflake Marketplace Provider
+​
+You must use a full Snowflake account. Trial accounts can share data with specified consumers, but not on the Snowflake Marketplace.
+You must not be using a Reader Account.
+You must have the ACCOUNTADMIN role or be assigned a role with provider privileges. See
+Privileges required for working with listings
+.
+You must meet the
+Legal requirements for providers and consumers of listings
+. See
+Review and accept the Snowflake Provider and Consumer Terms
+.
+If your account is in a U.S. government region, you must also accept the cross-region disclaimer. See
+Prepare to provide listings from accounts in U.S. government regions
+.
+Integration Prerequisite
+​
+Suger relies on key-pair authentication to get access to your Snowflake account. Follow the steps below to prepare resources required for Suger integration.
+Configure Key Pair Authentication
+. Follow the
+official guideline
+to create a key pair. You can generate an
+encrypted
+key pair or
+unencrypted
+key pair.
+Click the
+Connect
+button of Snowflake Marketplace integration on the
+Integrations page
+in Suger console.
+Input the
+Account
+,
+User
+and
+Private Key
+of your Snowflake account.
+Click the
+Connect
+button to complete the integration.
+Edit Integration
+​
+Editing an existing Snowflake Marketplace integration is not supported. The practical way is to delete it and then re-connect it with new inputs.
+Delete Integration
+​
+The Snowflake Marketplace integration can be deleted like all other integrations. Once the deletion is triggered, all integration info including the
+Private Key
+will be deleted immediately & permanently from Suger. No time window or methods to recover.
+Previous
+Snowflake Marketplace
+Next
+Provider Profile
+Overview
+Become A Snowflake Marketplace Provider
+Integration Prerequisite
+Edit Integration
+Delete Integration
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

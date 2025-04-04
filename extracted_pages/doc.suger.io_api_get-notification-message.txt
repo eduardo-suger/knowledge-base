@@ -1,0 +1,359 @@
+get notification message | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Notification
+get notification message
+get notification message
+GET
+/org/:orgId/notificationMessage/:notificationMessageId
+Get the notification message of the organization & notification message ID.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+notificationMessageId
+string
+required
+Notification Message ID
+Responses
+​
+200
+400
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+creationTime
+date-time
+id
+string
+info
+object
+action
+NotificationEventAction (string)
+Possible values:
+[``,
+ABNORMAL_ALERT
+,
+ACCEPT
+,
+ADD
+,
+APPROVE
+,
+CANCEL
+,
+CLOSE
+,
+CREATE
+,
+DELETE
+,
+DISBURSE
+,
+END_SOON
+,
+EXPIRE
+,
+EXPIRE_SOON
+,
+MERGE
+,
+METER
+,
+NEW_CLIENT_SIGNUP
+,
+NOTIFY
+,
+NOTIFY_CONTACTS
+,
+OPEN_EMAIL
+,
+PENDING_CANCEL
+,
+PENDING_ACCEPTANCE
+,
+REINSTATE
+,
+REJECT
+,
+REOPEN
+,
+CHARGE
+,
+REFUND
+,
+ISSUE
+,
+ROTATE_SECRET
+,
+SUSPEND
+,
+TEST
+,
+UPDATE
+,
+ACE_ENGAGEMENT_SCORE_UPDATE
+,
+ACE_SALES_REP_UPDATE
+,
+ACE_CUSTOMER_EMAIL_UPDATE
+,
+AZURE_STATUS_UPDATE
+,
+SUBMIT_APPROVAL_REQUEST
+,
+REVIEW_APPROVAL_REQUEST
+,
+COMPLETE
+,
+FAIL
+,
+WEBHOOK
+]
+ccRecipients
+string[]
+customFields
+object
+All other fields
+property name*
+any
+All other fields
+htmlContent
+string
+The HTML content of the email.
+rccRecipients
+string[]
+standardFields
+object
+The standard fields to render the email content.
+property name*
+any
+The standard fields to render the email content.
+subject
+string
+textContent
+string
+The text content of the email in case the recipient's email client does not support HTML.
+organizationID
+string
+recipient
+string
+type
+NotificationChannel (string)
+Possible values:
+[
+EMAIL
+,
+SLACK
+,
+SMS
+,
+SNS
+,
+SALESFORCE
+,
+WEBHOOK
+,
+SUGER_SUPPORT
+,
+MICROSOFT_TEAMS
+]
+{
+"creationTime": "2024-07-29T15:51:28.071Z",
+"id": "string",
+"info": {
+"action": "",
+"ccRecipients": [
+"string"
+],
+"customFields": {},
+"htmlContent": "string",
+"rccRecipients": [
+"string"
+],
+"standardFields": {},
+"subject": "string",
+"textContent": "string"
+},
+"organizationID": "string",
+"recipient": "string",
+"type": "EMAIL"
+}
+Bad request error
+application/json
+Schema
+Schema
+string
+Internal server error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+list notification messages
+Next
+create or update draft offer
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

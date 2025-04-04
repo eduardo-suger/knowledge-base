@@ -1,0 +1,178 @@
+Signup URL Redirect | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Get Started
+Signup URL Redirect
+On this page
+Signup URL Redirect
+Buyers Signup URL on Marketplaces goes to Suger first, then redirect to your service Signup URL.
+Overview
+​
+When the buyers purchased your product in one marketplace (
+AWS, Azure or GCP
+), they would get a link to set up or register the account on your service website. The link will be directed to the Suger endpoint, after decoding and processing, it will be redirected to your service signup URL.
+How it works
+​
+You provide
+Suger
+with your product signup URL, for example,
+https://your-service-signup-url
+.
+When a buyer purchased your service in the marketplace, they get a link sent to Suger endpoint
+https://api.suger.cloud/public/signup/{partner}/orgId/{orgId}?partnerId={partnerId}
+, where the
+partner
+can be
+aws
+,
+azure
+or
+gcp
+, the
+orgId
+is your Suger
+Organization
+ID and the
+partnerId
+is your Suger
+Integration
+partner ID.
+Suger will take care of several interactions (including decode token, register entitlement & buyer info, etc.) and will resolve to a
+Suger Entitlement
+ID.
+Suger redirects the buyer to your signup URL with several query parameters
+https://your-service-signup-url?sugerEntitlementId=entitlement-id&partner={partner}&offerType={offerType}
+, as defined below:
+Query Parameter Name
+Definition
+sugerEntitlementId
+The ID of this Entitlement in the Suger
+partner
+The cloud partner where this Entitlement comes from, such as
+aws
+,
+azure
+or
+gcp
+(all lowercase)
+offerType
+The type of the Offer on which this Entitlement is based , such as
+DEFAULT
+for the default/public offer in the cloud marketplace. The possible values include
+UNKNOWN
+,
+AMI
+,
+CONTAINER
+,
+CONTRACT
+,
+CPPO_OUT
+,
+CPPO_IN
+,
+CPPO
+,
+CUD
+,
+DEFAULT
+,
+FIXED_FEE
+,
+FIXED_FEE_WITH_OVERAGE
+,
+FLAT_RATE
+,
+FREE_TRIAL
+,
+PAYG
+,
+PAYG_WITH_CUD
+,
+PER_USER
+,
+PRIVATE
+,
+PROFESSIONAL_SERVICES
+and
+SUBSCRIPTION
+Your service need to collect the
+sugerEntitlementId
+, and save it with the buyer's account. The ID can be used to fetch detailed
+Entitlement
+&
+Buyer
+info from the
+Suger API doc
+, and meter usage records as well.
+warning
+For AWS Marketplace, there can be a delay of
+up to 5 minutes
+to send the marketplace event to notify Suger the new purchase. So when buyers set up the account immediately right after the purchase, Suger know the product & buyer info, but may not know which offer is purchased.
+To bring better experiences, Suger creates new Entitlement with the default offer, and redirect the signup URL with the Entitlement ID. Once the marketplace event is received, the entitlement will be updated with the right Offer info. You webhook will receive the Entitlement Update event.
+Your service is responsible to fetch the latest Entitlement info. The entitlement ID & Status are not changed in this scenario.
+Previous
+Usage Credit
+Next
+Billing
+Overview
+How it works
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

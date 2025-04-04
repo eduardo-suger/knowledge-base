@@ -1,0 +1,112 @@
+Manual Trigger | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Aggregate
+Chargebee
+Code
+Delete Execution
+Filter
+Form Trigger
+Google BigQuery
+Google Cloud Storage
+Google Drive
+Google Mail
+Google Sheet
+HTML
+HTTP Request
+HubSpot
+If
+Limit
+Manual Trigger
+Merge
+NetSuite
+QuickBooks Online
+Respond to Webhook
+Salesforce
+Schedule Trigger
+Snowflake
+Sticky Note
+Stripe
+Suger Code
+Suger Email
+Suger Microsoft Teams
+Suger Notification Event Trigger
+Suger Slack
+Switch
+Webhook
+Analytics
+Workflow
+Manual Trigger
+On this page
+Manual Trigger
+Trigger a workflow manually.
+The Manual Trigger node enables you to start a workflow manually. This is especially handy for testing purposes or when you prefer to avoid automatic execution.
+A trigger is required for every workflow to run. Generally, workflows start with a trigger node that responds to an external event or follows a set schedule using the
+Schedule Trigger
+.
+Operations
+​
+This node has no parameters. Just put it at the beginning of the workflow to trigger it manually.
+Previous
+Limit
+Next
+Merge
+Operations
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

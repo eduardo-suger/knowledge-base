@@ -1,0 +1,603 @@
+Invoice | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+Overview
+Billable Metrics
+Price Model
+Buyer
+Offer
+Entitlement
+Metering
+Invoice
+Payment
+Revenue
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Billing
+Invoice
+On this page
+Invoice
+Effortless invoice management.
+Overview
+​
+For Non-Cloud Partners (e.g. Stripe, Adyen), Suger automatically generates and issues invoices based on the entitlement.
+You can easily manage your invoices with the Suger Console.
+Manage Your Invoices
+​
+View Invoices
+​
+Invoices can be viewed on the entitlement detail or the buyer detail page:
+Click the invoice ID to view the invoice detail page:
+Edit a Draft Invoice
+​
+You can edit a
+Draft
+invoice by clicking
+Edit
+button on the invoice detail page.
+The following changes are supported:
+Due date: The due date when the invoice will be paid.
+Discount: The overall discount applied to the total amount of the invoice. There are 2 discount options:
+USD
+: The discount is a fixed amount.
+%
+: The discount is calculated as a percentage of the total amount.
+Note: The memo that will be visible to buyers and shown on the official invoice page.
+Issue an Invoice
+​
+Automatic Invoice Issuance
+​
+Invoices are automatically issued to all the buyer’s contacts when the
+issue date is due
+.
+Manually Issuing an Invoice
+​
+You can also manually issue a
+Draft
+invoice by clicking the Issue button on the invoice detail page.
+Steps to Issue an Invoice Manually:
+Preview the invoice PDF and email content.
+Select contacts to receive the invoice email (all contacts are selected by default).
+Acknowledge by checking:
+“I understand that this invoice will be issued. This action CANNOT be reversed.”
+Click
+Send Invoice
+—the invoice will be issued immediately, and the due date will be set to the current date.
+Send an Invoice Email
+​
+Once an invoice is issued, you can send the invoice email to specific contacts by clicking the
+Send Invoice
+button on the invoice detail page.
+Export an Invoice
+​
+A
+Finalized
+invoice can be viewed and exported as a PDF document by clicking the
+Export
+button.
+Cancel an Invoice
+​
+You can cancel an invoice before its payment by clicking
+More - Cancel invoice
+on the invoice detail page.
+warning
+A
+Canceled
+invoice is
+immutable
+, meaning it cannot be edited or reissued.
+Invoice ID
+​
+Invoice ID is a stable unique identifier based on the organization ID, entitlement ID, dimension key, and invoice drafted time.
+Invoice Types
+​
+There are four types of invoices:
+Commit
+,
+Installment
+,
+Usage
+, and
+Addon
+.
+Different types of invoices will be generated for different entitlement terms, meaning that one entitlement can include multiple invoices, each of a different type.
+For example, if an entitlement includes both
+Commitment
+and
+Billable Dimension(s)
+pricing terms, two invoices will be created: one for the
+Commitment
+and one for the
+Billable Dimension(s)
+.
+Commit Invoice
+​
+For
+Commitment(s)
+pricing terms in the entitlement,
+Commit
+invoices will be created.
+Usage Invoice
+​
+For
+Billable Dimension(s)
+pricing terms in the entitlement,
+Usage
+invoices will be created based on the usage record reports.
+Usage record reports are generated from Usage record groups reported by the seller on the
+Usage Metering
+section on the entitlement detail page:
+Installment Invoice
+​
+For
+Payment installments
+pricing terms in the entitlement,
+Installment
+invoices will be created.
+Addon Invoice
+​
+Suger enables sellers to charge additional fees to buyers by creating an addon invoice tied to the entitlement.
+Sellers can create an addon on "
+Settings
+-
+Addon
+" tab and apply an addon by clicking "
+Apply Addon
+" button on the entitlement detail page:
+Invoice Lifecycle
+​
+The invoice lifecycle consists of the following stages:
+Drafting
+,
+Issuing
+and
+Payment
+.
+Drafting
+​
+An invoice will be automatically created based on its type and entitlement and enters the
+DRAFT
+status.
+Three important dates are involved in the drafting process:
+Draft Date
+,
+Issue Date
+, and
+Due Date
+.
+Draft Date
+​
+The draft date differs from different invoice types:
+Commit
+: draft date is computed as
+below
+.
+Usage
+: draft date is computed as
+below
+.
+Installment
+: draft date is the payment installment charge date.
+Addon
+: draft date is its specified charge date.
+Issue Date
+​
+Issue date is calculated as:
+draft date + grace period
+.
+For example, if the
+draft date
+is 2025-01-01, and the
+grace period
+is 7 days, the
+issue date
+will be 2025-01-08.
+Due Date
+​
+Due date is calculated as:
+issue date + net term days
+.
+For example, if the
+issue date
+is 2025-01-08, and the
+net term days
+is 10 days, the
+due date
+will be 2025-01-18.
+Issuing
+​
+When the invoice issue date is due or the invoice is manually issued, it transits into the
+FINALIZED
+status.
+Notifications emails will be sent to the buyer's contacts when the invoice is issued.
+Payment
+​
+Payment transactions will be automatically made on the invoice due date. After the payment is completed, the invoice is marked as
+PAID
+.
+For details, see
+Payment
+.
+Canceling
+​
+Once an invoice is canceled, it is marked as
+CANCELED
+status and will not proceed to payment.
+Invoice Period
+​
+"Invoice period" answers the following questions:
+When will an invoice be created?
+What's the start date and end date of the invoice?
+Invoices periods are calculated based on different invoice types as follows.
+Commit invoice period
+​
+The
+Commit
+invoice period varies depending on the following factors:
+Entitlement's start date:
+past
+or
+future
+. If the entitlement start date is in the past, the first invoice may include multiple periods. If the entitlement start date does not cover the full billing period, the invoice will be prorated accordingly.
+Billing cycle:
+beginning of the month
+or
+start of the entitlement
+.
+Payment schedule type:
+prepay
+or
+postpay
+The first invoice period is determined as follows:
+Entitlement Start Date
+Billing Cycle
+Payment Schedule
+First Invoice Start Date
+First Invoice End Date
+First Invoice Draft Date
+Past
+Beginning of the Month
+Prepay
+Entitlement's start date
+Nearest first day of the month
+Today
+Past
+Beginning of the Month
+Postpay
+Entitlement's start date
+Nearest first day of the month
+Same as the end date
+Past
+Start of the Entitlement
+Prepay
+Entitlement's start date
+Entitlement's start date in the next period.
+Today
+Past
+Start of the Entitlement
+Postpay
+Entitlement's start date
+Entitlement's start date in the next period.
+Same as the end date
+Future
+Beginning of the Month
+Prepay
+Entitlement's start date
+Nearest first day of the month
+Same as the start date
+Future
+Beginning of the Month
+Postpay
+Entitlement's start date
+Nearest first day of the month
+Same as the end date
+Future
+Start of the Entitlement
+Prepay
+Entitlement's start date
+Entitlement's start date in the next period.
+Same as the start date
+Future
+Start of the Entitlement
+Postpay
+Entitlement's start date
+Entitlement's start date in the next period.
+Same as the end date
+Below are the detailed scenarios for the invoice period.
+1. Start date in the past
+​
+If the Entitlement's start date is in the past, the entitlement is considered active.
+1.1 If the billing cycle is
+beginning of the month
+and the payment schedule type is
+prepay
+, the first invoice
+start date is the Entitlement's start date.
+end date is the nearest first day of the month.
+draft date is today.
+1.2 If the billing cycle is
+beginning of the month
+and the payment schedule type is
+postpay
+, the first invoice
+start date is the Entitlement's start date.
+end date is the nearest first day of the month.
+draft date is the nearest first day of the month.
+1.3 If the billing cycle is
+start of the entitlement
+and the payment schedule type is
+prepay
+, the first invoice
+start date is the Entitlement's start date.
+end date is the Entitlement's start date in the next period.
+draft date is today.
+1.4 If the billing cycle is
+start of the entitlement
+and the payment schedule type is
+postpay
+, the first invoice
+start date is the Entitlement's start date.
+end date is the Entitlement's start date in the next period.
+draft date is the same as the end date.
+2. Start date in the future
+​
+If the Entitlement's start date is in the future, the entitlement is considered pending.
+The invoicing process varies depending on the billing cycle and the payment schedule type.
+2.1 If the billing cycle is
+beginning of the month
+and the payment schedule type is
+prepay
+, the first invoice
+start date is the Entitlement's start date.
+end date is the nearest first day of the month.
+draft date is the same as the start date.
+2.2 If the billing cycle is
+beginning of the month
+and the payment schedule type is
+postpay
+, the first invoice
+start date is the Entitlement's start date.
+end date is the nearest first day of the month.
+draft date is the same as the end date.
+2.3 If the billing cycle is
+start of the entitlement
+and the payment schedule type is
+prepay
+, the first invoice
+start date is the Entitlement's start date.
+end date is the Entitlement's start date in the next period.
+draft date is the same as the start date.
+2.4 If the billing cycle is
+start of the entitlement
+and the payment schedule type is
+postpay
+, the first invoice
+start date is the Entitlement's start date.
+end date is the Entitlement's start date in the next period.
+draft date is the same as the end date.
+Usage Invoice Period
+​
+The
+Usage
+invoicing period varies depending on the following factors:
+Entitlement's start date:
+past
+or
+future
+. If the entitlement start date is in the past, the first invoice may include multiple periods. If the entitlement start date does not cover the full billing period, the invoice will be prorated accordingly.
+Billing cycle:
+beginning of the month
+or
+start of the entitlement
+.
+The first invoice period is determined as follows:
+Entitlement Start Date
+Billing Cycle
+First Invoice Start Date
+First Invoice End Date
+First Invoice Draft Date
+Past
+Beginning of the Month
+Entitlement's start date
+Nearest first day of the month
+Same as the end date
+Past
+Start of the Entitlement
+Entitlement's start date
+Entitlement's start date in the next period
+Same as the end date
+Future
+Beginning of the Month
+Entitlement's start date
+Nearest first day of the month
+Same as the end date
+Future
+Start of the Entitlement
+Entitlement's start date
+Entitlement's start date in the next period
+Same as the end date
+You can consider the payment schedule type is always
+postpay
+, and the invoice period is calculated the same way as the Commit invoice above.
+Installment Invoice Period
+​
+It is the specified installment payment date.
+Addon Invoice Period
+​
+It is the specified addon charge date.
+Invoice Amount
+​
+The invoice amount is calculated based on the entitlement terms and different invoice types.
+Commit Invoice Amount
+​
+The
+Commit
+invoice amount is calculated based on the
+Commitment
+terms in the entitlement.
+Over a period
+​
+When the entitlement start date is in the past, the first invoice may span multiple billing periods.
+For example, if an entitlement's start date is set to 3 months ago but is just being created now, the first invoice will cover all 3 months.
+Less than a period
+​
+For partial billing periods, invoice amounts are prorated based on the actual days of service.
+Usage Invoice Amount
+​
+Usage Charge Fee
+will be calculate based on the
+Usage record reports
+(Hourly reports shown in the red box) to create a
+Usage
+invoice:
+Referring to
+Calculate usage invoice fee
+for an overview of usage invoice fee calculation.
+Minimum Spend
+​
+Minimum spend will be applied when calculating the dimension amount. The following options in the entitlement will be considered:
+Minimum Commit Scope:
+DIMENSION
+: Minimum commit applies to the entire dimension, including all group bys.
+DIMENSION_GROUP_BY
+: Minimum commit applies to each dimension group bys.
+Minimum Commit Prorated: If set to true, the minimum commit amount will be prorated based on the usage period (starting time and ending time)
+Installment Invoice Amount
+​
+The amount of an Installment invoice is defined by the installment payment terms in the entitlement.
+Addon Invoice Amount
+​
+The amount of an Addon invoice is set by the applied addon amount.
+Trial
+​
+If the entitlement includes a trial period, the invoice amount will exclude the usage during the trial period.
+Trial period works for the Commit invoice and Usage invoice.
+Commit Invoice Trial Period
+​
+Commit invoice amount = Amount per day * (Billed days - Trial days)
+For example, if an entitlement has the following details:
+30 days in a full period.
+$300 for a full-period commit.
+20 days in the billing cycle.
+5 trial days.
+The invoice will be calculated as follows:
+Amount per day = Full-period amount / Full-period days = $300 / 30 = $10
+Billed days = Billed days - trial days = 20 - 5 = 15
+Invoice amount = Amount per day * Billed days = $10 * 15 = $150
+Usage Invoice Trial Period
+​
+The usage record reports that are before the trial period will be excluded from the invoice amount calculation.
+For example, if an entitlement has the following details:
+100 units in total.
+20 units in the trial period.
+$1 per unit.
+The invoice will be calculated as follows:
+Billed units = Total units - Trial units = 100 - 20 = 80
+Invoice amount = Billed units * Unit price = 80 * $1 = $80
+Discount
+​
+Usage Dimension Discount
+​
+If the usage dimension includes a discount, the usage charge fee will exclude the discounted amount.
+Overall Discount
+​
+The overall discount will be applied to the final total amount of the invoice, after all other discounts are calculated.
+It can be set as a fixed amount or a percentage of the total amount when
+editing
+the invoice.
+Previous
+Metering
+Next
+Payment
+Overview
+Manage Your Invoices
+View Invoices
+Edit a Draft Invoice
+Issue an Invoice
+Send an Invoice Email
+Export an Invoice
+Cancel an Invoice
+Invoice ID
+Invoice Types
+Commit Invoice
+Usage Invoice
+Installment Invoice
+Addon Invoice
+Invoice Lifecycle
+Drafting
+Issuing
+Payment
+Canceling
+Invoice Period
+Commit invoice period
+Usage Invoice Period
+Installment Invoice Period
+Addon Invoice Period
+Invoice Amount
+Commit Invoice Amount
+Usage Invoice Amount
+Installment Invoice Amount
+Addon Invoice Amount
+Trial
+Commit Invoice Trial Period
+Usage Invoice Trial Period
+Discount
+Usage Dimension Discount
+Overall Discount
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

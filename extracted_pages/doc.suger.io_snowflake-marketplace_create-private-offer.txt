@@ -1,0 +1,167 @@
+Create Private Offer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integration
+Provider Profile
+Pricing Plan
+List Product
+Create Private Offer
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Snowflake Marketplace
+Create Private Offer
+On this page
+Create Private Offer
+Create a private offer to share your data product or application with specific consumers on Snowflake Marketplace.
+Create a Private Offer
+​
+1. Set Offer Details
+​
+Go to
+Data Products » Provider Studio
+in Snowsight
+Select your listing
+Navigate to
+Private Offers
+tab and click
++ Create Private Offer
+Enter the buyer's
+Data sharing account identifier
+(
+<organization>.<consumer_account_name>
+) - This is the unique identifier for your customer's Snowflake account
+Enter
+Offer name
+- A descriptive name that helps identify this specific offer
+Set
+Expiration date
+- The date after which this offer can no longer be accepted by the buyer
+2. Configure Billing and Payments
+​
+Select a
+Pricing Plan
+- Choose from your existing published pricing plans
+Set
+Contract Duration
+- Specify how long the agreement will remain active
+Set
+Discount
+percentage off the public price - Enter a percentage reduction from your published pricing
+Configure payment settings based on pricing type:
+For Subscription-Based Pricing:
+Choose
+Payment option
+:
+Require full payment upfront
+- Customer pays the entire committed amount immediately
+Accept installments
+(equal or custom monthly amounts) - Allows customers to spread payments over time
+Choose
+Day of first invoice
+(when offer accepted or specific date) - Determines when billing begins
+Pay-as-you-go offer example:
+​
+Subscription offer example:
+​
+3. Set Access and Terms
+​
+Select
+Access start date
+:
+When offer accepted - Access begins immediately after customer accepts
+On specific date - Access begins on a predetermined future date
+Choose
+Terms of service
+:
+Use default terms - Apply standard Snowflake Marketplace terms
+Use custom terms - Upload your own terms of service document
+Provide terms offline - Indicate that terms are handled outside the marketplace
+4. Review and Submit
+​
+Review all details and submit the offer. Once submitted, the offer will be sent to the specified customer account for review and acceptance.
+After successfully creating a private offer, you can copy the offer URL and share it with the buyer.
+Withdraw a Private Offer
+​
+You can withdraw a pending private offer at any time before the buyer accepts it. This is useful if you need to modify the offer terms or if the offer is no longer valid.
+Go to
+Data Products » Provider Studio
+in Snowsight
+Select your listing
+Navigate to the
+Private Offers
+tab
+Locate the offer you want to withdraw in the list
+Click the three-dot menu (
+⋮
+) next to the offer
+Select
+Withdraw Offer
+Confirm the withdrawal in the popup dialog
+After withdrawing the offer, the offer status will change to "Withdrawn" and the buyer will no longer be able to accept the offer. You can edit the offer details and resubmit it.
+Previous
+List Product
+Next
+Integrations
+Create a Private Offer
+1. Set Offer Details
+2. Configure Billing and Payments
+3. Set Access and Terms
+4. Review and Submit
+Withdraw a Private Offer
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

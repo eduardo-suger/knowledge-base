@@ -1,0 +1,210 @@
+CPPO | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+GCP Marketplace
+CPPO
+On this page
+CPPO
+Create and manage GCP marketplace Channel Partner Private Offer (CPPO) in Suger service
+Create and manage reseller private offer plans of GCP marketplace in Suger service
+Overview
+​
+The
+Channel Partner Private Offer
+(CPPO, or reseller private offer plans in GCP Marketplace) empowers Independent Software Vendors (ISVs) to grant Channel Partners access to wholesale pricing for their software solutions. This functionality enables ISVs to delegate the financial and contractual aspects of customer relationships within the GCP Marketplace to their Channel Partners.
+Within the Suger, ISVs/Sellers can efficiently oversee
+CPPO_OUT
+(reseller private offer plans of GCP marketplace),
+CPPO private offers
+, and
+CPPO entitlements
+in a unified manner. Additionally,
+CPPO entitlements
+benefit from overage usage metering support when the relevant usage metering dimensions are available.
+Prerequisite
+​
+If you would like to enable Suger to manage your GCP reseller discounts or private offer plans, refer to the following guidelines for granting IAM roles within your GCP organization (instead of your GCP project).
+Commerce Business Enablement Configuration Admin
+Commerce Business Enablement Reseller Discount Admin
+Commerce Producer Admin
+Reseller Private Offer Plan
+​
+You, as ISV/Seller, can authorize channel partners to resell your products by creating a
+Reseller Private Offer Plan
+for these partners in Suger Platform. Click the button of
+New Resale Authorization
+in the
+Suger console offer page
+, select the target GCP product listing and fulfill the info listed as below:
+info
+The
+Reseller Private Offer Plan
+are stored in Suger platform as Offers with type =
+CPPO_OUT
+.
+Opportunity Name
+: Custom name for your opportunity will be displayed to the reseller.
+Scope
+: Select the scope of the reseller private offer plan, which can be
+Single use
+or
+Multi use
+.
+Single use
+: The reseller can use this plan to create one private offer for one specific customer.
+Multi use
+: The reseller can use this plan to create one or more private offers, to resell your products to one or more of their customers.
+Duration
+: The duration of the reseller private offer plan.
+Start Time
+: The start time of the reseller private offer plan.
+End Time
+: The end time of the reseller private offer plan.
+Acceptance Due Date
+: The due date for the reseller to accept the reseller private offer plan.
+Billing Account Information
+: The billing account info of the reseller.
+Account Name
+: The name of the billing account.
+Account ID
+: The billing account ID to which the reseller can apply this plan.
+warning
+when scope is
+Single use
+, this is the Cloud Billing subaccount for the resold customer.
+when scope is
+Multi use
+, this is the Cloud Billing account for the reseller.
+Contact Information
+: Share your contact info with the reseller. This is
+not
+visible to the customer.
+Plan
+: The plan of product in GCP Marketplace for this reseller private offer plan. More details about price model can be found
+here.
+. Please ensure that the fields are filled in accordingly based on the selected pricing model.
+Subscription based plan
+Monthly flat fee
+: Set the monthly flat fee. this is how much the reseller will pay you for the contract private offer created by this opportunity.
+Reseller discount (off)
+: The reseller discount on commitment amount in percentage. range from 0% to 100%. 0% means no discount, 100% means full discount.
+info
+For example, if the monthly flat fee is set to $1000, and the reseller discount is set to 10%, the reseller pays you $1000 x (1 - 0.1) = $900 every month.
+Usage based plan
+You can choose the following usage price model.
+Commitment discount with additional usage at list price
+Monthly commitment
+: The monthly commiment fee the reseller will pay you.
+Discount on commitment
+: The discount for monthly commitment fee.
+Reseller discount (off)
+: The reseller discount on commitment fee.
+info
+For example, if monthly commiment fee is $1000, discount on commitment is 10%, reseller discount is 10%, the reseller pays $1000 x (1 - 0.1) x (1 - 0.1) = $810 every month.
+Commitment with all usage discounted
+Monthly commitment
+: The monthly commiment fee the reseller will pay you.
+Discount on usage
+: The discount for usage fee.
+Reseller discount (off)
+: The reseller discount on commitment fee.
+info
+For example, if monthly commitment fee is $1000, reseller discount is 10%, the reseller pays $1000 x (1 - 0.1) = $900 every month.
+Usage-based discount only
+Discount on usage
+: The discount for usage fee.
+Flat fee with usage plan
+Monthly Flat Fee
+: Set the monthly flat fee. this is how much the reseller will pay you for the contract private offer created by this opportunity.
+Discount on usage
+: The discount for usage fee.
+Reseller discount (off)
+: The reseller discount on commitment fee.
+info
+For example, if monthly flat fee is $1000, reseller discount is 10%, the reseller pays $1000 x (1 - 0.1) = $900 every month.
+Duration
+: The duration of the reseller private offer plan in months.
+Offer Settings
+: The settings of the reseller private offer plan.
+Allow scheduled start date
+: Whether allow the reseller private offer plan to start at a scheduled date.
+Allow auto renewal
+: Whether allow the reseller private offer plan to auto renew.
+Number of renewals
+: The number of renewals of the reseller private offer plan.
+End User License Agreement
+: Select the EULA between Standard GCP Marketplace Contract and your custom contract.
+Reseller Agreement (optional)
+: The reseller agreement of the reseller private offer plan.
+Previous
+Accept Private Offer
+Next
+Snowflake Marketplace
+Overview
+Prerequisite
+Reseller Private Offer Plan
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

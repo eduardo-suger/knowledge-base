@@ -1,0 +1,100 @@
+Available Datasets | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Quick Guide
+Craft Dashboards
+Available Charts
+Available Datasets
+Analytics
+Available Datasets
+Available Datasets
+Suger provides a variety of datasets to support the creation of tailored dashboards, enabling you to visualize and analyze data from multiple sources. Each dataset includes key metrics for direct use and dimensions for analysis. Users can access and customize charts based on their needs.
+Below are some of the basic datasets that come out of the box:
+billing_revenue_record
+:
+Contains detailed records of revenue generated through various billing channels, providing insights into business performance and financial metrics.
+marketplace_entitlement
+:
+Tracks customer entitlements for marketplace products or services, helping you understand the usage rights and access levels associated with your offerings.
+marketplace_offer
+:
+Includes data on marketplace offers, including public and private offers, enabling you to analyze offer performance and customer engagement.
+marketplace_product
+:
+Contains information about products listed in the marketplace, including product details, pricing, and availability, giving you insights into product sales and demand.
+identity_user_organization_relationship
+:
+Tracks your internal employees within the Suger platform, helping you visualize and manage user access and roles.
+identity_user
+:
+Contains employee profile information, enabling you to analyze user activity.
+identity_organization
+:
+Your organization's basic profile.
+identity_buyer
+:
+Includes buyer profile data, such as company name, industry, contacts and locations, to analyze buying patterns and improve targeting.
+cosell_referral
+:
+Contains data on cosell referrals, helping you track co-selling activities and referral performance between partners, providing insights into collaborative sales efforts.
+Previous
+Available Charts
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

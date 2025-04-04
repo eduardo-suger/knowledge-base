@@ -1,0 +1,85 @@
+HubSpot App | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Configuration
+Create offer
+Create CPPO
+Create Co-Sell
+Workflow
+Analytics
+HubSpot App
+HubSpot App
+Sync leads & opportunities with HubSpot for co-sell
+📄️
+Configuration
+Add the Suger App to your HubSpot Console.
+📄️
+Create offer
+Easily create offers using the Suger App within your HubSpot Console.
+📄️
+Create CPPO
+Easily create CPPO using the Suger App within your HubSpot Console.
+📄️
+Create Co-Sell
+Easily create Co-Sell using the Suger App within your HubSpot Console.
+Previous
+Create Co-Sell
+Next
+Configuration
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

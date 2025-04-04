@@ -1,0 +1,150 @@
+Accept Private Offer | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Buy with AWS
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+AWS Marketplace
+Accept Private Offer
+On this page
+Accept Private Offer
+Guidance to accept the private offer as the end buyer in AWS marketplace
+Overview
+​
+This guide provides step-by-step instructions on how to accept a private offer on AWS as the end buyer. It explains how to access the offer, select the desired units, review important details, create a contract, and make the payment. It also mentions the possibility of extending the offer's expiration date and highlights the confirmation email received after accepting the offer. This guide is useful for anyone who has received a private offer on AWS and needs assistance with the acceptance process.
+Before you begin
+​
+When a typical private offer is negotiated, you pay the entire amount of the offer when you accept it, unless you are using third-party financing. With third-party financing, the financier pays the contract on your behalf and invoices you based on the agreed payment schedule. Before you accept a private offer, verify
+permissions
+,
+the billing structure for your company
+,
+your payment method for AWS billing
+, and
+your tax settings
+.
+Permissions to access private offers
+​
+Select one of the following AWS Managed IAM roles based on your need:
+AWSMarketplaceRead-only
+to allow permissions to view subscriptions & private offers, but not change or accept.
+AWSMarketplaceManageSubscriptions
+to allow permissions to subscribe, unsubscribe & accept private offers.
+AWSMarketplaceFullAccess
+to allow complete control of your subscriptions & private offers in AWS marketplace.
+Verify your AWS billing
+​
+Billing and Cost Management is the service that you use to pay your AWS bill, monitor your usage, and budget your costs. You can use the consolidated billing feature in AWS Organizations to consolidate billing and payment for multiple accounts or multiple Amazon Internet Services Pvt. Ltd (AISPL) accounts. Every organization in AWS Organizations has a management account that pays the charges of all the member accounts. The management account is called a payer account, and the member account is called a linked account. Before negotiating a private offer, verify how your company pays their AWS bill and which AWS account the private offer is made to.
+Verify your payment method
+​
+Before accepting a private offer, verify that your payment method supports paying the entire cost of the private offer. To verify your payment method, open the Billing and Cost Management console at
+https://console.aws.amazon.com/billing/
+.
+Verify your tax settings
+​
+If your company qualifies for a tax exemption, verify your tax settings. To view or modify your tax settings, sign in to the AWS Management Console and, in your account settings, view the tax settings. For more information on tax registration, see
+How do I add or update my tax registration number or business legal address for my AWS account?
+.
+Troubleshooting
+​
+If an error occurs while accepting a private offer or processing payment, please check and address the following 5 potential causes:
+Payment method issue, such as missing, invalid, or unsupported. Please
+verify your payment method
+again.
+Your Amazon Internet Services Private Limited (AISPL) account limits the use of debit or credit cards for new purchases with a contract pricing model. If you have an AISPL account, contact
+AWS Customer Service
+to update your default payment method. For more details, see
+Restriction on credit and debit card purchases for AISPL customers using AWS Marketplace
+at the AWS Marketplace Blog website.
+Your private offer includes a payment schedule. However, your default payment method isn't set to
+invoicing terms
+.
+tip
+If you need to update your payment method to invoicing terms, contact
+AWS Support
+. The following video provides information about the process.
+Insufficient permissions. If you don't have the
+aws-marketplace:Subscribe
+permission to subscribe. The management account must also enable the AWS Billing integration.
+tip
+For information about enabling the AWS Billing integration, see
+Creating a service-linked role for AWS Marketplace
+.
+Purchase order option not available when checking out. The AWS Billing integration is only available for SaaS contracts, professional service products, and server products with contract pricing, and server products with annual pricing for private offers with a flexible payment schedule.
+Step by step guidance
+​
+Previous
+Create Private Offer
+Next
+CPPO
+Overview
+Before you begin
+Permissions to access private offers
+Verify your AWS billing
+Verify your payment method
+Verify your tax settings
+Troubleshooting
+Step by step guidance
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

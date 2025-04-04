@@ -1,0 +1,302 @@
+Integration | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+Buy with AWS
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+AWS Marketplace
+Integration
+On this page
+Integration
+Grant Suger the necessary permissions to manage your AWS Marketplace on your behalf, no more no less.
+Overview
+​
+Visit the
+Integration page
+of
+suger console
+.
+Click the button
+CONNECT
+and redirect to new browser tab. It will automatically start a
+AWS CloudFormation Stack
+on your AWS account to create an
+IAM role
+for Suger to access & manage your
+AWS Marketplace
+on your behalf.
+tip
+Contact
+support@suger.io
+for the Suger AWS Account ID to fill the stack field
+AccountId
+.
+Fulfill the field
+MdfsS3BucketName
+with
+suger-mdfs-s3-bucket-{your-aws-account-id}
+.
+Check the box of
+I acknowledge that ...
+and click button
+Create stack
+.
+Wait for a few minutes, the
+AWS Marketplace
+integration status will be updated as
+VERIFIED
+.
+tip
+You may need to click the button
+VERIFY
+to verify whether the
+AWS marketplace
+integration works correctly.
+Edit Integration
+​
+Editing an existing AWS integration is not supported. The practical way is to delete it and then re-connect it with new inputs.
+Delete Integration
+​
+The AWS integration can be deleted like all other integrations. Once the deletion icon is clicked & confirmed, the integration info will be deleted immediately & permanently from Suger. No time window or methods to recover.
+warning
+To completely delete the
+IAM Role
+created for Suger, please visit your
+AWS CloudFormation
+, and delete the stack
+SugerAccessMarketplaceStack
+, which will remove all resources including
+IAM Role
+created for Suger.
+Multiple Integrations
+​
+It is supported to have multiple AWS Marketplace integrations under the same Suger organization, with each integration operating independently. To set up multiple AWS Marketplace integrations, please contact the
+Suger Support
+.
+Once set up, you will see multiple integrations listed on the Suger Console integration page. Each integration can be edited or deleted individually.
+There are no changes to the process of creating private offers, reporting usage records, or generating revenue reports across the Suger web console, Salesforce app, and HubSpot app. All connections for each integration are automatically managed by the Suger service.
+AWS IAM Policies
+​
+Here is the list of AWS managed policies included in the
+Suger Access IAM role
+.
+Policy Name
+Description
+arn:aws:iam::aws:policy/AWSMarketplaceFullAccess
+This policy grants
+Suger
+full access to AWS Marketplace and related services, as well as access to Amazon EC2, AWS CloudFormation, and Amazon EC2 Systems Manager.
+arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess
+This policy grants
+Suger
+to manage your sales (product listings, offers, entitlements & metering) on marketplace.
+SugerAccessMarketplacePolicy
+This policy grants
+Suger
+necessary-only permissions on
+AWS s3
+&
+AWS SNS
+to configure & access your
+AWS Marketplace Commerce Analytics Service
+and
+AWS Marketplace Data Feeds Service
+.
+Set up AWS Marketplace Commerce Analytics Service (MCAS)
+​
+The Commerce Analytics Service accesses the Amazon S3 bucket and Amazon SNS topic after you configure the service with the ARN for the topic and name of the bucket. To enable MCAS, please follow the steps below. For more details, see the
+documentation
+.
+Log in to the
+AWS Marketplace Management Portal
+with the AWS account you use to manage your AWS Marketplace products.
+Ensure you have the
+necessary IAM permissions
+to enroll in the AWS Marketplace Commerce Analytics Service.
+Navigate to the
+Commerce Analytics Service enrollment page
+.
+Select
+Use an existing IAM role
+Select IAM role as the default
+MarketplaceCommerceAnalyticsRole
+Set S3 bucket name
+suger-mcas-s3-bucket-{aws-account-id}
+Set SNS topic ARN
+arn:aws:sns:us-east-1:{aws-account-id}:suger-mcas-sns-topic
+Click the
+Enroll
+button
+warning
+If you have enrolled the MCAS before, please contact us to get custom configuration. We will update the IAM policy of the IAM role
+MarketplaceCommerceAnalyticsRole
+to support the right S3 bucket & SNS topic.
+On the AWS Marketplace Management Portal, record the Role Name ARN in the success message.
+Set up AWS Marketplace Data Feeds Service (MDFS)
+​
+To get the full structured, up-to-date product billing and customer information from AWS Marketplace, it is highly recommended to set up the
+Data Feeds Service
+. Follow the below steps:
+warning
+If you have set up the field
+MdfsS3BucketName
+with
+suger-mdfs-s3-bucket-{your-aws-account-id}
+in the previous cloud formation stack of AWS Marketplace integration, please skip the following
+step 1
+&
+step 2
+since the MDFS S3 bucket and KMS have been created.
+Go to the
+Data Feed Configuration page
+.
+Click
+Configure with Cloud Formation
+, a new page with stack template will be opened. Type in the
+Stack name
+with
+mp-data-feed
+(don't change this name since it is recognized by Suger service), and the
+S3BucketName
+with an unique S3 name
+suger-mdfs-s3-bucket-{aws-account-id}
+. Then click button
+Create stack
+.
+warning
+The
+stack name
+must be
+mp-data-feed
+. Otherwise, Suger service won't recognize.
+The
+S3BucketName
+must be
+suger-mdfs-s3-bucket-{aws-account-id}
+. Otherwise, suger service won't have permissions to access.
+The stack must be running in the AWS region
+us-east-1
+, not other regions.
+Once the upper Cloud Formation stack is 'CREATE_COMPLETE', find the
+S3 Bucket ARN
+(for example:
+arn:aws:s3:::suger-mdfs-s3-bucket-{aws-account-id}
+) and the
+KMS Key ARN
+(for example: arn:aws:kms:us-west-2:awsAccountId
+:key
+/keyId), and input them to the
+Data Feed Configuration page
+. Click buttion
+Submit
+.
+Suger service take all the rest of setup and cron data sync pipeline.
+Set up Tax & Banking Info
+​
+AWS marketplace requires the seller/ISV to provide valid Tax & Banking Info before selling paid or BYOL (bring your own license) products. Please visit the
+setting page
+of your AWS marketplace management portal, and submit the tax information & banking information (to collect revenue from marketplace sales).
+Tax Information
+​
+The following fields for tax information are required:
+Federal tax classification
+. Most companies are
+C Corporation
+, and the others may be
+S Corporation
+,
+Partnership
+or
+Limited liability company
+.
+Business Name
+and
+Business Address
+EIN
+(Federal Employer Identification Number)
+Banking Information
+​
+The following fields for banking information are required:
+Bank account address
+, the address on your company bank account.
+Bank account holder name
+, in most cases, it is your company legal name.
+Routing Number
+Account Number
+Previous
+AWS Marketplace
+Next
+Pricing Model
+Overview
+Edit Integration
+Delete Integration
+Multiple Integrations
+AWS IAM Policies
+Set up AWS Marketplace Commerce Analytics Service (MCAS)
+Set up AWS Marketplace Data Feeds Service (MDFS)
+Set up Tax & Banking Info
+Tax Information
+Banking Information
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

@@ -1,0 +1,500 @@
+close credit wallet | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Buyer
+close credit wallet
+close credit wallet
+PATCH
+/org/:orgId/buyer/:buyerId/wallet/:walletId/close
+Close the given credit wallet, if it's a payment method, sync to payment provider too. Once closed, it can't be used for payment.
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+buyerId
+string
+required
+Buyer ID
+walletId
+string
+required
+Wallet ID
+Responses
+​
+200
+400
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+buyerID
+string
+creationTime
+date-time
+currency
+string
+expireTime
+date-time
+nullable
+externalID
+string
+The payment method id in payment provider, such as stripe payment method id.
+id
+string
+info
+object
+closeDate
+date-time
+The close date of the wallet if applicable.
+stripePaymentMethod
+object
+bacs_debit
+object
+fingerprint
+string
+Uniquely identifies this particular bank account. You can use this attribute to check whether two bank accounts are the same.
+last4
+string
+Last four digits of the bank account number.
+sort_code
+string
+Sort code of the bank account. (e.g.,
+10-20-30
+)
+card
+object
+brand
+string
+Card brand.
+country
+string
+Two-letter ISO code representing the country of the card. You could use this attribute to get a sense of the international breakdown of cards you've collected.
+display_brand
+string
+The brand to use when displaying the card, this accounts for customer's brand choice on dual-branded cards. Can be
+american_express
+,
+cartes_bancaires
+,
+diners_club
+,
+discover
+,
+eftpos_australia
+,
+interac
+,
+jcb
+,
+mastercard
+,
+union_pay
+,
+visa
+, or
+other
+and may contain more values in the future.
+exp_month
+integer
+Two-digit number representing the card's expiration month.
+exp_year
+integer
+Four-digit number representing the card's expiration year.
+fingerprint
+string
+Uniquely identifies this particular card number. You can use this attribute to check whether two customers who’ve signed up with you are using the same card number, for example. For payment methods that tokenize card information (Apple Pay, Google Pay), the tokenized number might be provided instead of the underlying card number.
+funding
+string
+Card funding type. Can be
+credit
+,
+debit
+,
+prepaid
+, or
+unknown
+.
+last4
+string
+The last four digits of the card.
+created
+integer
+Time at which the object was created. Measured in seconds since the Unix epoch.
+id
+string
+Unique identifier for the payment method on stripe.
+livemode
+boolean
+Has the value
+true
+if the object exists in live mode or the value
+false
+if the object exists in test mode.
+object
+string
+String representing the object’s type. Always has the value
+payment_method
+.
+sepa_debit
+object
+bank_code
+string
+Bank code of bank associated with the bank account.
+branch_code
+string
+Branch code of bank associated with the bank account.
+country
+string
+Two-letter ISO code representing the country the bank account is located in.
+fingerprint
+string
+Uniquely identifies this particular bank account. You can use this attribute to check whether two bank accounts are the same.
+last4
+string
+Last four characters of the IBAN.
+us_bank_account
+object
+account_holder_type
+string
+Account holder type: individual or company.
+account_type
+string
+Account type: checkings or savings. Defaults to checking if omitted.
+bank_name
+string
+The name of the bank.
+fingerprint
+string
+Uniquely identifies this particular bank account. You can use this attribute to check whether two bank accounts are the same.
+last4
+string
+Last four digits of the bank account number.
+routing_number
+string
+Routing number of the bank account.
+stripeSetupIntentId
+string
+lastUpdateTime
+date-time
+name
+string
+organizationID
+string
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+startTime
+date-time
+status
+BillingWalletStatus (string)
+Possible values:
+[
+ACTIVE
+,
+DELETED
+,
+PENDING_VERIFY
+,
+EXPIRED
+,
+CLOSED
+]
+totalAmount
+number
+type
+BillingWalletType (string)
+Possible values:
+[
+ach_debit
+,
+bacs_debit
+,
+card
+,
+credit
+,
+sepa_debit
+]
+usedAmount
+number
+{
+"buyerID": "string",
+"creationTime": "2024-07-29T15:51:28.071Z",
+"currency": "string",
+"expireTime": "2024-07-29T15:51:28.071Z",
+"externalID": "string",
+"id": "string",
+"info": {
+"closeDate": "2024-07-29T15:51:28.071Z",
+"stripePaymentMethod": {
+"bacs_debit": {
+"fingerprint": "string",
+"last4": "string",
+"sort_code": "string"
+},
+"card": {
+"brand": "string",
+"country": "string",
+"display_brand": "string",
+"exp_month": 0,
+"exp_year": 0,
+"fingerprint": "string",
+"funding": "string",
+"last4": "string"
+},
+"created": 0,
+"id": "string",
+"livemode": true,
+"object": "string",
+"sepa_debit": {
+"bank_code": "string",
+"branch_code": "string",
+"country": "string",
+"fingerprint": "string",
+"last4": "string"
+},
+"us_bank_account": {
+"account_holder_type": "string",
+"account_type": "string",
+"bank_name": "string",
+"fingerprint": "string",
+"last4": "string",
+"routing_number": "string"
+}
+},
+"stripeSetupIntentId": "string"
+},
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"name": "string",
+"organizationID": "string",
+"partner": "",
+"startTime": "2024-07-29T15:51:28.071Z",
+"status": "ACTIVE",
+"totalAmount": 0,
+"type": "ach_debit",
+"usedAmount": 0
+}
+Bad request error
+application/json
+Schema
+Schema
+string
+Internal server error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+update credit wallet
+Next
+set buyer default wallet
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

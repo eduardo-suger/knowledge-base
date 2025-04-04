@@ -1,0 +1,871 @@
+list payment transactions | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Billing
+list payment transactions
+list payment transactions
+GET
+/org/:orgId/paymentTransaction
+List payment transactions with pagination and filters
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+Query Parameters
+buyerId
+string
+Optional, filter by the given buyer ID
+entitlementId
+string
+Optional, filter by the given entitlement ID
+invoiceId
+string
+Optional, filter by the given invoice ID
+status
+string
+Possible values:
+[
+PENDING
+,
+PROCESSING
+,
+SUCCESS
+,
+FAILED
+]
+Optional, filter by status
+type
+string
+Possible values:
+[
+CHARGE
+,
+REFUND
+]
+Optional, filter by transaction type
+limit
+integer
+List pagination size, default 1000, max value is 1000
+offset
+integer
+List pagination offset, default 0
+Responses
+​
+200
+400
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+Array [
+amount
+number
+buyerID
+string
+creationTime
+date-time
+currency
+string
+entitlementID
+string
+id
+string
+info
+object
+invoiceDate
+date-time
+The invoice issue date.
+refundExists
+boolean
+Refund flag marks whether the transaction has any refund records.
+stripeBalanceTransaction
+object
+amount
+integer
+Gross amount of this transaction (in cents (or local equivalent)). A positive value represents funds charged to another party, and a negative value represents funds sent to another party.
+available_on
+integer
+The date that the transaction's net funds become available in the Stripe balance.
+chargeId
+string
+ID of the charge which the balance transaction comes from.
+created
+integer
+Time at which the object was created. Measured in seconds since the Unix epoch.
+description
+string
+An arbitrary string attached to the object. Often useful for displaying to users.
+exchange_rate
+number
+If applicable, this transaction uses an exchange rate. If money converts from currency A to currency B, then the
+amount
+in currency A, multipled by the
+exchange_rate
+, equals the
+amount
+in currency B. For example, if you charge a customer 10.00 EUR, the PaymentIntent's
+amount
+is
+1000
+and
+currency
+is
+eur
+. If this converts to 12.34 USD in your Stripe account, the BalanceTransaction's
+amount
+is
+1234
+, its
+currency
+is
+usd
+, and the
+exchange_rate
+is
+1.234
+.
+fee
+integer
+Fees (in cents (or local equivalent)) paid for this transaction. Represented as a positive integer when assessed.
+fee_details
+object[]
+Detailed breakdown of fees (in cents (or local equivalent)) paid for this transaction.
+Array [
+amount
+integer
+Amount of the fee, in cents.
+application
+string
+ID of the Connect application that earned the fee.
+description
+string
+An arbitrary string attached to the object. Often useful for displaying to users.
+type
+string
+Type of the fee, one of:
+application_fee
+,
+payment_method_passthrough_fee
+,
+stripe_fee
+or
+tax
+.
+]
+id
+string
+Unique identifier for the object.
+net
+integer
+Net impact to a Stripe balance (in cents (or local equivalent)). A positive value represents incrementing a Stripe balance, and a negative value decrementing a Stripe balance. You can calculate the net impact of a transaction on a balance by
+amount
+-
+fee
+status
+string
+The transaction's net funds status in the Stripe balance, which are either
+available
+or
+pending
+.
+type
+string
+Transaction type:
+adjustment
+,
+advance
+,
+advance_funding
+,
+anticipation_repayment
+,
+application_fee
+,
+application_fee_refund
+,
+charge
+,
+climate_order_purchase
+,
+climate_order_refund
+,
+connect_collection_transfer
+,
+contribution
+,
+issuing_authorization_hold
+,
+issuing_authorization_release
+,
+issuing_dispute
+,
+issuing_transaction
+,
+obligation_outbound
+,
+obligation_reversal_inbound
+,
+payment
+,
+payment_failure_refund
+,
+payment_network_reserve_hold
+,
+payment_network_reserve_release
+,
+payment_refund
+,
+payment_reversal
+,
+payment_unreconciled
+,
+payout
+,
+payout_cancel
+,
+payout_failure
+,
+refund
+,
+refund_failure
+,
+reserve_transaction
+,
+reserved_funds
+,
+stripe_fee
+,
+stripe_fx_fee
+,
+tax_fee
+,
+topup
+,
+topup_reversal
+,
+transfer
+,
+transfer_cancel
+,
+transfer_failure
+, or
+transfer_refund
+. Learn more about
+balance transaction types and what they represent
+. To classify transactions for accounting purposes, consider
+reporting_category
+instead.
+stripeDisputes
+object[]
+Stripe dispute result, got by Dispute API, there may be multiple disputes.
+Array [
+amount
+integer
+Disputed amount. Usually the amount of the charge, but it can differ (usually because of currency fluctuation or because only part of the order is disputed).
+chargeId
+string
+ID of the charge that's disputed.
+created
+integer
+Time at which the object was created. Measured in seconds since the Unix epoch.
+id
+string
+Unique identifier for the object.
+is_charge_refundable
+boolean
+If true, it's still possible to refund the disputed payment. After the payment has been fully refunded, no further funds are withdrawn from your Stripe account as a result of this dispute.
+livemode
+boolean
+Has the value
+true
+if the object exists in live mode or the value
+false
+if the object exists in test mode.
+paymentIntentId
+string
+ID of the PaymentIntent that's disputed.
+reason
+string
+Reason given by cardholder for dispute. Possible values are
+bank_cannot_process
+,
+check_returned
+,
+credit_not_processed
+,
+customer_initiated
+,
+debit_not_authorized
+,
+duplicate
+,
+fraudulent
+,
+general
+,
+incorrect_account_details
+,
+insufficient_funds
+,
+product_not_received
+,
+product_unacceptable
+,
+subscription_canceled
+, or
+unrecognized
+. Learn more about
+dispute reasons
+.
+status
+string
+Current status of dispute. Possible values are
+warning_needs_response
+,
+warning_under_review
+,
+warning_closed
+,
+needs_response
+,
+under_review
+,
+won
+, or
+lost
+.
+]
+stripeError
+object
+code
+string
+message
+string
+param
+string
+status
+integer
+type
+string
+stripePaymentIntent
+object
+id
+string
+Unique identifier for the object.
+last_payment_error
+object
+The payment error encountered in the previous PaymentIntent confirmation. It will be cleared if the PaymentIntent is later updated for any reason.
+code
+string
+message
+string
+param
+string
+status
+integer
+type
+string
+livemode
+boolean
+Has the value
+true
+if the object exists in live mode or the value
+false
+if the object exists in test mode.
+status
+StripePaymentIntentStatus (string)
+Possible values:
+[
+requires_payment_method
+,
+requires_confirmation
+,
+requires_action
+,
+processing
+,
+requires_capture
+,
+canceled
+,
+succeeded
+]
+Status of this PaymentIntent. Read more about each PaymentIntent
+status
+.
+stripeRefund
+object
+chargeId
+string
+ID of the charge that's refunded.
+estinationDetails
+object
+Transaction-specific details for the refund.
+card
+object
+reference
+string
+Value of the reference number assigned to the refund.
+reference_status
+string
+Status of the reference number on the refund. This can be
+pending
+,
+available
+or
+unavailable
+.
+reference_type
+string
+Type of the reference number assigned to the refund.
+type
+string
+The type of refund. This can be
+refund
+,
+reversal
+, or
+pending
+.
+type
+string
+The type of transaction-specific details of the payment method used in the refund (e.g.,
+card
+). An additional hash is included on
+destination_details
+with a name matching this value. It contains information specific to the refund transaction.
+us_bank_transfer
+object
+reference
+string
+The reference assigned to the refund.
+reference_status
+string
+Status of the reference on the refund. This can be
+pending
+,
+available
+or
+unavailable
+.
+failureBalanceTransactionId
+string
+After the refund fails, this balance transaction describes the adjustment made on your account balance that reverses the initial balance transaction.
+failureReason
+string
+Provides the reason for the refund failure. Possible values are:
+lost_or_stolen_card
+,
+expired_or_canceled_card
+,
+charge_for_pending_refund_disputed
+,
+insufficient_funds
+,
+declined
+,
+merchant_request
+, or
+unknown
+.
+id
+string
+paymentIntentId
+string
+ID of the PaymentIntent that's refunded.
+status
+StripeRefundStatus (string)
+Possible values:
+[
+pending
+,
+requires_action
+,
+succeeded
+,
+failed
+,
+canceled
+]
+Status of the refund. This can be
+pending
+,
+requires_action
+,
+succeeded
+,
+failed
+, or
+canceled
+. Learn more about
+failed refunds
+.
+invoiceID
+string
+lastUpdateTime
+date-time
+organizationID
+string
+parentID
+string
+partner
+Partner (string)
+Possible values:
+[``,
+ADYEN
+,
+ALIBABA
+,
+AWS
+,
+AWS_CHINA
+,
+AZURE
+,
+CHARGEBEE
+,
+DATABRICKS
+,
+GCP
+,
+GOOGLE
+,
+HUBSPOT
+,
+INTUIT
+,
+LAGO
+,
+MARKETO
+,
+METRONOME
+,
+MICROSOFT
+,
+ORACLE
+,
+ORB
+,
+REDHAT
+,
+SALESFORCE
+,
+SLACK
+,
+SNOWFLAKE
+,
+STRIPE
+,
+ZOHO
+]
+status
+BillingPaymentStatus (string)
+Possible values:
+[
+PENDING
+,
+PROCESSING
+,
+SUCCESS
+,
+FAILED
+]
+type
+BillingPaymentTransactionType (string)
+Possible values:
+[
+CHARGE
+,
+REFUND
+]
+walletID
+string
+walletType
+BillingWalletType (string)
+Possible values:
+[
+ach_debit
+,
+bacs_debit
+,
+card
+,
+credit
+,
+sepa_debit
+]
+]
+[
+{
+"amount": 0,
+"buyerID": "string",
+"creationTime": "2024-07-29T15:51:28.071Z",
+"currency": "string",
+"entitlementID": "string",
+"id": "string",
+"info": {
+"invoiceDate": "2024-07-29T15:51:28.071Z",
+"refundExists": true,
+"stripeBalanceTransaction": {
+"amount": 0,
+"available_on": 0,
+"chargeId": "string",
+"created": 0,
+"description": "string",
+"exchange_rate": 0,
+"fee": 0,
+"fee_details": [
+{
+"amount": 0,
+"application": "string",
+"description": "string",
+"type": "string"
+}
+],
+"id": "string",
+"net": 0,
+"status": "string",
+"type": "string"
+},
+"stripeDisputes": [
+{
+"amount": 0,
+"chargeId": "string",
+"created": 0,
+"id": "string",
+"is_charge_refundable": true,
+"livemode": true,
+"paymentIntentId": "string",
+"reason": "string",
+"status": "string"
+}
+],
+"stripeError": {
+"code": "string",
+"message": "string",
+"param": "string",
+"status": 0,
+"type": "string"
+},
+"stripePaymentIntent": {
+"id": "string",
+"last_payment_error": {
+"code": "string",
+"message": "string",
+"param": "string",
+"status": 0,
+"type": "string"
+},
+"livemode": true,
+"status": "requires_payment_method"
+},
+"stripeRefund": {
+"chargeId": "string",
+"estinationDetails": {
+"card": {
+"reference": "string",
+"reference_status": "string",
+"reference_type": "string",
+"type": "string"
+},
+"type": "string",
+"us_bank_transfer": {
+"reference": "string",
+"reference_status": "string"
+}
+},
+"failureBalanceTransactionId": "string",
+"failureReason": "string",
+"id": "string",
+"paymentIntentId": "string",
+"status": "pending"
+}
+},
+"invoiceID": "string",
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"organizationID": "string",
+"parentID": "string",
+"partner": "",
+"status": "PENDING",
+"type": "CHARGE",
+"walletID": "string",
+"walletType": "ach_debit"
+}
+]
+Bad request error
+application/json
+Schema
+Schema
+string
+Internal server error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+void invoice
+Next
+list buyers
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

@@ -1,0 +1,695 @@
+list invoices | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Suger
+Introduction
+API
+list api clients
+get api client
+Billing
+list addons
+create addon
+get addon
+delete addon
+update addon
+list refunds.
+create refund.
+list invoices
+get invoice
+update invoice info
+issue invoice
+pay invoice
+preview invoice email
+void invoice
+list payment transactions
+Buyer
+list buyers
+create buyer
+get buyer
+update buyer
+list buyer's wallets
+create credit wallet
+delete buyer wallet
+update credit wallet
+close credit wallet
+set buyer default wallet
+Contact
+list contacts by organization
+create contact
+batch create contacts
+get contact
+update contact
+add contact to buyer
+remove contact from buyer
+add contact to offer
+remove contact from offer
+Entitlement
+list entitlements
+create entitlement
+get entitlement
+add entitlement credit
+apply addon to entitlement
+approve entitlement
+cancel entitlement
+divide entitlement commit
+update entitlement name
+list entitlement terms
+get entitlement term
+delete entitlement term
+update entitlement meta info
+schedule entitlement cancellation
+update seat for the active AZURE subscription
+unschedule entitlement cancellation
+Metering
+batch report usageRecordGroups
+batch validate usageRecordGroups
+list billable metrics
+create billable metric
+get billable metric
+update billable metric
+report usageRecordGroup
+get usage metering config info
+update usage metering config info
+list usageRecordGroups
+delete usageRecordGroup
+retry usageRecordGroup
+list usageRecordReports
+Notification
+list notification events
+list notification events by entity
+list notification messages
+get notification message
+Offer
+create or update draft offer
+list offers
+create offer
+get offer
+delete offer
+cancel offer
+get offer EULA
+extend offer expiry date
+update offer meta info
+notify offer contacts
+get offer reseller EULA
+get offer by external ID
+Product
+create or update draft product
+list products by partner
+list products
+create product
+get product
+delete product
+update product
+list metering dimensions of product
+update product fulfillment url
+update product meta info
+publish product
+Report
+list daily revenue records
+list revenue records
+list revenue record details
+list usage metering daily records
+get revenue report
+Support
+list support tickets
+create support ticket
+get support ticket
+update support ticket
+create support ticket attachment
+close support ticket
+create support ticket comment
+reopen support ticket
+Suger
+Billing
+list invoices
+list invoices
+GET
+/org/:orgId/invoice
+List invoices with pagination and filter by status (optional)
+Request
+​
+Path Parameters
+orgId
+string
+required
+Organization ID
+Query Parameters
+entitlementId
+string
+Optional, filter by the entitlement ID
+buyerId
+string
+Optional, filter by the given buyer ID
+status
+string
+Possible values:
+[
+DRAFT
+,
+FINALIZED
+,
+CANCELED
+,
+DELETED
+, ``]
+Optional, filter by invoice status as filter, if not provided, all status invoices are returned
+limit
+integer
+List pagination size, default 1000, max value is 1000
+offset
+integer
+List pagination offset, default 0
+Responses
+​
+200
+400
+500
+OK
+application/json
+Schema
+Example (from schema)
+Schema
+Array [
+buyerID
+string
+Possible values:
+<= 36 characters
+creationTime
+date-time
+endDate
+date-time
+entitlementID
+string
+Possible values:
+<= 36 characters
+id
+string
+Possible values:
+<= 36 characters
+info
+object
+addFixedFees
+object[]
+Adjust charge fields
+The fixed fees to be added to the invoice.
+Array [
+endDate
+date-time
+quantity
+integer
+rate
+number
+reason
+string
+startDate
+date-time
+]
+addonDetail
+object
+amount
+number
+chargeOn
+date-time
+description
+string
+id
+string
+name
+string
+adjustDiscountByDimensions
+object[]
+add or adjust discount for a specific dimension
+Array [
+dimensionKey
+string
+discount
+object
+discountType
+BillingDiscountType (string)
+Possible values:
+[
+PERCENTAGE
+,
+ABSOLUTE
+]
+value
+number
+reason
+string
+]
+adjustMinimumSpendByDimensions
+object[]
+add or adjust minimum spend for a specific dimension
+Array [
+dimensionKey
+string
+minimumSpend
+number
+reason
+string
+]
+adjustOverallDiscount
+object
+discount
+object
+discountType
+BillingDiscountType (string)
+Possible values:
+[
+PERCENTAGE
+,
+ABSOLUTE
+]
+value
+number
+reason
+string
+adjustOverallMinimumSpend
+object
+minimumSpend
+number
+reason
+string
+billableDimensionDetails
+object[]
+Array [
+amount
+number
+Amount is the amount that is calculated based on the FeeExpression
+billableMetricKey
+object
+groupBysExpression
+string
+GroupBysExpression is string expression of array of group bys.
+id
+string
+ID is billableMetric ID (Key)
+category
+PriceModelCategory (string)
+Possible values:
+[
+basic
+,
+tiered
+,
+bulk
+,
+volume
+,
+percentage
+,
+tiered-percentage
+,
+matrix
+]
+details
+object[]
+Details is the details of the pricing model that is used to show what the amount is for.
+Array [
+descriptions
+string
+Description of the pricing model that is used to show what the amount is for. like 'Bulk pricing: 0-100 units', 'Tiered pricing: 0-100 units'
+feeExpressions
+string
+FeeExpression is the expression used to calculate the fee that is used to show how the amount is calculated. like '211 × $0.03'
+]
+discount
+object
+discountType
+BillingDiscountType (string)
+Possible values:
+[
+PERCENTAGE
+,
+ABSOLUTE
+]
+value
+number
+discountExpression
+string
+DiscountExpression is the expression used to calculate the discount that is used to show how the discount is calculated.
+isTrial
+boolean
+Flag to indicate if this period is a trial period.
+minimumCommit
+number
+MinimumCommit is the minimum commit amount that is used to show the minimum commit amount.
+Will be ignored if the value is 0 or less.
+minimumCommitScope
+BillingMinimumCommitScope (string)
+Possible values:
+[``,
+DIMENSION
+,
+DIMENSION_GROUP_BY
+]
+name
+string
+Name of this billable dimension.
+quantity
+number
+Final quantity of the billable dimension in the invoice period, which calculates the fee in price model.
+It may be the sum value of count/sum/unique_count or latest/max value according to different aggregation type.
+]
+commitsRevenueDetails
+object[]
+Recurring flat fee for the invoice.
+There should be only one type fee for each invoice, commits, or usage.
+Array [
+amount
+number
+The total amount of the commit revenue.
+description
+string
+expression
+string
+key
+string
+name
+string
+quantity
+integer
+The quantity of the commit dimension. Default is 1.
+rate
+number
+The unit price of the commit dimension.
+]
+creationDate
+date-time
+The creation date of the invoice when the status of the invoice may be draft or issued.
+It may be different from the issue date.
+currency
+string
+deductedCommitAmount
+integer
+The amount of the committed amount that has been deducted from the usage.
+It works only when IsMeteringOverageCommit is true.
+deductedCommitInvoiceID
+string
+The ID of the commit invoice that has been deducted from the usage.
+It works only when IsMeteringOverageCommit is true.
+description
+string
+dueAmount
+number
+Due amount = SubtotalAmount + TaxAmount - AdjustOverallDiscount
+dueDate
+date-time
+DueDate = IssueDate + NetTerm
+gracePeriodInDays
+integer
+Grace Period in number of days
+isMeteringOverageCommit
+boolean
+Whether the usage metering is charged for the amount that exceeds the committed amount from the entitlement.
+issueDate
+date-time
+IssueDate, issue invoice automatically when CreationDate + GracePeriod, or issue invoice manually
+IssueDate >= CreationDate && IssueDate <= CreationDate + GracePeriod
+memo
+string
+netTermsInDays
+integer
+Net Terms period in number of days
+paymentInstallmentsDetail
+object
+amount
+number
+chargeOn
+date-time
+description
+string
+periodTotalDays
+integer
+PeriodTotalDays is the total number of days among the whole periods. e.g. 61 days for a 2-month invoice.
+periods
+integer
+Periods is the number of periods in the invoice period. e.g. 2 for a 2-month invoice.
+receiptUrl
+string
+Invoice receipt url, it only exists when there are transactions.
+spaUrl
+string
+SPA url with JWT.
+subtotalAmount
+number
+Subtotal amount calculated from the user usage.
+taxAmount
+number
+trialPeriodInDays
+integer
+Trial period in number of days
+usageDailyRevenues
+object[]
+Billable dimension fees for the invoice.
+Array [
+billableMetricKey
+object
+groupBysExpression
+string
+GroupBysExpression is string expression of array of group bys.
+id
+string
+ID is billableMetric ID (Key)
+date
+string
+quantity
+number
+uniquePropertyItems
+object
+property name*
+any
+]
+invoiceURL
+string
+The invoice file URL, provided as AWS S3 presigned URL with expiration time. Output only.
+lastUpdateTime
+date-time
+organizationID
+string
+paymentStatus
+BillingPaymentStatus (string)
+Possible values:
+[
+PENDING
+,
+PROCESSING
+,
+SUCCESS
+,
+FAILED
+]
+startDate
+date-time
+status
+BillingInvoiceStatus (string)
+Possible values:
+[
+DRAFT
+,
+FINALIZED
+,
+CANCELED
+,
+DELETED
+, ``]
+type
+BillingInvoiceType (string)
+Possible values:
+[
+COMMIT
+,
+USAGE
+,
+ADDON
+,
+INSTALLMENT
+]
+]
+[
+{
+"buyerID": "string",
+"creationTime": "2024-07-29T15:51:28.071Z",
+"endDate": "2024-07-29T15:51:28.071Z",
+"entitlementID": "string",
+"id": "string",
+"info": {
+"addFixedFees": [
+{
+"endDate": "2024-07-29T15:51:28.071Z",
+"quantity": 0,
+"rate": 0,
+"reason": "string",
+"startDate": "2024-07-29T15:51:28.071Z"
+}
+],
+"addonDetail": {
+"amount": 0,
+"chargeOn": "2024-07-29T15:51:28.071Z",
+"description": "string",
+"id": "string",
+"name": "string"
+},
+"adjustDiscountByDimensions": [
+{
+"dimensionKey": "string",
+"discount": {
+"discountType": "PERCENTAGE",
+"value": 0
+},
+"reason": "string"
+}
+],
+"adjustMinimumSpendByDimensions": [
+{
+"dimensionKey": "string",
+"minimumSpend": 0,
+"reason": "string"
+}
+],
+"adjustOverallDiscount": {
+"discount": {
+"discountType": "PERCENTAGE",
+"value": 0
+},
+"reason": "string"
+},
+"adjustOverallMinimumSpend": {
+"minimumSpend": 0,
+"reason": "string"
+},
+"billableDimensionDetails": [
+{
+"amount": 0,
+"billableMetricKey": {
+"groupBysExpression": "string",
+"id": "string"
+},
+"category": "basic",
+"details": [
+{
+"descriptions": "string",
+"feeExpressions": "string"
+}
+],
+"discount": {
+"discountType": "PERCENTAGE",
+"value": 0
+},
+"discountExpression": "string",
+"isTrial": true,
+"minimumCommit": 0,
+"minimumCommitScope": "",
+"name": "string",
+"quantity": 0
+}
+],
+"commitsRevenueDetails": [
+{
+"amount": 0,
+"description": "string",
+"expression": "string",
+"key": "string",
+"name": "string",
+"quantity": 0,
+"rate": 0
+}
+],
+"creationDate": "2024-07-29T15:51:28.071Z",
+"currency": "string",
+"deductedCommitAmount": 0,
+"deductedCommitInvoiceID": "string",
+"description": "string",
+"dueAmount": 0,
+"dueDate": "2024-07-29T15:51:28.071Z",
+"gracePeriodInDays": 0,
+"isMeteringOverageCommit": true,
+"issueDate": "2024-07-29T15:51:28.071Z",
+"memo": "string",
+"netTermsInDays": 0,
+"paymentInstallmentsDetail": {
+"amount": 0,
+"chargeOn": "2024-07-29T15:51:28.071Z",
+"description": "string"
+},
+"periodTotalDays": 0,
+"periods": 0,
+"receiptUrl": "string",
+"spaUrl": "string",
+"subtotalAmount": 0,
+"taxAmount": 0,
+"trialPeriodInDays": 0,
+"usageDailyRevenues": [
+{
+"billableMetricKey": {
+"groupBysExpression": "string",
+"id": "string"
+},
+"date": "string",
+"quantity": 0,
+"uniquePropertyItems": {}
+}
+]
+},
+"invoiceURL": "string",
+"lastUpdateTime": "2024-07-29T15:51:28.071Z",
+"organizationID": "string",
+"paymentStatus": "PENDING",
+"startDate": "2024-07-29T15:51:28.071Z",
+"status": "DRAFT",
+"type": "COMMIT"
+}
+]
+Bad request error
+application/json
+Schema
+Schema
+string
+Internal error
+application/json
+Schema
+Schema
+string
+Loading...
+Previous
+create refund.
+Next
+get invoice
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

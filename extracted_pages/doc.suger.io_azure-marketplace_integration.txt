@@ -1,0 +1,207 @@
+Integration | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+Integration
+Pricing Model
+List Product
+Create Private Offer
+Accept Private Offer
+CPPO
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Azure Marketplace
+Integration
+On this page
+Integration
+Grant Suger the necessary access to manage your Azure Marketplace on hour behalf, no more no less.
+Overview
+​
+Selling on Azure Marketplace is managed through
+Microsoft Partner Center
+. Your business is required to enroll and get a verifed
+Microsoft Partner Network (MPN)
+ID. More details can be found
+here
+.
+Prerequisite
+​
+Once your
+Microsoft Partner Network (MPN)
+get verified, follow the steps below to prepare resources required for Suger integration.
+Connect Azure AD Tenant
+​
+Associate one
+Azure AD Tenant
+with your
+Microsoft Partner Center
+tenants
+.
+Register Azure AD Application
+​
+Register an
+Azure AD Application
+in the previous
+Azure AD Tenant
+, ensure that:
+The application contains the permissions below:
+Add Web Redirect URL in the
+Application
+. The Redirect URL should be
+https://api.suger.cloud/public/integration/azure/authCode
+.
+Make sure
+Access tokens(used for implicit flows)
+checked under
+Implicit grant and hybrid flows
+.
+Add Azure AD Application
+​
+Add the
+Azure AD Application
+created in the previous step to your
+Microsoft Partner Center
+User Management
+with all roles (
+Manager, Developer, Business Contributor, Finance Contributor, Marketer
+) assigned.
+Enroll Partner Programs
+​
+There are two programs
+Commercial Marketplace
+and
+Microsoft AI Cloud Partner Program
+to enroll before we can start the marketplace listing and offers, as shown below in
+Microsoft Partner Center
+.
+Create Integration
+​
+Now all required resources are ready from upper steps, then click the button
+CONNECT
+and fill the dialog of Azure integration on
+Suger Console
+with info below.
+Tenant ID
+: The ID of the
+Azure AD Tenant
+associated with your
+Microsoft Partner Center
+.
+Client ID
+:  It is also called
+Application ID
+, It is the ID of the
+Azure AD Application
+created & added to your
+Microsoft Partner Center
+.
+Client Secret
+: It is also called
+Application Secret
+or
+Secret Key
+or
+Application Key
+. Get it from the
+Azure AD Application
+. Here is the
+reference
+you can follow.
+User ID
+: The email address to log in to
+Microsoft Azure
+and
+Microsoft Partner Center
+.
+User Secret
+: The password to log in to
+Microsoft Azure
+and
+Microsoft Partner Center
+.
+tip
+To enable
+App + User authentication
+through Suger for connecting to Azure Marketplace APIs, it is required to provide the User ID (the email address you use to log in to Microsoft Partner Center) and User Secret (the password you use to log in to Microsoft Partner Center), so we can securely verify your identity and complete the process.
+Once clicked the button
+CREATE
+, you are redirected to Azure auth portal to grant OAuth code for the
+Application
+& Suger service.
+Edit Integration
+​
+Editing an existing Azure integration is not supported. The practical way is to delete it and then re-connect it with new inputs.
+Delete Integration
+​
+The Azure integration can be deleted like all other integrations. Once the deletion is triggered, all integration info including the
+Application Key
+will be deleted immediately & permanently from Suger. No time window or methods to recover.
+Previous
+Azure Marketplace
+Next
+Pricing Model
+Overview
+Prerequisite
+Connect Azure AD Tenant
+Register Azure AD Application
+Add Azure AD Application
+Enroll Partner Programs
+Create Integration
+Edit Integration
+Delete Integration
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

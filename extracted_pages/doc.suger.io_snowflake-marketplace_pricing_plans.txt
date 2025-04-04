@@ -1,0 +1,145 @@
+Pricing Plan | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integration
+Provider Profile
+Pricing Plan
+List Product
+Create Private Offer
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Snowflake Marketplace
+Pricing Plan
+On this page
+Pricing Plan
+Snowflake Marketplace Product Pricing Plans
+Pricing Plans
+Overview
+​
+Snowflake Marketplace offers two primary pricing models:
+Usage-Based
+and
+Subscription-Based
+. You can implement one or both models for your product listing.
+Usage-Based Pricing
+​
+Usage-based pricing charges consumers monthly based on their actual consumption of your data product. This model offers several charging options:
+1. Billable Events
+​
+Note: Custom Event Billing is only available for application listings.
+Custom Event Billing allows you to charge for specific application usage patterns, such as:
+Per row modified
+Per procedure call
+Per row accessed
+Per unique row updated monthly (monthly active rows)
+Custom-defined events in your application
+2. Per-Query Charges
+​
+Fixed price per query accessing paid data
+Applies in addition to any monthly fees (if applicable)
+3. Monthly Fee
+​
+Fixed calendar month fee
+Triggered by:
+First query execution against a Snowflake Native App
+First access to paid listing data share
+First run of a Snowflake Native App with Snowpark Container Services
+Not prorated; full month charged regardless of activation date
+No charge if no usage occurs during the month
+Usage-Based Pricing Requirements
+​
+For plans with dynamic charges (per-query or Custom Event Billing), you must specify:
+Maximum Monthly Charge Cap
+Defines the upper limit for total monthly costs
+Includes all usage-based charges
+Usage becomes free once cap is reached
+Free Query Allowance
+First query always incurs charges
+Specify number of free queries after the first query
+Regular pricing resumes after free queries are used
+Subscription-Based Pricing
+​
+Subscription-based pricing requires upfront payment for a specified term. Two billing options are available:
+Recurring Billing
+Automatic renewal at term end
+Continuous access to data product
+Non-Recurring Billing
+Fixed-term access
+Manual renewal required
+Installment Plan Options
+​
+To provide payment flexibility, you can offer installment plans that:
+Split total cost into multiple payments
+Allow customized payment schedules
+Variable payment amounts
+Front-loaded or back-loaded payments
+Optional zero-payment periods
+Previous
+Provider Profile
+Next
+List Product
+Overview
+Usage-Based Pricing
+1. Billable Events
+2. Per-Query Charges
+3. Monthly Fee
+Usage-Based Pricing Requirements
+Subscription-Based Pricing
+Installment Plan Options
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

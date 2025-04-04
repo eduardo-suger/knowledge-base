@@ -1,0 +1,176 @@
+Workflow | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Aggregate
+Chargebee
+Code
+Delete Execution
+Filter
+Form Trigger
+Google BigQuery
+Google Cloud Storage
+Google Drive
+Google Mail
+Google Sheet
+HTML
+HTTP Request
+HubSpot
+If
+Limit
+Manual Trigger
+Merge
+NetSuite
+QuickBooks Online
+Respond to Webhook
+Salesforce
+Schedule Trigger
+Snowflake
+Sticky Note
+Stripe
+Suger Code
+Suger Email
+Suger Microsoft Teams
+Suger Notification Event Trigger
+Suger Slack
+Switch
+Webhook
+Analytics
+Workflow
+Workflow
+📄️
+Aggregate
+📄️
+Chargebee
+Use the Chargebee node to manage customers, invoices, and subscriptions in Chargebee.
+📄️
+Code
+📄️
+Delete Execution
+Delete unnecessary execution data.
+📄️
+Filter
+📄️
+Form Trigger
+Create forms to trigger workflows.
+📄️
+Google BigQuery
+📄️
+Google Cloud Storage
+Automatation on cloud storage buckets and objects.
+📄️
+Google Drive
+Automate file and folder operations on Google Drive.
+📄️
+Google Mail
+Send emails using Gmail.
+📄️
+Google Sheet
+📄️
+HTML
+📄️
+HTTP Request
+📄️
+HubSpot
+📄️
+If
+📄️
+Limit
+📄️
+Manual Trigger
+Trigger a workflow manually.
+📄️
+Merge
+The Merge node combines two data streams into one.
+📄️
+NetSuite
+📄️
+QuickBooks Online
+📄️
+Respond to Webhook
+📄️
+Salesforce
+📄️
+Schedule Trigger
+📄️
+Snowflake
+Use the Snowflake node to automate work in Snowflake.
+📄️
+Sticky Note
+📄️
+Stripe
+📄️
+Suger Code
+📄️
+Suger Email
+📄️
+Suger Microsoft Teams
+📄️
+Suger Notification Event Trigger
+📄️
+Suger Slack
+📄️
+Switch
+📄️
+Webhook
+Previous
+Create Co-Sell
+Next
+Aggregate
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.

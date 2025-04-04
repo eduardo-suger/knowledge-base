@@ -1,0 +1,173 @@
+Lago | Suger Doc
+Skip to main content
+Documents
+Docs
+API
+SDK
+Home
+Why Suger
+Pricing
+Blog
+Sign in
+Contact us
+Search
+Get Started
+Account
+Resources
+API Client
+Webhook
+Email Notification
+Usage Metering
+Usage Metering V2
+Usage Credit
+Signup URL Redirect
+Billing
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Snowflake Marketplace
+Integrations
+Alibaba Marketplace
+AWS Partner Network
+Google Bigquery
+Chargebee
+Databricks
+Google Cloud Storage
+Google Drive
+Google Mail
+HubSpot
+Lago
+Metronome
+Microsoft Teams
+NetSuite
+Okta SSO
+Orb
+QuickBooks
+Salesforce
+Slack
+Snowflake
+Stripe
+Co-sell
+Salesforce App
+HubSpot App
+Workflow
+Analytics
+Integrations
+Lago
+On this page
+Lago
+Automate the usage metering from Lago to all cloud marketplaces.
+Overview
+​
+If you're currently dependent on
+Lago
+for your metering and billing services and are aiming to grow your presence in cloud marketplaces, Suger presents the perfect solution to bridge this transition. Through our no-code, fully automated integration, you can effortlessly measure usage within your existing Lago setup and allocate it to clients across various cloud marketplaces. This integration eliminates the necessity for migration or complex engineering work, ensuring a seamless and trouble-free process.
+Create Integration
+​
+In your
+Suger Console Integration
+, you will see the
+Lago
+integration connection. Click the
+Connect
+button to create an integration with your Lago instance. This will open an dialog for you to input
+API Key
+: The Lago API key can be found in the
+Lago's console
+.
+Billing Mode
+:
+AMOUNT_DAILY
+or
+AMOUNT_HOURLY
+. Suger fetch the usage metering records by amount & report to cloud marketplace metering service by daily or hourly.
+Region
+: The region of the Lago instance. The region is used to fetch the billable metrics from Lago.
+Once the integration process is finished, you can proceed by clicking the
+VERIFY
+button. This action triggers the Suger service to test the connection to the APIs of your Lago instance. If everything is configured correctly, the integration status will be updated as
+VERIFIED
+.
+Edit Integration
+​
+Editing an existing Lago integration is supported. Click the
+Edit
+button to open the dialog of editing Lago integration as shown below.
+Enable Auto Report Usage
+. You can choose to enable or disable the automatic usage report feature for Lago. Enabling this feature allows Suger to run an daily cron job to retrieve the daily/hourly aggregated subscription usages or costs from Lago and report them as UsageRecordGroups to the
+Suger metering API
+. On the other hand, disabling this feature means that no cron job will be scheduled for this purpose.
+Billing Mode
+:
+AMOUNT_DAILY
+or
+AMOUNT_HOURLY
+. Suger fetch the billable metrics by amount daily or hourly.
+Delete Integration
+​
+The Lago integration can be deleted like all other integrations. Once the deletion is triggered, all integration info including the API Key will be deleted immediately & permanently from Suger. No time window or methods to recover.
+Billing Mode
+​
+There are two billing modes available for Suger-Lago integration:
+AMOUNT_DAILY
+and
+AMOUNT_HOURLY
+. The following instructions detail how to configure the source dimension keys in
+metering dimension conversion
+for each mode separately.
+AMOUNT_HOURLY
+: Suger fetch & report the billable metrics by amount every one
+HOUR
+. Use the original Lago billable metrics as the source dimension keys in the configuration of
+metering dimension conversion
+AMOUNT_DAILY
+: Suger fetch & report the billable metrics by amount every one
+DAY
+. Use the original Lago billable metrics as the source dimension keys in the configuration of
+metering dimension conversion
+tip
+Suger fetches the billable metrics from Lago every one hour. If there is an increase in the billable metrics, Suger will generate a new usage record and report it to cloud marketplaces. However, if the billable metrics remain the same or decrease, Suger will refrain from creating new usage records.
+In cases where coupons are granted to the customer in Lago, resulting in a potential decrease in the billable metrics, Suger retains a comprehensive history of billable metrics and monitors any changes. If the billable metrics decrease or remain unchanged, Suger will suspend the automatic fetching and reporting of usage until it surpasses the maximum value recorded in its history.
+Connect Lago customer
+​
+To enable Suger to fetch and report the billable metrics of Lago Customers to the appropriate entitlements in Cloud Marketplace, you need to connect the Buyer in Suger with the corresponding Customer in Lago. Simply click the
+Edit
+button in the Buyer and add the corresponding Lago Customer ID. This setup only needs to be done once; afterward, Suger's service will automatically retrieve the latest billable metrics and report them to the correct Cloud Marketplace entitlements.
+Previous
+HubSpot
+Next
+Metronome
+Overview
+Create Integration
+Edit Integration
+Delete Integration
+Billing Mode
+Connect Lago customer
+Backed by
+Integrations
+AWS Marketplace
+Azure Marketplace
+GCP Marketplace
+Alibaba Marketplace
+AWS Partner Network
+Hubspot
+Lago
+Metronome
+Microsoft Teams
+Orb
+Salesforce
+Slack
+Resources
+APIs
+Changelog
+Status
+Support
+Company
+About Us
+Pricing
+Privacy Policy
+Security
+Contact Us
+hello@suger.io
+San Francisco, California USA
+Copyright © 2025 Suger Inc.
